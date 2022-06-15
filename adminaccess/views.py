@@ -24,6 +24,10 @@ def login(request):
 
 @login_required(login_url='login')
 def dashboard(request):
+    user = request.user.username
+    data ={
+        'user': user,
+    }
     return render(request, 'dashboard/dashboard.html')
 
 def permission_denied(request):
