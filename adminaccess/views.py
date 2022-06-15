@@ -38,7 +38,7 @@ def permission_denied(request):
 @permission_required('is_staff','403')
 def createuser(request):
         if request.method == 'POST':
-            number = request.POST['number']
+            email = request.POST['email']
             name = request.POST['name']
             group = request.POST['group']
             pass1 = request.POST['password1']
@@ -48,7 +48,7 @@ def createuser(request):
             else:
                 is_staff = 0
             if pass1 == pass2:
-                user = User.objects.create_user(number, name, pass1,is_staff=is_staff)
+                user = User.objects.create_user(email, name, pass1,is_staff=is_staff)
                 user.save()
                 return redirect('dashboard')
         return render(request, 'auth/createuser.html')
