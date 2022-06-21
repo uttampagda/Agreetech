@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Farmer Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'createuser.css' %}">
+
+</head>
+<body>
+<h2>Farmer Registration</h2>
+
+<div class="container create_user_form">
+    <form method="post" id="loginid">
+        {% csrf_token %}
+        <div class="form-group mt-2">
+            <label for="id_farmer_id">Farmer Id</label>
+            <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_farm_id">Farm Id</label>
+            <input type="number" class="form-control" id="id_farm_id" name="farm_id" placeholder="Farm Id" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_test_year">Test Year</label>
+            <input type="number" class="form-control" id="id_test_year" name="test_year" placeholder="Test Year" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_soil_test">Soil Test</label>
+            <input type="text" class="form-control" id="id_soil_test" name="soil_test" placeholder="Soil Test" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="id_water_test">Water Test</label>
+            <input type="text" class="form-control" id="id_water_test" name="water_test" placeholder="Water Test" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_nitrogen">Nitrogen</label>
+            <input type="text" class="form-control" id="id_nitrogen" name="nitrogen" placeholder="Nitrogen" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_phosphorus">Phosphorus</label>
+            <input type="text" class="form-control" id="id_phosphorus" name="phosphorus" placeholder="Phosphorus" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_potassium">Potassium</label>
+            <input type="text" class="form-control" id="id_potassium" name="potassium" placeholder="Potassium" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="id_other_element">Other Element</label>
+            <input type="text" class="form-control" id="id_other_element" name="other_element" placeholder="Other Element" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_test_file">Test File</label>
+            <input type="text" class="form-control" id="id_test_file" name="test_file" placeholder="Test File" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
+    </form>
+</div>
+</body>
+</html>
