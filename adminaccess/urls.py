@@ -12,9 +12,7 @@ urlpatterns = [
     path('Farmer', views.Farmer, name="Farmer"),
     path('Soil_test', views.Soil_test, name="Soil_test"),
     path('Farm_info', views.Farm_info, name="Farm_info"),
-    path('farmer_details', views.farmer_details, name="farmer_details"),
-    path('farm_info', views.farm_info, name="farm_info"),
-    path('soil_test', views.soil_test, name="soil_test"),
+
 
 
 ]

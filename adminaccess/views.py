@@ -69,37 +69,36 @@ def farmer_registration(request):
     return render(request, 'forms/farmer_registration.html')
 
 def Farmer(request):
+    if request.method == 'POST':
+        form = Farmer_Form(request.POST, request.FILES)
+        print("::::::::::::::::::::1")
+        if form.is_valid():
+            form.save()
+            print("::::::::::::::::::::2")
+            return redirect('Farmer')
+    else:
+        print("::::::::::::::::::::3")
+        form = Farmer_Form()
     return render(request, 'forms/farmer.html')
 
 def Farm_info(request):
-    return render(request, 'forms/farm_info.html')
-
-def Soil_test(request):
-    return render(request, 'forms/soil_test.html')
-
-def farmer_details(request):
-
-    if request.method == 'POST':
-        form = Farmer_Form(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('')
-    else:
-        form = Farmer_Form()
-def farm_info(request):
     if request.method == 'POST':
         form = Farm_info_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('')
+            return redirect('Farm_info')
     else:
         form = Farm_info_Form()
+    return render(request, 'forms/farm_info.html')
 
-def soil_test(request):
+def Soil_test(request):
     if request.method == 'POST':
         form = Soil_test_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('')
+            return redirect('Soil_test')
     else:
         form = Soil_test_Form()
+    return render(request, 'forms/soil_test.html')
+
+
