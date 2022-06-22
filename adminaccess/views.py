@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required,permission_required
 from django.contrib.auth.models import User, auth
-from .form import Farmer_Form, Farm_info_Form, Soil_test_Form
+from .form import Farmer_Form, Farm_info_Form, Soil_test_Form, Planting_Form, Harvesting_Form
 
 
 def login(request):
@@ -71,13 +71,10 @@ def farmer_registration(request):
 def Farmer(request):
     if request.method == 'POST':
         form = Farmer_Form(request.POST, request.FILES)
-        print("::::::::::::::::::::1")
         if form.is_valid():
             form.save()
-            print("::::::::::::::::::::2")
             return redirect('Farmer')
     else:
-        print("::::::::::::::::::::3")
         form = Farmer_Form()
     return render(request, 'forms/farmer.html')
 
@@ -101,4 +98,22 @@ def Soil_test(request):
         form = Soil_test_Form()
     return render(request, 'forms/soil_test.html')
 
+def Planting(request):
+    if request.method == 'POST':
+        form = Planting_Form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('Planting')
+    else:
+        form = Planting_Form()
+    return render(request, 'forms/planting.html')
 
+def Harvesting(request):
+    if request.method == 'POST':
+        form = Harvesting_Form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('Harvesting')
+    else:
+        form = Harvesting_Form()
+    return render(request, 'forms/harvesting.html')

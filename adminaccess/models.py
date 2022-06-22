@@ -51,6 +51,8 @@ class Planting(models.Model):
 
 
 class Harvesting(models.Model):
+    farmer_id = models.IntegerField()
+    farm_id = models.IntegerField()
     planting_id = models.IntegerField()
     plant_type = models.CharField(max_length=50)
     harvesting_time = models.CharField(max_length=50)
@@ -64,6 +66,8 @@ class Harvesting(models.Model):
 
 
 class Crop_selling(models.Model):
+    farmer_id = models.IntegerField()
+    farm_id = models.IntegerField()
     harvesting_id = models.IntegerField()
     sell_quantity = models.IntegerField()
     sell_date = models.CharField(max_length=50)
@@ -73,6 +77,8 @@ class Crop_selling(models.Model):
 
 
 class Fertilizer(models.Model):
+    farmer_id = models.IntegerField()
+    farm_id = models.IntegerField()
     planting_id = models.IntegerField()
     fertilizer_name = models.CharField(max_length=50)
     fertilizer_qty = models.CharField(max_length=50)
@@ -83,6 +89,8 @@ class Fertilizer(models.Model):
 
 
 class Water_irrigation(models.Model):
+    farmer_id = models.IntegerField()
+    farm_id = models.IntegerField()
     planting_id = models.IntegerField()
     water_irrigation_type = models.CharField(max_length=50, blank=True, null=True)
     date = models.DateField()
@@ -90,6 +98,8 @@ class Water_irrigation(models.Model):
 
 
 class Pesticide(models.Model):
+    farmer_id = models.IntegerField()
+    farm_id = models.IntegerField()
     planting_id = models.IntegerField()
     pesticide_name = models.CharField(max_length=50)
     pesticide_qty = models.CharField(max_length=50)

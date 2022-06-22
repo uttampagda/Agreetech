@@ -12,7 +12,6 @@ urlpatterns = [
     path('Farmer', views.Farmer, name="Farmer"),
     path('Soil_test', views.Soil_test, name="Soil_test"),
     path('Farm_info', views.Farm_info, name="Farm_info"),
-
-
-
+    path('Planting', views.Planting, name="Planting"),
+    path('Harvesting', views.Harvesting, name="Harvesting"),
 ]

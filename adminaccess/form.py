@@ -16,4 +16,13 @@ class Soil_test_Form(forms.ModelForm):
     class Meta:
         model = Soil_test
         fields = ['farmer_id', 'farm_id', 'test_year', 'soil_test', 'water_test', 'nitrogen', 'phosphorus', 'potassium', 'other_element', 'test_file']
- 
+
+class Planting_Form(forms.ModelForm):
+    class Meta:
+        model = Planting
+        fields = ['farmer_id', 'farm_id', 'planting_time' ,'plant','plant_type', 'planting_area']
+
+class Harvesting_Form(forms.ModelForm):
+    class Meta:
+        model = Harvesting
+        fields = ['farmer_id', 'farm_id', 'planting_id' ,'plant_type','harvesting_time', 'total_production', 'per_acre_production', 'sell_quantity', 'sell_date', 'sell_rate' ,'purchaser_name','purchaser_number']

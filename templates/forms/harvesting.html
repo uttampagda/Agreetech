@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Farmer Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'createuser.css' %}">
+
+</head>
+<body>
+<h2>Farmer Registration</h2>
+
+<div class="container create_user_form">
+    <form method="post" id="loginid">
+        {% csrf_token %}
+        <div class="form-group mt-2">
+            <label for="id_farmer_id">Farmer Id</label>
+            <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_farm_id">Farm Id</label>
+            <input type="number" class="form-control" id="id_farm_id" name="farm_id" placeholder="Farm Id" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_planting_id">Planting Id</label>
+            <input type="number" class="form-control" id="id_planting_id" name="planting_id" placeholder="Planting Id" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_plant_type">Plant Type</label>
+            <input type="text" class="form-control" id="id_plant_type" name="plant_type" placeholder="Plant Type" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="id_harvesting_time">Harvesting Time</label>
+            <input type="text" class="form-control" id="id_harvesting_time" name="harvesting_time" placeholder="Harvesting Time" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_total_production">Total Production</label>
+            <input type="number" class="form-control" id="id_total_production" name="total_production" placeholder="Total Production" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_per_acre_production">Per Acre Production</label>
+            <input type="number" class="form-control" id="id_per_acre_production" name="per_acre_production" placeholder="Per Acre Production" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_sell_quantity">Sell Quantity</label>
+            <input type="number" class="form-control" id="id_sell_quantity" name="sell_quantity" placeholder="Sell Quantity" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="id_sell_date">Sell Date</label>
+            <input type="text" class="form-control" id="id_sell_date" name="sell_date" placeholder="Sell Date" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_sell_rate">Sell Rate</label>
+            <input type="number" class="form-control" id="id_sell_rate" name="sell_rate" placeholder="Sell Rate" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_purchaser_name">Purchaser Name</label>
+            <input type="text" class="form-control" id="id_purchaser_name" name="purchaser_name" placeholder="Purchaser Name" required>
+        </div> 
+        <div class="form-group mt-3">
+            <label for="id_purchaser_number">Purchaser Number</label>
+            <input type="number" class="form-control" id="id_purchaser_number" name="purchaser_number" placeholder="Purchaser Number" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
+    </form>
+</div>
+</body>
+</html>
