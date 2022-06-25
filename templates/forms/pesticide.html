@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Farmer Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'createuser.css' %}">
+
+</head>
+<body>
+<h2>Farmer Registration</h2>
+
+<div class="container create_user_form">
+    <form method="post" id="loginid">
+        {% csrf_token %}
+        <div class="form-group mt-2">
+            <label for="id_farmer_id">Farmer Id</label>
+            <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_farm_id">Farm Id</label>
+            <input type="number" class="form-control" id="id_farm_id" name="farm_id" placeholder="Farm Id" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_planting_id">Planting Id</label>
+            <input type="number" class="form-control" id="id_planting_id" name="planting_id" placeholder="Planting Id" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_pesticide_name">Pesticide Name</label>
+            <input type="text" class="form-control" id="id_pesticide_name" name="pesticide_name" placeholder="Pesticide Name" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="id_pesticide_qty">Pesticide Qty</label>
+            <input type="text" class="form-control" id="id_pesticide_qty" name="pesticide_qty" placeholder="Pesticide Qty" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_pesticide_date">Pesticide Date</label>
+            <input type="date" class="form-control" id="id_pesticide_date" name="pesticide_date" placeholder="Pesticide Date" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_pesticide_days">Pesticide Days</label>
+            <input type="text" class="form-control" id="id_pesticide_days" name="pesticide_days" placeholder="Pesticide Days" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
+    </form>
+</div>
+</body>
+</html>

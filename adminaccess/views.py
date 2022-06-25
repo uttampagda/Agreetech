@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required,permission_required
 from django.contrib.auth.models import User, auth
-from .form import Farmer_Form, Farm_info_Form, Soil_test_Form, Planting_Form, Harvesting_Form
+from .form import *
 
 
 def login(request):
@@ -117,3 +117,44 @@ def Harvesting(request):
     else:
         form = Harvesting_Form()
     return render(request, 'forms/harvesting.html')
+
+
+def Crop_selling(request):
+    if request.method == 'POST':
+        form = Crop_selling_Form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('Crop_selling')
+    else:
+        form = Crop_selling_Form()
+    return render(request, 'forms/crop_selling.html')
+
+def Fertilizer(request):
+    if request.method == 'POST':
+        form = Fertilizer_Form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('Fertilizer')
+    else:
+        form = Fertilizer_Form()
+    return render(request, 'forms/fertilizer.html')
+
+def Water_irrigation(request):
+    if request.method == 'POST':
+        form = Water_irrigation_Form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('Water_irrigation')
+    else:
+        form = Water_irrigation_Form()
+    return render(request, 'forms/water_irrigation.html')
+
+def Pesticide(request):
+    if request.method == 'POST':
+        form = Pesticide_Form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('Pesticide')
+    else:
+        form = Pesticide_Form()
+    return render(request, 'forms/pesticide.html')

@@ -14,4 +14,8 @@ urlpatterns = [
     path('Farm_info', views.Farm_info, name="Farm_info"),
     path('Planting', views.Planting, name="Planting"),
     path('Harvesting', views.Harvesting, name="Harvesting"),
+    path('Crop_selling', views.Crop_selling, name="Crop_selling"),
+    path('Fertilizer', views.Fertilizer, name="Fertilizer"),
+    path('Water_irrigation', views.Water_irrigation, name="Water_irrigation"),
+    path('Pesticide', views.Pesticide, name="Pesticide"),
 ]
