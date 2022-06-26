@@ -5,6 +5,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required,permission_required
 from django.contrib.auth.models import User, auth
 from .form import *
+from .models import *
 
 
 def login(request):
@@ -65,30 +66,34 @@ def logout(request):
 def forms(request):
     return render(request, 'forms/forms.html')
 
-def farmer_registration(request):
-    return render(request, 'forms/farmer_registration.html')
 
-def Farmer(request):
-    if request.method == 'POST':
+def farmers(request):
+    farmers = Farmer.objects.all()
+    return render(request, 'forms/farmers.html', {'farmers':farmers})
+
+
+def farmer_registration(request):
+    if request.method == 'POST':    
         form = Farmer_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('Farmer')
+            return redirect('farmer_registration')
     else:
         form = Farmer_Form()
-    return render(request, 'forms/farmer.html')
+    return render(request, 'forms/farmer_registration.html')
 
-def Farm_info(request):
+def farm_info(request, farmer_id):
     if request.method == 'POST':
         form = Farm_info_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('Farm_info')
+            return redirect(f'/farmer_details/{farmer_id}')
     else:
         form = Farm_info_Form()
-    return render(request, 'forms/farm_info.html')
+    data = {'farmer_id':farmer_id}
+    return render(request, 'forms/farm_info.html', data)
 
-def Soil_test(request):
+def soil_test(request):
     if request.method == 'POST':
         form = Soil_test_Form(request.POST, request.FILES)
         if form.is_valid():
@@ -98,7 +103,7 @@ def Soil_test(request):
         form = Soil_test_Form()
     return render(request, 'forms/soil_test.html')
 
-def Planting(request):
+def planting(request):
     if request.method == 'POST':
         form = Planting_Form(request.POST, request.FILES)
         if form.is_valid():
@@ -108,7 +113,7 @@ def Planting(request):
         form = Planting_Form()
     return render(request, 'forms/planting.html')
 
-def Harvesting(request):
+def harvesting(request):
     if request.method == 'POST':
         form = Harvesting_Form(request.POST, request.FILES)
         if form.is_valid():
@@ -119,7 +124,7 @@ def Harvesting(request):
     return render(request, 'forms/harvesting.html')
 
 
-def Crop_selling(request):
+def crop_selling(request):
     if request.method == 'POST':
         form = Crop_selling_Form(request.POST, request.FILES)
         if form.is_valid():
@@ -129,7 +134,7 @@ def Crop_selling(request):
         form = Crop_selling_Form()
     return render(request, 'forms/crop_selling.html')
 
-def Fertilizer(request):
+def fertilizer(request):
     if request.method == 'POST':
         form = Fertilizer_Form(request.POST, request.FILES)
         if form.is_valid():
@@ -139,7 +144,7 @@ def Fertilizer(request):
         form = Fertilizer_Form()
     return render(request, 'forms/fertilizer.html')
 
-def Water_irrigation(request):
+def water_irrigation(request):
     if request.method == 'POST':
         form = Water_irrigation_Form(request.POST, request.FILES)
         if form.is_valid():
@@ -149,7 +154,7 @@ def Water_irrigation(request):
         form = Water_irrigation_Form()
     return render(request, 'forms/water_irrigation.html')
 
-def Pesticide(request):
+def pesticide(request):
     if request.method == 'POST':
         form = Pesticide_Form(request.POST, request.FILES)
         if form.is_valid():
@@ -158,3 +163,11 @@ def Pesticide(request):
     else:
         form = Pesticide_Form()
     return render(request, 'forms/pesticide.html')
+
+
+def view_farmer(request, Id):
+    farmer = Farmer.objects.filter(id = Id)[0]
+    farm_info = Farm_info.objects.filter(farmer_id = Id)
+    print(farm_info)    
+    data = {'farmer':farmer, 'farm_info':farm_info}
+    return render(request, 'forms/farmer_details.html',data)
