@@ -14,7 +14,7 @@
     <div class="d-flex justify-content-between p-3">
         <div class="h2">Farmers</div>
         <div class="d-flex justify-content-center align-items-center">
-            <a href="farmer_registration">Create Farmer</a>
+            <a href="farmer_registration" class="add_btn">+ Create Farmer</a>
         </div>
     </div>
 
@@ -34,18 +34,21 @@
                 </thead>
                 <tbody>
                     {% for farmer in farmers %}
-                    
-                    <tr>
+                    <div>
+                    <tr class="farmers">
                         <th scope="row">{{farmer.id}}</th>
-                        <td>{{farmer.name}}</td>
-                        <td>{{farmer.phone_number}}</td>
+                        <td class="farmer_name">{{farmer.name}}</td>
+                        <td class="farmer_mobile">{{farmer.phone_number}}</td>
                         <td>{{farmer.aadhar_number}}</td>
                         <td><a href="farmer_details/{{farmer.id}}">Details</a></td>
+                    </tr>
+                </div>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
+    <script src="{% static 'search_farmer.js' %}"></script>
 </body>
 
 </html>

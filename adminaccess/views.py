@@ -77,7 +77,7 @@ def farmer_registration(request):
         form = Farmer_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('farmer_registration')
+            return redirect('farmers')
     else:
         form = Farmer_Form()
     return render(request, 'forms/farmer_registration.html')
