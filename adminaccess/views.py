@@ -126,14 +126,31 @@ def planting_reg(request):
         farmer_id = request.POST.get('farmer_id')
         farm_id = request.POST.get('farm_id')
         form = Planting_Form(request.POST, request.FILES)
+        planting_history = Planting.objects.filter(farm_id=farm_id)
+        data = {
+            'farm_id': farm_id,
+            'farmer_id': farmer_id,
+            'planting_history': planting_history,
+        }
         if form.is_valid():
             form.save()
-            return redirect('Planting')
-        data = {
-            'farm_id' : farm_id,
-            'farmer_id' : farmer_id,
-        }
+            return redirect('planting')
         return render(request, 'forms/planting_reg.html',data)
+
+def planting(request,farmer_id=None):
+    if request.method == 'POST':
+        farmer_id = request.POST.get('farmer_id')
+        farm_id = request.POST.get('farm_id')
+        planting_history = Planting.objects.filter(farm_id=farm_id)
+        data = {
+            'planting_history': planting_history,
+            'farmer_id': farmer_id,
+            'farm_id': farm_id,
+        }
+        return render(request, 'forms/planting.html', data)
+    else:
+        print(farmer_id)
+
 
 def harvesting(request):
     if request.method == 'POST':

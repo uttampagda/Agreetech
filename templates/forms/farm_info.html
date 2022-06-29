@@ -73,25 +73,16 @@
     <div class="d-flex justify-content-evenly flex-wrap">
         <span>Planting History</span>
     <div class="d-flex justify-content-center align-items-center">
-          <form method="POST" action="{% url 'planting_reg' %}">
+          <form method="POST" action="{% url 'planting' %}">
                   {% csrf_token %}
                   <input name="farm_id" type="hidden" value={{ farm.id }}>
                   <input name="farmer_id" type="hidden" value={{ farm.farmer_id }}>
                   <button type="submit" class="das-reject-order">
-                    + New Planting
+                      Planting History
                   </button>
               </form>
         </div>
-    {% for plant in planting_history %}
-      <div class="card m-2" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">{{plant.planting_time}}</h5>
-          <p class="card-text">{{plant.plant}}</p>
-          <p class="card-text">{{plant.planting_area}}</p>
-          <a href="#" class="btn btn-primary">More Details</a>
-        </div>
-      </div>
-      {% endfor %}
+
     </div>
 </body>
 
