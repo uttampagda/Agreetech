@@ -49,7 +49,7 @@
       <div class="d-flex justify-content-between p-3">
         <div class="h2">Farms</div>
         <div class="d-flex justify-content-center align-items-center">
-            <a href="/Farm_info/{{farmer.id}}" class="add_btn">+ Add Farm</a>
+            <a href="/farm_info_reg/{{farmer.id}}" class="add_btn">+ Add Farm</a>
         </div>
     </div>
     <div class="d-flex justify-content-evenly flex-wrap">
@@ -59,7 +59,15 @@
           <h5 class="card-title">{{farm.farm_nick_name}}</h5>
           <p class="card-text">{{farm.caretaker}}</p>
           <p class="card-text">{{farm.caretaker_phone_number}}</p>
-          <a href="#" class="btn btn-primary">More Details</a>
+{#          <a href="farm_info" class="btn btn-primary">More Details</a>#}
+          <form method="POST" action="{% url 'farm_info' %}">
+                  {% csrf_token %}
+                  <input name="farm_id" type="hidden" value={{ farm.id }}>
+                  <input name="farmer_id" type="hidden" value={{ farmer.id }}>
+                  <button type="submit" class="das-reject-order">
+                    More info
+                  </button>
+              </form>
         </div>
       </div>
       {% endfor %}  
