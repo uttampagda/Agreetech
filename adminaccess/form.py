@@ -25,24 +25,24 @@ class Planting_Form(forms.ModelForm):
 class Harvesting_Form(forms.ModelForm):
     class Meta:
         model = Harvesting
-        fields = ['farmer_id', 'farm_id', 'planting_id' ,'plant_type','harvesting_time', 'total_production', 'per_acre_production', 'sell_quantity', 'sell_date', 'sell_rate' ,'purchaser_name','purchaser_number']
+        fields = ['farmer_id', 'farm_id', 'planting_id' ,'plant_type','harvesting_time', 'total_production', 'per_acre_production']
 
 class Crop_selling_Form(forms.ModelForm):
     class Meta:
         model = Crop_selling
-        fields = ['farmer_id', 'farm_id', 'harvesting_id', 'sell_quantity', 'sell_date', 'sell_rate', 'purchaser_name', 'purchaser_number']
+        fields = ['farmer_id', 'farm_id', 'harvesting_id', 'sell_quantity', 'sell_rate', 'purchaser_name', 'purchaser_number']
 
 class Fertilizer_Form(forms.ModelForm):
     class Meta:
         model = Fertilizer
-        fields = ['farmer_id', 'farm_id', 'planting_id' ,'fertilizer_name','fertilizer_qty', 'fertilizer_qty_per_acre', 'fertilizer_date', 'rating', 'crop_days']
+        fields = ['farmer_id', 'farm_id', 'planting_id' ,'fertilizer_name','fertilizer_qty', 'fertilizer_qty_per_acre', 'rating', 'crop_days']
 
 class Water_irrigation_Form(forms.ModelForm):
     class Meta:
         model = Water_irrigation
-        fields = ['farmer_id', 'farm_id', 'planting_id' ,'water_irrigation_type','date', 'crop_days']
+        fields = ['farmer_id', 'farm_id', 'planting_id' ,'water_irrigation_type', 'crop_days']
 
 class Pesticide_Form(forms.ModelForm):
     class Meta:
         model = Pesticide
-        fields = ['farmer_id', 'farm_id', 'planting_id' ,'pesticide_name','pesticide_qty', 'pesticide_date', 'pesticide_days']
+        fields = ['farmer_id', 'farm_id', 'planting_id' ,'pesticide_name','pesticide_qty', 'pesticide_days']
