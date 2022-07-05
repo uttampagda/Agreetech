@@ -86,8 +86,20 @@ def farmer_registration(request):
 
 def farmer_details(request):
     if request.method == 'POST':
-        print("farmer_details",len(request.GET))
+        # print("farmer_details",len(request.GET))
         farmer_id = request.POST.get('farmer_id')
+        farm_info = Farm_info.objects.filter(farmer_id=farmer_id)
+        farmer_info = Farmer.objects.filter(id=farmer_id)[0]
+        data = {'farmer': farmer_id,
+                'farm_info': farm_info,
+                'farmer_info': farmer_info,
+                }
+        request.session['farmer_id'] = farmer_id
+
+        return render(request, 'forms/farmer_details.html', data)
+    else:
+        farmer_id = request.session['farmer_id']
+        print("farmer_details else farmer_id",farmer_id)
         farm_info = Farm_info.objects.filter(farmer_id=farmer_id)
         farmer_info = Farmer.objects.filter(id=farmer_id)[0]
         data = {'farmer': farmer_id,
@@ -96,17 +108,30 @@ def farmer_details(request):
                 }
         return render(request, 'forms/farmer_details.html', data)
 
+# def farm_info_reg(request):
+#     if request.method == 'POST':
+#         print('farm_info_reg',len(request.GET))
+#         farmer_id = request.POST.get('farmer_id')
+#         form = Farm_info_Form(request.POST, request.FILES)
+#         data = {'farmer_id': farmer_id}
+#         if form.is_valid() and form['farm_nick_name'].value()!=None:
+#             print("nick_name",form['farm_nick_name'].value())
+#             form.save()
+#             return render(request, 'forms/farm_info_reg.html', data)
+#         return render(request, 'forms/farm_info_reg.html', data)
+
 def farm_info_reg(request):
+    farmer_id = request.session['farmer_id']
     if request.method == 'POST':
-        print('farm_info_reg',len(request.GET))
-        farmer_id = request.POST.get('farmer_id')
         form = Farm_info_Form(request.POST, request.FILES)
-        data = {'farmer_id': farmer_id}
         if form.is_valid() and form['farm_nick_name'].value()!=None:
-            print("nick_name",form['farm_nick_name'].value())
             form.save()
-            return render(request, 'forms/farm_info_reg.html', data)
-        return render(request, 'forms/farm_info_reg.html', data)
+            request.session['farmer_id'] = farmer_id
+            print("farm_info if save farmer_id", farmer_id)
+            return redirect('farmer_details')
+    data = {'farmer_id':farmer_id}
+    return render(request, 'forms/farm_info_reg.html', data)
+
 
 def farm_info(request):
     if request.method == 'POST':
