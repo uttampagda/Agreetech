@@ -7,7 +7,8 @@ from django.contrib.auth.models import User, auth
 from .form import *
 from .models import *
 
-
+farm_id_g = None
+farmer_id_g = None
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -82,17 +83,30 @@ def farmer_registration(request):
         form = Farmer_Form()
     return render(request, 'forms/farmer_registration.html')
 
-def farm_info_reg(request, farmer_id):
+
+def farmer_details(request):
     if request.method == 'POST':
+        print("farmer_details",len(request.GET))
+        farmer_id = request.POST.get('farmer_id')
+        farm_info = Farm_info.objects.filter(farmer_id=farmer_id)
+        farmer_info = Farmer.objects.filter(id=farmer_id)[0]
+        data = {'farmer': farmer_id,
+                'farm_info': farm_info,
+                'farmer_info': farmer_info,
+                }
+        return render(request, 'forms/farmer_details.html', data)
+
+def farm_info_reg(request):
+    if request.method == 'POST':
+        print('farm_info_reg',len(request.GET))
+        farmer_id = request.POST.get('farmer_id')
         form = Farm_info_Form(request.POST, request.FILES)
-        print(form.errors)
-        if form.is_valid():
+        data = {'farmer_id': farmer_id}
+        if form.is_valid() and form['farm_nick_name'].value()!=None:
+            print("nick_name",form['farm_nick_name'].value())
             form.save()
-            return redirect(f'/farmer_details/{farmer_id}')
-    else:
-        form = Farm_info_Form()
-    data = {'farmer_id':farmer_id}
-    return render(request, 'forms/farm_info_reg.html', data)
+            return render(request, 'forms/farm_info_reg.html', data)
+        return render(request, 'forms/farm_info_reg.html', data)
 
 def farm_info(request):
     if request.method == 'POST':
@@ -113,6 +127,7 @@ def farm_info(request):
 
 def soil_test(request):
     if request.method == 'POST':
+        print("post")
         form = Soil_test_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -134,10 +149,20 @@ def planting_reg(request):
         }
         if form.is_valid():
             form.save()
+            request.session['farm_id'] = farm_id
             return redirect('planting')
-        return render(request, 'forms/planting_reg.html',data)
-
-def planting(request,farmer_id=None):
+            # return render(request, 'forms/planting_reg.html',data)
+    farmer_id = request.session['farmer_id']
+    farm_id = request.session['farm_id']
+    planting_history = Planting.objects.filter(farm_id=farm_id)
+    data = {
+        'farm_id': farm_id,
+        'farmer_id': farmer_id,
+        'planting_history': planting_history,
+    }
+    return render(request, 'forms/planting_reg.html', data)
+    
+def planting(request):
     if request.method == 'POST':
         farmer_id = request.POST.get('farmer_id')
         farm_id = request.POST.get('farm_id')
@@ -147,13 +172,22 @@ def planting(request,farmer_id=None):
             'farmer_id': farmer_id,
             'farm_id': farm_id,
         }
+        request.session['farmer_id'] = farmer_id
+        request.session['farm_id'] = farm_id
         return render(request, 'forms/planting.html', data)
     else:
-        print(farmer_id)
-
+        farm_id = request.session['farm_id']
+        print(farm_id)
+        planting_history = Planting.objects.filter(farm_id=farm_id)
+        data = {
+            'planting_history': planting_history,
+            'farm_id': farm_id,
+        }
+        return render(request, 'forms/planting.html', data)
 
 def harvesting(request):
     if request.method == 'POST':
+        print("Postttttt")
         form = Harvesting_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -204,9 +238,3 @@ def pesticide(request):
     return render(request, 'forms/pesticide.html')
 
 
-def view_farmer(request, Id):
-    farmer = Farmer.objects.filter(id = Id)[0]
-    farm_info = Farm_info.objects.filter(farmer_id = Id)
-    print(farm_info)    
-    data = {'farmer':farmer, 'farm_info':farm_info}
-    return render(request, 'forms/farmer_details.html',data)

@@ -17,31 +17,31 @@
         <tbody>
           <tr>
             <th scope="row">Name:</th>
-            <td>{{farmer.name}}</td>
+            <td>{{farmer_info.name}}</td>
           </tr>
           <tr>
             <th scope="row">Phone Number:</th>
-            <td>{{farmer.phone_number}}</td>
+            <td>{{farmer_info.phone_number}}</td>
           </tr>
           <tr>
             <th scope="row">Address:</th>
-            <td>{{farmer.address}}</td>
+            <td>{{farmer_info.address}}</td>
           </tr>
           <tr>
             <th scope="row">Aadhar Number:</th>
-            <td>{{farmer.aadhar_number}}</td>
+            <td>{{farmer_info.aadhar_number}}</td>
           </tr>
           <tr>
             <th scope="row">Family Members:</th>
-            <td>{{farmer.family_members}}</td>
+            <td>{{farmer_info.family_members}}</td>
           </tr>
           <tr>
             <th scope="row">Family Occupation:</th>
-            <td>{{farmer.family_occupation}}</td>
+            <td>{{farmer_info.family_occupation}}</td>
           </tr>
           <tr>
             <th scope="row">Family Members:</th>
-            <td>{{farmer.family_members}}</td>
+            <td>{{farmer_info.family_members}}</td>
           </tr>
         </tbody>
       </table>
@@ -49,7 +49,13 @@
       <div class="d-flex justify-content-between p-3">
         <div class="h2">Farms</div>
         <div class="d-flex justify-content-center align-items-center">
-            <a href="/farm_info_reg/{{farmer.id}}" class="add_btn">+ Add Farm</a>
+            <form method="POST" action="{% url 'farm_info_reg' %}">
+                  {% csrf_token %}
+                  <input name="farmer_id" type="hidden" value={{ farmer_info.id }}>
+                  <button type="submit" class="das-reject-order">
+                    Add new Farm
+                  </button>
+              </form>
         </div>
     </div>
     <div class="d-flex justify-content-evenly flex-wrap">
@@ -63,7 +69,6 @@
           <form method="POST" action="{% url 'farm_info' %}">
                   {% csrf_token %}
                   <input name="farm_id" type="hidden" value={{ farm.id }}>
-                  <input name="farmer_id" type="hidden" value={{ farmer.id }}>
                   <button type="submit" class="das-reject-order">
                     More info
                   </button>

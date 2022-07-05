@@ -1,0 +1,57 @@
+Index: adminaccess/urls.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.urls import path\nfrom . import views\n\nurlpatterns = [\n    path('login', views.login, name=\"login\"),\n    path('403', views.permission_denied, name=\"403\"),\n    path('logout', views.logout, name=\"logout\"),\n    path('createuser', views.createuser, name=\"createuser\"),\n    path('', views.dashboard, name=\"dashboard\"),\n    path('forms', views.forms, name=\"forms\"),\n    path('farmer_registration', views.farmer_registration, name=\"farmer_registration\"),\n\n]\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/adminaccess/urls.py b/adminaccess/urls.py
+--- a/adminaccess/urls.py	(revision 9aef34ea93889733829423c5773ee034dd456a6d)
++++ b/adminaccess/urls.py	(date 1655832795765)
+@@ -8,6 +8,6 @@
+     path('createuser', views.createuser, name="createuser"),
+     path('', views.dashboard, name="dashboard"),
+     path('forms', views.forms, name="forms"),
+-    path('farmer_registration', views.farmer_registration, name="farmer_registration"),
++    path('forms/farmer_registration', views.farmer_registration, name="farmer_registration"),
+ 
+ ]
+Index: templates/forms/forms.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Forms</title>\n</head>\n<body>\n<div>\n   <a href=\"farmer_registration\">Farmer Registration</a>\n</div>\n</body>\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/forms/forms.html b/templates/forms/forms.html
+--- a/templates/forms/forms.html	(revision 9aef34ea93889733829423c5773ee034dd456a6d)
++++ b/templates/forms/forms.html	(date 1655833105385)
+@@ -6,7 +6,7 @@
+ </head>
+ <body>
+ <div>
+-   <a href="farmer_registration">Farmer Registration</a>
++   <a href="forms/farmer_registration">Farmer Registration</a>
+ </div>
+ </body>
+ </html>
+\ No newline at end of file
+Index: demo data
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/demo data b/demo data
+new file mode 100644
+--- /dev/null	(date 1655832361275)
++++ b/demo data	(date 1655832361275)
+@@ -0,0 +1,9 @@
++admin:
++     admin -> admin
++
++FA:
++
++
++
++Farmer:
++

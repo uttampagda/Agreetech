@@ -40,7 +40,14 @@
                         <td class="farmer_name">{{farmer.name}}</td>
                         <td class="farmer_mobile">{{farmer.phone_number}}</td>
                         <td>{{farmer.aadhar_number}}</td>
-                        <td><a href="farmer_details/{{farmer.id}}">Details</a></td>
+                        <td>
+                <form method="POST" action="{% url 'farmer_details' %}">
+                  {% csrf_token %}
+                  <input name="farmer_id" type="hidden" value={{ farmer.id }}>
+                  <button type="submit" class="das-reject-order">
+                      Farmer Details
+                  </button>
+              </form></td>
                     </tr>
                 </div>
                     {% endfor %}

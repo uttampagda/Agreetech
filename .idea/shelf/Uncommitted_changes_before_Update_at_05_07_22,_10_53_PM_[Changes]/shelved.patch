@@ -1,0 +1,386 @@
+Index: adminaccess/models.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.db import models\n\n\n# Create your models here.\nclass Farmer(models.Model):\n    name = models.CharField(max_length=50)\n    phone_number = models.IntegerField()\n    address = models.TextField()\n    aadhar_number = models.IntegerField(blank=True, null=True)\n    family_members = models.IntegerField(blank=True, null=True)\n    family_occupation = models.CharField(max_length=50, blank=True, null=True)\n    is_access = models.BooleanField(default=False)\n\n\nclass Farm_info(models.Model):\n    farmer_id = models.IntegerField()\n    farm_nick_name = models.CharField(max_length=50, blank=True, null=True)\n    farm_space = models.IntegerField(blank=True, null=True)\n    geo_location = models.CharField(max_length=50, blank=True, null=True)\n    farm_village = models.CharField(max_length=50, blank=True, null=True)\n    khata_no = models.CharField(max_length=50, blank=True, null=True)\n    who_caretaker = models.CharField(max_length=50, blank=True, null=True)\n    caretaker = models.CharField(max_length=50, blank=True, null=True)\n    caretaker_phone_number = models.IntegerField(blank=True, null=True)\n    soil_type = models.CharField(max_length=50, blank=True, null=True)\n    water_source = models.CharField(max_length=50, blank=True, null=True)\n    water_type = models.CharField(max_length=50, blank=True, null=True)\n    water_season = models.CharField(max_length=50, blank=True, null=True)\n\n\nclass Soil_test(models.Model):\n    farmer_id = models.IntegerField()\n    farm_id = models.IntegerField()\n    test_year = models.IntegerField()\n    soil_test = models.CharField(max_length=50, blank=True, null=True)\n    water_test = models.CharField(max_length=50, blank=True, null=True)\n    nitrogen = models.CharField(max_length=50, blank=True, null=True)\n    phosphorus = models.CharField(max_length=50, blank=True, null=True)\n    potassium = models.CharField(max_length=50, blank=True, null=True)\n    other_element = models.CharField(max_length=50, blank=True, null=True)\n    test_file = models.FileField(upload_to=str(farm_id) + '/' + 'soil_test', blank=True, null=True)\n\n\nclass Planting(models.Model):\n    farmer_id = models.IntegerField()\n    farm_id = models.IntegerField()\n    planting_time = models.CharField(max_length=50, blank=True, null=True)\n    plant = models.CharField(max_length=50)\n    plant_type = models.CharField(max_length=50)\n    planting_area = models.CharField(max_length=50)\n\n\nclass Harvesting(models.Model):\n    farmer_id = models.IntegerField()\n    farm_id = models.IntegerField()\n    planting_id = models.IntegerField()\n    plant_type = models.CharField(max_length=50)\n    harvesting_time = models.CharField(max_length=50)\n    total_production = models.IntegerField()\n    per_acre_production = models.IntegerField()\n    sell_quantity = models.IntegerField()\n    sell_date = models.CharField(max_length=50)\n    sell_rate = models.IntegerField()\n    purchaser_name = models.CharField(max_length=50)\n    purchaser_number = models.IntegerField()\n\n\nclass Crop_selling(models.Model):\n    farmer_id = models.IntegerField()\n    farm_id = models.IntegerField()\n    harvesting_id = models.IntegerField()\n    sell_quantity = models.IntegerField()\n    sell_date = models.CharField(max_length=50)\n    sell_rate = models.IntegerField()\n    purchaser_name = models.CharField(max_length=50)\n    purchaser_number = models.IntegerField()\n\n\nclass Fertilizer(models.Model):\n    farmer_id = models.IntegerField()\n    farm_id = models.IntegerField()\n    planting_id = models.IntegerField()\n    fertilizer_name = models.CharField(max_length=50)\n    fertilizer_qty = models.CharField(max_length=50)\n    fertilizer_qty_per_acre = models.CharField(max_length=50)\n    fertilizer_date = models.DateField()\n    rating = models.IntegerField()\n    crop_days = models.CharField(max_length=50)\n\n\nclass Water_irrigation(models.Model):\n    farmer_id = models.IntegerField()\n    farm_id = models.IntegerField()\n    planting_id = models.IntegerField()\n    water_irrigation_type = models.CharField(max_length=50, blank=True, null=True)\n    date = models.DateField()\n    crop_days = models.CharField(max_length=50, blank=True, null=True)\n\n\nclass Pesticide(models.Model):\n    farmer_id = models.IntegerField()\n    farm_id = models.IntegerField()\n    planting_id = models.IntegerField()\n    pesticide_name = models.CharField(max_length=50)\n    pesticide_qty = models.CharField(max_length=50)\n    pesticide_date = models.DateField()\n    pesticide_days = models.CharField(max_length=50, blank=True, null=True)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/adminaccess/models.py b/adminaccess/models.py
+--- a/adminaccess/models.py	(revision 06c6482fa8f56975b6ee0f8c83e3bf754c50f801)
++++ b/adminaccess/models.py	(date 1657041601981)
+@@ -10,6 +10,8 @@
+     family_members = models.IntegerField(blank=True, null=True)
+     family_occupation = models.CharField(max_length=50, blank=True, null=True)
+     is_access = models.BooleanField(default=False)
++    create_date = models.DateTimeField(auto_now_add=True)
++    modified_date = models.DateTimeField(auto_now=True)
+ 
+ 
+ class Farm_info(models.Model):
+@@ -26,6 +28,8 @@
+     water_source = models.CharField(max_length=50, blank=True, null=True)
+     water_type = models.CharField(max_length=50, blank=True, null=True)
+     water_season = models.CharField(max_length=50, blank=True, null=True)
++    create_date = models.DateTimeField(auto_now_add=True)
++    modified_date = models.DateTimeField(auto_now=True)
+ 
+ 
+ class Soil_test(models.Model):
+@@ -39,6 +43,8 @@
+     potassium = models.CharField(max_length=50, blank=True, null=True)
+     other_element = models.CharField(max_length=50, blank=True, null=True)
+     test_file = models.FileField(upload_to=str(farm_id) + '/' + 'soil_test', blank=True, null=True)
++    create_date = models.DateTimeField(auto_now_add=True)
++    modified_date = models.DateTimeField(auto_now=True)
+ 
+ 
+ class Planting(models.Model):
+@@ -48,6 +54,8 @@
+     plant = models.CharField(max_length=50)
+     plant_type = models.CharField(max_length=50)
+     planting_area = models.CharField(max_length=50)
++    create_date = models.DateTimeField(auto_now_add=True)
++    modified_date = models.DateTimeField(auto_now=True)
+ 
+ 
+ class Harvesting(models.Model):
+@@ -58,11 +66,13 @@
+     harvesting_time = models.CharField(max_length=50)
+     total_production = models.IntegerField()
+     per_acre_production = models.IntegerField()
+-    sell_quantity = models.IntegerField()
+-    sell_date = models.CharField(max_length=50)
+-    sell_rate = models.IntegerField()
+-    purchaser_name = models.CharField(max_length=50)
+-    purchaser_number = models.IntegerField()
++    create_date = models.DateTimeField(auto_now_add=True)
++    modified_date = models.DateTimeField(auto_now=True)
++    # sell_quantity = models.IntegerField()
++    # sell_date = models.CharField(max_length=50)
++    # sell_rate = models.IntegerField()
++    # purchaser_name = models.CharField(max_length=50)
++    # purchaser_number = models.IntegerField()
+ 
+ 
+ class Crop_selling(models.Model):
+@@ -70,10 +80,11 @@
+     farm_id = models.IntegerField()
+     harvesting_id = models.IntegerField()
+     sell_quantity = models.IntegerField()
+-    sell_date = models.CharField(max_length=50)
++    sell_date = models.DateTimeField(auto_now_add=True)
+     sell_rate = models.IntegerField()
+     purchaser_name = models.CharField(max_length=50)
+     purchaser_number = models.IntegerField()
++    modified_date = models.DateTimeField(auto_now=True)
+ 
+ 
+ class Fertilizer(models.Model):
+@@ -83,9 +94,10 @@
+     fertilizer_name = models.CharField(max_length=50)
+     fertilizer_qty = models.CharField(max_length=50)
+     fertilizer_qty_per_acre = models.CharField(max_length=50)
+-    fertilizer_date = models.DateField()
++    fertilizer_date = models.DateTimeField(auto_now_add=True)
+     rating = models.IntegerField()
+     crop_days = models.CharField(max_length=50)
++    modified_date = models.DateTimeField(auto_now=True)
+ 
+ 
+ class Water_irrigation(models.Model):
+@@ -93,8 +105,9 @@
+     farm_id = models.IntegerField()
+     planting_id = models.IntegerField()
+     water_irrigation_type = models.CharField(max_length=50, blank=True, null=True)
+-    date = models.DateField()
+     crop_days = models.CharField(max_length=50, blank=True, null=True)
++    create_date = models.DateTimeField(auto_now_add=True)
++    modified_date = models.DateTimeField(auto_now=True)
+ 
+ 
+ class Pesticide(models.Model):
+@@ -103,5 +116,6 @@
+     planting_id = models.IntegerField()
+     pesticide_name = models.CharField(max_length=50)
+     pesticide_qty = models.CharField(max_length=50)
+-    pesticide_date = models.DateField()
+-    pesticide_days = models.CharField(max_length=50, blank=True, null=True)
+\ No newline at end of file
++    pesticide_date = models.DateTimeField(auto_now_add=True)
++    pesticide_days = models.CharField(max_length=50, blank=True, null=True)
++    modified_date = models.DateTimeField(auto_now=True)
+\ No newline at end of file
+Index: adminaccess/migrations/0002_crop_selling_fertilizer_harvesting_pesticide_and_more.py
+===================================================================
+diff --git a/adminaccess/migrations/0002_crop_selling_fertilizer_harvesting_pesticide_and_more.py b/adminaccess/migrations/0002_crop_selling_fertilizer_harvesting_pesticide_and_more.py
+deleted file mode 100644
+--- a/adminaccess/migrations/0002_crop_selling_fertilizer_harvesting_pesticide_and_more.py	(revision 06c6482fa8f56975b6ee0f8c83e3bf754c50f801)
++++ /dev/null	(revision 06c6482fa8f56975b6ee0f8c83e3bf754c50f801)
+@@ -1,85 +0,0 @@
+-# Generated by Django 4.0.5 on 2022-06-22 18:23
+-
+-from django.db import migrations, models
+-
+-
+-class Migration(migrations.Migration):
+-
+-    dependencies = [
+-        ('adminaccess', '0001_initial'),
+-    ]
+-
+-    operations = [
+-        migrations.CreateModel(
+-            name='Crop_selling',
+-            fields=[
+-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+-                ('farmer_id', models.IntegerField()),
+-                ('farm_id', models.IntegerField()),
+-                ('harvesting_id', models.IntegerField()),
+-                ('sell_quantity', models.IntegerField()),
+-                ('sell_date', models.CharField(max_length=50)),
+-                ('sell_rate', models.IntegerField()),
+-                ('purchaser_name', models.CharField(max_length=50)),
+-                ('purchaser_number', models.IntegerField()),
+-            ],
+-        ),
+-        migrations.CreateModel(
+-            name='Fertilizer',
+-            fields=[
+-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+-                ('farmer_id', models.IntegerField()),
+-                ('farm_id', models.IntegerField()),
+-                ('planting_id', models.IntegerField()),
+-                ('fertilizer_name', models.CharField(max_length=50)),
+-                ('fertilizer_qty', models.CharField(max_length=50)),
+-                ('fertilizer_qty_per_acre', models.CharField(max_length=50)),
+-                ('fertilizer_date', models.DateField()),
+-                ('rating', models.IntegerField()),
+-                ('crop_days', models.CharField(max_length=50)),
+-            ],
+-        ),
+-        migrations.CreateModel(
+-            name='Harvesting',
+-            fields=[
+-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+-                ('farmer_id', models.IntegerField()),
+-                ('farm_id', models.IntegerField()),
+-                ('planting_id', models.IntegerField()),
+-                ('plant_type', models.CharField(max_length=50)),
+-                ('harvesting_time', models.CharField(max_length=50)),
+-                ('total_production', models.IntegerField()),
+-                ('per_acre_production', models.IntegerField()),
+-                ('sell_quantity', models.IntegerField()),
+-                ('sell_date', models.CharField(max_length=50)),
+-                ('sell_rate', models.IntegerField()),
+-                ('purchaser_name', models.CharField(max_length=50)),
+-                ('purchaser_number', models.IntegerField()),
+-            ],
+-        ),
+-        migrations.CreateModel(
+-            name='Pesticide',
+-            fields=[
+-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+-                ('farmer_id', models.IntegerField()),
+-                ('farm_id', models.IntegerField()),
+-                ('planting_id', models.IntegerField()),
+-                ('pesticide_name', models.CharField(max_length=50)),
+-                ('pesticide_qty', models.CharField(max_length=50)),
+-                ('pesticide_date', models.DateField()),
+-                ('pesticide_days', models.CharField(blank=True, max_length=50, null=True)),
+-            ],
+-        ),
+-        migrations.CreateModel(
+-            name='Water_irrigation',
+-            fields=[
+-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+-                ('farmer_id', models.IntegerField()),
+-                ('farm_id', models.IntegerField()),
+-                ('planting_id', models.IntegerField()),
+-                ('water_irrigation_type', models.CharField(blank=True, max_length=50, null=True)),
+-                ('date', models.DateField()),
+-                ('crop_days', models.CharField(blank=True, max_length=50, null=True)),
+-            ],
+-        ),
+-    ]
+Index: adminaccess/migrations/0001_initial.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Generated by Django 4.0.4 on 2022-06-15 17:49\n\nfrom django.db import migrations, models\n\n\nclass Migration(migrations.Migration):\n\n    initial = True\n\n    dependencies = [\n    ]\n\n    operations = [\n        migrations.CreateModel(\n            name='Farm_info',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('farmer_id', models.IntegerField()),\n                ('farm_nick_name', models.CharField(blank=True, max_length=50, null=True)),\n                ('farm_space', models.IntegerField()),\n                ('geo_location', models.CharField(blank=True, max_length=50, null=True)),\n                ('farm_village', models.CharField(blank=True, max_length=50, null=True)),\n                ('khata_no', models.CharField(blank=True, max_length=50, null=True)),\n                ('who_caretaker', models.CharField(blank=True, max_length=50, null=True)),\n                ('caretaker', models.CharField(blank=True, max_length=50, null=True)),\n                ('caretaker_phone_number', models.IntegerField(blank=True, null=True)),\n                ('soil_type', models.CharField(blank=True, max_length=50, null=True)),\n                ('water_source', models.CharField(blank=True, max_length=50, null=True)),\n                ('water_type', models.CharField(blank=True, max_length=50, null=True)),\n                ('water_season', models.CharField(blank=True, max_length=50, null=True)),\n            ],\n        ),\n        migrations.CreateModel(\n            name='Farmer',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=50)),\n                ('phone_number', models.IntegerField()),\n                ('address', models.TextField()),\n                ('aadhar_number', models.IntegerField(blank=True, null=True)),\n                ('family_members', models.IntegerField(blank=True, null=True)),\n                ('family_occupation', models.CharField(blank=True, max_length=50, null=True)),\n                ('is_access', models.BooleanField(default=False)),\n            ],\n        ),\n        migrations.CreateModel(\n            name='Planting',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('farmer_id', models.IntegerField()),\n                ('farm_id', models.IntegerField()),\n                ('planting_time', models.CharField(blank=True, max_length=50, null=True)),\n                ('plant', models.CharField(max_length=50)),\n                ('plant_type', models.CharField(max_length=50)),\n                ('planting_area', models.CharField(max_length=50)),\n            ],\n        ),\n        migrations.CreateModel(\n            name='Soil_test',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('farmer_id', models.IntegerField()),\n                ('farm_id', models.IntegerField()),\n                ('test_year', models.IntegerField()),\n                ('soil_test', models.CharField(blank=True, max_length=50, null=True)),\n                ('water_test', models.CharField(blank=True, max_length=50, null=True)),\n                ('nitrogen', models.CharField(blank=True, max_length=50, null=True)),\n                ('phosphorus', models.CharField(blank=True, max_length=50, null=True)),\n                ('potassium', models.CharField(blank=True, max_length=50, null=True)),\n                ('other_element', models.CharField(blank=True, max_length=50, null=True)),\n                ('test_file', models.FileField(blank=True, null=True, upload_to='<django.db.models.fields.IntegerField>/soil_test')),\n            ],\n        ),\n    ]\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/adminaccess/migrations/0001_initial.py b/adminaccess/migrations/0001_initial.py
+--- a/adminaccess/migrations/0001_initial.py	(revision 06c6482fa8f56975b6ee0f8c83e3bf754c50f801)
++++ b/adminaccess/migrations/0001_initial.py	(date 1657041601980)
+@@ -1,4 +1,4 @@
+-# Generated by Django 4.0.4 on 2022-06-15 17:49
++# Generated by Django 4.0.5 on 2022-06-29 19:13
+ 
+ from django.db import migrations, models
+ 
+@@ -11,13 +11,28 @@
+     ]
+ 
+     operations = [
++        migrations.CreateModel(
++            name='Crop_selling',
++            fields=[
++                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
++                ('farmer_id', models.IntegerField()),
++                ('farm_id', models.IntegerField()),
++                ('harvesting_id', models.IntegerField()),
++                ('sell_quantity', models.IntegerField()),
++                ('sell_date', models.DateTimeField(auto_now_add=True)),
++                ('sell_rate', models.IntegerField()),
++                ('purchaser_name', models.CharField(max_length=50)),
++                ('purchaser_number', models.IntegerField()),
++                ('modified_date', models.DateTimeField(auto_now=True)),
++            ],
++        ),
+         migrations.CreateModel(
+             name='Farm_info',
+             fields=[
+                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                 ('farmer_id', models.IntegerField()),
+                 ('farm_nick_name', models.CharField(blank=True, max_length=50, null=True)),
+-                ('farm_space', models.IntegerField()),
++                ('farm_space', models.IntegerField(blank=True, null=True)),
+                 ('geo_location', models.CharField(blank=True, max_length=50, null=True)),
+                 ('farm_village', models.CharField(blank=True, max_length=50, null=True)),
+                 ('khata_no', models.CharField(blank=True, max_length=50, null=True)),
+@@ -28,6 +43,8 @@
+                 ('water_source', models.CharField(blank=True, max_length=50, null=True)),
+                 ('water_type', models.CharField(blank=True, max_length=50, null=True)),
+                 ('water_season', models.CharField(blank=True, max_length=50, null=True)),
++                ('create_date', models.DateTimeField(auto_now_add=True)),
++                ('modified_date', models.DateTimeField(auto_now=True)),
+             ],
+         ),
+         migrations.CreateModel(
+@@ -41,6 +58,53 @@
+                 ('family_members', models.IntegerField(blank=True, null=True)),
+                 ('family_occupation', models.CharField(blank=True, max_length=50, null=True)),
+                 ('is_access', models.BooleanField(default=False)),
++                ('create_date', models.DateTimeField(auto_now_add=True)),
++                ('modified_date', models.DateTimeField(auto_now=True)),
++            ],
++        ),
++        migrations.CreateModel(
++            name='Fertilizer',
++            fields=[
++                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
++                ('farmer_id', models.IntegerField()),
++                ('farm_id', models.IntegerField()),
++                ('planting_id', models.IntegerField()),
++                ('fertilizer_name', models.CharField(max_length=50)),
++                ('fertilizer_qty', models.CharField(max_length=50)),
++                ('fertilizer_qty_per_acre', models.CharField(max_length=50)),
++                ('fertilizer_date', models.DateTimeField(auto_now_add=True)),
++                ('rating', models.IntegerField()),
++                ('crop_days', models.CharField(max_length=50)),
++                ('modified_date', models.DateTimeField(auto_now=True)),
++            ],
++        ),
++        migrations.CreateModel(
++            name='Harvesting',
++            fields=[
++                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
++                ('farmer_id', models.IntegerField()),
++                ('farm_id', models.IntegerField()),
++                ('planting_id', models.IntegerField()),
++                ('plant_type', models.CharField(max_length=50)),
++                ('harvesting_time', models.CharField(max_length=50)),
++                ('total_production', models.IntegerField()),
++                ('per_acre_production', models.IntegerField()),
++                ('create_date', models.DateTimeField(auto_now_add=True)),
++                ('modified_date', models.DateTimeField(auto_now=True)),
++            ],
++        ),
++        migrations.CreateModel(
++            name='Pesticide',
++            fields=[
++                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
++                ('farmer_id', models.IntegerField()),
++                ('farm_id', models.IntegerField()),
++                ('planting_id', models.IntegerField()),
++                ('pesticide_name', models.CharField(max_length=50)),
++                ('pesticide_qty', models.CharField(max_length=50)),
++                ('pesticide_date', models.DateTimeField(auto_now_add=True)),
++                ('pesticide_days', models.CharField(blank=True, max_length=50, null=True)),
++                ('modified_date', models.DateTimeField(auto_now=True)),
+             ],
+         ),
+         migrations.CreateModel(
+@@ -53,6 +117,8 @@
+                 ('plant', models.CharField(max_length=50)),
+                 ('plant_type', models.CharField(max_length=50)),
+                 ('planting_area', models.CharField(max_length=50)),
++                ('create_date', models.DateTimeField(auto_now_add=True)),
++                ('modified_date', models.DateTimeField(auto_now=True)),
+             ],
+         ),
+         migrations.CreateModel(
+@@ -69,6 +135,21 @@
+                 ('potassium', models.CharField(blank=True, max_length=50, null=True)),
+                 ('other_element', models.CharField(blank=True, max_length=50, null=True)),
+                 ('test_file', models.FileField(blank=True, null=True, upload_to='<django.db.models.fields.IntegerField>/soil_test')),
++                ('create_date', models.DateTimeField(auto_now_add=True)),
++                ('modified_date', models.DateTimeField(auto_now=True)),
++            ],
++        ),
++        migrations.CreateModel(
++            name='Water_irrigation',
++            fields=[
++                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
++                ('farmer_id', models.IntegerField()),
++                ('farm_id', models.IntegerField()),
++                ('planting_id', models.IntegerField()),
++                ('water_irrigation_type', models.CharField(blank=True, max_length=50, null=True)),
++                ('crop_days', models.CharField(blank=True, max_length=50, null=True)),
++                ('create_date', models.DateTimeField(auto_now_add=True)),
++                ('modified_date', models.DateTimeField(auto_now=True)),
+             ],
+         ),
+     ]
+Index: adminaccess/form.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django import forms\nfrom django.db.models import fields\nfrom .models import *\n\nclass Farmer_Form(forms.ModelForm):\n    class Meta:\n        model = Farmer\n        fields = ['name', 'phone_number', 'address', 'aadhar_number', 'family_members', 'family_occupation', 'is_access']\n        \nclass Farm_info_Form(forms.ModelForm):\n    class Meta:\n        model = Farm_info\n        fields = ['farmer_id', 'farm_nick_name', 'farm_space' ,'geo_location','farm_village', 'khata_no', 'who_caretaker', 'caretaker', 'caretaker_phone_number', 'soil_type' ,'water_source','water_type', 'water_season']\n        \nclass Soil_test_Form(forms.ModelForm):\n    class Meta:\n        model = Soil_test\n        fields = ['farmer_id', 'farm_id', 'test_year', 'soil_test', 'water_test', 'nitrogen', 'phosphorus', 'potassium', 'other_element', 'test_file']\n\nclass Planting_Form(forms.ModelForm):\n    class Meta:\n        model = Planting\n        fields = ['farmer_id', 'farm_id', 'planting_time' ,'plant','plant_type', 'planting_area']\n\nclass Harvesting_Form(forms.ModelForm):\n    class Meta:\n        model = Harvesting\n        fields = ['farmer_id', 'farm_id', 'planting_id' ,'plant_type','harvesting_time', 'total_production', 'per_acre_production', 'sell_quantity', 'sell_date', 'sell_rate' ,'purchaser_name','purchaser_number']\n\nclass Crop_selling_Form(forms.ModelForm):\n    class Meta:\n        model = Crop_selling\n        fields = ['farmer_id', 'farm_id', 'harvesting_id', 'sell_quantity', 'sell_date', 'sell_rate', 'purchaser_name', 'purchaser_number']\n\nclass Fertilizer_Form(forms.ModelForm):\n    class Meta:\n        model = Fertilizer\n        fields = ['farmer_id', 'farm_id', 'planting_id' ,'fertilizer_name','fertilizer_qty', 'fertilizer_qty_per_acre', 'fertilizer_date', 'rating', 'crop_days']\n\nclass Water_irrigation_Form(forms.ModelForm):\n    class Meta:\n        model = Water_irrigation\n        fields = ['farmer_id', 'farm_id', 'planting_id' ,'water_irrigation_type','date', 'crop_days']\n\nclass Pesticide_Form(forms.ModelForm):\n    class Meta:\n        model = Pesticide\n        fields = ['farmer_id', 'farm_id', 'planting_id' ,'pesticide_name','pesticide_qty', 'pesticide_date', 'pesticide_days']
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/adminaccess/form.py b/adminaccess/form.py
+--- a/adminaccess/form.py	(revision 06c6482fa8f56975b6ee0f8c83e3bf754c50f801)
++++ b/adminaccess/form.py	(date 1657041601979)
+@@ -25,24 +25,24 @@
+ class Harvesting_Form(forms.ModelForm):
+     class Meta:
+         model = Harvesting
+-        fields = ['farmer_id', 'farm_id', 'planting_id' ,'plant_type','harvesting_time', 'total_production', 'per_acre_production', 'sell_quantity', 'sell_date', 'sell_rate' ,'purchaser_name','purchaser_number']
++        fields = ['farmer_id', 'farm_id', 'planting_id' ,'plant_type','harvesting_time', 'total_production', 'per_acre_production']
+ 
+ class Crop_selling_Form(forms.ModelForm):
+     class Meta:
+         model = Crop_selling
+-        fields = ['farmer_id', 'farm_id', 'harvesting_id', 'sell_quantity', 'sell_date', 'sell_rate', 'purchaser_name', 'purchaser_number']
++        fields = ['farmer_id', 'farm_id', 'harvesting_id', 'sell_quantity', 'sell_rate', 'purchaser_name', 'purchaser_number']
+ 
+ class Fertilizer_Form(forms.ModelForm):
+     class Meta:
+         model = Fertilizer
+-        fields = ['farmer_id', 'farm_id', 'planting_id' ,'fertilizer_name','fertilizer_qty', 'fertilizer_qty_per_acre', 'fertilizer_date', 'rating', 'crop_days']
++        fields = ['farmer_id', 'farm_id', 'planting_id' ,'fertilizer_name','fertilizer_qty', 'fertilizer_qty_per_acre', 'rating', 'crop_days']
+ 
+ class Water_irrigation_Form(forms.ModelForm):
+     class Meta:
+         model = Water_irrigation
+-        fields = ['farmer_id', 'farm_id', 'planting_id' ,'water_irrigation_type','date', 'crop_days']
++        fields = ['farmer_id', 'farm_id', 'planting_id' ,'water_irrigation_type', 'crop_days']
+ 
+ class Pesticide_Form(forms.ModelForm):
+     class Meta:
+         model = Pesticide
+-        fields = ['farmer_id', 'farm_id', 'planting_id' ,'pesticide_name','pesticide_qty', 'pesticide_date', 'pesticide_days']
+\ No newline at end of file
++        fields = ['farmer_id', 'farm_id', 'planting_id' ,'pesticide_name','pesticide_qty', 'pesticide_days']
+\ No newline at end of file
