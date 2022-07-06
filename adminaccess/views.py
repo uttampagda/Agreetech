@@ -262,4 +262,7 @@ def pesticide(request):
         form = Pesticide_Form()
     return render(request, 'forms/pesticide.html')
 
-
+def search(request):
+    farm_info = Farm_info.objects.all()
+    data = {'farm_info':farm_info}
+    return render(request, 'forms/search.html', data)
