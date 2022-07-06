@@ -23,4 +23,6 @@ urlpatterns = [
     path('Fertilizer', views.fertilizer, name="Fertilizer"),
     path('Water_irrigation', views.water_irrigation, name="Water_irrigation"),
     path('Pesticide', views.pesticide, name="Pesticide"),
+    path('search', views.search, name="search"),
+
 ]
