@@ -41,13 +41,8 @@
                         <td class="farmer_mobile">{{farmer.phone_number}}</td>
                         <td>{{farmer.aadhar_number}}</td>
                         <td>
-                <form method="POST" action="{% url 'farmer_details' %}">
-                  {% csrf_token %}
-                  <input name="farmer_id" type="hidden" value={{ farmer.id }}>
-                  <button type="submit" class="das-reject-order">
-                      Farmer Details
-                  </button>
-              </form>
+
+                            <button><a href=" {% url 'farmer_details' farmer_id=farmer.id %}">Farmer Details</a></button>
                         </td>
                     </tr>
                 </div>

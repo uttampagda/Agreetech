@@ -13,24 +13,19 @@
 
 <body>
 <div class="d-flex justify-content-center align-items-center">
-          <form method="POST" action="{% url 'farm_info' %}">
-                  {% csrf_token %}
-                  <input name="farm_id" type="hidden" value={{ farm_id }}>
-                  <input name="farmer_id" type="hidden" value={{ farmer_id }}>
-                  <button type="submit" class="das-reject-order">
-                    Back to Farm info
-                  </button>
-              </form>
+
         </div>
+    <button><a href="{% url 'farm_info' farm_id=farm_id%}">Back to Farm info</a></button>
         <div class="d-flex justify-content-center align-items-center">
-          <form method="POST" action="{% url 'planting_reg' %}">
-                  {% csrf_token %}
-                  <input name="farm_id" type="hidden" value={{ farm_id }}>
-                  <input name="farmer_id" type="hidden" value={{ farmer_id }}>
-                  <button type="submit" class="das-reject-order">
-                    + New Planting
-                  </button>
-              </form>
+<!--          <form method="POST" action="{% url 'planting_reg' %}">-->
+<!--                  {% csrf_token %}-->
+<!--                  <input name="farm_id" type="hidden" value={{ farm_id }}>-->
+<!--                  <input name="farmer_id" type="hidden" value={{ farmer_id }}>-->
+<!--                  <button type="submit" class="das-reject-order">-->
+<!--                    + New Planting-->
+<!--                  </button>-->
+<!--              </form>-->
+            <button><a href="{% url 'planting_reg' %}">New Planting</a></button>
         </div>
     {% for plant in planting_history %}
       <div class="card m-2" style="width: 18rem;">

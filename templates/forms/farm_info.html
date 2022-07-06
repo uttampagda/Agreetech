@@ -14,17 +14,10 @@
 <body>
 
 <div class="d-flex justify-content-center align-items-center">
-          <form method="POST" action="{% url 'farm_info' %}">
-                  {% csrf_token %}
-                  <input name="farm_id" type="hidden" value={{ farm_id }}>
-                  <input name="farmer_id" type="hidden" value={{ farmer_id }}>
-                  <button type="submit" class="das-reject-order">
-                    Back to Farmer
-                  </button>
-              </form>
         </div>
+    <button><a href="{% url 'farmer_details' farmer_id=farm.farmer_id%}">Back to Farmer</a></button>
         <div class="d-flex justify-content-center align-items-center">
-            <a href="Soil_test" class="add_btn">+ Add Soil test</a>
+            <a href="{% url 'soil_test'%}" class="add_btn">+ Add Soil test</a>
         </div>
     <h2>Farm Information</h2>
         <table class="table table-borderless table-width-40 farmer_detail">
@@ -84,16 +77,8 @@
     <div class="d-flex justify-content-evenly flex-wrap">
         <span>Planting History</span>
     <div class="d-flex justify-content-center align-items-center">
-          <form method="POST" action="{% url 'planting' %}">
-                  {% csrf_token %}
-                  <input name="farm_id" type="hidden" value={{ farm.id }}>
-                  <input name="farmer_id" type="hidden" value={{ farm.farmer_id }}>
-                  <button type="submit" class="das-reject-order">
-                      Planting History
-                  </button>
-              </form>
+        <button><a href="{% url 'planting' %}">Planting History</a></button>
         </div>
-
     </div>
 </body>
 
