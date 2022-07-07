@@ -141,7 +141,7 @@ def farm_info(request,farm_id):
     print("farm_info starting====farmer_id",farmer_id)
     # farm_id = request.POST.get('farm_id')
     farm_info = Farm_info.objects.filter(id=farm_id)[0]
-    planting_history = Planting.objects.filter(id=farm_id)
+    planting_history = Planting.objects.filter(farm_id=farm_id)
     data = {
             'farmer_id' : farmer_id,
             'farm': farm_info,
@@ -150,6 +150,7 @@ def farm_info(request,farm_id):
     request.session['farmer_id'] = farmer_id
     request.session['farm_id'] = farm_id
     print("farm_info last--- farmer_id",farmer_id)
+    print(planting_history)
     return render(request, 'forms/farm_info.html',data)
 
 
@@ -187,7 +188,7 @@ def planting_reg(request):
         if form.is_valid():
             form.save()
             request.session['farm_id'] = farm_id
-            return redirect('planting')
+            return redirect('farm_info')
             # return render(request, 'forms/planting_reg.html',data)
     farmer_id = request.session['farmer_id']
     farm_id = request.session['farm_id']
@@ -198,33 +199,31 @@ def planting_reg(request):
         'planting_history': planting_history,
     }
     return render(request, 'forms/planting_reg.html', data)
-    
-def planting(request):
-    if request.method == 'POST':
-        farmer_id = request.POST.get('farmer_id')
-        farm_id = request.POST.get('farm_id')
-        planting_history = Planting.objects.filter(farm_id=farm_id)
-        data = {
-            'planting_history': planting_history,
-            'farmer_id': farmer_id,
-            'farm_id': farm_id,
-        }
-        request.session['farmer_id'] = farmer_id
-        request.session['farm_id'] = farm_id
-        return render(request, 'forms/planting.html', data)
-    else:
-        farm_id = request.session['farm_id']
-        print(farm_id)
-        planting_history = Planting.objects.filter(farm_id=farm_id)
-        data = {
-            'planting_history': planting_history,
-            'farm_id': farm_id,
-        }
-        return render(request, 'forms/planting.html', data)
+
+def planting(request,planting_id):
+    farm_id = request.session['farm_id']
+    farmer_id = request.session['farmer_id']
+    print("planting...start planting_id",planting_id)
+    planting_history = Planting.objects.filter(id=planting_id)[0]
+    fertilizer = Fertilizer.objects.filter(planting_id=planting_id)
+    water_irrigation = Water_irrigation.objects.filter(planting_id=planting_id)
+    pesticide = Pesticide.objects.filter(planting_id=planting_id)
+    print('planting_history',planting_history)
+    data = {
+        'farm_id':farm_id,
+        'planting_id': planting_id,
+        'planting_history': planting_history,
+        'fertilizer': fertilizer,
+        'water_irrigation': water_irrigation,
+        'pesticide': pesticide
+    }
+    request.session['farmer_id'] = farmer_id
+    request.session['farm_id'] = farm_id
+    request.session['planting_id'] = planting_id
+    return render(request,'forms/planting.html',data)
 
 def harvesting(request):
     if request.method == 'POST':
-        print("Postttttt")
         form = Harvesting_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -244,35 +243,54 @@ def crop_selling(request):
         form = Crop_selling_Form()
     return render(request, 'forms/crop_selling.html')
 
-def fertilizer(request):
+def fertilizer_reg(request):
+    farm_id = request.session['farm_id']
+    farmer_id = request.session['farmer_id']
+    planting_id = request.session['planting_id']
     if request.method == 'POST':
         form = Fertilizer_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('Fertilizer')
-    else:
-        form = Fertilizer_Form()
-    return render(request, 'forms/fertilizer.html')
+            return redirect('planting',planting_id=planting_id)
+    data = {
+        'farmer_id' : farmer_id,
+        'farm_id': farm_id,
+        'planting_id': planting_id,
+    }
+    return render(request, 'forms/fertilizer_reg.html',data)
 
-def water_irrigation(request):
+def water_irrigation_reg(request):
+    farm_id = request.session['farm_id']
+    farmer_id = request.session['farmer_id']
+    planting_id = request.session['planting_id']
     if request.method == 'POST':
         form = Water_irrigation_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('Water_irrigation')
-    else:
-        form = Water_irrigation_Form()
-    return render(request, 'forms/water_irrigation.html')
+            return redirect('planting',planting_id=planting_id)
 
-def pesticide(request):
+    data = {
+        'farmer_id': farmer_id,
+        'farm_id': farm_id,
+        'planting_id': planting_id,
+    }
+    return render(request, 'forms/water_irrigation_reg.html',data)
+
+def pesticide_reg(request):
+    farm_id = request.session['farm_id']
+    farmer_id = request.session['farmer_id']
+    planting_id = request.session['planting_id']
     if request.method == 'POST':
         form = Pesticide_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('Pesticide')
-    else:
-        form = Pesticide_Form()
-    return render(request, 'forms/pesticide.html')
+            return redirect('planting',planting_id=planting_id)
+    data = {
+                'farmer_id': farmer_id,
+                'farm_id': farm_id,
+                'planting_id': planting_id,
+            }
+    return render(request, 'forms/pesticide_reg.html',data)
 
 def search(request):
     farm_info = Farm_info.objects.values()

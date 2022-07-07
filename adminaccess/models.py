@@ -50,12 +50,12 @@ class Soil_test(models.Model):
 class Planting(models.Model):
     farmer_id = models.IntegerField()
     farm_id = models.IntegerField()
-    planting_time = models.CharField(max_length=50, blank=True, null=True)
-    plant = models.CharField(max_length=50)
-    plant_type = models.CharField(max_length=50)
-    planting_area = models.CharField(max_length=50)
-    create_date = models.DateTimeField(auto_now_add=True)
-    modified_date = models.DateTimeField(auto_now=True)
+    planting_time = models.DateTimeField(max_length=50, blank=True, null=True)
+    plant = models.CharField(max_length=50,blank=True, null=True)
+    plant_type = models.CharField(max_length=50,blank=True, null=True)
+    planting_area = models.CharField(max_length=50,blank=True, null=True)
+    create_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
+    modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
 
 
 class Harvesting(models.Model):
@@ -63,11 +63,11 @@ class Harvesting(models.Model):
     farm_id = models.IntegerField()
     planting_id = models.IntegerField()
     plant_type = models.CharField(max_length=50)
-    harvesting_time = models.CharField(max_length=50)
-    total_production = models.IntegerField()
-    per_acre_production = models.IntegerField()
-    create_date = models.DateTimeField(auto_now_add=True)
-    modified_date = models.DateTimeField(auto_now=True)
+    harvesting_time = models.DateTimeField(max_length=50,blank=True, null=True)
+    total_production = models.IntegerField(blank=True, null=True)
+    per_acre_production = models.IntegerField(blank=True, null=True)
+    create_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
+    modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
     # sell_quantity = models.IntegerField()
     # sell_date = models.CharField(max_length=50)
     # sell_rate = models.IntegerField()
@@ -79,12 +79,13 @@ class Crop_selling(models.Model):
     farmer_id = models.IntegerField()
     farm_id = models.IntegerField()
     harvesting_id = models.IntegerField()
-    sell_quantity = models.IntegerField()
-    sell_date = models.DateTimeField(auto_now_add=True)
-    sell_rate = models.IntegerField()
-    purchaser_name = models.CharField(max_length=50)
-    purchaser_number = models.IntegerField()
-    modified_date = models.DateTimeField(auto_now=True)
+    sell_quantity = models.IntegerField(blank=True, null=True)
+    sell_date = models.DateTimeField(blank=True, null=True)#selection
+    sell_rate = models.IntegerField(blank=True, null=True)
+    purchaser_name = models.CharField(max_length=50,blank=True, null=True)
+    purchaser_number = models.IntegerField(blank=True, null=True)
+    creation_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
 
 
 class Fertilizer(models.Model):
@@ -92,12 +93,13 @@ class Fertilizer(models.Model):
     farm_id = models.IntegerField()
     planting_id = models.IntegerField()
     fertilizer_name = models.CharField(max_length=50)
-    fertilizer_qty = models.CharField(max_length=50)
-    fertilizer_qty_per_acre = models.CharField(max_length=50)
-    fertilizer_date = models.DateTimeField(auto_now_add=True)
-    rating = models.IntegerField()
-    crop_days = models.CharField(max_length=50)
-    modified_date = models.DateTimeField(auto_now=True)
+    fertilizer_qty = models.CharField(max_length=50,blank=True, null=True)
+    fertilizer_qty_per_acre = models.CharField(max_length=50,blank=True, null=True)
+    fertilizer_date = models.DateTimeField(blank=True, null=True)#selection
+    rating = models.IntegerField(blank=True, null=True)
+    crop_days = models.CharField(max_length=50,blank=True, null=True)
+    creation_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
+    modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
 
 
 class Water_irrigation(models.Model):
@@ -106,8 +108,9 @@ class Water_irrigation(models.Model):
     planting_id = models.IntegerField()
     water_irrigation_type = models.CharField(max_length=50, blank=True, null=True)
     crop_days = models.CharField(max_length=50, blank=True, null=True)
-    create_date = models.DateTimeField(auto_now_add=True)
-    modified_date = models.DateTimeField(auto_now=True)
+    water_irrigation_date = models.DateTimeField(blank=True, null=True)#selection
+    create_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
+    modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
 
 
 class Pesticide(models.Model):
@@ -116,6 +119,7 @@ class Pesticide(models.Model):
     planting_id = models.IntegerField()
     pesticide_name = models.CharField(max_length=50)
     pesticide_qty = models.CharField(max_length=50)
-    pesticide_date = models.DateTimeField(auto_now_add=True)
+    pesticide_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)#selection
     pesticide_days = models.CharField(max_length=50, blank=True, null=True)
-    modified_date = models.DateTimeField(auto_now=True)
+    created_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
+    modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)

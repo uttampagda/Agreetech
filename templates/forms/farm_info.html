@@ -77,9 +77,21 @@
     <div class="d-flex justify-content-evenly flex-wrap">
         <span>Planting History</span>
     <div class="d-flex justify-content-center align-items-center">
-        <button><a href="{% url 'planting' %}">Planting History</a></button>
+        <button><a href="{% url 'planting_reg' %}">Add new planting</a></button>
         </div>
     </div>
+<div class="d-flex justify-content-evenly flex-wrap">
+        {% for plant in planting_history %}
+      <div class="card m-2" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{plant.planting_time}}</h5>
+          <p class="card-text">{{plant.plant}}</p>
+          <p class="card-text">{{plant.planting_area}}</p>
+          <a href="{% url 'planting' planting_id=plant.id%}" class="btn btn-primary">More Details</a>
+        </div>
+      </div>
+      {% endfor %}
+</div>
 </body>
 
 </html>

@@ -17,15 +17,15 @@
         {% csrf_token %}
         <div class="form-group mt-2">
             <label for="id_farmer_id">Farmer Id</label>
-            <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id" required>
+            <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}" placeholder="Farmer Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_farm_id">Farm Id</label>
-            <input type="number" class="form-control" id="id_farm_id" name="farm_id" placeholder="Farm Id" required>
+            <input type="number" class="form-control" id="id_farm_id" name="farm_id" value="{{farm_id}}" placeholder="Farm Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_planting_id">Planting Id</label>
-            <input type="number" class="form-control" id="id_planting_id" name="planting_id" placeholder="Planting Id" required>
+            <input type="number" class="form-control" id="id_planting_id" name="planting_id" value="{{planting_id}}" placeholder="Planting Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_fertilizer_name">Fertilizer Name</label>
@@ -37,19 +37,19 @@
         </div>
         <div class="form-group mt-3">
             <label for="id_fertilizer_qty_per_acre">Fertilizer Qty Per Acre</label>
-            <input type="text" class="form-control" id="id_fertilizer_qty_per_acre" name="fertilizer_qty_per_acre" placeholder="Fertilizer Qty Per Acre" required>
+            <input type="text" class="form-control" id="id_fertilizer_qty_per_acre" name="fertilizer_qty_per_acre" placeholder="Fertilizer Qty Per Acre" >
         </div>
         <div class="form-group mt-3">
             <label for="id_fertilizer_date">Fertilizer Date</label>
-            <input type="date" class="form-control" id="id_fertilizer_date" name="fertilizer_date" placeholder="Fertilizer Date" required>
+            <input type="date" class="form-control" id="id_fertilizer_date" name="fertilizer_date" placeholder="Fertilizer Date" >
         </div>
         <div class="form-group mt-3">
             <label for="id_rating">Rating</label>
-            <input type="number" class="form-control" id="id_rating" name="rating" placeholder="Rating" required>
+            <input type="number" class="form-control" id="id_rating" name="rating" placeholder="Rating" >
         </div>
         <div class="form-group mt-3">
             <label for="id_crop_days">Crop Days</label>
-            <input type="text" class="form-control" id="id_crop_days" name="crop_days" placeholder="Crop Days" required>
+            <input type="text" class="form-control" id="id_crop_days" name="crop_days" placeholder="Crop Days" >
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
     </form>

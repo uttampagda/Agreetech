@@ -16,28 +16,92 @@
 
         </div>
     <button><a href="{% url 'farm_info' farm_id=farm_id%}">Back to Farm info</a></button>
-        <div class="d-flex justify-content-center align-items-center">
-<!--          <form method="POST" action="{% url 'planting_reg' %}">-->
-<!--                  {% csrf_token %}-->
-<!--                  <input name="farm_id" type="hidden" value={{ farm_id }}>-->
-<!--                  <input name="farmer_id" type="hidden" value={{ farmer_id }}>-->
-<!--                  <button type="submit" class="das-reject-order">-->
-<!--                    + New Planting-->
-<!--                  </button>-->
-<!--              </form>-->
-            <button><a href="{% url 'planting_reg' %}">New Planting</a></button>
-        </div>
-    {% for plant in planting_history %}
+
+
+    <h2>Planting Info</h2>
+    <table class="table table-borderless table-width-40 farmer_detail">
+        <tbody>
+        <tr>
+            <th scope="row">Farmer ID:</th>
+            <td>{{planting_history.farmer_id}}</td>
+          </tr>
+        <tr>
+            <th scope="row">Farm ID:</th>
+            <td>{{planting_history.farm_id}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Plant Name:</th>
+            <td>{{planting_history.plant}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Plant Type:</th>
+            <td>{{planting_history.plant_type}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Plant Area</th>
+            <td>{{planting_history.planting_area}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Create Date</th>
+            <td>{{planting_history.create_date}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Modified Date</th>
+            <td>{{planting_history.modified_date}}</td>
+          </tr>
+        </tbody>
+      </table>
+<div class="col-md-12 d-flex">
+    <div class="col-md-4">
+        <button><a href="{% url 'fertilizer_reg' %}">Fertilizer Reg</a></button>
+    <div class="d-flex justify-content-evenly flex-wrap">
+      {% for fer in fertilizer %}
       <div class="card m-2" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">{{plant.planting_time}}</h5>
-          <p class="card-text">{{plant.plant}}</p>
-          <p class="card-text">{{plant.planting_area}}</p>
-          <a href="#" class="btn btn-primary">More Details</a>
+          <h5 class="card-title">fertilizer_name:{{fer.fertilizer_name}}</h5>
+          <p class="card-text">fertilizer_qty:{{fer.fertilizer_qty}}</p>
+          <p class="card-text">fertilizer_date:{{fer.fertilizer_date}}</p>
+          <p class="card-text">rating:{{fer.rating}}</p>
+          <p class="card-text">crop_days:{{fer.crop_days}}</p>
+            <button><a href="">More Info</a></button>
         </div>
       </div>
       {% endfor %}
+    </div>
 
+    </div>
+    <div class="col-md-4">
+        <button><a href="{% url 'water_irrigation_reg' %}">Water irrigation</a></button>
+    <div class="d-flex justify-content-evenly flex-wrap">
+      {% for water in water_irrigation %}
+      <div class="card m-2" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{water.water_irrigation_type}}</h5>
+          <p class="card-text">{{water.water_irrigation_date}}</p>
+          <p class="card-text">{{water.crop_days}}</p>
+            <button><a href="">More Info</a></button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+    <div class="col-md-4">
+        <button><a href="{% url 'pesticide_reg' %}">Pesticide</a></button>
+    <div class="d-flex justify-content-evenly flex-wrap">
+      {% for pes in pesticide %}
+      <div class="card m-2" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">pesticide_name:{{pes.pesticide_name}}</h5>
+          <p class="card-text">pesticide_qty:{{pes.pesticide_qty}}</p>
+          <p class="card-text">pesticide_date:{{pes.pesticide_date}}</p>
+          <p class="card-text">pesticide_days:{{pes.pesticide_days}}</p>
+            <button><a href="">More Info</a></button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+</div>
 </body>
 
 </html>
