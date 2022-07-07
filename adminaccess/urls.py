@@ -16,13 +16,13 @@ urlpatterns = [
     path('farm_info_reg', views.farm_info_reg, name="farm_info_reg"),
     path('farm_info/farm_id=<int:farm_id>', views.farm_info, name="farm_info"),
     path('planting_reg', views.planting_reg, name="planting_reg"),
-    path('planting', views.planting, name="planting"),
+    path('planting/planting_id=<int:planting_id>', views.planting, name="planting"),
     # path('planting/<int:farmer_id>', views.planting, name="planting"),
     path('Harvesting', views.harvesting, name="Harvesting"),
     path('Crop_selling', views.crop_selling, name="Crop_selling"),
-    path('Fertilizer', views.fertilizer, name="Fertilizer"),
-    path('Water_irrigation', views.water_irrigation, name="Water_irrigation"),
-    path('Pesticide', views.pesticide, name="Pesticide"),
+    path('fertilizer_reg', views.fertilizer_reg, name="fertilizer_reg"),
+    path('Water_irrigation_reg', views.water_irrigation_reg, name="water_irrigation_reg"),
+    path('Pesticide_reg', views.pesticide_reg, name="pesticide_reg"),
     path('search', views.search, name="search"),
 
 ]

@@ -11,18 +11,9 @@
 </head>
 <body>
 <h2>Planting Reg</h2>
-            <div class="d-flex justify-content-center align-items-center">
-          <form method="POST" action="{% url 'planting' %}">
-                  {% csrf_token %}
-                  <input name="farm_id" type="hidden" value={{ farm_id }}>
-                  <input name="farmer_id" type="hidden" value={{ farmer_id }}>
-                  <button type="submit" class="das-reject-order">
-                     Planting
-                  </button>
-              </form>
-        </div>
-<div class="container create_user_form">
 
+<div class="container create_user_form">
+   <button><a href="{% url 'farm_info' farm_id=farm_id%}">Back to Farm Info</a></button>
 
 
     <form method="post" id="loginid">
