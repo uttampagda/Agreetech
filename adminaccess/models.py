@@ -78,7 +78,7 @@ class Harvesting(models.Model):
 class Crop_selling(models.Model):
     farmer_id = models.IntegerField()
     farm_id = models.IntegerField()
-    harvesting_id = models.IntegerField()
+    planting_id = models.IntegerField()
     sell_quantity = models.IntegerField(blank=True, null=True)
     sell_date = models.DateTimeField(blank=True, null=True)#selection
     sell_rate = models.IntegerField(blank=True, null=True)
@@ -119,6 +119,7 @@ class Pesticide(models.Model):
     planting_id = models.IntegerField()
     pesticide_name = models.CharField(max_length=50)
     pesticide_qty = models.CharField(max_length=50)
+    reason = models.CharField(max_length=50,blank=True, null=True)
     pesticide_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)#selection
     pesticide_days = models.CharField(max_length=50, blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)

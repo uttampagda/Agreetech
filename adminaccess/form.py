@@ -41,7 +41,7 @@ class Harvesting_Form(forms.ModelForm):
 class Crop_selling_Form(forms.ModelForm):
     class Meta:
         model = Crop_selling
-        fields = ['farmer_id', 'farm_id', 'harvesting_id', 'sell_quantity', 'sell_rate', 'purchaser_name',
+        fields = ['farmer_id', 'farm_id', 'planting_id', 'sell_quantity', 'sell_rate', 'purchaser_name',
                   'purchaser_number']
 
 
@@ -61,4 +61,4 @@ class Water_irrigation_Form(forms.ModelForm):
 class Pesticide_Form(forms.ModelForm):
     class Meta:
         model = Pesticide
-        fields = ['farmer_id', 'farm_id', 'planting_id', 'pesticide_name', 'pesticide_qty', 'pesticide_days']
+        fields = ['farmer_id', 'farm_id', 'planting_id', 'pesticide_name', 'pesticide_qty', 'reason', 'pesticide_days']

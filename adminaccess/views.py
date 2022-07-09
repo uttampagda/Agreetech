@@ -222,26 +222,62 @@ def planting(request,planting_id):
     request.session['planting_id'] = planting_id
     return render(request,'forms/planting.html',data)
 
-def harvesting(request):
+def harvesting_reg(request):
+    farm_id = request.session['farm_id']
+    farmer_id = request.session['farmer_id']
+    planting_id = request.session['planting_id']
     if request.method == 'POST':
         form = Harvesting_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('Harvesting')
-    else:
-        form = Harvesting_Form()
-    return render(request, 'forms/harvesting.html')
+            request.session['farmer_id'] = farmer_id
+            request.session['farm_id'] = farm_id
+            request.session['planting_id'] = planting_id
+            return redirect('harvesting_and_crop_selling')
+    data = {
+        'farm_id': farm_id,
+        'farmer_id': farmer_id,
+        'planting_id': planting_id,
+    }
+    return render(request, 'forms/harvesting_reg.html',data)
 
 
-def crop_selling(request):
+def crop_selling_reg(request):
+    farm_id = request.session['farm_id']
+    farmer_id = request.session['farmer_id']
+    planting_id = request.session['planting_id']
     if request.method == 'POST':
         form = Crop_selling_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('Crop_selling')
-    else:
-        form = Crop_selling_Form()
-    return render(request, 'forms/crop_selling.html')
+            request.session['farmer_id'] = farmer_id
+            request.session['farm_id'] = farm_id
+            request.session['planting_id'] = planting_id
+            return redirect('harvesting_and_crop_selling')
+    data = {
+        'farm_id':farm_id,
+        'farmer_id':farmer_id,
+        'planting_id': planting_id,
+    }
+    return render(request, 'forms/crop_selling_reg.html',data)
+
+def harvesting_and_crop_selling(request):
+    farm_id = request.session['farm_id']
+    farmer_id = request.session['farmer_id']
+    planting_id = request.session['planting_id']
+    harvesting = Harvesting.objects.filter(planting_id=planting_id)
+    crop_selling = Crop_selling.objects.filter(planting_id=planting_id)
+    data = {
+          'farmer_id': farmer_id,
+          'farm_id': farm_id,
+          'planting_id': planting_id,
+          'harvesting': harvesting,
+          'crop_selling': crop_selling,
+      }
+    request.session['farmer_id'] = farmer_id
+    request.session['farm_id'] = farm_id
+    request.session['planting_id'] = planting_id
+    return render(request, 'forms/harvesting_and_selling.html',data)
 
 def fertilizer_reg(request):
     farm_id = request.session['farm_id']
