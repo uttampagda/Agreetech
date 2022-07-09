@@ -329,6 +329,17 @@ def pesticide_reg(request):
     return render(request, 'forms/pesticide_reg.html',data)
 
 def search(request):
-    farm_info = Farm_info.objects.all()
-    data = {'farm_info':farm_info}
+    farm_info = Farm_info.objects.values()
+    farm = []
+    for i in farm_info:
+        if farm:
+            for j in farm:
+                if j['farmer_id'] == i['farmer_id']:
+                    print(i['farmer_id'],j['farmer_id'])
+                    j['farm_space'] += i['farm_space']
+                else:
+                    farm.append(i)
+        else:
+            farm.append(i)
+    data = {'farm_info':farm}
     return render(request, 'forms/search.html', data)
