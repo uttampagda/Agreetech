@@ -17,7 +17,7 @@ class Farmer(models.Model):
 class Farm_info(models.Model):
     farmer_id = models.IntegerField()
     farm_nick_name = models.CharField(max_length=50, blank=True, null=True)
-    farm_space = models.IntegerField(blank=True, null=True)
+    farm_space = models.IntegerField(default=0)
     geo_location = models.CharField(max_length=50, blank=True, null=True)
     farm_village = models.CharField(max_length=50, blank=True, null=True)
     khata_no = models.CharField(max_length=50, blank=True, null=True)

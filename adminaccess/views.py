@@ -343,3 +343,31 @@ def search(request):
             farm.append(i)
     data = {'farm_info':farm}
     return render(request, 'forms/search.html', data)
+
+def search_utm(request):
+    farms = Farm_info.objects.all()
+    temp_list = []
+    for i in farms:
+        temp_list.append([i.farmer_id,i.farm_space])
+    temp_farmer_ids = []
+
+    for i in range(len(temp_list)):
+        temp_farmer_ids.append(temp_list[i][0])
+    temp_farmer_ids = list(set(temp_farmer_ids))
+    final_list = []
+    for j in temp_farmer_ids:
+        space=0
+        for i in range(len(temp_list)):
+            if temp_list[i][0] == j:
+                space += temp_list[i][1]
+        final_list.append([j, space])
+    print('final',final_list)
+    farmers = Farmer.objects.all()
+    data = {
+        'final_list': final_list,
+        'farmers': farmers,
+    }
+    for i,j in final_list:
+            print(i,j)
+    return render(request, 'forms/search_utm.html',data)
+

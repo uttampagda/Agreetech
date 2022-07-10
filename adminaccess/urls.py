@@ -25,5 +25,6 @@ urlpatterns = [
     path('Water_irrigation_reg', views.water_irrigation_reg, name="water_irrigation_reg"),
     path('Pesticide_reg', views.pesticide_reg, name="pesticide_reg"),
     path('search', views.search, name="search"),
+    path('search_utm', views.search_utm, name="search_utm"),
 
 ]
