@@ -8,9 +8,9 @@
 
 Farmer category
 
-{% for i,j in  final_list %}
+{% for i,j,k in  final_list %}
 
-<p> farmer_id = {{i}} | totoal_space = {{j}} | <a href=" {% url 'farmer_details' farmer_id=i %}">View_detail</a></p>
+<p> farmer_id = {{i}}  |  farmer_name == {{k}}  |  totoal_space = {{j}} | <a href=" {% url 'farmer_details' farmer_id=i %}">View_detail</a></p>
 
 
 {% endfor %}

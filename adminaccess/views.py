@@ -350,24 +350,27 @@ def search_utm(request):
     for i in farms:
         temp_list.append([i.farmer_id,i.farm_space])
     temp_farmer_ids = []
-
     for i in range(len(temp_list)):
         temp_farmer_ids.append(temp_list[i][0])
     temp_farmer_ids = list(set(temp_farmer_ids))
+    print('temp_farmer_ids',temp_farmer_ids)
     final_list = []
-    for j in temp_farmer_ids:
+    farmers = Farmer.objects.all()
+    f_list= []
+    for i in farmers:
+        for j in temp_farmer_ids:
+            print(i.id,j)
+            if i.id==j:
+                f_list.append([j,i.name])
+    for j,k in f_list:
         space=0
         for i in range(len(temp_list)):
             if temp_list[i][0] == j:
                 space += temp_list[i][1]
-        final_list.append([j, space])
-    print('final',final_list)
-    farmers = Farmer.objects.all()
+        final_list.append([j, space,k])
     data = {
         'final_list': final_list,
         'farmers': farmers,
     }
-    for i,j in final_list:
-            print(i,j)
     return render(request, 'forms/search_utm.html',data)
 
