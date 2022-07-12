@@ -49,16 +49,16 @@ class Fertilizer_Form(forms.ModelForm):
     class Meta:
         model = Fertilizer
         fields = ['farmer_id', 'farm_id', 'planting_id', 'fertilizer_name', 'fertilizer_qty', 'fertilizer_qty_per_acre',
-                  'rating', 'crop_days']
+                  'rating']
 
 
 class Water_irrigation_Form(forms.ModelForm):
     class Meta:
         model = Water_irrigation
-        fields = ['farmer_id', 'farm_id', 'planting_id', 'water_irrigation_type', 'crop_days']
+        fields = ['farmer_id', 'farm_id', 'planting_id', 'water_irrigation_type']
 
 
 class Pesticide_Form(forms.ModelForm):
     class Meta:
         model = Pesticide
-        fields = ['farmer_id', 'farm_id', 'planting_id', 'pesticide_name', 'pesticide_qty', 'reason', 'pesticide_days']
+        fields = ['farmer_id', 'farm_id', 'planting_id', 'pesticide_name', 'pesticide_qty', 'reason']

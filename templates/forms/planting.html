@@ -42,6 +42,14 @@
             <th scope="row">Plant Area</th>
             <td>{{planting_history.planting_area}}</td>
           </tr>
+        <tr>
+            <th scope="row">Planting Date</th>
+            <td>{{planting_history.planting_time}}</td>
+          </tr>
+        <tr>
+            <th scope="row">Time from planting</th>
+            <td>{{planting_history.time_from_planting}}</td>
+          </tr>
           <tr>
             <th scope="row">Create Date</th>
             <td>{{planting_history.create_date}}</td>
@@ -63,7 +71,7 @@
           <p class="card-text">fertilizer_qty:{{fer.fertilizer_qty}}</p>
           <p class="card-text">fertilizer_date:{{fer.fertilizer_date}}</p>
           <p class="card-text">rating:{{fer.rating}}</p>
-          <p class="card-text">crop_days:{{fer.crop_days}}</p>
+          <p class="card-text">crop_days:{{fer.time_from_fertilizer}}</p>
             <button><a href="">More Info</a></button>
         </div>
       </div>
@@ -77,9 +85,9 @@
       {% for water in water_irrigation %}
       <div class="card m-2" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">{{water.water_irrigation_type}}</h5>
-          <p class="card-text">{{water.water_irrigation_date}}</p>
-          <p class="card-text">{{water.crop_days}}</p>
+          <h5 class="card-title">water_irrigation_type :{{water.water_irrigation_type}}</h5>
+          <p class="card-text">water_irrigation_date: {{water.water_irrigation_date}}</p>
+          <p class="card-text">time_from_water_irrigation: {{water.time_from_water_irrigation}}</p>
             <button><a href="">More Info</a></button>
         </div>
       </div>
@@ -95,7 +103,7 @@
           <h5 class="card-title">pesticide_name:{{pes.pesticide_name}}</h5>
           <p class="card-text">pesticide_qty:{{pes.pesticide_qty}}</p>
           <p class="card-text">pesticide_date:{{pes.pesticide_date}}</p>
-          <p class="card-text">pesticide_days:{{pes.pesticide_days}}</p>
+          <p class="card-text">pesticide_days:{{pes.time_from_prestiside}}</p>
             <button><a href="">More Info</a></button>
         </div>
       </div>

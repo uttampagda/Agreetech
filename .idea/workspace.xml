@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="registration form till pesticide">
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="farmer category by space">
       <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0003_rename_harvesting_id_crop_selling_planting_id.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0004_pesticide_reason.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/forms/crop_selling_reg.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/forms/harvesting_and_selling.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/forms/harvesting_reg.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0005_alter_farm_info_farm_space.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0006_remove_fertilizer_crop_days_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0007_default_plant_name_default_plant_seed_name.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Default_parameters/default_parameters.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Default_parameters/default_plant_name_reg.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/form.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/crop_selling.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/harvesting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/fertilizer_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/fertilizer_reg.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/forms/pesticide_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/pesticide_reg.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/forms/planting.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/planting.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/water_irrigation_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/water_irrigation_reg.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +30,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
@@ -59,7 +64,7 @@
       <recent name="$PROJECT_DIR$/templates/forms" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.test">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -74,6 +79,28 @@
       <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/adminaccess" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/adminaccess/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -105,6 +132,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -133,7 +165,9 @@
       <workItem from="1657170332449" duration="174000" />
       <workItem from="1657211419377" duration="6767000" />
       <workItem from="1657299541024" duration="1735000" />
-      <workItem from="1657371515460" duration="7696000" />
+      <workItem from="1657371515460" duration="17586000" />
+      <workItem from="1657558032254" duration="4870000" />
+      <workItem from="1657646425127" duration="3961000" />
     </task>
     <task id="LOCAL-00001" summary="forms initial">
       <created>1654536683658</created>
@@ -219,7 +253,28 @@
       <option name="project" value="LOCAL" />
       <updated>1657134621165</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="harvesting and fertilizer reg is done">
+      <created>1657392243077</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1657392243077</updated>
+    </task>
+    <task id="LOCAL-00014" summary="farmer category by space">
+      <created>1657435280172</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1657435280172</updated>
+    </task>
+    <task id="LOCAL-00015" summary="farmer category by space">
+      <created>1657560296967</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1657560296967</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +297,9 @@
     <MESSAGE value="4 models created" />
     <MESSAGE value="farm info and farm reg" />
     <MESSAGE value="solution of form submission conformation(Done till planting)" />
-    <option name="LAST_COMMIT_MESSAGE" value="solution of form submission conformation(Done till planting)" />
+    <MESSAGE value="harvesting and fertilizer reg is done" />
+    <MESSAGE value="farmer category by space" />
+    <option name="LAST_COMMIT_MESSAGE" value="farmer category by space" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

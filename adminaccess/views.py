@@ -6,9 +6,9 @@ from django.contrib.auth.decorators import login_required,permission_required
 from django.contrib.auth.models import User, auth
 from .form import *
 from .models import *
+from datetime import datetime
 
-farm_id_g = None
-farmer_id_g = None
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -203,12 +203,42 @@ def planting_reg(request):
 def planting(request,planting_id):
     farm_id = request.session['farm_id']
     farmer_id = request.session['farmer_id']
-    print("planting...start planting_id",planting_id)
-    planting_history = Planting.objects.filter(id=planting_id)[0]
-    fertilizer = Fertilizer.objects.filter(planting_id=planting_id)
-    water_irrigation = Water_irrigation.objects.filter(planting_id=planting_id)
-    pesticide = Pesticide.objects.filter(planting_id=planting_id)
-    print('planting_history',planting_history)
+    planting_history = Planting.objects.filter(id=planting_id).values()[0]
+    fertilizer = Fertilizer.objects.filter(planting_id=planting_id).values()
+    water_irrigation = Water_irrigation.objects.filter(planting_id=planting_id).values()
+    pesticide = Pesticide.objects.filter(planting_id=planting_id).values()
+    
+    # Creating DateTime var for multiple use
+    date_now=datetime.now().date()
+    
+    if planting_history['planting_time'] != None:
+        time_from_planting = (date_now-planting_history['planting_time'].date()).days 
+    else:
+        time_from_planting = "No information provided"
+    planting_history['time_from_planting'] = time_from_planting
+    
+    
+    for fer in fertilizer:
+       if fer['fertilizer_date'] != None:
+           time_from_fertilizer = (date_now-fer['fertilizer_date'].date()).days
+       else:
+           time_from_fertilizer = "No information provided"
+       fer['time_from_fertilizer'] = time_from_fertilizer
+
+    for water in water_irrigation:
+       if water['water_irrigation_date'] != None:
+           time_from_water_irrigation = (date_now-water['water_irrigation_date'].date()).days
+       else:
+           time_from_water_irrigation = "No information provided"
+       water['time_from_water_irrigation'] = time_from_water_irrigation
+    
+    for pes in pesticide:
+       if pes['pesticide_date'] != None:
+           time_from_prestiside = (date_now-pes['pesticide_date'].date()).days
+       else:
+           time_from_prestiside = "No information provided"
+       pes['time_from_prestiside'] = time_from_prestiside
+        
     data = {
         'farm_id':farm_id,
         'planting_id': planting_id,
@@ -346,6 +376,7 @@ def search(request):
 
 def search_utm(request):
     farms = Farm_info.objects.all()
+    farmers = Farmer.objects.all()
     temp_list = []
     for i in farms:
         temp_list.append([i.farmer_id,i.farm_space])
@@ -353,13 +384,10 @@ def search_utm(request):
     for i in range(len(temp_list)):
         temp_farmer_ids.append(temp_list[i][0])
     temp_farmer_ids = list(set(temp_farmer_ids))
-    print('temp_farmer_ids',temp_farmer_ids)
     final_list = []
-    farmers = Farmer.objects.all()
     f_list= []
     for i in farmers:
         for j in temp_farmer_ids:
-            print(i.id,j)
             if i.id==j:
                 f_list.append([j,i.name])
     for j,k in f_list:
@@ -374,3 +402,12 @@ def search_utm(request):
     }
     return render(request, 'forms/search_utm.html',data)
 
+def default_parameters(request):
+    return render(request, 'Default_parameters/default_parameters.html')
+
+def default_plant_name(request):
+    default_plant_name = Default_plant_name.objects.all()
+    data = {
+        'default_plant_name': default_plant_name
+    }
+    return render(request, 'Default_parameters/default_plant_name_reg.html',data)

@@ -26,5 +26,7 @@ urlpatterns = [
     path('Pesticide_reg', views.pesticide_reg, name="pesticide_reg"),
     path('search', views.search, name="search"),
     path('search_utm', views.search_utm, name="search_utm"),
+    path('default_parameters', views.default_parameters, name="default_parameters"),
+    path('default_plant_name', views.default_plant_name, name="default_plant_name"),
 
 ]

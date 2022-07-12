@@ -97,7 +97,6 @@ class Fertilizer(models.Model):
     fertilizer_qty_per_acre = models.CharField(max_length=50,blank=True, null=True)
     fertilizer_date = models.DateTimeField(blank=True, null=True)#selection
     rating = models.IntegerField(blank=True, null=True)
-    crop_days = models.CharField(max_length=50,blank=True, null=True)
     creation_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
 
@@ -107,7 +106,6 @@ class Water_irrigation(models.Model):
     farm_id = models.IntegerField()
     planting_id = models.IntegerField()
     water_irrigation_type = models.CharField(max_length=50, blank=True, null=True)
-    crop_days = models.CharField(max_length=50, blank=True, null=True)
     water_irrigation_date = models.DateTimeField(blank=True, null=True)#selection
     create_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
@@ -121,6 +119,16 @@ class Pesticide(models.Model):
     pesticide_qty = models.CharField(max_length=50)
     reason = models.CharField(max_length=50,blank=True, null=True)
     pesticide_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)#selection
-    pesticide_days = models.CharField(max_length=50, blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
+
+class Default_plant_name(models.Model):
+    plant_name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.plant_name
+
+class Default_plant_seed_name(models.Model):
+    plant_name = models.ForeignKey(Default_plant_name,on_delete=models.CASCADE)
+    seed_name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.seed_name
