@@ -411,3 +411,35 @@ def default_plant_name(request):
         'default_plant_name': default_plant_name
     }
     return render(request, 'Default_parameters/default_plant_name_reg.html',data)
+
+
+def farmer_edit(request, farmer_id):
+    farmer = Farmer.objects.get(id=farmer_id)
+    farmers = Farmer.objects.filter(id=farmer_id)
+    print(farmers)
+    print(farmer.name)
+    form = Farmer_Form(instance=farmer)
+
+    if request.method == 'POST':
+        form = Farmer_Form(request.POST, instance=farmer)
+
+        if form.is_valid():
+            form.save()
+            return redirect(f'/farmer_details/farmer_id={farmer_id}')
+    
+    return render(request, 'form_edit/farmer_edit.html', {'farmer':farmers})
+
+def farm_edit(request, farm_id):
+    farm = Farm_info.objects.get(id=farm_id)
+    farms = Farm_info.objects.filter(id=farm_id)
+
+    form = Farm_info_Form(instance=farm)
+
+    if request.method == 'POST':
+        form = Farm_info_Form(request.POST, instance=farm)
+
+        if form.is_valid():
+            form.save()
+            return redirect(f'/farm_info/farm_id={farm_id}')
+    
+    return render(request, 'form_edit/farm_edit.html', {'farms':farms})
