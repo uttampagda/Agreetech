@@ -22,14 +22,24 @@ urlpatterns = [
     path('harvesting_reg', views.harvesting_reg, name="harvesting_reg"),
     path('crop_selling_reg', views.crop_selling_reg, name="crop_selling_reg"),
     path('fertilizer_reg', views.fertilizer_reg, name="fertilizer_reg"),
+    path('fertilizer_info/fertilizer_id=<int:fertilizer_id>', views.fertilizer_info, name="fertilizer_info"),
     path('Water_irrigation_reg', views.water_irrigation_reg, name="water_irrigation_reg"),
+    path('water_irrigation_info/water_irrigation_id=<int:water_irrigation_id>', views.water_irrigation_info, name="water_irrigation_info"),
     path('Pesticide_reg', views.pesticide_reg, name="pesticide_reg"),
+    path('pesticide_info/pesticide_id=<int:pesticide_id>', views.pesticide_info, name="pesticide_info"),
     path('search', views.search, name="search"),
     path('search_utm', views.search_utm, name="search_utm"),
     path('default_parameters', views.default_parameters, name="default_parameters"),
     path('default_plant_name', views.default_plant_name, name="default_plant_name"),
     path('farmer_edit/farmer_id=<int:farmer_id>', views.farmer_edit, name="farmer_edit"),
     path('farm_edit/farm_id=<int:farm_id>', views.farm_edit, name="farm_edit"),
+    path('plant_edit/plant_id=<int:plant_id>', views.plant_edit, name="plant_edit"),
+    path('fertilizer_edit/fertilizer_id=<int:fertilizer_id>', views.fertilizer_edit, name="fertilizer_edit"),
+    path('water_irrigation_edit/water_irrigation_id=<int:water_irrigation_id>', views.water_irrigation_edit, name="water_irrigation_id_edit"),
+    path('pesticide_edit/pesticide_id=<int:pesticide_id>', views.pesticide_edit, name="Pesticide_edit"),
+
+
+    
 
     
 
