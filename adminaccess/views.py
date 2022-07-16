@@ -188,7 +188,7 @@ def planting_reg(request):
         if form.is_valid():
             form.save()
             request.session['farm_id'] = farm_id
-            return redirect('farm_info')
+            return redirect('farm_info',farm_id)
             # return render(request, 'forms/planting_reg.html',data)
     farmer_id = request.session['farmer_id']
     farm_id = request.session['farm_id']
@@ -409,5 +409,19 @@ def default_plant_name(request):
     default_plant_name = Default_plant_name.objects.all()
     data = {
         'default_plant_name': default_plant_name
+    }
+    return render(request, 'Default_parameters/default_plant_name.html',data)
+
+def default_plant_name_reg(request):
+    if request.method == 'POST':
+        # if request.POST.get("form_name") == 'plant_reg':
+        #     default_plant_name = Default_plant_name.objects.all()
+        #     plant_name = request.POST.get("plant_name")
+        form = Pesticide_Form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('planting', planting_id=planting_id)
+    data = {
+        
     }
     return render(request, 'Default_parameters/default_plant_name_reg.html',data)
