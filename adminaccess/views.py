@@ -188,7 +188,7 @@ def planting_reg(request):
         if form.is_valid():
             form.save()
             request.session['farm_id'] = farm_id
-            return redirect('farm_info',farm_id)
+            return redirect(f'/farm_info/farm_id={farm_id}')
             # return render(request, 'forms/planting_reg.html',data)
     farmer_id = request.session['farmer_id']
     farm_id = request.session['farm_id']
@@ -325,6 +325,22 @@ def fertilizer_reg(request):
     }
     return render(request, 'forms/fertilizer_reg.html',data)
 
+def fertilizer_info(request, fertilizer_id):
+    fertilizer = Fertilizer.objects.filter(id=fertilizer_id)[0]
+    data = {'fertilizer':fertilizer}
+    return render(request, 'forms/fertilizer_info.html', data)
+
+def water_irrigation_info(request, water_irrigation_id):
+    water_irrigation = Water_irrigation.objects.filter(id=water_irrigation_id)[0]
+    data = {'water_irrigation':water_irrigation}
+    return render(request, 'forms/water_irrigation_info.html', data)
+
+def pesticide_info(request, pesticide_id):
+    pesticide = Pesticide.objects.filter(id=pesticide_id)[0]
+    data = {'pesticide':pesticide}
+    return render(request, 'forms/pesticide_info.html', data)  
+
+
 def water_irrigation_reg(request):
     farm_id = request.session['farm_id']
     farmer_id = request.session['farmer_id']
@@ -410,18 +426,95 @@ def default_plant_name(request):
     data = {
         'default_plant_name': default_plant_name
     }
-    return render(request, 'Default_parameters/default_plant_name.html',data)
+    return render(request, 'Default_parameters/default_plant_name_reg.html',data)
 
-def default_plant_name_reg(request):
+
+def farmer_edit(request, farmer_id):
+    farmer = Farmer.objects.get(id=farmer_id)
+    farmers = Farmer.objects.filter(id=farmer_id)
+    print(farmers)
+    print(farmer.name)
+    form = Farmer_Form(instance=farmer)
+
     if request.method == 'POST':
-        # if request.POST.get("form_name") == 'plant_reg':
-        #     default_plant_name = Default_plant_name.objects.all()
-        #     plant_name = request.POST.get("plant_name")
-        form = Pesticide_Form(request.POST, request.FILES)
+        form = Farmer_Form(request.POST, instance=farmer)
+
         if form.is_valid():
             form.save()
-            return redirect('planting', planting_id=planting_id)
-    data = {
-        
-    }
-    return render(request, 'Default_parameters/default_plant_name_reg.html',data)
+            return redirect(f'/farmer_details/farmer_id={farmer_id}')
+    
+    return render(request, 'form_edit/farmer_edit.html', {'farmer':farmers})
+
+
+def farm_edit(request, farm_id):
+    farm = Farm_info.objects.get(id=farm_id)
+    farms = Farm_info.objects.filter(id=farm_id)
+
+    form = Farm_info_Form(instance=farm)
+
+    if request.method == 'POST':
+        form = Farm_info_Form(request.POST, instance=farm)
+
+        if form.is_valid():
+            form.save()
+            return redirect(f'/farm_info/farm_id={farm_id}')
+    
+    return render(request, 'form_edit/farm_edit.html', {'farms':farms})
+
+
+def plant_edit(request, plant_id):
+    plant = Planting.objects.get(id=plant_id)
+    plants = Planting.objects.filter(id=plant_id)
+
+    form = Planting_Form(instance=plant)
+
+    if request.method == 'POST':
+        form = Planting_Form(request.POST, instance=plant)
+
+        if form.is_valid():
+            form.save()
+            return redirect(f'/planting/planting_id={plant_id}')
+    
+    return render(request, 'form_edit/planting_edit.html', {'plants':plants})
+
+
+def fertilizer_edit(request, fertilizer_id):
+    fertilizer = Fertilizer.objects.get(id=fertilizer_id)
+    fertilizers = Fertilizer.objects.filter(id=fertilizer_id)
+
+    if request.method == 'POST':
+        form = Fertilizer_Form(request.POST, instance=fertilizer)
+
+        if form.is_valid():
+            form.save()
+            return redirect(f'/fertilizer_info/fertilizer_id={fertilizer_id}')
+    
+    return render(request, 'form_edit/fertilizer_edit.html', {'fertilizers':fertilizers})
+
+
+def water_irrigation_edit(request, water_irrigation_id):
+    water_irrigation = Water_irrigation.objects.get(id=water_irrigation_id)
+    water_irrigations = Water_irrigation.objects.filter(id=water_irrigation_id)
+
+    if request.method == 'POST':
+        form = Water_irrigation_Form(request.POST, instance=water_irrigation)
+
+        if form.is_valid():
+            form.save()
+            return redirect(f'/water_irrigation_info/water_irrigation_id={water_irrigation_id}')
+    
+    return render(request, 'form_edit/water_irrigation_edit.html', {'water_irrigations':water_irrigations})
+
+
+def pesticide_edit(request, pesticide_id):
+    pesticide = Pesticide.objects.get(id=pesticide_id)
+    pesticides = Pesticide.objects.filter(id=pesticide_id)
+
+    if request.method == 'POST':
+        form = Pesticide_Form(request.POST, instance=pesticide)
+
+        if form.is_valid():
+            form.save()
+            return redirect(f'/pesticide_info/pesticide_id={pesticide_id}')
+    
+    return render(request, 'form_edit/pesticide_edit.html', {'pesticides':pesticides})

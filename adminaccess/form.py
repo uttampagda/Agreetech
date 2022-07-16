@@ -55,7 +55,7 @@ class Fertilizer_Form(forms.ModelForm):
 class Water_irrigation_Form(forms.ModelForm):
     class Meta:
         model = Water_irrigation
-        fields = ['farmer_id', 'farm_id', 'planting_id', 'water_irrigation_type']
+        fields = ['farmer_id', 'farm_id', 'planting_id', 'water_irrigation_type', 'water_irrigation_date']
 
 
 class Pesticide_Form(forms.ModelForm):
