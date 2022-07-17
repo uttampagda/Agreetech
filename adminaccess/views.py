@@ -438,26 +438,38 @@ def default_plant_name(request):
     #         print("2nd valid")
     #         form.save()
     #         return redirect('default_plant_name')
-    if request.method == 'POST':
-        if request.POST.get('form_name')=='plant_reg':
-            print('plant')
+    # if request.method == 'POST':
+    #     if request.POST.get('form_name')=='plant_reg':
+    #         print('plant')
             
-            form = Default_plant_name_Form(request.POST)
-            if form.is_valid():
-                    form.save()
-                    return redirect('default_plant_name')
-        if request.POST.get('form_name')=='seed_reg':
-            print('seed')
+    #         form = Default_plant_name_Form(request.POST)
+    #         if form.is_valid():
+    #                 form.save()
+    #                 return redirect('default_plant_name')
+    #     if request.POST.get('form_name')=='seed_reg':
+    #         print('seed')
             
-            form = Default_plant_seed_name_Form(request.POST)
-            if form.is_valid():
-                    form.save()
-                    return redirect('default_plant_name')
+    #         form = Default_plant_seed_name_Form(request.POST)
+    #         if form.is_valid():
+    #                 form.save()
+    #                 return redirect('default_plant_name')
     data = {
         'plant_names' : plant_names
     }    
     return render(request, 'Default_parameters/default_plant_name_reg.html',data)
+def add_default_plant_name(request):
+    if request.method == 'POST':
+        form = Default_plant_name_Form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('default_plant_name')
 
+def select_default_plant_name(request):
+    if request.method == 'POST':
+        form = Default_plant_seed_name_Form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('default_plant_name')
 
 def farmer_edit(request, farmer_id):
     farmer = Farmer.objects.get(id=farmer_id)

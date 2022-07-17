@@ -12,19 +12,19 @@
 <body>
 Default plant names Registration
 <div class="container create_user_form">
-    <form method="post" id="loginid" action="{% url 'default_plant_name'%}">
+    <form method="post" id="loginid" action="{% url 'add_default_plant_name'%}">
         {% csrf_token %}
         <div class="form-group mt-2">
             <label>Plant name</label>
             <input type="text" class="form-control"  name="plant_name"  placeholder="Plant name" >
             <input type="hidden" name="form_name"  value="plant_reg">
         </div>
-        <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
     </form>
 </div>
 
 <div class="container create_user_form">
-    <form method="post" action="{% url 'default_plant_name'%}">
+    <form method="post" action="{% url 'select_default_plant_name'%}">
         {% csrf_token %}
         <div class="form-group mt-2">
             <label>Plant name</label>
@@ -39,7 +39,7 @@ Default plant names Registration
             <input type="text" class="form-control"  name="seed_name"  placeholder="Seed name" >
         </div>
         <input type="hidden" name="form_name"  value="seed_reg">
-        <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
     </form>
 </div>
 
