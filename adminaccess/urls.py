@@ -31,6 +31,8 @@ urlpatterns = [
     path('search_utm', views.search_utm, name="search_utm"),
     path('default_parameters', views.default_parameters, name="default_parameters"),
     path('default_plant_name', views.default_plant_name, name="default_plant_name"),
+    path('add_default_fertilizer', views.add_default_fertilizer, name="add_default_fertilizer"),
+    path('add_default_pesticide', views.add_default_pesticide, name="add_default_pesticide"),
     path('add_default_plant_name', views.add_default_plant_name, name="add_default_plant_name"),
     path('select_default_plant_name', views.select_default_plant_name, name="select_default_plant_name"),
     path('farmer_edit/farmer_id=<int:farmer_id>', views.farmer_edit, name="farmer_edit"),
