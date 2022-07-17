@@ -132,3 +132,13 @@ class Default_plant_seed_name(models.Model):
     seed_name = models.CharField(max_length=50)
     def __str__(self):
         return self.seed_name
+
+class Default_fertilizer(models.Model):
+    fertilizer_name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.fertilizer_name
+
+class Default_pesticide(models.Model):
+    pesticide_name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.pesticide_name

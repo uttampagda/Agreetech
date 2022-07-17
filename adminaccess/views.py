@@ -472,6 +472,30 @@ def select_default_plant_name(request):
         if form.is_valid():
             form.save()
             return redirect('default_plant_name')
+        
+def add_default_fertilizer(request):
+    default_fertilizer = Default_fertilizer.objects.all()
+    if request.method == 'POST':
+        form = Default_fertilizer_Form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('add_default_fertilizer')
+    data = {
+        'default_fertilizer' : default_fertilizer
+    }    
+    return render(request, 'Default_parameters/default_fertilizer.html',data)
+
+def add_default_pesticide(request):
+    default_pesticide = Default_pesticide.objects.all()
+    if request.method == 'POST':
+        form = Default_pesticide_Form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('add_default_pesticide')
+    data = {
+        'default_pesticide' : default_pesticide
+    }    
+    return render(request, 'Default_parameters/default_pesticide.html',data)
 
 def farmer_edit(request, farmer_id):
     farmer = Farmer.objects.get(id=farmer_id)

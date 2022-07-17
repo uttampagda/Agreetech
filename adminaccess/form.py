@@ -72,3 +72,13 @@ class Default_plant_seed_name_Form(forms.ModelForm):
     class Meta:
         model = Default_plant_seed_name
         fields = ['plant_name' , 'seed_name']
+
+class Default_fertilizer_Form(forms.ModelForm):
+    class Meta:
+        model = Default_fertilizer
+        fields = ['fertilizer_name']
+
+class Default_pesticide_Form(forms.ModelForm):
+    class Meta:
+        model = Default_pesticide
+        fields = ['pesticide_name']
