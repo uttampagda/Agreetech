@@ -34,7 +34,7 @@
         </div>
         <div class="form-group mt-2">
             <label for="id_water_irrigation_date">Date</label>
-            <input type="datetime-local" value="{{w.water_irrigation_date}}" class="form-control" id="id_water_irrigation_date" name="water_irrigation_date" placeholder="Date" required>
+            <input type="datetime-local" value="{{w.water_irrigation_date|date:'Y-m-d H:i'}}" class="form-control" id="id_water_irrigation_date" name="water_irrigation_date" placeholder="Date" required>
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
         {% endfor %}
