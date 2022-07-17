@@ -42,7 +42,7 @@
         </div>
         <div class="form-group mt-3">
             <label for="id_pesticide_date">Pesticide Date</label>
-            <input type="date" value="{{p.pesticide_date}}" class="form-control" id="id_pesticide_date" name="pesticide_date" placeholder="Pesticide Date" required>
+            <input type="datetime-local"  value="{{p.pesticide_date|date:'Y-m-d H:i'}}" class="form-control" id="id_pesticide_date" name="pesticide_date" placeholder="Pesticide Date" required>
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
         {% endfor %}
