@@ -128,7 +128,7 @@ class Default_plant_name(models.Model):
         return self.plant_name
 
 class Default_plant_seed_name(models.Model):
-    plant_name = models.ForeignKey(Default_plant_name,on_delete=models.CASCADE)
+    plant_name = models.CharField(max_length=50,blank=True, null=True)
     seed_name = models.CharField(max_length=50)
     def __str__(self):
         return self.seed_name

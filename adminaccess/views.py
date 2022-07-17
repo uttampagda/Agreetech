@@ -422,10 +422,40 @@ def default_parameters(request):
     return render(request, 'Default_parameters/default_parameters.html')
 
 def default_plant_name(request):
-    default_plant_name = Default_plant_name.objects.all()
+    plant_names = Default_plant_name.objects.all()
+    # if request.method == 'POST':
+    #     form = Default_plant_name_Form(request.POST)
+    #     if form.is_valid():
+    #         print("1st er",form.errors)
+    #         print("1st valid")
+    #         form.save()
+    #         return redirect('default_plant_name')
+    # if request.method == 'POST':
+    #     form = Default_plant_seed_name_Form(request.POST)
+    #     print(form['plant_name'].value(),form['seed_name'].value())
+    #     print("2nd error",form.errors)
+    #     if form.is_valid():
+    #         print("2nd valid")
+    #         form.save()
+    #         return redirect('default_plant_name')
+    if request.method == 'POST':
+        if request.POST.get('form_name')=='plant_reg':
+            print('plant')
+            
+            form = Default_plant_name_Form(request.POST)
+            if form.is_valid():
+                    form.save()
+                    return redirect('default_plant_name')
+        if request.POST.get('form_name')=='seed_reg':
+            print('seed')
+            
+            form = Default_plant_seed_name_Form(request.POST)
+            if form.is_valid():
+                    form.save()
+                    return redirect('default_plant_name')
     data = {
-        'default_plant_name': default_plant_name
-    }
+        'plant_names' : plant_names
+    }    
     return render(request, 'Default_parameters/default_plant_name_reg.html',data)
 
 
