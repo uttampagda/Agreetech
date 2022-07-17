@@ -15,32 +15,34 @@
 <div class="container create_user_form">
     <form method="post" id="loginid">
         {% csrf_token %}
-        {% for p in  %}{% endfor %}
+        {% for p in plants %}
         <div class="form-group mt-2">
             <label for="id_farmer_id">Farmer Id</label>
-            <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}" placeholder="Farmer Id" required>
+            <input type="number" value="{{p.farmer_id}}" class="form-control" id="id_farmer_id" name="farmer_id">
         </div>
         <div class="form-group mt-3">
             <label for="id_farm_id">Farm Id</label>
-            <input type="number" class="form-control" id="id_farm_id" name="farm_id" value="{{farm_id}}" placeholder="Farm Id" required>
+            <input type="number" value="{{p.farm_id}}" class="form-control" id="id_farm_id" name="farm_id">
         </div>
         <div class="form-group mt-3">
-            <label for="id_planting_id">Planting Id</label>
-            <input type="number" class="form-control" id="id_planting_id" name="planting_id" value="{{planting_id}}" placeholder="Planting Id" required>
+            <label for="id_planting_time">Planting Time</label>
+            <input type="datetime-local" value="{{p.planting_time}}" class="form-control" id="id_planting_time" name="planting_time" placeholder="Planting Time" required>
+        </div>
+        {{p.planting_time}} 
+        <div class="form-group mt-3">
+            <label for="id_plant">Plant</label>
+            <input type="text" value="{{p.plant}}" class="form-control" id="id_plant" name="plant" placeholder="Plant" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="id_plant_type">Plant Type</label>
+            <input type="text" value="{{p.plant_type}}" class="form-control" id="id_plant_type" name="plant_type" placeholder="Plant Type" required>
         </div>
         <div class="form-group mt-3">
-            <label for="id_pesticide_name">Pesticide Name</label>
-            <input type="text" class="form-control" id="id_pesticide_name" name="pesticide_name" placeholder="Pesticide Name" required>
-        </div>
-        <div class="form-group mt-2">
-            <label for="id_pesticide_qty">Pesticide Qty</label>
-            <input type="text" class="form-control" id="id_pesticide_qty" name="pesticide_qty" placeholder="Pesticide Qty" required>
-        </div>
-        <div class="form-group mt-2">
-            <label for="id_pesticide_qty">Reason</label>
-            <input type="text" class="form-control" id="id_reason" name="reason" placeholder="Reason" required>
+            <label for="id_planting_area">Planting Area</label>
+            <input type="text" value="{{p.planting_area}}" class="form-control" id="id_planting_area" name="planting_area" placeholder="Planting Area" required>
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
+        {% endfor %}
     </form>
 </div>
 </body>

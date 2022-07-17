@@ -23,6 +23,7 @@ def login(request):
         else:
             messages.warning(request, 'invalid credentials')
             return redirect('login')
+    
 
     return render(request, 'auth/login.html')
 
@@ -54,6 +55,7 @@ def createuser(request):
             if pass1 == pass2:
                 user = User.objects.create_user(email, name, pass1,is_staff=is_staff)
                 user.save()
+                
                 return redirect('dashboard')
         return render(request, 'auth/createuser.html')
 
@@ -129,7 +131,7 @@ def farm_info_reg(request):
             form.save()
             request.session['farmer_id'] = farmer_id
             print("farm_info if save farmer_id", farmer_id)
-            return redirect('farmer_details')
+            return redirect('farmer_details',farmer_id)
     else:
         farmer_id = request.session['farmer_id']
     data = {'farmer_id': farmer_id}
@@ -415,7 +417,7 @@ def search_utm(request):
     data = {
         'final_list': final_list,
         'farmers': farmers,
-    }
+    }   
     return render(request, 'forms/search_utm.html',data)
 
 def default_parameters(request):
@@ -474,9 +476,6 @@ def select_default_plant_name(request):
 def farmer_edit(request, farmer_id):
     farmer = Farmer.objects.get(id=farmer_id)
     farmers = Farmer.objects.filter(id=farmer_id)
-    print(farmers)
-    print(farmer.name)
-    form = Farmer_Form(instance=farmer)
 
     if request.method == 'POST':
         form = Farmer_Form(request.POST, instance=farmer)
@@ -492,8 +491,6 @@ def farm_edit(request, farm_id):
     farm = Farm_info.objects.get(id=farm_id)
     farms = Farm_info.objects.filter(id=farm_id)
 
-    form = Farm_info_Form(instance=farm)
-
     if request.method == 'POST':
         form = Farm_info_Form(request.POST, instance=farm)
 
@@ -505,10 +502,8 @@ def farm_edit(request, farm_id):
 
 
 def plant_edit(request, plant_id):
-    plant = Planting.objects.get(id=plant_id)
     plants = Planting.objects.filter(id=plant_id)
-
-    form = Planting_Form(instance=plant)
+    plant = Planting.objects.get(id=plant_id)
 
     if request.method == 'POST':
         form = Planting_Form(request.POST, instance=plant)
