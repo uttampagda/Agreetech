@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Default Parameters</title>
-</head>
-<body>
+{% extends 'dashboard/basic.html' %}
+{% block body %}
+{% load static %} 
+
+
 Default Parameters
 <button><a href="{% url 'default_plant_name'%}">Plant Names</a></button>
 <button><a href="{% url 'add_default_fertilizer'%}">Fertilizers</a></button>
 <button><a href="{% url 'add_default_pesticide'%}">Pesticides</a></button>
 
-</body>
-</html>
+{% endblock %}
