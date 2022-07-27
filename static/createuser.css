@@ -83,13 +83,22 @@ a{
     margin-top: 5px;
     border-radius: 4px;
 }
-#side_box_1{
+/* #side_box_1{
     background-color: rgb(205, 255, 193);
     border-radius: 4px;
 
-}
-.main_content{
+} */
+#main_content{
     margin-left: 360px;
+}
+#logout_btn{
+    background-color: white;
+    padding: 10px 20px;
+    top: 75px;
+    right: 5px;
+    position: fixed;
+    display: none;
+    cursor: pointer;
 }
 
 @media(max-width: 768px) {

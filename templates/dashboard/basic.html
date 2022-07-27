@@ -15,35 +15,42 @@
     <link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css" />
     <link rel="stylesheet" type="text/css" href="static/css/util.css" />
     <link rel="stylesheet" type="text/css" href="static/css/main.css" />
-    <script src="https://kit.fontawesome.com/02bcc4039f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'createuser.css' %}" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     {% block title %}{% endblock %}
 </head>
 
 <body>
     <nav class="navbar">
         <span class="admin_dash">
-            Admin Dashboard
+            <span id="menu_btn" class="material-symbols-outlined">menu</span> &nbsp;&nbsp;<span class="admin_dash_1">Admin Dashboard</span> 
         </span>
+        
         <div class="user_info">
-            <div class="user_avtar"><img class="user_avtar_img" src="{% static 'images/DefaultProfilePicture.png' %}" alt=""></div>
-            <div class="user_name">{{ user.username }}</div>
-            <i class="fa-solid fa-square-down"></i>
+            <div class="user_avtar"><img class="user_avtar_img" src="{% static 'images/DefaultProfilePicture.png' %}"
+                    alt=""></div>
+            <div class="user_name">{{ user.username }} &nbsp;
+                <span id="hide_unhide_logout_btn" class="material-symbols-outlined">expand_more</span>
+            </div>
         </div>
+        <div id="logout_btn">Log Out</div>
     </nav>
-    <div class="left_side_menu">
+    <div id="side_menu" class="left_side_menu">
         <div class="side_menu_boxes" id="side_box_1"><a href="/"> Dashboard</a></div>
         <div class="side_menu_boxes" id="side_box_2"><a href="/farmers">Farmers</a></div>
         <div class="side_menu_boxes" id="side_box_3"><a href="/search">Search</a></div>
-        <div class="side_menu_boxes" id="side_box_4"><a href="{% url 'default_parameters'%}">Default parameters</a></div>
+        <div class="side_menu_boxes" id="side_box_4"><a href="{% url 'default_parameters'%}">Default parameters</a>
+        </div>
         <div class="side_menu_boxes" id="side_box_5"><a href="/createuser">Create User</a></div>
     </div>
 
-    <div class="main_content">
+    <div id="main_content">
         {% block body %} {% endblock %}
     </div>
-    
+
     {% block jsfile %}{% endblock %}
+    <script src="{% static 'basic.js' %}"></script>
 </body>
 
 </html>
