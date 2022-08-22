@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fertilizer statistics</title>
+</head>
+<body>
+<h2>Fertilizer statistics</h2>
+
+{{fertilizer_name}}
+<br>
+Detailed information
+<br>
+{%for fer in fertilizer%}
+  <span>fertilizer_name {{fer.fertilizer_name}}| fertilizer_qty {{fer.fertilizer_qty}} | creation_date  {{fer.creation_date}}</span>
+{% endfor %}
+</body>
+</html>

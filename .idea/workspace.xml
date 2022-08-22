@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="farmer category by space">
-      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0003_rename_harvesting_id_crop_selling_planting_id.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0004_pesticide_reason.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0005_alter_farm_info_farm_space.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0006_remove_fertilizer_crop_days_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0007_default_plant_name_default_plant_seed_name.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Default_parameters/default_parameters.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Default_parameters/default_plant_name_reg.html" afterDir="false" />
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="datetime edit solved">
+      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0011_default_fertilizer_avarage_review_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/dot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/rating.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/stats/fertilizer_stats.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Default_parameters/default_fertilizer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Default_parameters/default_fertilizer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/basic.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/basic.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/forms/fertilizer_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/fertilizer_reg.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/pesticide_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/pesticide_reg.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/forms/planting.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/planting.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/water_irrigation_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/water_irrigation_reg.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -38,6 +34,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/templates/form_edit/pesticide_edit.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/forms/planting_reg.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/form_edit/farmer_edit.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/form_edit/fertilizer_edit.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/forms/fertilizer_info.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/forms/fertilizer_reg.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/static/dot.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/forms/planting.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/adminaccess/models.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/dashboard/basic.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/adminaccess/admin.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/adminaccess/views.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/adminaccess/urls.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/dashboard/dashboard.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/form_edit/farm_edit.html" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,16 +69,74 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/forms" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/Default_parameters" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/Default_parameters" />
       <recent name="$PROJECT_DIR$/templates/forms" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.main">
+    <configuration default="true" type="DjangoTestsConfigurationType">
+      <module name="agritech" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <module name="agritech" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="agritech" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="agritech" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -76,7 +147,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
@@ -132,6 +202,99 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="agritech" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="agritech" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Docutils task">
+      <module name="agritech" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Sphinx task">
+      <module name="agritech" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="agritech" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="agritech" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.test" />
@@ -167,7 +330,14 @@
       <workItem from="1657299541024" duration="1735000" />
       <workItem from="1657371515460" duration="17586000" />
       <workItem from="1657558032254" duration="4870000" />
-      <workItem from="1657646425127" duration="3961000" />
+      <workItem from="1657646425127" duration="4351000" />
+      <workItem from="1657975968296" duration="4695000" />
+      <workItem from="1658039475554" duration="14185000" />
+      <workItem from="1658325959283" duration="686000" />
+      <workItem from="1658941560932" duration="484000" />
+      <workItem from="1660975535315" duration="2349000" />
+      <workItem from="1661009539262" duration="6164000" />
+      <workItem from="1661186501678" duration="3289000" />
     </task>
     <task id="LOCAL-00001" summary="forms initial">
       <created>1654536683658</created>
@@ -274,7 +444,77 @@
       <option name="project" value="LOCAL" />
       <updated>1657560296967</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Date count and initial Default values">
+      <created>1657651234019</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1657651234019</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Date count and initial Default values">
+      <created>1657979592049</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1657979592049</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Default values">
+      <created>1658043120988</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1658043120988</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Default values done">
+      <created>1658051233313</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1658051233313</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add hosts">
+      <created>1658051676293</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1658051676293</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add hosts">
+      <created>1658051866228</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1658051866228</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add hosts">
+      <created>1658051952702</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1658051952702</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add hosts">
+      <created>1658052166209</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1658052166209</updated>
+    </task>
+    <task id="LOCAL-00024" summary="rename Procfile">
+      <created>1658066054331</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1658066054331</updated>
+    </task>
+    <task id="LOCAL-00025" summary="datetime edit solved">
+      <created>1658077812414</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1658077812414</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +539,13 @@
     <MESSAGE value="solution of form submission conformation(Done till planting)" />
     <MESSAGE value="harvesting and fertilizer reg is done" />
     <MESSAGE value="farmer category by space" />
-    <option name="LAST_COMMIT_MESSAGE" value="farmer category by space" />
+    <MESSAGE value="Date count and initial Default values" />
+    <MESSAGE value="Default values" />
+    <MESSAGE value="Default values done" />
+    <MESSAGE value="add hosts" />
+    <MESSAGE value="rename Procfile" />
+    <MESSAGE value="datetime edit solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="datetime edit solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

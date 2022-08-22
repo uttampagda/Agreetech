@@ -135,6 +135,9 @@ class Default_plant_seed_name(models.Model):
 
 class Default_fertilizer(models.Model):
     fertilizer_name = models.CharField(max_length=50)
+    total_review = models.IntegerField(default=0)
+    number_of_reviews = models.IntegerField(default=0)
+    avarage_review = models.FloatField(default=0.0)
     def __str__(self):
         return self.fertilizer_name
 

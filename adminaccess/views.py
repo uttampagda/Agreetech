@@ -315,15 +315,27 @@ def fertilizer_reg(request):
     farm_id = request.session['farm_id']
     farmer_id = request.session['farmer_id']
     planting_id = request.session['planting_id']
+    fertilizer_selection = Default_fertilizer.objects.values()
     if request.method == 'POST':
         form = Fertilizer_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            #for review
+            fertilizer = Default_fertilizer.objects.filter(fertilizer_name=form.data['fertilizer_name'])[0]
+            total_review = fertilizer.total_review + int(form.data['review'])
+            number_of_reviews = fertilizer.number_of_reviews + 1
+            avarage_review = round( total_review / number_of_reviews, 1)
+            print(total_review,number_of_reviews,avarage_review)
+            fertilizer.total_review = total_review
+            fertilizer.number_of_reviews = number_of_reviews
+            fertilizer.avarage_review = avarage_review
+            fertilizer.save()
             return redirect('planting',planting_id=planting_id)
     data = {
         'farmer_id' : farmer_id,
         'farm_id': farm_id,
         'planting_id': planting_id,
+        'fertilizer_selection' : fertilizer_selection
     }
     return render(request, 'forms/fertilizer_reg.html',data)
 
@@ -579,3 +591,13 @@ def pesticide_edit(request, pesticide_id):
             return redirect(f'/pesticide_info/pesticide_id={pesticide_id}')
     
     return render(request, 'form_edit/pesticide_edit.html', {'pesticides':pesticides})
+
+def fertilizer_stats(request,fertilizer_name):
+    fertilizer = Fertilizer.objects.filter(fertilizer_name=fertilizer_name).order_by('creation_date')
+    print(fertilizer[0].id,fertilizer[0].fertilizer_name)
+    print(fertilizer)
+    data = {
+        'fertilizer_name' : fertilizer[0].fertilizer_name,
+        'fertilizer': fertilizer
+    }
+    return render(request,'stats/fertilizer_stats.html',data)

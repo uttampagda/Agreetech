@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="static/css/util.css" />
     <link rel="stylesheet" type="text/css" href="static/css/main.css" />
     <link rel="stylesheet" href="{% static 'createuser.css' %}" />
+    <link rel="stylesheet" href="{% static 'dot.css' %}" />
+    <link rel="stylesheet" href="{% static 'rating.css' %}" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     {% block title %}{% endblock %}
@@ -26,7 +28,11 @@
         <span class="admin_dash">
             <span id="menu_btn" class="material-symbols-outlined">menu</span> &nbsp;&nbsp;<span class="admin_dash_1">Admin Dashboard</span> 
         </span>
-        
+        <div>
+            {% if farmer_id != null %}
+            <p>{{farmer_id}}</p>
+            {% endif %}
+        </div>
         <div class="user_info">
             <div class="user_avtar"><img class="user_avtar_img" src="{% static 'images/DefaultProfilePicture.png' %}"
                     alt=""></div>

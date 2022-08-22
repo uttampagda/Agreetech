@@ -4,11 +4,39 @@
 
 <body>
 <div class="d-flex justify-content-center align-items-center">
-
-
     <button><a href="{% url 'farm_info' farm_id=farm_id%}">Back to Farm info</a></button>
-    <button><a href="{% url 'harvesting_and_crop_selling' %}">Harvesting and Selling</a></button>
 </div>
+
+
+
+
+
+
+
+<div class="d-flex justify-content-end">
+<span class="dropdown">
+  <button class="dropbtn">More Registration</button>
+  <div class="dropdown-content">
+    <div><a href="{% url 'harvesting_and_crop_selling' %}">Harvesting and Selling</a></div>
+    <div><a href="{% url 'fertilizer_reg' %}">Fertilizer Reg</a></div>
+    <div><a href="{% url 'water_irrigation_reg' %}">Water irrigation</a></div>
+    <div><a href="{% url 'pesticide_reg' %}">Pesticide</a></div>
+  </div>
+</span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <h2>Planting Info</h2>
     <table class="table table-borderless table-width-40 farmer_detail">

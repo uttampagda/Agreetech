@@ -41,7 +41,8 @@ urlpatterns = [
     path('fertilizer_edit/fertilizer_id=<int:fertilizer_id>', views.fertilizer_edit, name="fertilizer_edit"),
     path('water_irrigation_edit/water_irrigation_id=<int:water_irrigation_id>', views.water_irrigation_edit, name="water_irrigation_id_edit"),
     path('pesticide_edit/pesticide_id=<int:pesticide_id>', views.pesticide_edit, name="Pesticide_edit"),
-
+    #statistics
+    path('fertilizer_name=<str:fertilizer_name>', views.fertilizer_stats, name="fertilizer_stats"),
 
     
 

@@ -5,7 +5,8 @@
 Default fertilizers
 <div>
     {% for fer in default_fertilizer %}
-    <span>{{fer}}</span><br>
+    <span>name: {{fer}} | rating: {{fer.avarage_review}}</span>
+    <a href="{% url 'fertilizer_stats' fertilizer_name=fer.fertilizer_name%}">info</a><br>
     {% endfor %}
 </div>
 <div class="container create_user_form">
