@@ -57,6 +57,7 @@
     {% for farm in farm_info %}
       <div class="card m-2" style="width: 18rem;">
         <div class="card-body">
+          {{farm.farmer_id.name}}
           <h5 class="card-title">{{farm.farm_nick_name}}</h5>
           <p class="card-text">{{farm.caretaker}}</p>
           <p class="card-text">{{farm.caretaker_phone_number}}</p>

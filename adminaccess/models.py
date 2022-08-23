@@ -15,7 +15,7 @@ class Farmer(models.Model):
 
 
 class Farm_info(models.Model):
-    farmer_id = models.IntegerField()
+    farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
     farm_nick_name = models.CharField(max_length=50, blank=True, null=True)
     farm_space = models.IntegerField(default=0)
     geo_location = models.CharField(max_length=50, blank=True, null=True)
@@ -33,8 +33,8 @@ class Farm_info(models.Model):
 
 
 class Soil_test(models.Model):
-    farmer_id = models.IntegerField()
-    farm_id = models.IntegerField()
+    farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
+    farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
     test_year = models.IntegerField()
     soil_test = models.CharField(max_length=50, blank=True, null=True)
     water_test = models.CharField(max_length=50, blank=True, null=True)
@@ -48,8 +48,8 @@ class Soil_test(models.Model):
 
 
 class Planting(models.Model):
-    farmer_id = models.IntegerField()
-    farm_id = models.IntegerField()
+    farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
+    farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
     planting_time = models.DateTimeField(max_length=50, blank=True, null=True)
     plant = models.CharField(max_length=50,blank=True, null=True)
     plant_type = models.CharField(max_length=50,blank=True, null=True)
@@ -59,9 +59,9 @@ class Planting(models.Model):
 
 
 class Harvesting(models.Model):
-    farmer_id = models.IntegerField()
-    farm_id = models.IntegerField()
-    planting_id = models.IntegerField()
+    farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
+    farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
+    planting_id = models.ForeignKey(Planting, on_delete=models.CASCADE)
     plant_type = models.CharField(max_length=50)
     harvesting_time = models.DateTimeField(max_length=50,blank=True, null=True)
     total_production = models.IntegerField(blank=True, null=True)
@@ -76,9 +76,9 @@ class Harvesting(models.Model):
 
 
 class Crop_selling(models.Model):
-    farmer_id = models.IntegerField()
-    farm_id = models.IntegerField()
-    planting_id = models.IntegerField()
+    farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
+    farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
+    planting_id = models.ForeignKey(Planting, on_delete=models.CASCADE)
     sell_quantity = models.IntegerField(blank=True, null=True)
     sell_date = models.DateTimeField(blank=True, null=True)#selection
     sell_rate = models.IntegerField(blank=True, null=True)
@@ -89,9 +89,9 @@ class Crop_selling(models.Model):
 
 
 class Fertilizer(models.Model):
-    farmer_id = models.IntegerField()
-    farm_id = models.IntegerField()
-    planting_id = models.IntegerField()
+    farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
+    farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
+    planting_id = models.ForeignKey(Planting, on_delete=models.CASCADE)
     fertilizer_name = models.CharField(max_length=50)
     fertilizer_qty = models.CharField(max_length=50,blank=True, null=True)
     fertilizer_qty_per_acre = models.CharField(max_length=50,blank=True, null=True)
@@ -102,9 +102,9 @@ class Fertilizer(models.Model):
 
 
 class Water_irrigation(models.Model):
-    farmer_id = models.IntegerField()
-    farm_id = models.IntegerField()
-    planting_id = models.IntegerField()
+    farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
+    farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
+    planting_id = models.ForeignKey(Planting, on_delete=models.CASCADE)
     water_irrigation_type = models.CharField(max_length=50, blank=True, null=True)
     water_irrigation_date = models.DateTimeField(blank=True, null=True)#selection
     create_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
@@ -112,9 +112,9 @@ class Water_irrigation(models.Model):
 
 
 class Pesticide(models.Model):
-    farmer_id = models.IntegerField()
-    farm_id = models.IntegerField()
-    planting_id = models.IntegerField()
+    farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
+    farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
+    planting_id = models.ForeignKey(Planting, on_delete=models.CASCADE)
     pesticide_name = models.CharField(max_length=50)
     pesticide_qty = models.CharField(max_length=50)
     reason = models.CharField(max_length=50,blank=True, null=True)

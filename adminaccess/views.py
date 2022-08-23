@@ -111,18 +111,6 @@ def farmer_details(request,farmer_id):
         request.session['farmer_id'] = farmer_id
         return render(request, 'forms/farmer_details.html', data)
 
-# def farm_info_reg(request):
-#     if request.method == 'POST':
-#         print('farm_info_reg',len(request.GET))
-#         farmer_id = request.POST.get('farmer_id')
-#         form = Farm_info_Form(request.POST, request.FILES)
-#         data = {'farmer_id': farmer_id}
-#         if form.is_valid() and form['farm_nick_name'].value()!=None:
-#             print("nick_name",form['farm_nick_name'].value())
-#             form.save()
-#             return render(request, 'forms/farm_info_reg.html', data)
-#         return render(request, 'forms/farm_info_reg.html', data)
-
 def farm_info_reg(request):
     farmer_id = request.session['farmer_id']
     if request.method == 'POST':
@@ -149,6 +137,7 @@ def farm_info(request,farm_id):
             'farm': farm_info,
             'planting_history': planting_history,
         }
+    print("farm_info,famrer_id",farmer_id)
     request.session['farmer_id'] = farmer_id
     request.session['farm_id'] = farm_id
     print("farm_info last--- farmer_id",farmer_id)
@@ -167,7 +156,7 @@ def soil_test(request):
         form = Soil_test_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('Soil_test')
+            return redirect('soil_test')
     else:
         form = Soil_test_Form()
     data={
@@ -205,7 +194,7 @@ def planting_reg(request):
 def planting(request,planting_id):
     farm_id = request.session['farm_id']
     farmer_id = request.session['farmer_id']
-    planting_history = Planting.objects.filter(id=planting_id).values()[0]
+    planting_history = Planting.objects.filter(id=planting_id)[0]
     fertilizer = Fertilizer.objects.filter(planting_id=planting_id).values()
     water_irrigation = Water_irrigation.objects.filter(planting_id=planting_id).values()
     pesticide = Pesticide.objects.filter(planting_id=planting_id).values()
@@ -213,11 +202,11 @@ def planting(request,planting_id):
     # Creating DateTime var for multiple use
     date_now=datetime.now().date()
     
-    if planting_history['planting_time'] != None:
-        time_from_planting = (date_now-planting_history['planting_time'].date()).days 
+    if planting_history.planting_time != None:
+        time_from_planting = (date_now-planting_history.planting_time.date()).days
     else:
         time_from_planting = "No information provided"
-    planting_history['time_from_planting'] = time_from_planting
+    planting_history.planting_time = time_from_planting
     
     
     for fer in fertilizer:
@@ -240,7 +229,6 @@ def planting(request,planting_id):
        else:
            time_from_prestiside = "No information provided"
        pes['time_from_prestiside'] = time_from_prestiside
-        
     data = {
         'farm_id':farm_id,
         'planting_id': planting_id,

@@ -4,7 +4,7 @@
 
 <div class="d-flex justify-content-center align-items-center">
         </div>
-    <button><a href="{% url 'farmer_details' farmer_id=farm.farmer_id%}">Back to Farmer</a></button>
+    <button><a href="{% url 'farmer_details' farmer_id=farm.farmer_id.id%}">Back to Farmer</a></button>
         <div class="d-flex justify-content-center align-items-center">
             <a href="{% url 'soil_test'%}" class="add_btn">+ Add Soil test</a>
         </div>
@@ -74,8 +74,8 @@
         {% for plant in planting_history %}
       <div class="card m-2" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">{{plant.planting_time}}</h5>
-          <p class="card-text">{{plant.plant}}</p>
+          <h5 class="card-title">{{plant.plant}}</h5>
+          <p class="card-text">{{plant.planting_time}}</p>
           <p class="card-text">{{plant.planting_area}}</p>
           <a href="{% url 'planting' planting_id=plant.id%}" class="btn btn-primary">More Details</a>
         </div>
