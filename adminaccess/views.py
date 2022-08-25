@@ -92,7 +92,7 @@ def farmer_details(request,farmer_id):
         # farmer_id = request.POST.get('farmer_id')
         farm_info = Farm_info.objects.filter(farmer_id=farmer_id)
         farmer_info = Farmer.objects.filter(id=farmer_id)[0]
-        data = {'farmer': farmer_id,
+        data = {'farmer_id': farmer_id,
                 'farm_info': farm_info,
                 'farmer_info': farmer_info,
                 }
@@ -104,7 +104,7 @@ def farmer_details(request,farmer_id):
         print("farmer_details else farmer_id",farmer_id)
         farm_info = Farm_info.objects.filter(farmer_id=farmer_id)
         farmer_info = Farmer.objects.filter(id=farmer_id)[0]
-        data = {'farmer': farmer_id,
+        data = {'farmer_id': farmer_id,
                 'farm_info': farm_info,
                 'farmer_info': farmer_info,
                 }
@@ -133,19 +133,14 @@ def farm_info(request,farm_id):
     farm_info = Farm_info.objects.filter(id=farm_id)[0]
     planting_history = Planting.objects.filter(farm_id=farm_id)
     data = {
+            'farmer' : farm_info.farmer_id,
             'farmer_id' : farmer_id,
             'farm': farm_info,
             'planting_history': planting_history,
         }
-    print("farm_info,famrer_id",farmer_id)
     request.session['farmer_id'] = farmer_id
     request.session['farm_id'] = farm_id
-    print("farm_info last--- farmer_id",farmer_id)
-    print(planting_history)
     return render(request, 'forms/farm_info.html',data)
-
-
-
 
 def soil_test(request):
     farmer_id = request.session['farmer_id']
@@ -195,7 +190,7 @@ def planting(request,planting_id):
     farm_id = request.session['farm_id']
     farmer_id = request.session['farmer_id']
     planting_history = Planting.objects.filter(id=planting_id)[0]
-    fertilizer = Fertilizer.objects.filter(planting_id=planting_id).values()
+    fertilizer = Fertilizer.objects.filter(planting_id=planting_id)
     water_irrigation = Water_irrigation.objects.filter(planting_id=planting_id).values()
     pesticide = Pesticide.objects.filter(planting_id=planting_id).values()
     
@@ -206,15 +201,14 @@ def planting(request,planting_id):
         time_from_planting = (date_now-planting_history.planting_time.date()).days
     else:
         time_from_planting = "No information provided"
-    planting_history.planting_time = time_from_planting
-    
-    
+    planting_history.time_from_planting = time_from_planting
+
     for fer in fertilizer:
-       if fer['fertilizer_date'] != None:
-           time_from_fertilizer = (date_now-fer['fertilizer_date'].date()).days
+       if fer.fertilizer_date != None:
+           time_from_fertilizer = (date_now-fer.fertilizer_date.date()).days
        else:
            time_from_fertilizer = "No information provided"
-       fer['time_from_fertilizer'] = time_from_fertilizer
+       fer.time_from_fertilizer = time_from_fertilizer
 
     for water in water_irrigation:
        if water['water_irrigation_date'] != None:
@@ -229,7 +223,9 @@ def planting(request,planting_id):
        else:
            time_from_prestiside = "No information provided"
        pes['time_from_prestiside'] = time_from_prestiside
+    print('planting_history.farmer_id[0]',planting_history.farmer_id)
     data = {
+        'farmer' : planting_history.farmer_id,
         'farm_id':farm_id,
         'planting_id': planting_id,
         'planting_history': planting_history,

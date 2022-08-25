@@ -29,8 +29,9 @@
             <span id="menu_btn" class="material-symbols-outlined">menu</span> &nbsp;&nbsp;<span class="admin_dash_1">Admin Dashboard</span> 
         </span>
         <div>
-            {% if farmer_id != null %}
-            <p>{{farmer_id}}</p>
+            {% if farmer != null %}
+            <p>{{farmer.name}}</p>
+            <p>{{farmer.address}}</p>
             {% endif %}
         </div>
         <div class="user_info">

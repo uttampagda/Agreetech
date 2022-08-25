@@ -10,7 +10,7 @@
         {% for f in farms %}
         <div class="form-group mt-2">
             <label for="id_farmer_id">Farmer Id</label>
-            <input type="number" value="{{f.farmer_id}}" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id" required >
+            <input type="number" value="{{f.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id" required >
         </div>
         <div class="form-group mt-3">
             <label for="id_farm_nick_name">Farm Nick Name</label>

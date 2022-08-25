@@ -10,15 +10,15 @@
         {% for p in pesticides %}
         <div class="form-group mt-2">
             <label for="id_farmer_id">Farmer Id</label>
-            <input type="number" value="{{p.farmer_id}}" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id" required>
+            <input type="number" value="{{p.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_farm_id">Farm Id</label>
-            <input type="number" value="{{p.farm_id}}" class="form-control" id="id_farm_id" name="farm_id" placeholder="Farm Id" required>
+            <input type="number" value="{{p.farm_id.id}}" class="form-control" id="id_farm_id" name="farm_id" placeholder="Farm Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_planting_id">Planting Id</label>
-            <input type="number" value="{{p.planting_id}}" class="form-control" id="id_planting_id" name="planting_id" placeholder="Planting Id" required>
+            <input type="number" value="{{p.planting_id.id}}" class="form-control" id="id_planting_id" name="planting_id" placeholder="Planting Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_pesticide_name">Pesticide Name</label>

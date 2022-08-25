@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="fertilizer rating">
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="implement relationships between tables">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0002_crop_selling_creation_date_fertilizer_creation_date_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0003_rename_harvesting_id_crop_selling_planting_id.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0004_pesticide_reason.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0005_alter_farm_info_farm_space.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0006_remove_fertilizer_crop_days_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0007_default_plant_name_default_plant_seed_name.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0008_alter_default_plant_seed_name_plant_name.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0009_default_fertilizer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0010_default_pesticide.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0011_default_fertilizer_avarage_review_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/farm_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/farm_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/farmer_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/farmer_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/basic.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/basic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form_edit/farm_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/farm_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form_edit/fertilizer_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/fertilizer_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form_edit/pesticide_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/pesticide_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form_edit/planting_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/planting_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form_edit/water_irrigation_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/water_irrigation_edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/forms/planting.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/planting.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stats/fertilizer_stats.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stats/fertilizer_stats.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,7 +334,8 @@
       <workItem from="1660975535315" duration="2349000" />
       <workItem from="1661009539262" duration="6164000" />
       <workItem from="1661186501678" duration="4099000" />
-      <workItem from="1661272604523" duration="5964000" />
+      <workItem from="1661272604523" duration="6249000" />
+      <workItem from="1661445047110" duration="4336000" />
     </task>
     <task id="LOCAL-00001" summary="forms initial">
       <created>1654536683658</created>
@@ -528,7 +519,21 @@
       <option name="project" value="LOCAL" />
       <updated>1661190491861</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="implement relationships between tables">
+      <created>1661279790230</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1661279790230</updated>
+    </task>
+    <task id="LOCAL-00028" summary="implement relationships between tables">
+      <created>1661279815367</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1661279815367</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +565,8 @@
     <MESSAGE value="rename Procfile" />
     <MESSAGE value="datetime edit solved" />
     <MESSAGE value="fertilizer rating" />
-    <option name="LAST_COMMIT_MESSAGE" value="fertilizer rating" />
+    <MESSAGE value="implement relationships between tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement relationships between tables" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
