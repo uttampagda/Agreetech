@@ -577,7 +577,7 @@ def pesticide_edit(request, pesticide_id):
     return render(request, 'form_edit/pesticide_edit.html', {'pesticides':pesticides})
 
 def fertilizer_stats(request,fertilizer_name):
-    fertilizer = Fertilizer.objects.filter(fertilizer_name=fertilizer_name).order_by('creation_date')
+    fertilizer = Fertilizer.objects.filter(fertilizer_name=fertilizer_name).order_by('create_date')
     print(fertilizer[0].id,fertilizer[0].fertilizer_name)
     print(fertilizer)
     data = {

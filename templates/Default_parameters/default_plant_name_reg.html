@@ -23,7 +23,7 @@ Default plant names Registration
                 <select  name="plant_name">
                     <option value="">Please select plant</option>
                     {% for plant in plant_names%}
-                    <option value="{{plant}}">{{plant}}</option>
+                    <option value="{{plant.id}}">{{plant}}</option>
                     {% endfor %}
                 </select>
 

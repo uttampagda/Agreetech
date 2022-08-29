@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="implement relationships between tables">
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="add use of farmer and farm in object reg pages, display farmer name in base.html">
+      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0002_rename_creation_date_crop_selling_create_date_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0003_rename_created_date_pesticide_create_date.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0004_alter_default_plant_seed_name_plant_name.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/basic.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/basic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form_edit/farm_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/farm_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form_edit/fertilizer_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/fertilizer_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form_edit/pesticide_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/pesticide_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form_edit/planting_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/planting_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form_edit/water_irrigation_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/water_irrigation_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/planting.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/planting.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/fertilizer_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/fertilizer_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/fertilizer_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/fertilizer_reg.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/pesticide_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/pesticide_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/water_irrigation_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/water_irrigation_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/stats/fertilizer_stats.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stats/fertilizer_stats.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,7 +338,9 @@
       <workItem from="1661009539262" duration="6164000" />
       <workItem from="1661186501678" duration="4099000" />
       <workItem from="1661272604523" duration="6249000" />
-      <workItem from="1661445047110" duration="4336000" />
+      <workItem from="1661445047110" duration="4667000" />
+      <workItem from="1661586506063" duration="2350000" />
+      <workItem from="1661791786598" duration="4899000" />
     </task>
     <task id="LOCAL-00001" summary="forms initial">
       <created>1654536683658</created>
@@ -533,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661279815367</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="add use of farmer and farm in object reg pages, display farmer name in base.html">
+      <created>1661450987857</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1661450987857</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +578,8 @@
     <MESSAGE value="datetime edit solved" />
     <MESSAGE value="fertilizer rating" />
     <MESSAGE value="implement relationships between tables" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement relationships between tables" />
+    <MESSAGE value="add use of farmer and farm in object reg pages, display farmer name in base.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="add use of farmer and farm in object reg pages, display farmer name in base.html" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

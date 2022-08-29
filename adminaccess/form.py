@@ -49,7 +49,7 @@ class Fertilizer_Form(forms.ModelForm):
     class Meta:
         model = Fertilizer
         fields = ['farmer_id', 'farm_id', 'planting_id', 'fertilizer_name', 'fertilizer_qty', 'fertilizer_qty_per_acre',
-                  'rating']
+                  'fertilizer_date', 'rating']
 
 
 class Water_irrigation_Form(forms.ModelForm):
