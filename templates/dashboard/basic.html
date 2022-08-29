@@ -41,16 +41,16 @@
                 <span id="hide_unhide_logout_btn" class="material-symbols-outlined">expand_more</span>
             </div>
         </div>
-        <div id="logout_btn">Log Out</div>
+        <div id="logout_btn"><a href="logout">Log Out</a></div>
     </nav>
-    <div id="side_menu" class="left_side_menu">
+    <!-- <div id="side_menu" class="left_side_menu">
         <div class="side_menu_boxes" id="side_box_1"><a href="/"> Dashboard</a></div>
         <div class="side_menu_boxes" id="side_box_2"><a href="/farmers">Farmers</a></div>
         <div class="side_menu_boxes" id="side_box_3"><a href="/search">Search</a></div>
         <div class="side_menu_boxes" id="side_box_4"><a href="{% url 'default_parameters'%}">Default parameters</a>
         </div>
         <div class="side_menu_boxes" id="side_box_5"><a href="/createuser">Create User</a></div>
-    </div>
+    </div> -->
 
     <div id="main_content">
         {% block body %} {% endblock %}

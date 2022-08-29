@@ -1,21 +1,55 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
-    <h1 class="">Welcome to {{ user.username }} dashboard</h1>
-    <div>
-        <a href="createuser">Create User</a>
-        <br/>
-        <a href="farmers">Farmer</a>
-        <br/>
-        <a href="search">Search</a>
-    </div>
-    <br/>
-    <br/>
-    <a href="search_utm">Search_utm</a>
-    <br/>
-    <br/>
-    <a href="{% url 'default_parameters'%}">Default parameters</a>
-    <br/>
-    <br/>
+<h1 class="">Welcome to {{ user.username }} dashboard</h1>
+{% comment %} <div>
+    <a href="createuser">Create User</a>
+    <br />
+    <a href="">Farmer</a>
+    <br />
+    <a href="search">Search</a>
+</div>
+<br />
+<br />
+<a href="search_utm">Search_utm</a>
+<br />
+<br />
+<a href="{% url 'default_parameters'%}">Default parameters</a>
+<br />
+<br /> {% endcomment %}
 
-    <a href="logout">Logout</a>
-    {% endblock %}
+{% comment %} <a href="logout">Logout</a> {% endcomment %}
+
+<div class="dash_menu">
+    <a href="#" class="menu_box">
+        <div class="menu_item">
+            <div class="menu_item_img"><img src="static/images/dashboard.jpg" alt="" class="menu_item_img_1"></div>
+            <div class="menu_item_name">Dashboard</div>
+        </div>
+    </a>
+    <a href="farmers" class="menu_box">
+        <div class="menu_item">
+            <div class="menu_item_img"><img src="static/images/farmer.png" alt="" class="menu_item_img_1"></div>
+            <div class="menu_item_name">Farmer</div>
+        </div>
+    </a>
+    <a href="search_utm" class="menu_box">
+        <div class="menu_item">
+            <div class="menu_item_img"><img src="static/images/search1.jpg" alt="" class="menu_item_img_1"></div>
+            <div class="menu_item_name">Search</div>
+        </div>
+    </a>
+    <a href="{% url 'default_parameters'%}" class="menu_box">
+        <div class="menu_item">
+            <div class="menu_item_img"><img src="static/images/parameter.png" alt="" class="menu_item_img_1"></div>
+            <div class="menu_item_name">Default Parameter</div>
+        </div>
+    </a>
+    <a href="createuser" class="menu_box">
+        <div class="menu_item">
+            <div class="menu_item_img"><img src="static/images/create_user.jpg" alt="" class="menu_item_img_1"></div>
+            <div class="menu_item_name">Create User</div>
+        </div>
+    </a>
+</div>
+
+{% endblock %}
