@@ -100,7 +100,40 @@ a{
     display: none;
     cursor: pointer;
 }
+.dash_menu{
+    height: 250px;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.menu_item{
+    height: 125px;
+    width: 100px;
+    text-align: center;
+    margin-top: 80px;
+}
+.menu_item_img{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+}
+.menu_item_img_1{
+    height: 90%;
+    width: 90%;
+    transition-property: all;
+    transition-duration: 300ms;
+    border-radius: 7px;
 
+}
+.menu_item_img_1:hover{
+    height: 100%;
+    width: 100%;
+}
 @media(max-width: 768px) {
     .create_user_form {
         width: 80%;
