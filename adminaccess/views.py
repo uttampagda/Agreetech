@@ -128,8 +128,6 @@ def farm_info_reg(request):
 
 def farm_info(request,farm_id):
     farmer_id = request.session['farmer_id']
-    print("farm_info starting====farmer_id",farmer_id)
-    # farm_id = request.POST.get('farm_id')
     farm_info = Farm_info.objects.filter(id=farm_id)[0]
     planting_history = Planting.objects.filter(farm_id=farm_id)
     data = {
@@ -325,17 +323,26 @@ def fertilizer_reg(request):
 
 def fertilizer_info(request, fertilizer_id):
     fertilizer = Fertilizer.objects.filter(id=fertilizer_id)[0]
-    data = {'fertilizer':fertilizer}
+    data = {
+        'fertilizer':fertilizer,
+        'farmer':fertilizer.farmer_id
+    }
     return render(request, 'forms/fertilizer_info.html', data)
 
 def water_irrigation_info(request, water_irrigation_id):
     water_irrigation = Water_irrigation.objects.filter(id=water_irrigation_id)[0]
-    data = {'water_irrigation':water_irrigation}
+    data = {
+        'water_irrigation':water_irrigation,
+        'farmer':water_irrigation.farmer_id
+    }
     return render(request, 'forms/water_irrigation_info.html', data)
 
 def pesticide_info(request, pesticide_id):
     pesticide = Pesticide.objects.filter(id=pesticide_id)[0]
-    data = {'pesticide':pesticide}
+    data = {
+        'pesticide':pesticide,
+        'farmer': pesticide.farmer_id
+    }
     return render(request, 'forms/pesticide_info.html', data)  
 
 
