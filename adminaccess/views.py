@@ -159,11 +159,15 @@ def soil_test(request):
     return render(request, 'forms/soil_test.html',data)
 
 def planting_reg(request):
+    default_plant_name = dict(Default_plant_name.objects.values())
+    default_plant_seed_name = Default_plant_seed_name.objects.values()
+    print(default_plant_name, default_plant_seed_name)
     if request.method == 'POST':
         farmer_id = request.POST.get('farmer_id')
         farm_id = request.POST.get('farm_id')
         form = Planting_Form(request.POST, request.FILES)
         planting_history = Planting.objects.filter(farm_id=farm_id)
+        
         data = {
             'farm_id': farm_id,
             'farmer_id': farmer_id,
@@ -177,7 +181,11 @@ def planting_reg(request):
     farmer_id = request.session['farmer_id']
     farm_id = request.session['farm_id']
     planting_history = Planting.objects.filter(farm_id=farm_id)
+
+    import json
     data = {
+        'default_plant_name':json.dumps(default_plant_name),
+        'default_plant_seed_name': default_plant_seed_name,
         'farm_id': farm_id,
         'farmer_id': farmer_id,
         'planting_history': planting_history,
