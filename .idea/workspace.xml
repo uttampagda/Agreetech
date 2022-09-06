@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="create date change in model and &quot;default seed name model&quot; relation with &quot;default plant name&quot; model">
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="farmer name and village in every page(backend) done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/planting_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/planting_reg.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -333,7 +334,7 @@
       <workItem from="1661791786598" duration="5837000" />
       <workItem from="1662029738739" duration="37000" />
       <workItem from="1662038271448" duration="174000" />
-      <workItem from="1662397541174" duration="2066000" />
+      <workItem from="1662397541174" duration="3735000" />
     </task>
     <task id="LOCAL-00001" summary="forms initial">
       <created>1654536683658</created>
@@ -545,7 +546,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661798447563</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="farmer name and village in every page(backend) done">
+      <created>1662403381610</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1662403381610</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +588,8 @@
     <MESSAGE value="implement relationships between tables" />
     <MESSAGE value="add use of farmer and farm in object reg pages, display farmer name in base.html" />
     <MESSAGE value="create date change in model and &quot;default seed name model&quot; relation with &quot;default plant name&quot; model" />
-    <option name="LAST_COMMIT_MESSAGE" value="create date change in model and &quot;default seed name model&quot; relation with &quot;default plant name&quot; model" />
+    <MESSAGE value="farmer name and village in every page(backend) done" />
+    <option name="LAST_COMMIT_MESSAGE" value="farmer name and village in every page(backend) done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

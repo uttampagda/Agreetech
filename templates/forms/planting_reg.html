@@ -65,13 +65,19 @@
 
     
     plant_select = document.getElementById('Plant_select');
-    plant_select.addEventListener('change', function set_plant_type(){
-        console.log('default_plant_seed_name')
-        
+    plant_select.addEventListeer('change', function set_plant_type(){
+        console.log(plant_select.value)
 
     })
     a = {{default_plant_name|safe}};
     console.log(a)
+    b = {{default_plant_seed_name|safe}};
+    c = []
+    for(let i=0; i<=b.length; i++){
+        console.log(b[i])
+        b[i]
+    }
+    console.log(b)
 
 </script>
 
