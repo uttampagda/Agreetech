@@ -186,8 +186,8 @@ def planting_reg(request):
 
     import json
     data = {
-        'default_plant_name':json.dumps(default_plant_name),
-        'default_plant_seed_name':json.dumps(default_plant_seed_name),
+        'default_plant_name':default_plant_name,
+        'default_plant_seed_name':default_plant_seed_name,
         'farm_id': farm_id, 
         'farmer_id': farmer_id,
         'planting_history': planting_history,
