@@ -161,8 +161,8 @@ def soil_test(request):
     return render(request, 'forms/soil_test.html',data)
 
 def planting_reg(request):
-    default_plant_name = dict(Default_plant_name.objects.values())
-    default_plant_seed_name = Default_plant_seed_name.objects.values()
+    default_plant_name = list(Default_plant_name.objects.values())  
+    default_plant_seed_name = list(Default_plant_seed_name.objects.values())
     print(default_plant_name, default_plant_seed_name)
     if request.method == 'POST':
         farmer_id = request.POST.get('farmer_id')
@@ -187,8 +187,8 @@ def planting_reg(request):
     import json
     data = {
         'default_plant_name':json.dumps(default_plant_name),
-        'default_plant_seed_name': default_plant_seed_name,
-        'farm_id': farm_id,
+        'default_plant_seed_name':json.dumps(default_plant_seed_name),
+        'farm_id': farm_id, 
         'farmer_id': farmer_id,
         'planting_history': planting_history,
     }
