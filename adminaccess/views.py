@@ -179,7 +179,6 @@ def planting_reg(request):
     farm_id = request.session['farm_id']
     planting_history = Planting.objects.filter(farm_id=farm_id)
 
-    import json
     default_plant_name = list(Default_plant_name.objects.values())
     default_plant_seed_name = list(Default_plant_seed_name.objects.values())
     print(default_plant_name, default_plant_seed_name)
@@ -209,12 +208,23 @@ def planting(request,planting_id):
         time_from_planting = "No information provided"
     planting_history.time_from_planting = time_from_planting
 
+    # for fer in fertilizer:
+    #    if fer.fertilizer_date != None:
+    #        time_from_fertilizer = (date_now-fer.fertilizer_date.date()).days
+    #    else:
+    #        time_from_fertilizer = "No information provided"
+    #    fer.time_from_fertilizer = time_from_fertilizer
+
+
     for fer in fertilizer:
-       if fer.fertilizer_date != None:
-           time_from_fertilizer = (date_now-fer.fertilizer_date.date()).days
+       if fer.planting_id.planting_time != None:
+           time_from_fertilizer = (date_now-fer.planting_id.planting_time.date()).days
        else:
            time_from_fertilizer = "No information provided"
        fer.time_from_fertilizer = time_from_fertilizer
+
+
+
 
     for water in water_irrigation:
        if water['water_irrigation_date'] != None:
@@ -309,17 +319,22 @@ def fertilizer_reg(request):
     if request.method == 'POST':
         form = Fertilizer_Form(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            form_save = form.save(commit=False)
             #for review
             fertilizer = Default_fertilizer.objects.filter(fertilizer_name=form.data['fertilizer_name'])[0]
             total_review = fertilizer.total_review + int(form.data['review'])
             number_of_reviews = fertilizer.number_of_reviews + 1
             avarage_review = round( total_review / number_of_reviews, 1)
-            print(total_review,number_of_reviews,avarage_review)
             fertilizer.total_review = total_review
             fertilizer.number_of_reviews = number_of_reviews
             fertilizer.avarage_review = avarage_review
             fertilizer.save()
+            
+            #calculating => fertilizer_days_from_planting
+            planting = Planting.objects.filter(id=planting_id)[0]
+            fertilizer_days_from_planting = (datetime.fromisoformat(form.data['fertilizer_date']).date()-planting.planting_time.date()).days
+            form_save.fertilizer_days_from_planting = fertilizer_days_from_planting
+            form_save.save()
             return redirect('planting',planting_id=planting_id)
     data = {
         'farmer_id' : farmer_id,

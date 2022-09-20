@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="farmer name and village in every page(backend) done">
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="not a lot">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/planting_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/planting_reg.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/fertilizer_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/fertilizer_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/planting.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/planting.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,6 +338,10 @@
       <workItem from="1662029738739" duration="37000" />
       <workItem from="1662038271448" duration="174000" />
       <workItem from="1662397541174" duration="3735000" />
+      <workItem from="1662488120273" duration="436000" />
+      <workItem from="1662657373716" duration="221000" />
+      <workItem from="1663607303173" duration="5439000" />
+      <workItem from="1663695118279" duration="947000" />
     </task>
     <task id="LOCAL-00001" summary="forms initial">
       <created>1654536683658</created>
@@ -553,7 +560,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662403381610</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="not a lot">
+      <created>1662488244556</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1662488244556</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,17 +603,7 @@
     <MESSAGE value="add use of farmer and farm in object reg pages, display farmer name in base.html" />
     <MESSAGE value="create date change in model and &quot;default seed name model&quot; relation with &quot;default plant name&quot; model" />
     <MESSAGE value="farmer name and village in every page(backend) done" />
-    <option name="LAST_COMMIT_MESSAGE" value="farmer name and village in every page(backend) done" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="not a lot" />
+    <option name="LAST_COMMIT_MESSAGE" value="not a lot" />
   </component>
 </project>

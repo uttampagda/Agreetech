@@ -95,7 +95,8 @@ class Fertilizer(models.Model):
     fertilizer_name = models.CharField(max_length=50)
     fertilizer_qty = models.CharField(max_length=50,blank=True, null=True)
     fertilizer_qty_per_acre = models.CharField(max_length=50,blank=True, null=True)
-    fertilizer_date = models.DateTimeField(blank=True, null=True)#selection
+    fertilizer_date = models.DateTimeField(blank=True, null=True)
+    fertilizer_days_from_planting = models.IntegerField(default=0,blank=True, null=True)
     rating = models.IntegerField(blank=True, null=True)
     create_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
