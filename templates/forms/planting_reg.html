@@ -32,19 +32,19 @@
 
                 <option value="" selected>--Please choose an option--</option>
                     {% for fer in default_plant_name %}
-                    <option value="{{fer.plant_name}}">{{fer.plant_name}}</option>
+                    <option value="{{fer.id}}">{{fer.plant_name}}</option>
                     {% endfor %}
             </select>
         </div>
 
         <div class="mt-3">
-            <label for="pet-select">Plant Type</label>
-            <select name="fertilizer_name" id="pet-select">
+            <label for="pet_select">Plant Type</label>
+            <select name="fertilizer_name" id="pet_select">
 
                 <option value="" selected>--Please choose an option--</option>
-                    {% for fer in default_plant_seed_name %}
+                    <!-- {% for fer in default_plant_seed_name %}
                     <option value="{{fer.seed_name}}">{{fer.seed_name}}</option>
-                    {% endfor %}
+                    {% endfor %}     -->
             </select>
         </div>
 
@@ -63,21 +63,25 @@
 
 <script>
 
-    
-    plant_select = document.getElementById('Plant_select');
-    plant_select.addEventListeer('change', function set_plant_type(){
-        console.log(plant_select.value)
-
-    })
     a = {{default_plant_name|safe}};
-    console.log(a)
     b = {{default_plant_seed_name|safe}};
-    c = []
-    for(let i=0; i<=b.length; i++){
-        console.log(b[i])
-        b[i]
-    }
-    console.log(b)
+    plant_select = document.getElementById('Plant_select');
+    plant_select.addEventListener('change', function set_plant_type(){
+        var default_plant_seed_name = []
+        for(let i=0; i<=b.length-1; i++){
+            c = b[i]['plant_name_id']
+
+            if(c == plant_select.value){
+                default_plant_seed_name.push(b[i]['seed_name']) 
+            }
+        }
+        pet_select = document.getElementById('pet_select')
+        pet_select.innerHTML = '<option value="" selected>--Please choose an option--</option>'
+        for(var plant_seed in default_plant_seed_name){
+            pet_select.innerHTML += `<option value="${default_plant_seed_name[plant_seed]}">${default_plant_seed_name[plant_seed]}</option>`
+        }
+    })
+
 
 </script>
 
