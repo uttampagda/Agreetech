@@ -108,6 +108,7 @@ class Water_irrigation(models.Model):
     planting_id = models.ForeignKey(Planting, on_delete=models.CASCADE)
     water_irrigation_type = models.CharField(max_length=50, blank=True, null=True)
     water_irrigation_date = models.DateTimeField(blank=True, null=True)#selection
+    water_date_from_planting = models.IntegerField(default=0,blank=True, null=True)
     create_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
 
@@ -120,6 +121,7 @@ class Pesticide(models.Model):
     pesticide_qty = models.CharField(max_length=50)
     reason = models.CharField(max_length=50,blank=True, null=True)
     pesticide_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)#selection
+    pesticide_date_from_planting = models.IntegerField(default=0, blank=True, null=True)
     create_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
 
