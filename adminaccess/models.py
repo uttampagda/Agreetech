@@ -126,18 +126,18 @@ class Pesticide(models.Model):
     modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
 
 class Default_plant_name(models.Model):
-    plant_name = models.CharField(max_length=50)
+    plant_name = models.CharField(max_length=50, unique=True)
     def __str__(self):
         return self.plant_name
 
 class Default_plant_seed_name(models.Model):
     plant_name = models.ForeignKey(Default_plant_name,on_delete=models.CASCADE)
-    seed_name = models.CharField(max_length=50)
+    seed_name = models.CharField(max_length=50, unique=True)
     def __str__(self):
         return self.seed_name
 
 class Default_fertilizer(models.Model):
-    fertilizer_name = models.CharField(max_length=50)
+    fertilizer_name = models.CharField(max_length=50, unique=True)
     total_review = models.IntegerField(default=0)
     number_of_reviews = models.IntegerField(default=0)
     avarage_review = models.FloatField(default=0.0)
@@ -145,6 +145,6 @@ class Default_fertilizer(models.Model):
         return self.fertilizer_name
 
 class Default_pesticide(models.Model):
-    pesticide_name = models.CharField(max_length=50)
+    pesticide_name = models.CharField(max_length=50, unique=True)
     def __str__(self):
         return self.pesticide_name

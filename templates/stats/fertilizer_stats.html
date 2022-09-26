@@ -8,11 +8,10 @@
 <h2>Fertilizer statistics</h2>
 
 {{fertilizer_name}}
-<br>
-Detailed information
+
 <br>
 {%for fer in fertilizer%}
-  <span>Purchased by {{fer.farmer_id.name}} For farm {{fer.farm_id.farm_nick_name}} | fertilizer_qty {{fer.fertilizer_qty}} | creation_date  {{fer.create_date}}</span>
+  <span>Purchased by {{fer.farmer_id.name}} For farm {{fer.farm_id.farm_nick_name}} | fertilizer_qty {{fer.fertilizer_qty}} | creation_date  {{fer.create_date}}</span><br>
 {% endfor %}
 </body>
 </html>

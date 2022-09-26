@@ -322,7 +322,7 @@ def fertilizer_reg(request):
             form_save = form.save(commit=False)
             #for review
             fertilizer = Default_fertilizer.objects.filter(fertilizer_name=form.data['fertilizer_name'])[0]
-            total_review = fertilizer.total_review + int(form.data['review'])
+            total_review = fertilizer.total_review + int(form.data['rating'])
             number_of_reviews = fertilizer.number_of_reviews + 1
             avarage_review = round( total_review / number_of_reviews, 1)
             fertilizer.total_review = total_review
@@ -394,6 +394,7 @@ def pesticide_reg(request):
     farm_id = request.session['farm_id']
     farmer_id = request.session['farmer_id']
     planting_id = request.session['planting_id']
+    pesticide_selection = Default_pesticide.objects.all()
     if request.method == 'POST':
         form = Pesticide_Form(request.POST, request.FILES)
         if form.is_valid():
@@ -404,6 +405,7 @@ def pesticide_reg(request):
             form_save.save()
             return redirect('planting',planting_id=planting_id)
     data = {
+                'pesticide_selection': pesticide_selection,
                 'farmer_id': farmer_id,
                 'farm_id': farm_id,
                 'planting_id': planting_id,
@@ -624,10 +626,24 @@ def pesticide_edit(request, pesticide_id):
 
 def fertilizer_stats(request,fertilizer_name):
     fertilizer = Fertilizer.objects.filter(fertilizer_name=fertilizer_name).order_by('create_date')
-    print(fertilizer[0].id,fertilizer[0].fertilizer_name)
-    print(fertilizer)
+    try:
+        fertilizer_name = fertilizer[0].fertilizer_name
+    except:
+        fertilizer_name = 'No information about this fertilizer'
     data = {
-        'fertilizer_name' : fertilizer[0].fertilizer_name,
+        'fertilizer_name' : fertilizer_name,
         'fertilizer': fertilizer
     }
     return render(request,'stats/fertilizer_stats.html',data)
+
+def pesticide_stats(request,pesticide_name):
+    pesticide = Pesticide.objects.filter(pesticide_name=pesticide_name).order_by('create_date')
+    try:
+        pesticide_name = pesticide[0].pesticide_name
+    except:
+        pesticide_name = 'No information about this pesticide'
+    data = {
+        'pesticide_name': pesticide_name,
+        'pesticide': pesticide
+    }
+    return render(request, 'stats/pesticide_stats.html', data)

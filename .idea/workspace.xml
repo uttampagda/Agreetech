@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="add fertilizer_days_from_planting field">
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="Days from planting time compute field done(in main form as well as in edit forms for fertilizer,water,pesticide)">
+      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0006_pesticide_pesticide_date_from_planting_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0007_alter_default_fertilizer_fertilizer_name_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0008_alter_default_plant_name_plant_name_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/stats/pesticide_stats.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/form.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/pesticide_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/pesticide_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Default_parameters/default_pesticide.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Default_parameters/default_pesticide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/fertilizer_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/fertilizer_reg.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/forms/pesticide_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/pesticide_reg.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/planting.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/planting.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/water_irrigation_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/water_irrigation_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/water_irrigation_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/water_irrigation_reg.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/stats/fertilizer_stats.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stats/fertilizer_stats.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +39,7 @@
     <setting file="file://$PROJECT_DIR$/templates/form_edit/pesticide_edit.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templates/forms/planting_reg.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templates/form_edit/farmer_edit.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/form_edit/water_irrigation_edit.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templates/form_edit/fertilizer_edit.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templates/forms/fertilizer_info.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templates/forms/fertilizer_reg.html" root0="FORCE_HIGHLIGHTING" />
@@ -48,6 +52,7 @@
     <setting file="file://$PROJECT_DIR$/adminaccess/urls.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templates/dashboard/dashboard.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templates/form_edit/farm_edit.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/adminaccess/form.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -66,12 +71,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/Default_parameters" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/stats" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/stats" />
       <recent name="$PROJECT_DIR$/templates/Default_parameters" />
       <recent name="$PROJECT_DIR$/templates/forms" />
     </key>
@@ -345,7 +351,8 @@
       <workItem from="1662488120273" duration="436000" />
       <workItem from="1662657373716" duration="221000" />
       <workItem from="1663607303173" duration="5439000" />
-      <workItem from="1663695118279" duration="5562000" />
+      <workItem from="1663695118279" duration="5707000" />
+      <workItem from="1664208928260" duration="6124000" />
     </task>
     <task id="LOCAL-00001" summary="forms initial">
       <created>1654536683658</created>
@@ -578,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663696104433</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Days from planting time compute field done(in main form as well as in edit forms for fertilizer,water,pesticide)">
+      <created>1663701558850</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1663701558850</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -616,6 +630,7 @@
     <MESSAGE value="farmer name and village in every page(backend) done" />
     <MESSAGE value="not a lot" />
     <MESSAGE value="add fertilizer_days_from_planting field" />
-    <option name="LAST_COMMIT_MESSAGE" value="add fertilizer_days_from_planting field" />
+    <MESSAGE value="Days from planting time compute field done(in main form as well as in edit forms for fertilizer,water,pesticide)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Days from planting time compute field done(in main form as well as in edit forms for fertilizer,water,pesticide)" />
   </component>
 </project>

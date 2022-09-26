@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pesticide statistics</title>
+</head>
+<body>
+<h2>Pesticide statistics</h2>
+
+{{pesticide_name}}
+
+<br>
+{%for pes in pesticide%}
+  <span>Purchased by {{pes.farmer_id.name}} For farm {{pes.farm_id.farm_nick_name}} | pesticide qty {{pes.pesticide_qty}} | creation_date  {{pes.create_date}}</span><br>
+{% endfor %}
+</body>
+</html>
