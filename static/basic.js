@@ -70,17 +70,24 @@ if (window.location.href == 'http://127.0.0.1:8000/createuser') {
 }
 
 let menu_btn = document.getElementById('menu_btn');
-menu_btn.addEventListener('click', function hide_side_menu(){
-    let side_menu = document.getElementById('side_menu');
-    let main_content = document.getElementById('main_content')
-    if(side_menu.style.display != 'none'){
-        side_menu.style.display = 'none';
-        main_content.style.marginLeft = '0';
-    }else{
-        side_menu.style.display = 'block';
-        main_content.style.marginLeft = '360px';
+// menu_btn.addEventListener('click', function hide_side_menu(){
+//     let side_menu = document.getElementById('side_menu');
+//     let main_content = document.getElementById('main_content')
+//     if(side_menu.style.display != 'none'){
+//         side_menu.style.display = 'none';
+//         main_content.style.marginLeft = '0';
+//     }else{
+//         side_menu.style.display = 'block';
+//         main_content.style.marginLeft = '360px';
 
-    }
+//     }
+// })
+menu_btn.addEventListener('mouseover', function hide_side_menu(){
+    menu_btn.innerHTML = `<span class="material-symbols-outlined">home</span>`
+})
+
+menu_btn.addEventListener('mouseout', function hide_side_menu_(){
+    menu_btn.innerHTML = `<span class="material-symbols-outlined"> apps </span>`
 })
 
 let hide_unhide_logout_btn = document.getElementById('hide_unhide_logout_btn');
