@@ -322,7 +322,7 @@ def fertilizer_reg(request):
             form_save = form.save(commit=False)
             #for review
             fertilizer = Default_fertilizer.objects.filter(fertilizer_name=form.data['fertilizer_name'])[0]
-            total_review = fertilizer.total_review + int(form.data['review'])
+            total_review = fertilizer.total_review + int(form.data['rating'])
             number_of_reviews = fertilizer.number_of_reviews + 1
             avarage_review = round( total_review / number_of_reviews, 1)
             fertilizer.total_review = total_review
@@ -376,7 +376,11 @@ def water_irrigation_reg(request):
     if request.method == 'POST':
         form = Water_irrigation_Form(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            form_save = form.save(commit=False)
+            planting = Planting.objects.filter(id=planting_id)[0]
+            water_date_from_planting = (datetime.fromisoformat(form.data['water_irrigation_date']).date()-planting.planting_time.date()).days
+            form_save.water_date_from_planting = water_date_from_planting
+            form_save.save()
             return redirect('planting',planting_id=planting_id)
 
     data = {
@@ -390,12 +394,18 @@ def pesticide_reg(request):
     farm_id = request.session['farm_id']
     farmer_id = request.session['farmer_id']
     planting_id = request.session['planting_id']
+    pesticide_selection = Default_pesticide.objects.all()
     if request.method == 'POST':
         form = Pesticide_Form(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            form_save = form.save(commit=False)
+            planting = Planting.objects.filter(id=planting_id)[0]
+            pesticide_date_from_planting = (datetime.fromisoformat(form.data['pesticide_date']).date() - planting.planting_time.date()).days
+            form_save.pesticide_date_from_planting = pesticide_date_from_planting
+            form_save.save()
             return redirect('planting',planting_id=planting_id)
     data = {
+                'pesticide_selection': pesticide_selection,
                 'farmer_id': farmer_id,
                 'farm_id': farm_id,
                 'planting_id': planting_id,
@@ -573,7 +583,10 @@ def fertilizer_edit(request, fertilizer_id):
         form = Fertilizer_Form(request.POST, instance=fertilizer)
 
         if form.is_valid():
-            form.save()
+            form_save = form.save(commit=False)
+            fertilizer_days_from_planting = (datetime.fromisoformat(form.data['fertilizer_date']).date() - fertilizer.planting_id.planting_time.date()).days
+            form_save.fertilizer_days_from_planting = fertilizer_days_from_planting
+            form_save.save()
             return redirect(f'/fertilizer_info/fertilizer_id={fertilizer_id}')
     
     return render(request, 'form_edit/fertilizer_edit.html', {'fertilizers':fertilizers})
@@ -587,7 +600,10 @@ def water_irrigation_edit(request, water_irrigation_id):
         form = Water_irrigation_Form(request.POST, instance=water_irrigation)
 
         if form.is_valid():
-            form.save()
+            form_save = form.save(commit=False)
+            water_date_from_planting = (datetime.fromisoformat(form.data['water_irrigation_date']).date() - water_irrigation.planting_id.planting_time.date()).days
+            form_save.water_date_from_planting = water_date_from_planting
+            form_save.save()
             return redirect(f'/water_irrigation_info/water_irrigation_id={water_irrigation_id}')
     
     return render(request, 'form_edit/water_irrigation_edit.html', {'water_irrigations':water_irrigations})
@@ -596,22 +612,38 @@ def water_irrigation_edit(request, water_irrigation_id):
 def pesticide_edit(request, pesticide_id):
     pesticide = Pesticide.objects.get(id=pesticide_id)
     pesticides = Pesticide.objects.filter(id=pesticide_id)
-
     if request.method == 'POST':
         form = Pesticide_Form(request.POST, instance=pesticide)
 
         if form.is_valid():
-            form.save()
+            form_save = form.save(commit=False)
+            pesticide_date_from_planting = (datetime.fromisoformat(form.data['pesticide_date']).date() - pesticide.planting_id.planting_time.date()).days
+            form_save.pesticide_date_from_planting = pesticide_date_from_planting
+            form_save.save()
             return redirect(f'/pesticide_info/pesticide_id={pesticide_id}')
     
     return render(request, 'form_edit/pesticide_edit.html', {'pesticides':pesticides})
 
 def fertilizer_stats(request,fertilizer_name):
     fertilizer = Fertilizer.objects.filter(fertilizer_name=fertilizer_name).order_by('create_date')
-    print(fertilizer[0].id,fertilizer[0].fertilizer_name)
-    print(fertilizer)
+    try:
+        fertilizer_name = fertilizer[0].fertilizer_name
+    except:
+        fertilizer_name = 'No information about this fertilizer'
     data = {
-        'fertilizer_name' : fertilizer[0].fertilizer_name,
+        'fertilizer_name' : fertilizer_name,
         'fertilizer': fertilizer
     }
     return render(request,'stats/fertilizer_stats.html',data)
+
+def pesticide_stats(request,pesticide_name):
+    pesticide = Pesticide.objects.filter(pesticide_name=pesticide_name).order_by('create_date')
+    try:
+        pesticide_name = pesticide[0].pesticide_name
+    except:
+        pesticide_name = 'No information about this pesticide'
+    data = {
+        'pesticide_name': pesticide_name,
+        'pesticide': pesticide
+    }
+    return render(request, 'stats/pesticide_stats.html', data)

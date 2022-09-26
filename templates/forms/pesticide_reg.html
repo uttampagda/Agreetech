@@ -19,9 +19,14 @@
             <label for="id_planting_id">Planting Id</label>
             <input type="number" class="form-control" id="id_planting_id" name="planting_id" value="{{planting_id}}" placeholder="Planting Id" required>
         </div>
-        <div class="form-group mt-3">
-            <label for="id_pesticide_name">Pesticide Name</label>
-            <input type="text" class="form-control" id="id_pesticide_name" name="pesticide_name" placeholder="Pesticide Name" required>
+        <div>
+            <label>Presticide name</label>
+            <select name="pesticide_name" id="pet-select">
+                <option value="" selected>--Please choose an option--</option>
+                    {% for pes in pesticide_selection %}
+                    <option value="{{pes.pesticide_name}}">{{pes.pesticide_name}}</option>
+                    {% endfor %}
+            </select>
         </div>
         <div class="form-group mt-2">
             <label for="id_pesticide_qty">Pesticide Qty</label>
@@ -33,7 +38,7 @@
         </div>
         <div class="form-group mt-3">
             <label for="id_pesticide_date">Pesticide Date</label>
-            <input type="date" class="form-control" id="id_pesticide_date" name="pesticide_date" placeholder="Pesticide Date" required>
+            <input type="datetime-local" class="form-control" id="id_pesticide_date" name="pesticide_date" placeholder="Pesticide Date" required>
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
     </form>
