@@ -122,6 +122,7 @@ class Pesticide(models.Model):
     reason = models.CharField(max_length=50,blank=True, null=True)
     pesticide_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)#selection
     pesticide_date_from_planting = models.IntegerField(default=0, blank=True, null=True)
+    rating = models.IntegerField(blank=True, null=True)
     create_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
 
@@ -146,5 +147,8 @@ class Default_fertilizer(models.Model):
 
 class Default_pesticide(models.Model):
     pesticide_name = models.CharField(max_length=50, unique=True)
+    total_review = models.IntegerField(default=0)
+    number_of_reviews = models.IntegerField(default=0)
+    avarage_review = models.FloatField(default=0.0)
     def __str__(self):
         return self.pesticide_name

@@ -6,6 +6,7 @@ Default Pesticides
 <div>
     {% for pes in default_pesticide %}
     <span>{{pes}}</span>
+    <span>{{pes.avarage_review}}</span>
     <a href="{% url 'pesticide_stats' pesticide_name=pes.pesticide_name%}">info</a>
     <br>
     {% endfor %}

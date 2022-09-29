@@ -181,7 +181,6 @@ def planting_reg(request):
 
     default_plant_name = list(Default_plant_name.objects.values())
     default_plant_seed_name = list(Default_plant_seed_name.objects.values())
-    print(default_plant_name, default_plant_seed_name)
     data = {
         'default_plant_name':default_plant_name,
         'default_plant_seed_name': default_plant_seed_name,
@@ -399,6 +398,16 @@ def pesticide_reg(request):
         form = Pesticide_Form(request.POST, request.FILES)
         if form.is_valid():
             form_save = form.save(commit=False)
+            # for review
+            pesticide = Default_pesticide.objects.filter(pesticide_name=form.data['pesticide_name'])[0]
+            total_review = pesticide.total_review + int(form.data['rating'])
+            number_of_reviews = pesticide.number_of_reviews + 1
+            avarage_review = round(total_review / number_of_reviews, 1)
+            pesticide.total_review = total_review
+            pesticide.number_of_reviews = number_of_reviews
+            pesticide.avarage_review = avarage_review
+            pesticide.save()
+
             planting = Planting.objects.filter(id=planting_id)[0]
             pesticide_date_from_planting = (datetime.fromisoformat(form.data['pesticide_date']).date() - planting.planting_time.date()).days
             form_save.pesticide_date_from_planting = pesticide_date_from_planting
