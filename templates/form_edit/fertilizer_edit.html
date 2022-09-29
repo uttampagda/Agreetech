@@ -1,6 +1,6 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
-{% load static %} 
+{% load static %}
 
 <h2>Fertilizer</h2>
 
@@ -10,49 +10,56 @@
         {% for f in fertilizers %}
         <div class="form-group mt-2">
             <label for="id_farmer_id">Farmer Id</label>
-            <input type="number" value="{{f.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id" required>
+            <input type="number" value="{{f.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id"
+                placeholder="Farmer Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_farm_id">Farm Id</label>
-            <input type="number" value="{{f.farm_id.id}}" class="form-control" id="id_farm_id" name="farm_id" placeholder="Farm Id" required>
+            <input type="number" value="{{f.farm_id.id}}" class="form-control" id="id_farm_id" name="farm_id"
+                placeholder="Farm Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_planting_id">Planting Id</label>
-            <input type="number" value="{{f.planting_id.id}}" class="form-control" id="id_planting_id" name="planting_id" placeholder="Planting Id" required>
+            <input type="number" value="{{f.planting_id.id}}" class="form-control" id="id_planting_id"
+                name="planting_id" placeholder="Planting Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_fertilizer_name">Fertilizer Name</label>
-            <input type="text" value="{{f.fertilizer_name}}" class="form-control" id="id_fertilizer_name" name="fertilizer_name" placeholder="Fertilizer Name" required>
+            <input type="text" value="{{f.fertilizer_name}}" class="form-control" id="id_fertilizer_name"
+                name="fertilizer_name" placeholder="Fertilizer Name" required>
         </div>
         <div class="form-group mt-2">
             <label for="id_fertilizer_qty">Fertilizer Qty</label>
-            <input type="text" value="{{f.fertilizer_qty}}" class="form-control" id="id_fertilizer_qty" name="fertilizer_qty" placeholder="Fertilizer Qty" required>
+            <input type="text" value="{{f.fertilizer_qty}}" class="form-control" id="id_fertilizer_qty"
+                name="fertilizer_qty" placeholder="Fertilizer Qty" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_fertilizer_qty_per_acre">Fertilizer Qty Per Acre</label>
-            <input type="text" value="{{f.fertilizer_qty_per_acre}}" class="form-control" id="id_fertilizer_qty_per_acre" name="fertilizer_qty_per_acre" placeholder="Fertilizer Qty Per Acre" >
+            <input type="text" value="{{f.fertilizer_qty_per_acre}}" class="form-control"
+                id="id_fertilizer_qty_per_acre" name="fertilizer_qty_per_acre" placeholder="Fertilizer Qty Per Acre">
         </div>
         <div class="form-group mt-3">
             <label for="id_fertilizer_date">Fertilizer Date</label>
-            <input type="datetime-local" value="{{f.fertilizer_date|date:'Y-m-d H:i'}}" class="form-control" id="id_fertilizer_date" name="fertilizer_date" placeholder="Fertilizer Date" >
+            <input type="datetime-local" value="{{f.fertilizer_date|date:'Y-m-d H:i'}}" class="form-control"
+                id="id_fertilizer_date" name="fertilizer_date" placeholder="Fertilizer Date">
         </div>
         <div class="form-group mt-3">
             <label for="id_rating">Rating</label>
             <select name="fertilizer_name" id="pet-select">
-                    {% if f.rating != 1 %}<option value="1">1</option>{% endif %}
-                    {% if f.rating == 1 %}<option value="1" selected>1</option>{% endif %}
+                {% if f.rating != 1 %}<option value="1">1</option>{% endif %}
+                {% if f.rating == 1 %}<option value="1" selected>1</option>{% endif %}
 
-                    {% if f.rating != 2 %}<option value="2">2</option>{% endif %}
-                    {% if f.rating == 2 %}<option value="2" selected>2</option>{% endif %}
+                {% if f.rating != 2 %}<option value="2">2</option>{% endif %}
+                {% if f.rating == 2 %}<option value="2" selected>2</option>{% endif %}
 
-                    {% if f.rating != 3 %}<option value="3">3</option>{% endif %}
-                    {% if f.rating == 3 %}<option value="3" selected>3</option>{% endif %}
+                {% if f.rating != 3 %}<option value="3">3</option>{% endif %}
+                {% if f.rating == 3 %}<option value="3" selected>3</option>{% endif %}
 
-                    {% if f.rating != 4 %}<option value="4">4</option>{% endif %}
-                    {% if f.rating == 4 %}<option value="4" selected>4</option>{% endif %}
-                    
-                    {% if f.rating != 5 %}<option value="5">5</option>{% endif %}
-                    {% if f.rating == 5 %}<option value="5" selected>5</option>{% endif %}
+                {% if f.rating != 4 %}<option value="4">4</option>{% endif %}
+                {% if f.rating == 4 %}<option value="4" selected>4</option>{% endif %}
+
+                {% if f.rating != 5 %}<option value="5">5</option>{% endif %}
+                {% if f.rating == 5 %}<option value="5" selected>5</option>{% endif %}
             </select>
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>

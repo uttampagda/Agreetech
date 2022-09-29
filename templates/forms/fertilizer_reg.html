@@ -1,6 +1,6 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
-{% load static %} 
+{% load static %}
 
 <h2>Fertilizer</h2>
 
@@ -9,47 +9,53 @@
         {% csrf_token %}
         <div class="form-group mt-2">
             <label for="id_farmer_id">Farmer Id</label>
-            <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}" placeholder="Farmer Id" required>
+            <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}"
+                placeholder="Farmer Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_farm_id">Farm Id</label>
-            <input type="number" class="form-control" id="id_farm_id" name="farm_id" value="{{farm_id}}" placeholder="Farm Id" required>
+            <input type="number" class="form-control" id="id_farm_id" name="farm_id" value="{{farm_id}}"
+                placeholder="Farm Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_planting_id">Planting Id</label>
-            <input type="number" class="form-control" id="id_planting_id" name="planting_id" value="{{planting_id}}" placeholder="Planting Id" required>
+            <input type="number" class="form-control" id="id_planting_id" name="planting_id" value="{{planting_id}}"
+                placeholder="Planting Id" required>
         </div>
         <div>
             <label>Fertilizer name</label>
             <select name="fertilizer_name" id="pet-select">
 
                 <option value="" selected>--Please choose an option--</option>
-                    {% for fer in fertilizer_selection %}
-                    <option value="{{fer.fertilizer_name}}">{{fer.fertilizer_name}}</option>
-                    {% endfor %}
+                {% for fer in fertilizer_selection %}
+                <option value="{{fer.fertilizer_name}}">{{fer.fertilizer_name}}</option>
+                {% endfor %}
             </select>
         </div>
 
         <div class="form-group mt-2">
             <label for="id_fertilizer_qty">Fertilizer Qty</label>
-            <input type="text" class="form-control" id="id_fertilizer_qty" name="fertilizer_qty" placeholder="Fertilizer Qty" required>
+            <input type="text" class="form-control" id="id_fertilizer_qty" name="fertilizer_qty"
+                placeholder="Fertilizer Qty" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_fertilizer_qty_per_acre">Fertilizer Qty Per Acre</label>
-            <input type="text" class="form-control" id="id_fertilizer_qty_per_acre" name="fertilizer_qty_per_acre" placeholder="Fertilizer Qty Per Acre" >
+            <input type="text" class="form-control" id="id_fertilizer_qty_per_acre" name="fertilizer_qty_per_acre"
+                placeholder="Fertilizer Qty Per Acre">
         </div>
         <div>
             <span class="star-rating">
-                          <input type="radio" name="rating" value="1"><i></i>
-                          <input type="radio" name="rating" value="2"><i></i>
-                          <input type="radio" name="rating" value="3"><i></i>
-                          <input type="radio" name="rating" value="4"><i></i>
-                          <input type="radio" name="rating" value="5"><i></i>
+                <input type="radio" name="rating" value="1"><i></i>
+                <input type="radio" name="rating" value="2"><i></i>
+                <input type="radio" name="rating" value="3"><i></i>
+                <input type="radio" name="rating" value="4"><i></i>
+                <input type="radio" name="rating" value="5"><i></i>
             </span>
         </div>
         <div class="form-group mt-3">
             <label for="id_fertilizer_date">Fertilizer Date</label>
-            <input type="datetime-local" class="form-control" id="id_fertilizer_date" name="fertilizer_date" placeholder="Fertilizer Date" >
+            <input type="datetime-local" class="form-control" id="id_fertilizer_date" name="fertilizer_date"
+                placeholder="Fertilizer Date">
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
     </form>

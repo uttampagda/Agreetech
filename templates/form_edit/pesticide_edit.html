@@ -1,6 +1,6 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
-{% load static %} 
+{% load static %}
 
 <h2>Pesticide</h2>
 
@@ -10,31 +10,57 @@
         {% for p in pesticides %}
         <div class="form-group mt-2">
             <label for="id_farmer_id">Farmer Id</label>
-            <input type="number" value="{{p.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id" required>
+            <input type="number" value="{{p.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id"
+                placeholder="Farmer Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_farm_id">Farm Id</label>
-            <input type="number" value="{{p.farm_id.id}}" class="form-control" id="id_farm_id" name="farm_id" placeholder="Farm Id" required>
+            <input type="number" value="{{p.farm_id.id}}" class="form-control" id="id_farm_id" name="farm_id"
+                placeholder="Farm Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_planting_id">Planting Id</label>
-            <input type="number" value="{{p.planting_id.id}}" class="form-control" id="id_planting_id" name="planting_id" placeholder="Planting Id" required>
+            <input type="number" value="{{p.planting_id.id}}" class="form-control" id="id_planting_id"
+                name="planting_id" placeholder="Planting Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_pesticide_name">Pesticide Name</label>
-            <input type="text" value="{{p.pesticide_name}}" class="form-control" id="id_pesticide_name" name="pesticide_name" placeholder="Pesticide Name" required>
+            <input type="text" value="{{p.pesticide_name}}" class="form-control" id="id_pesticide_name"
+                name="pesticide_name" placeholder="Pesticide Name" required>
         </div>
         <div class="form-group mt-2">
             <label for="id_pesticide_qty">Pesticide Qty</label>
-            <input type="text" value="{{p.pesticide_qty}}" class="form-control" id="id_pesticide_qty" name="pesticide_qty" placeholder="Pesticide Qty" required>
+            <input type="text" value="{{p.pesticide_qty}}" class="form-control" id="id_pesticide_qty"
+                name="pesticide_qty" placeholder="Pesticide Qty" required>
         </div>
         <div class="form-group mt-2">
             <label for="id_pesticide_qty">Reason</label>
-            <input type="text" value="{{p.reason}}" class="form-control" id="id_reason" name="reason" placeholder="Reason" required>
+            <input type="text" value="{{p.reason}}" class="form-control" id="id_reason" name="reason"
+                placeholder="Reason" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_rating">Rating</label>
+            <select name="fertilizer_name" id="pet-select">
+                {% if f.rating != 1 %}<option value="1">1</option>{% endif %}
+                {% if f.rating == 1 %}<option value="1" selected>1</option>{% endif %}
+
+                {% if f.rating != 2 %}<option value="2">2</option>{% endif %}
+                {% if f.rating == 2 %}<option value="2" selected>2</option>{% endif %}
+
+                {% if f.rating != 3 %}<option value="3">3</option>{% endif %}
+                {% if f.rating == 3 %}<option value="3" selected>3</option>{% endif %}
+
+                {% if f.rating != 4 %}<option value="4">4</option>{% endif %}
+                {% if f.rating == 4 %}<option value="4" selected>4</option>{% endif %}
+
+                {% if f.rating != 5 %}<option value="5">5</option>{% endif %}
+                {% if f.rating == 5 %}<option value="5" selected>5</option>{% endif %}
+            </select>
         </div>
         <div class="form-group mt-3">
             <label for="id_pesticide_date">Pesticide Date</label>
-            <input type="datetime-local"  value="{{p.pesticide_date|date:'Y-m-d H:i'}}" class="form-control" id="id_pesticide_date" name="pesticide_date" placeholder="Pesticide Date" required>
+            <input type="datetime-local" value="{{p.pesticide_date|date:'Y-m-d H:i'}}" class="form-control"
+                id="id_pesticide_date" name="pesticide_date" placeholder="Pesticide Date" required>
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
         {% endfor %}

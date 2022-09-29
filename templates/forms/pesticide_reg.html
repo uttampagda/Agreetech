@@ -1,6 +1,6 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
-{% load static %} 
+{% load static %}
 
 <h2>Pesticide</h2>
 
@@ -9,28 +9,32 @@
         {% csrf_token %}
         <div class="form-group mt-2">
             <label for="id_farmer_id">Farmer Id</label>
-            <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}" placeholder="Farmer Id" required>
+            <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}"
+                placeholder="Farmer Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_farm_id">Farm Id</label>
-            <input type="number" class="form-control" id="id_farm_id" name="farm_id" value="{{farm_id}}" placeholder="Farm Id" required>
+            <input type="number" class="form-control" id="id_farm_id" name="farm_id" value="{{farm_id}}"
+                placeholder="Farm Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_planting_id">Planting Id</label>
-            <input type="number" class="form-control" id="id_planting_id" name="planting_id" value="{{planting_id}}" placeholder="Planting Id" required>
+            <input type="number" class="form-control" id="id_planting_id" name="planting_id" value="{{planting_id}}"
+                placeholder="Planting Id" required>
         </div>
         <div>
             <label>Presticide name</label>
             <select name="pesticide_name" id="pet-select">
                 <option value="" selected>--Please choose an option--</option>
-                    {% for pes in pesticide_selection %}
-                    <option value="{{pes.pesticide_name}}">{{pes.pesticide_name}}</option>
-                    {% endfor %}
+                {% for pes in pesticide_selection %}
+                <option value="{{pes.pesticide_name}}">{{pes.pesticide_name}}</option>
+                {% endfor %}
             </select>
         </div>
         <div class="form-group mt-2">
             <label for="id_pesticide_qty">Pesticide Qty</label>
-            <input type="text" class="form-control" id="id_pesticide_qty" name="pesticide_qty" placeholder="Pesticide Qty" required>
+            <input type="text" class="form-control" id="id_pesticide_qty" name="pesticide_qty"
+                placeholder="Pesticide Qty" required>
         </div>
         <div class="form-group mt-2">
             <label for="id_pesticide_qty">Reason</label>
@@ -38,15 +42,16 @@
         </div>
         <div class="form-group mt-3">
             <label for="id_pesticide_date">Pesticide Date</label>
-            <input type="datetime-local" class="form-control" id="id_pesticide_date" name="pesticide_date" placeholder="Pesticide Date" required>
+            <input type="datetime-local" class="form-control" id="id_pesticide_date" name="pesticide_date"
+                placeholder="Pesticide Date" required>
         </div>
         <div>
             <span class="star-rating">
-                          <input type="radio" name="rating" value="1"><i></i>
-                          <input type="radio" name="rating" value="2"><i></i>
-                          <input type="radio" name="rating" value="3"><i></i>
-                          <input type="radio" name="rating" value="4"><i></i>
-                          <input type="radio" name="rating" value="5"><i></i>
+                <input type="radio" name="rating" value="1"><i></i>
+                <input type="radio" name="rating" value="2"><i></i>
+                <input type="radio" name="rating" value="3"><i></i>
+                <input type="radio" name="rating" value="4"><i></i>
+                <input type="radio" name="rating" value="5"><i></i>
             </span>
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>

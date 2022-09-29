@@ -75,23 +75,23 @@
 </table>
 <div class="pages">
   <div class="pages_titles"> <span class="page_name">Planting History</span></div>
-    <table class="table page_table">
-      <tr>
-        <th>Plant Name</th>
-        <th>Plant Area</th>
-        <th>Planting Date</th>
-        <th></th>
-      </tr>
-      {% for plant in planting_history %}
+  <table class="table page_table">
+    <tr>
+      <th>Plant Name</th>
+      <th>Plant Area</th>
+      <th>Planting Date</th>
+      <th></th>
+    </tr>
+    {% for plant in planting_history %}
 
-      <tr class="farm_details">
-        <td>{{plant.plant}}</td>
-        <td>{{plant.planting_area}}</td>
-        <td>{{plant.planting_time}}</td>
-        <td><a href="{% url 'planting' planting_id=plant.id%}">More Info</a></td>
-      </tr>
-      {% endfor %}
-    </table>
+    <tr class="farm_details">
+      <td>{{plant.plant}}</td>
+      <td>{{plant.planting_area}}</td>
+      <td>{{plant.planting_time}}</td>
+      <td><a href="{% url 'planting' planting_id=plant.id%}">More Info</a></td>
+    </tr>
+    {% endfor %}
+  </table>
   <div class="add_farm_btn"><a href="{% url 'planting_reg' %}">Add new planting</a></div>
 </div>
 <!-- <div class="d-flex justify-content-evenly flex-wrap">
