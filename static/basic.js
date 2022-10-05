@@ -83,11 +83,11 @@ let menu_btn = document.getElementById('menu_btn');
 //     }
 // })
 menu_btn.addEventListener('mouseover', function hide_side_menu(){
-    menu_btn.innerHTML = `<span class="material-symbols-outlined">home</span>`
+    menu_btn.innerText = `home`
 })
 
 menu_btn.addEventListener('mouseout', function hide_side_menu_(){
-    menu_btn.innerHTML = `<span class="material-symbols-outlined"> apps </span>`
+    menu_btn.innerText = `apps`
 })
 
 let hide_unhide_logout_btn = document.getElementById('hide_unhide_logout_btn');

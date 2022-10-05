@@ -3,96 +3,136 @@
 {% load static %}
 
 <div class="cus_container">
-  <div>
-    <button><a href="{% url 'farmers' %}">Back To All Farmers</a></button>
+  <div class="back_btn">
+    <button class="back_btn_1"><a class="back_btn_2" href="{% url 'farmers' %}">
+        <span class="material-symbols-outlined back_btn_2">
+          arrow_back_ios
+        </span>
+        Back To Farmers</a></button>
   </div>
-  <h2>Farmer Info</h2>
-  <table class="table table-borderless farmer_detail">
-    <a href="/farmer_edit/farmer_id={{farmer_info.id}}">Edit Farmer</a>
-    <tbody>
-      <tr>
-        <td>
-          <table>
-            <tr>
-              <th scope="row" class="p-2">Name:</th>
-              <td class="p-2">{{farmer_info.name}}</td>
-            </tr>
-            <tr>
-              <th scope="row" class="p-2">Phone Number:</th>
-              <td class="p-2">{{farmer_info.phone_number}}</td>
-            </tr>
-            <tr>
-              <th scope="row" class="p-2">Address:</th>
-              <td class="p-2">{{farmer_info.address}}</td>
-            </tr>
-            <tr>
-              <th scope="row" class="p-2">Aadhar Number:</th>
-              <td class="p-2">{{farmer_info.aadhar_number}}</td>
-            </tr>
-          </table>
-        </td>
-        <td>
-          <table>
-            <tr>
-              <th scope="row" class="p-2">Family Members:</th>
-              <td class="p-2">{{farmer_info.family_members}}</td>
-            </tr>
-            <tr>
-              <th scope="row" class="p-2">Family Occupation:</th>
-              <td class="p-2">{{farmer_info.family_occupation}}</td>
-            </tr>
-            <tr>
-              <th scope="row" class="p-2">Family Members:</th>
-              <td class="p-2">{{farmer_info.family_members}}</td>
-            </tr>
-          </table>
-        </td>
-      </tr>
+  <div class="main_box">
+    <div class="d-flex justify-content-between">
+    <div class="farmer_info_title text-muted">Farmer Info
+      </div>
+      <a href="/farmer_edit/farmer_id={{farmer_info.id}}" class="material-symbols-outlined m-3 text-muted">
+        edit_square
+      </a></div>
+    <div class="farmer_info_details">
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Name</div>
+        <div class="farmer_details_1">{{farmer_info.name}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Phone Number</div>
+        <div class="farmer_details_1">{{farmer_info.phone_number}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Address</div>
+        <div class="farmer_details_1">{{farmer_info.address}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Aadhar Number</div>
+        <div class="farmer_details_1">{{farmer_info.aadhar_number}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Family Members</div>
+        <div class="farmer_details_1">{{farmer_info.family_members}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Family Occupation</div>
+        <div class="farmer_details_1">{{farmer_info.family_occupation}}</div>
+      </div>
+    </div>
 
-    </tbody>
+    <div class="farmer_info_title_page text-muted"><span class="pages">Farms</span></div>
+    <div class="farm_info"> 
+      <div class="page_table">
+        <div class="d-flex justify-content-evenly p-1">
+          <div class="table_one_content">Name</div>
+          <div class="table_one_content">Farm space</div>
+          <div class="table_one_content">Nick Name</div>
+          <div class="table_one_content">Caretaker</div>
+          <div class="table_one_content">Phone Number</div>
+        </div>  
+        {% for farm in farm_info %}
+        <a class="d-flex justify-content-evenly border-top p-1 farm_information" href="{% url 'farm_info' farm_id=farm.id%}">
+          <div class="table_one_content_1">{{farm.farmer_id.name}}</div>
+          <div class="table_one_content_1">{{farm.farm_space}}</div>
+          <div class="table_one_content_1">{{farm.caretaker}}</div>
+          <div class="table_one_content_1">{{farm.farmer_id.name}}</div>
+          <div class="table_one_content_1">{{farm.caretaker_phone_number}}</div>
+        </a>
+        {% endfor %}
+        <div class="border-top">
+        <div class="add_more_farm p-2"><a href="{% url 'farm_info_reg' %}">add more</a></div>
+      </div>
+      </div>
+      <!-- {% for farm in farm_info %}
+      <a class="farm_info_card" href="{% url 'farm_info' farm_id=farm.id%}">
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Nick Name</div>
+          <div class="farmer_details_1">{{farm.farm_nick_name}}</div>
+        </div>
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Farm space</div>
+          <div class="farmer_details_1">{{farm.farm_space}}</div>
+        </div>
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">caretaker</div>
+          <div class="farmer_details_1">{{farm.caretaker}}</div>
+        </div>
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">phone number</div>
+          <div class="farmer_details_1">{{farm.caretaker_phone_number}}</div>
+        </div>
+        </span>
+      </a>
+      {% endfor %} -->
+    </div>
+  </div>
+  <!-- <h2>Farmer Info</h2>
 
-  </table>
   <div class="pages">
     <div class="pages_titles"> <span class="page_name">Farms</span></div>
-      <table class="table page_table">
-        <tr>
-          <th>Name</th>
-          <th>Farm space</th>
-          <th>Nick Name</th>
-          <th>caretaker</th>
-          <th>phone number</th>
-          <th></th>
-        </tr>
-        {% for farm in farm_info %}
+    <table class="table page_table">
+      <tr>
+        <th>Name</th>
+        <th>Farm space</th>
+        <th>Nick Name</th>
+        <th>caretaker</th>
+        <th>phone number</th>
+        <th></th>
+      </tr>
+      {% for farm in farm_info %}
 
-        <tr class="farm_details">
-          <td>{{farm.farmer_id.name}}</td>
-          <td>{{farm.farm_space}}</td>
-          <td>{{farm.caretaker}}</td>
-          <td>{{farm.farmer_id.name}}</td>
-          <td>{{farm.caretaker_phone_number}}</td>
-          <td><a href="{% url 'farm_info' farm_id=farm.id%}">More Info</a></td>
-        </tr>
-        {% endfor %}
-      </table>
+      <tr class="farm_details">
+        <td>{{farm.farmer_id.name}}</td>
+        <td>{{farm.farm_space}}</td>
+        <td>{{farm.caretaker}}</td>
+        <td>{{farm.farmer_id.name}}</td>
+        <td>{{farm.caretaker_phone_number}}</td>
+        <td><a href="{% url 'farm_info' farm_id=farm.id%}">More Info</a></td>
+      </tr>
+      {% endfor %}
+    </table>
     <div class="add_farm_btn"><a href="{% url 'farm_info_reg' %}">Add New Farm</a></div>
   </div>
-</div>
-<!-- <hr />
+</div> -->
+  <!-- <hr />
 <div class="d-flex justify-content-between p-3">
   <div class="h2">Farms</div> -->
-<!--        <div class="d-flex justify-content-center align-items-center">-->
-<!--            <form method="POST" action="{% url 'farm_info_reg' %}">-->
-<!--                  {% csrf_token %}-->
-<!--                  <input name="farmer_id" type="hidden" value={{ farmer_info.id }}>-->
-<!--                  <button type="submit" class="das-reject-order">-->
-<!--                    Add new Farm-->
-<!--                  </button>-->
-<!--              </form>-->
-<!--        </div>-->
-<!-- <button><a href="{% url 'farm_info_reg' %}">Add New Farm</a></button>
-</div>
-<div class="d-flex justify-content-evenly flex-wrap">
+  <!--        <div class="d-flex justify-content-center align-items-center">-->
+  <!--            <form method="POST" action="{% url 'farm_info_reg' %}">-->
+  <!--                  {% csrf_token %}-->
+  <!--                  <input name="farmer_id" type="hidden" value={{ farmer_info.id }}>-->
+  <!--                  <button type="submit" class="das-reject-order">-->
+  <!--                    Add new Farm-->
+  <!--                  </button>-->
+  <!--              </form>-->
+  <!--        </div>-->
+  <!-- <button><a href="{% url 'farm_info_reg' %}">Add New Farm</a></button>
+</div>-->
+  <!-- <div class="d-flex justify-content-evenly flex-wrap">
   {% for farm in farm_info %}
   <div class="card m-2" style="width: 18rem;">
     <div class="card-body">
@@ -104,5 +144,5 @@
     </div>
   </div>
   {% endfor %}
-</div> -->
-{% endblock %}
+</div>
+{% endblock %} -->

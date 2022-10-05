@@ -1,117 +1,225 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
-{% load static %} 
+{% load static %}
 
 <body>
-<div class="d-flex justify-content-center align-items-center">
+  <div class="d-flex justify-content-center align-items-center">
     <button><a href="{% url 'farm_info' farm_id=farm_id%}">Back to Farm info</a></button>
-</div>
-
-<div class="d-flex justify-content-end">
-<span class="dropdown">
-  <button class="dropbtn">More Registration</button>
-  <div class="dropdown-content">
-    <div><a href="{% url 'harvesting_and_crop_selling' %}">Harvesting and Selling</a></div>
-    <div><a href="{% url 'fertilizer_reg' %}">Fertilizer Reg</a></div>
-    <div><a href="{% url 'water_irrigation_reg' %}">Water irrigation</a></div>
-    <div><a href="{% url 'pesticide_reg' %}">Pesticide</a></div>
   </div>
-</span>
-</div>
 
-    <h2>Planting Info</h2>
-    <table class="table table-borderless table-width-40 farmer_detail">
-      <a href="/plant_edit/plant_id={{planting_history.id}}">Edit Planting</a>
-        <tbody>
-        <tr>
-            <th scope="row">Farmer Name:</th>
-            <td>{{planting_history.farmer_id.name}}</td>
-          </tr>
-        <tr>
-            <th scope="row">Farm ID:</th>
-            <td>{{planting_history.farm_id.farm_nick_name}}</td>
-          </tr>
-          <tr>
-            <th scope="row">Plant Name:</th>
-            <td>{{planting_history.plant}}</td>
-          </tr>
-          <tr>
-            <th scope="row">Plant Type:</th>
-            <td>{{planting_history.plant_type}}</td>
-          </tr>
-          <tr>
-            <th scope="row">Plant Area</th>
-            <td>{{planting_history.planting_area}}</td>
-          </tr>
-        <tr>
-            <th scope="row">Planting Date</th>
-            <td>{{planting_history.planting_time}}</td>
-          </tr>
-        <tr>
-            <th scope="row">Time from planting</th>
-            <td>{{planting_history.time_from_planting}}</td>
-          </tr>
-          <tr>
-            <th scope="row">Create Date</th>
-            <td>{{planting_history.create_date}}</td>
-          </tr>
-          <tr>
-            <th scope="row">Modified Date</th>
-            <td>{{planting_history.modified_date}}</td>
-          </tr>
-        </tbody>
-      </table>
-<div class="col-md-12 d-flex">
-    <div class="col-md-4">
-        <button><a href="{% url 'fertilizer_reg' %}">Fertilizer Reg</a></button>
-    <div class="d-flex justify-content-evenly flex-wrap">
+  <div class="d-flex justify-content-end">
+    <span class="dropdown">
+      <button class="dropbtn">More Registration</button>
+      <div class="dropdown-content">
+        <div><a href="{% url 'harvesting_and_crop_selling' %}">Harvesting and Selling</a></div>
+        <div><a href="{% url 'fertilizer_reg' %}">Fertilizer Reg</a></div>
+        <div><a href="{% url 'water_irrigation_reg' %}">Water irrigation</a></div>
+        <div><a href="{% url 'pesticide_reg' %}">Pesticide</a></div>
+      </div>
+    </span>
+  </div>
+  <div class="main_box">
+    <div class="farmer_info_title text-muted">Planting Info</div>
+    <div class="farmer_info_details">
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Farmer Name</div>
+        <div class="farmer_details_1">{{planting_history.farmer_id.name}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Farm ID</div>
+        <div class="farmer_details_1">{{planting_history.farm_id.farm_nick_name}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Plant Name</div>
+        <div class="farmer_details_1">{{planting_history.plant}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Plant Type</div>
+        <div class="farmer_details_1">{{planting_history.plant_type}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Plant Area</div>
+        <div class="farmer_details_1">{{planting_history.planting_area}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Planting Date</div>
+        <div class="farmer_details_1">{{planting_history.planting_time}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Time from planting</div>
+        <div class="farmer_details_1">{{planting_history.time_from_planting}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Create Date</div>
+        <div class="farmer_details_1">{{planting_history.create_date}}</div>
+      </div>
+      <div class="farmer_info_details_1">
+        <div class="text-muted farmer_info_title_1">Modified Date</div>
+        <div class="farmer_details_1">{{planting_history.modified_date}}</div>
+      </div>
+    </div>
+
+    <div class="farmer_info_title_page text-muted"><span class="pages">Fertilizer</span><span class="pages_1">Water irrigation</span><span class="pages_1">Pesticide</span></div>
+    <div class="farm_info">
       {% for fer in fertilizer %}
-      <div class="card m-2" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">fertilizer_name:{{fer.fertilizer_name}}</h5>
-          <p class="card-text">fertilizer_qty:{{fer.fertilizer_qty}}</p>
-          <p class="card-text">fertilizer_date:{{fer.fertilizer_date}}</p>
-          <p class="card-text">rating:{{fer.rating}}</p>
-          <p class="card-text">crop_days:{{fer.fertilizer_days_from_planting}}</p>
-            <button><a href="/fertilizer_info/fertilizer_id={{fer.id}}">More Info</a></button>
+      <a class="farm_info_card" href="/fertilizer_info/fertilizer_id={{fer.id}}">
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Fertilizer Name</div>
+          <div class="farmer_details_1">{{fer.fertilizer_name}}</div>
         </div>
-      </div>
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Fertilizer Qty</div>
+          <div class="farmer_details_1">{{fer.fertilizer_qty}}</div>
+        </div>
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Rating</div>
+          <div class="farmer_details_1">{{fer.rating}}</div>
+        </div>
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Fertilizer Days From Planting</div>
+          <div class="farmer_details_1">{{fer.fertilizer_days_from_planting}}</div>
+        </div>
+        </span>
+      </a>
+      {% endfor %}
+      {% for water in water_irrigation %}
+      <a class="farm_info_card" href="/fertilizer_info/fertilizer_id={{fer.id}}">
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Water Irrigation Type</div>
+          <div class="farmer_details_1">{{water.fertilizer_name}}</div>
+        </div>
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Water Irrigation Date</div>
+          <div class="farmer_details_1">{{water.water_irrigation_date}}</div>
+        </div>
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Time From Water Irrigation</div>
+          <div class="farmer_details_1">{{water.time_from_water_irrigation}}</div>
+        </div>
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Days From Planting</div>
+          <div class="farmer_details_1">{{water.water_date_from_planting}}</div>
+        </div>
+        </span>
+      </a>
+      {% endfor %}
+      {% for pes in pesticide %}
+      <a class="farm_info_card" href="/fertilizer_info/fertilizer_id={{fer.id}}">
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Pesticide Name</div>
+          <div class="farmer_details_1">{{pes.pesticide_name}}</div>
+        </div>
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Pesticide Qty</div>
+          <div class="farmer_details_1">{{pes.pesticide_qty}}</div>
+        </div>
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Pesticide Date</div>
+          <div class="farmer_details_1">{{pes.pesticide_date}}</div>
+        </div>
+        <div class="farmer_info_details_2">
+          <div class="text-muted farmer_info_title_1">Pesticide Days</div>
+          <div class="farmer_details_1">{{pes.time_from_prestiside}}</div>
+        </div>
+        </span>
+      </a>
       {% endfor %}
     </div>
+  </div>
+
+  <h2>  </h2>
+  <!-- <table class="table table-borderless table-width-40 farmer_detail">
+    <a href="/plant_edit/plant_id={{planting_history.id}}">Edit Planting</a>
+    <tbody>
+      <tr>
+        <th scope="row">Farmer Name:</th>
+        <td>{{planting_history.farmer_id.name}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Farm ID:</th>
+        <td>{{planting_history.farm_id.farm_nick_name}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Plant Name:</th>
+        <td>{{planting_history.plant}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Plant Type:</th>
+        <td>{{planting_history.plant_type}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Plant Area</th>
+        <td>{{planting_history.planting_area}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Planting Date</th>
+        <td>{{planting_history.planting_time}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Time from planting</th>
+        <td>{{planting_history.time_from_planting}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Create Date</th>
+        <td>{{planting_history.create_date}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Modified Date</th>
+        <td>{{planting_history.modified_date}}</td>
+      </tr>
+    </tbody>
+  </table> -->
+  <div class="col-md-12 d-flex">
+    <div class="col-md-4">
+      <button><a href="{% url 'fertilizer_reg' %}">Fertilizer Reg</a></button>
+      <div class="d-flex justify-content-evenly flex-wrap">
+        {% for fer in fertilizer %}
+        <div class="card m-2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">fertilizer_name:{{fer.fertilizer_name}}</h5>
+            <p class="card-text">fertilizer_qty:{{fer.fertilizer_qty}}</p>
+            <p class="card-text">fertilizer_date:{{fer.fertilizer_date}}</p>
+            <p class="card-text">rating:{{fer.rating}}</p>
+            <p class="card-text">crop_days:{{fer.fertilizer_days_from_planting}}</p>
+            <button><a href="/fertilizer_info/fertilizer_id={{fer.id}}">More Info</a></button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
 
     </div>
     <div class="col-md-4">
-        <button><a href="{% url 'water_irrigation_reg' %}">Water irrigation</a></button>
-    <div class="d-flex justify-content-evenly flex-wrap">
-      {% for water in water_irrigation %}
-      <div class="card m-2" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">water_irrigation_type :{{water.water_irrigation_type}}</h5>
-          <p class="card-text">water_irrigation_date: {{water.water_irrigation_date}}</p>
-          <p class="card-text">time_from_water_irrigation: {{water.time_from_water_irrigation}}</p>
-          <p class="card-text">Days from planting: {{water.water_date_from_planting}}</p>
+      <button><a href="{% url 'water_irrigation_reg' %}">Water irrigation</a></button>
+      <div class="d-flex justify-content-evenly flex-wrap">
+        {% for water in water_irrigation %}
+        <div class="card m-2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">water_irrigation_type :{{water.water_irrigation_type}}</h5>
+            <p class="card-text">water_irrigation_date: {{water.water_irrigation_date}}</p>
+            <p class="card-text">time_from_water_irrigation: {{water.time_from_water_irrigation}}</p>
+            <p class="card-text">Days from planting: {{water.water_date_from_planting}}</p>
             <button><a href="/water_irrigation_info/water_irrigation_id={{water.id}}">More Info</a></button>
+          </div>
         </div>
+        {% endfor %}
       </div>
-      {% endfor %}
-    </div>
     </div>
     <div class="col-md-4">
-        <button><a href="{% url 'pesticide_reg' %}">Pesticide</a></button>
-    <div class="d-flex justify-content-evenly flex-wrap">
-      {% for pes in pesticide %}
-      <div class="card m-2" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">pesticide_name:{{pes.pesticide_name}}</h5>
-          <p class="card-text">pesticide_qty:{{pes.pesticide_qty}}</p>
-          <p class="card-text">pesticide_date:{{pes.pesticide_date}}</p>
-          <p class="card-text">pesticide_days:{{pes.time_from_prestiside}}</p>
-          <p class="card-text">Days from planting:{{pes.pesticide_date_from_planting}}</p>
+      <button><a href="{% url 'pesticide_reg' %}">Pesticide</a></button>
+      <div class="d-flex justify-content-evenly flex-wrap">
+        {% for pes in pesticide %}
+        <div class="card m-2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">pesticide_name:{{pes.pesticide_name}}</h5>
+            <p class="card-text">pesticide_qty:{{pes.pesticide_qty}}</p>
+            <p class="card-text">pesticide_date:{{pes.pesticide_date}}</p>
+            <p class="card-text">pesticide_days:{{pes.time_from_prestiside}}</p>
+            <p class="card-text">Days from planting:{{pes.pesticide_date_from_planting}}</p>
             <button><a href="/pesticide_info/pesticide_id={{pes.id}}">More Info</a></button>
+          </div>
         </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
-    </div>
-</div>
- {% endblock %}
+  </div>
+  {% endblock %}
