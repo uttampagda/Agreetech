@@ -34,7 +34,7 @@
         </div>
         <div class="form-group mt-3">
             <label for="id_is_access">Is Access</label>
-            <input type="checkbox" value="{{s.is_access}}" checked="checked" id="id_is_access" name="is_access" placeholder="Is Access">
+            <input type="checkbox" {% if s.is_access %} checked {% endif %} d="id_is_access" name="is_access" placeholder="Is Access">
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
         {% endfor %}
