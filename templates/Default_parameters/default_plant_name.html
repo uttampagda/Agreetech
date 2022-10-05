@@ -3,13 +3,13 @@
 {% load static %} 
 
 Default plant names
-<div class="align-items-right">
-    <button><a href="{% url 'default_plant_name_reg'%}">Add Plant</a></button>
+<div class="d-flex justify-content-end">
+    <button><a href="{% url 'default_plant_name_reg'%}">Register plant/seed</a></button>
 </div>
 <div>
-{% for plants in default_plant_name %}
-<span> {{plants}}</span>
-{% endfor %}
+    {% for seed in seed_name %}
+    <span>name: {{seed}}</span><br>
+    {% endfor %}
 </div>
 
 {% endblock %}
