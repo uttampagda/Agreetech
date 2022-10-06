@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="changes in default parameters">
-      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0009_default_pesticide_avarage_review_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0010_pesticide_rating.py" afterDir="false" />
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="rating system in pesticide table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Default_parameters/default_pesticide.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Default_parameters/default_pesticide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/pesticide_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/pesticide_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/pesticide_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/pesticide_reg.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Default_parameters/default_plant_name.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Default_parameters/default_plant_name.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Default_parameters/default_plant_name_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Default_parameters/default_plant_name_reg.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +26,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/templates/form_edit/pesticide_edit.html" root0="FORCE_HIGHLIGHTING" />
@@ -78,7 +82,7 @@
       <recent name="$PROJECT_DIR$/templates/forms" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Django Server.agritech">
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="agritech" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -349,7 +353,13 @@
       <workItem from="1663607303173" duration="5439000" />
       <workItem from="1663695118279" duration="5707000" />
       <workItem from="1664208928260" duration="6464000" />
-      <workItem from="1664387021817" duration="1425000" />
+      <workItem from="1664387021817" duration="1616000" />
+      <workItem from="1664450897598" duration="14000" />
+      <workItem from="1664468006104" duration="1768000" />
+      <workItem from="1664628897398" duration="4584000" />
+      <workItem from="1664705704125" duration="3283000" />
+      <workItem from="1664815569754" duration="4331000" />
+      <workItem from="1664992672052" duration="3517000" />
     </task>
     <task id="LOCAL-00001" summary="forms initial">
       <created>1654536683658</created>
@@ -596,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664217336286</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="rating system in pesticide table">
+      <created>1664390333917</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1664390333917</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,6 +653,7 @@
     <MESSAGE value="add fertilizer_days_from_planting field" />
     <MESSAGE value="Days from planting time compute field done(in main form as well as in edit forms for fertilizer,water,pesticide)" />
     <MESSAGE value="changes in default parameters" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes in default parameters" />
+    <MESSAGE value="rating system in pesticide table" />
+    <option name="LAST_COMMIT_MESSAGE" value="rating system in pesticide table" />
   </component>
 </project>

@@ -7,7 +7,7 @@ from django.contrib.auth.models import User, auth
 from .form import *
 from .models import *
 from datetime import datetime
-
+from django.core.exceptions import PermissionDenied
 
 def login(request):
     if request.method == 'POST':
@@ -39,9 +39,21 @@ def permission_denied(request):
     return render(request, 'auth/403.html')
 
 
+def staff_permission(farmer_id=None,staff_type=None):
+        if farmer_id==None:
+            farmer_id = request.session['farmer_id']
+        farmer = Farmer.objects.filter(id=farmer_id)[0]
+        if farmer.is_access or staff_type:
+            return True
+        else:
+            return False
+
 @login_required(login_url='login')
-@permission_required('is_staff','403')
 def createuser(request):
+        if staff_permission:
+            pass
+        else:
+            return redirect('403')
         if request.method == 'POST':
             email = request.POST['email']
             name = request.POST['name']
@@ -69,12 +81,11 @@ def logout(request):
 def forms(request):
     return render(request, 'forms/forms.html')
 
-
 def farmers(request):
     farmers = Farmer.objects.all()
     return render(request, 'forms/farmers.html', {'farmers':farmers})
 
-
+@permission_required('is_staff','403')
 def farmer_registration(request):
     if request.method == 'POST':    
         form = Farmer_Form(request.POST, request.FILES)
@@ -85,11 +96,12 @@ def farmer_registration(request):
         form = Farmer_Form()
     return render(request, 'forms/farmer_registration.html')
 
-
 def farmer_details(request,farmer_id):
+    if staff_permission(farmer_id,staff_type=request.user.is_staff):
+        pass
+    else:
+        return redirect('403')
     if request.method == 'POST':
-        # print("farmer_details",len(request.GET))
-        # farmer_id = request.POST.get('farmer_id')
         farm_info = Farm_info.objects.filter(farmer_id=farmer_id)
         farmer_info = Farmer.objects.filter(id=farmer_id)[0]
         data = {'farmer_id': farmer_id,
@@ -97,11 +109,8 @@ def farmer_details(request,farmer_id):
                 'farmer_info': farmer_info,
                 }
         request.session['farmer_id'] = farmer_id
-        print("farmer_details        farmer_id",farmer_id)
         return render(request, 'forms/farmer_details.html', data)
     else:
-        # farmer_id = request.session['farmer_id']
-        print("farmer_details else farmer_id",farmer_id)
         farm_info = Farm_info.objects.filter(farmer_id=farmer_id)
         farmer_info = Farmer.objects.filter(id=farmer_id)[0]
         data = {'farmer_id': farmer_id,
@@ -128,6 +137,10 @@ def farm_info_reg(request):
 
 def farm_info(request,farm_id):
     farmer_id = request.session['farmer_id']
+    if staff_permission(farmer_id,staff_type=request.user.is_staff):
+        pass
+    else:
+        return redirect('403')
     farm_info = Farm_info.objects.filter(id=farm_id)[0]
     planting_history = Planting.objects.filter(farm_id=farm_id)
     data = {
@@ -193,6 +206,10 @@ def planting_reg(request):
 def planting(request,planting_id):
     farm_id = request.session['farm_id']
     farmer_id = request.session['farmer_id']
+    if staff_permission(farmer_id,staff_type=request.user.is_staff):
+        pass
+    else:
+        return redirect('403')
     planting_history = Planting.objects.filter(id=planting_id)[0]
     fertilizer = Fertilizer.objects.filter(planting_id=planting_id)
     water_irrigation = Water_irrigation.objects.filter(planting_id=planting_id).values()
@@ -207,23 +224,12 @@ def planting(request,planting_id):
         time_from_planting = "No information provided"
     planting_history.time_from_planting = time_from_planting
 
-    # for fer in fertilizer:
-    #    if fer.fertilizer_date != None:
-    #        time_from_fertilizer = (date_now-fer.fertilizer_date.date()).days
-    #    else:
-    #        time_from_fertilizer = "No information provided"
-    #    fer.time_from_fertilizer = time_from_fertilizer
-
-
     for fer in fertilizer:
        if fer.planting_id.planting_time != None:
            time_from_fertilizer = (date_now-fer.planting_id.planting_time.date()).days
        else:
            time_from_fertilizer = "No information provided"
        fer.time_from_fertilizer = time_from_fertilizer
-
-
-
 
     for water in water_irrigation:
        if water['water_irrigation_date'] != None:
@@ -272,7 +278,6 @@ def harvesting_reg(request):
     }
     return render(request, 'forms/harvesting_reg.html',data)
 
-
 def crop_selling_reg(request):
     farm_id = request.session['farm_id']
     farmer_id = request.session['farmer_id']
@@ -314,6 +319,12 @@ def fertilizer_reg(request):
     farm_id = request.session['farm_id']
     farmer_id = request.session['farmer_id']
     planting_id = request.session['planting_id']
+
+    if staff_permission(farmer_id,staff_type=request.user.is_staff):
+        pass
+    else:
+        return redirect('403')
+
     fertilizer_selection = Default_fertilizer.objects.values()
     if request.method == 'POST':
         form = Fertilizer_Form(request.POST, request.FILES)
@@ -345,6 +356,10 @@ def fertilizer_reg(request):
 
 def fertilizer_info(request, fertilizer_id):
     fertilizer = Fertilizer.objects.filter(id=fertilizer_id)[0]
+    if staff_permission(fertilizer.farmer_id.id,staff_type=request.user.is_staff):
+        pass
+    else:
+        return redirect('403')
     data = {
         'fertilizer':fertilizer,
         'farmer':fertilizer.farmer_id
@@ -353,6 +368,10 @@ def fertilizer_info(request, fertilizer_id):
 
 def water_irrigation_info(request, water_irrigation_id):
     water_irrigation = Water_irrigation.objects.filter(id=water_irrigation_id)[0]
+    if staff_permission(water_irrigation.farmer_id.id,staff_type=request.user.is_staff):
+        pass
+    else:
+        return redirect('403')
     data = {
         'water_irrigation':water_irrigation,
         'farmer':water_irrigation.farmer_id
@@ -361,6 +380,10 @@ def water_irrigation_info(request, water_irrigation_id):
 
 def pesticide_info(request, pesticide_id):
     pesticide = Pesticide.objects.filter(id=pesticide_id)[0]
+    if staff_permission(pesticide.farmer_id.id,staff_type=request.user.is_staff):
+        pass
+    else:
+        return redirect('403')
     data = {
         'pesticide':pesticide,
         'farmer': pesticide.farmer_id
@@ -465,45 +488,27 @@ def search_utm(request):
     }   
     return render(request, 'forms/search_utm.html',data)
 
+@permission_required('is_staff','403')
 def default_parameters(request):
     return render(request, 'Default_parameters/default_parameters.html')
 
+@permission_required('is_staff','403')
 def default_plant_name(request):
+    seed_name = Default_plant_seed_name.objects.all()
+    data = {
+        'seed_name' : seed_name
+    }    
+    return render(request, 'Default_parameters/default_plant_name.html',data)
+
+@permission_required('is_staff','403')
+def default_plant_name_reg(request):
     plant_names = Default_plant_name.objects.all()
-    # if request.method == 'POST':
-    #     form = Default_plant_name_Form(request.POST)
-    #     if form.is_valid():
-    #         print("1st er",form.errors)
-    #         print("1st valid")
-    #         form.save()
-    #         return redirect('default_plant_name')
-    # if request.method == 'POST':
-    #     form = Default_plant_seed_name_Form(request.POST)
-    #     print(form['plant_name'].value(),form['seed_name'].value())
-    #     print("2nd error",form.errors)
-    #     if form.is_valid():
-    #         print("2nd valid")
-    #         form.save()
-    #         return redirect('default_plant_name')
-    # if request.method == 'POST':
-    #     if request.POST.get('form_name')=='plant_reg':
-    #         print('plant')
-            
-    #         form = Default_plant_name_Form(request.POST)
-    #         if form.is_valid():
-    #                 form.save()
-    #                 return redirect('default_plant_name')
-    #     if request.POST.get('form_name')=='seed_reg':
-    #         print('seed')
-            
-    #         form = Default_plant_seed_name_Form(request.POST)
-    #         if form.is_valid():
-    #                 form.save()
-    #                 return redirect('default_plant_name')
     data = {
         'plant_names' : plant_names
-    }    
+    }
     return render(request, 'Default_parameters/default_plant_name_reg.html',data)
+
+@permission_required('is_staff','403')
 def add_default_plant_name(request):
     if request.method == 'POST':
         form = Default_plant_name_Form(request.POST)
@@ -511,13 +516,15 @@ def add_default_plant_name(request):
             form.save()
             return redirect('default_plant_name')
 
-def select_default_plant_name(request):
+@permission_required('is_staff','403')
+def add_default_plant_seed_name(request):
     if request.method == 'POST':
         form = Default_plant_seed_name_Form(request.POST)
         if form.is_valid():
             form.save()
             return redirect('default_plant_name')
-        
+
+@permission_required('is_staff','403')
 def add_default_fertilizer(request):
     default_fertilizer = Default_fertilizer.objects.all()
     if request.method == 'POST':
@@ -530,6 +537,7 @@ def add_default_fertilizer(request):
     }    
     return render(request, 'Default_parameters/default_fertilizer.html',data)
 
+@permission_required('is_staff','403')
 def add_default_pesticide(request):
     default_pesticide = Default_pesticide.objects.all()
     if request.method == 'POST':
@@ -543,9 +551,12 @@ def add_default_pesticide(request):
     return render(request, 'Default_parameters/default_pesticide.html',data)
 
 def farmer_edit(request, farmer_id):
+    if staff_permission(farmer_id,staff_type=request.user.is_staff):
+        pass
+    else:
+        return redirect('403')
     farmer = Farmer.objects.get(id=farmer_id)
     farmers = Farmer.objects.filter(id=farmer_id)
-
     if request.method == 'POST':
         form = Farmer_Form(request.POST, instance=farmer)
 
@@ -633,6 +644,7 @@ def pesticide_edit(request, pesticide_id):
     
     return render(request, 'form_edit/pesticide_edit.html', {'pesticides':pesticides})
 
+@permission_required('is_staff','403')
 def fertilizer_stats(request,fertilizer_name):
     fertilizer = Fertilizer.objects.filter(fertilizer_name=fertilizer_name).order_by('create_date')
     try:
@@ -645,6 +657,7 @@ def fertilizer_stats(request,fertilizer_name):
     }
     return render(request,'stats/fertilizer_stats.html',data)
 
+@permission_required('is_staff','403')
 def pesticide_stats(request,pesticide_name):
     pesticide = Pesticide.objects.filter(pesticide_name=pesticide_name).order_by('create_date')
     try:
