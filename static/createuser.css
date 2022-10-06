@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
-    background-color:rgb(92, 153, 130);
+    background-color:rgb(92, 153, 130, 0.12);
     font-family: 'Poppins', sans-serif;
 
 }
@@ -45,7 +45,14 @@ a:hover {
 
 .page_table {
     width: 100%;
+    margin-top: 10px;
 
+}
+.page_table_1{
+    width: 95%;
+    margin: auto;
+    background-color: rgb(228, 249, 245);
+    border-radius: 7px;
 }
 .table_one_content{
     width: 20%;
@@ -220,6 +227,7 @@ a:hover {
     margin: auto;
     border-radius: 10px;
     margin-top: 25px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.267), 0 3px 14px 0 rgba(0, 0, 0, 0.267);
 }
 .farmer_info_title{
     padding: 15px;
@@ -289,14 +297,22 @@ a:hover {
 .farm_information{
     font-size: 14px;
     color: rgb(70, 70, 70);
+    width: 95%;
+    margin: auto;
+    border-top: 1px solid rgb(228, 249, 245);
+    
 
 }
 .farm_information:hover{
-    background-color: #eefff9;
+    /* background-color: #eefff9; */
     color: black;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.116), 0 3px 14px 0 rgba(0, 0, 0, 0.116);
 }
 .add_more_farm{
+    margin: auto;
+    width: 95%;
+}
+.add_more_farm_1{
     font-weight: bold;
     font-size: 14px;
     /* margin-left: 60px; */
