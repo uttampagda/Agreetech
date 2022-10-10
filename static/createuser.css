@@ -244,6 +244,7 @@ a:hover {
     padding: 5px 8px 2px 8px;
     z-index: 5;
     background-color: white;
+    border-radius: 5px 5px 0px 0px;
 }
 .pages_1{
     border: 1px solid rgb(160, 160, 160);
@@ -307,6 +308,7 @@ a:hover {
     /* background-color: #eefff9; */
     color: black;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.116), 0 3px 14px 0 rgba(0, 0, 0, 0.116);
+    border-radius: 10px;
 }
 .add_more_farm{
     margin: auto;
@@ -321,8 +323,36 @@ a:hover {
 }
 .material-symbols-outlined{
     font-size: 20px !important;
+    width: 20px !important;
+    margin: 10px 13px !important;
+}
+.back_btn_3{
+    margin: 30px;
+    width: 40px;
+    height: 40px;
+    background-color: aquamarine;
+    overflow: hidden;
+    border-radius: 20px;
+    transition-property: all;
+    transition-duration: 1000ms;
 }
 
+.back_btn_4{
+    font-family: 'Poppins', sans-serif;
+    
+
+}
+.back_btn_3:hover{
+    width: 240px;
+
+    /* animation-name: smit;
+    animation-duration: 3s;
+    animation-iteration-count: 1; */
+
+}
+/* @keyframes smit{
+    50% {transform: rotate(180deg);}
+} */
 @media(max-width: 768px) {
     .create_user_form {
         width: 80%;

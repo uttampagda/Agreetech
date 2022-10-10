@@ -7,7 +7,6 @@ group_by[0].addEventListener('click', function GroupBy() {
             card[i].style.display = 'block';
         }
         else{
-            console.log(">>",farm_space[i])
             card[i].style.display = 'none';
         }
     }
@@ -21,7 +20,6 @@ group_by[1].addEventListener('click', function GroupBy() {
             card[i].style.display = 'block';
         }
         else{
-            console.log(">>",farm_space[i])
             card[i].style.display = 'none';
         }
     }
@@ -35,7 +33,6 @@ group_by[2].addEventListener('click', function GroupBy() {
             card[i].style.display = 'block';
         }
         else{
-            console.log(">>",farm_space[i])
             card[i].style.display = 'none';
         }
     }
@@ -49,7 +46,6 @@ group_by[3].addEventListener('click', function GroupBy() {
             card[i].style.display = 'block';
         }
         else{
-            console.log(">>",farm_space[i])
             card[i].style.display = 'none';
         }
     }

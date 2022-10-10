@@ -38,10 +38,22 @@
             <div class="menu_item_name">Search</div>
         </div>
     </a>
-    <a href="{% url 'default_parameters'%}" class="menu_box">
+    <a href="{% url 'default_plant_name'%}" class="menu_box">
         <div class="menu_item">
             <div class="menu_item_img"><img src="static/images/parameter.png" alt="" class="menu_item_img_1"></div>
-            <div class="menu_item_name">Default Parameter</div>
+            <div class="menu_item_name">Plant Names</div>
+        </div>
+    </a>
+    <a href="{% url 'add_default_fertilizer'%}" class="menu_box">
+        <div class="menu_item">
+            <div class="menu_item_img"><img src="static/images/parameter.png" alt="" class="menu_item_img_1"></div>
+            <div class="menu_item_name">Fertilizer</div>
+        </div>
+    </a>
+    <a href="{% url 'add_default_pesticide'%}" class="menu_box">
+        <div class="menu_item">
+            <div class="menu_item_img"><img src="static/images/parameter.png" alt="" class="menu_item_img_1"></div>
+            <div class="menu_item_name">Pesticide</div>
         </div>
     </a>
     <a href="createuser" class="menu_box">
