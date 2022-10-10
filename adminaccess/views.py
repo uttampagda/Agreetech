@@ -214,7 +214,9 @@ def planting(request,planting_id):
     fertilizer = Fertilizer.objects.filter(planting_id=planting_id)
     water_irrigation = Water_irrigation.objects.filter(planting_id=planting_id).values()
     pesticide = Pesticide.objects.filter(planting_id=planting_id).values()
-    
+    crop_selling = Crop_selling.objects.filter(planting_id=planting_id).values()
+    harvesting = Harvesting.objects.filter(planting_id=planting_id).values()
+
     # Creating DateTime var for multiple use
     date_now=datetime.now().date()
     
@@ -244,7 +246,6 @@ def planting(request,planting_id):
        else:
            time_from_prestiside = "No information provided"
        pes['time_from_prestiside'] = time_from_prestiside
-    print('planting_history.farmer_id[0]',planting_history.farmer_id)
     data = {
         'farmer' : planting_history.farmer_id,
         'farm_id':farm_id,
@@ -252,7 +253,9 @@ def planting(request,planting_id):
         'planting_history': planting_history,
         'fertilizer': fertilizer,
         'water_irrigation': water_irrigation,
-        'pesticide': pesticide
+        'pesticide': pesticide,
+        'harvesting': harvesting,
+        'crop_selling': crop_selling
     }
     request.session['farmer_id'] = farmer_id
     request.session['farm_id'] = farm_id
@@ -390,6 +393,29 @@ def pesticide_info(request, pesticide_id):
     }
     return render(request, 'forms/pesticide_info.html', data)  
 
+def harvesting_info(request,harvesting_id):
+    harvesting = Harvesting.objects.filter(id=harvesting_id)[0]
+    if staff_permission(pesticide.farmer_id.id,staff_type=request.user.is_staff):
+        pass
+    else:
+        return redirect('403')
+    data = {
+        'harvesting': harvesting,
+        'farmer': harvesting.farmer_id
+    }
+    return render(request, 'forms/harvesting_info.html', data)
+
+def crop_selling_info(request,crop_selling_id):
+    crop_selling = Crop_selling.objects.filter(id=crop_selling_id)
+    if staff_permission(pesticide.farmer_id.id,staff_type=request.user.is_staff):
+        pass
+    else:
+        return redirect('403')
+    data = {
+        'crop_selling': crop_selling,
+        'farmer': crop_selling.farmer_id
+    }
+    return render(request, 'forms/crop_selling_info.html', data)
 
 def water_irrigation_reg(request):
     farm_id = request.session['farm_id']
