@@ -63,7 +63,7 @@
     </div>
   </div>
 
-  <div class="farmer_info_title_page text-muted"><span class="pages">Planting History</span></div>
+  <div class="farmer_info_title_page text-muted"><span class="pages">Planting History</span><a href="{% url 'planting_reg' %}">Add new planting</a></div>
   <div class="farm_info">
     {% for plant in planting_history %}
     <a class="farm_info_card" href="{% url 'planting' planting_id=plant.id%}">

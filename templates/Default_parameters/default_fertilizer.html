@@ -1,23 +1,27 @@
-{% extends 'dashboard/basic.html' %}
-{% block body %}
-{% load static %} 
-
-Default fertilizers
+{% extends 'dashboard/basic.html' %} {% block body %} {% load static %} Default
+fertilizers
 <div>
-    {% for fer in default_fertilizer %}
-    <span>name: {{fer}} | rating: {{fer.avarage_review}}</span>
-    <a href="{% url 'fertilizer_stats' fertilizer_name=fer.fertilizer_name%}">info</a><br>
-    {% endfor %}
+  {% for fer in default_fertilizer %}
+  <span>name: {{fer}} | rating: {{fer.avarage_review}}</span>
+  <a href="{% url 'fertilizer_stats' fertilizer_name=fer.fertilizer_name%}"
+    >info</a
+  ><br />
+  {% endfor %}
 </div>
 <div class="container create_user_form">
-    <form method="post" id="loginid" >
-        {% csrf_token %}
-        <div class="form-group mt-2">
-            <label>Fertilizers name</label>
-            <input type="text" class="form-control"  name="fertilizer_name"  placeholder="Plant name" >
-        </div>
-        <button type="submit" class="btn btn-primary mt-3">Submit</button>
-    </form>
+  <form method="post" id="loginid">
+    {% csrf_token %}
+    <div class="form-group mt-2">
+      <label>Fertilizers name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="fertilizer_name"
+        placeholder="Plant name"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
 </div>
 
 {% endblock %}

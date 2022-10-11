@@ -521,8 +521,12 @@ def default_parameters(request):
 @permission_required('is_staff','403')
 def default_plant_name(request):
     seed_name = Default_plant_seed_name.objects.all()
+    default_plant_name = list(Default_plant_name.objects.values())
+    default_plant_seed_name = list(Default_plant_seed_name.objects.values())
     data = {
-        'seed_name' : seed_name
+        'seed_name' : seed_name,
+        'default_plant_name' :default_plant_name,
+        'default_plant_seed_name': default_plant_seed_name
     }    
     return render(request, 'Default_parameters/default_plant_name.html',data)
 

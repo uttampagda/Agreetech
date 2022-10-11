@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
-    background-color:rgb(92, 153, 130, 0.12);
+    background-color: rgb(92, 153, 130, 0.12);
     font-family: 'Poppins', sans-serif;
 
 }
@@ -12,7 +12,7 @@ a {
 }
 
 a:hover {
-    color: black; 
+    color: black;
 
 }
 
@@ -48,19 +48,22 @@ a:hover {
     margin-top: 10px;
 
 }
-.page_table_1{
+
+.page_table_1 {
     width: 95%;
     margin: auto;
     background-color: rgb(228, 249, 245);
     border-radius: 7px;
 }
-.table_one_content{
+
+.table_one_content {
     width: 20%;
     text-align: center;
     font-weight: 500;
 
 }
-.table_one_content_1{
+
+.table_one_content_1 {
     width: 20%;
     text-align: center;
     font-weight: 400;
@@ -178,21 +181,25 @@ a:hover {
     height: 125px;
     width: 100px;
 }
-.back_btn{
+
+.back_btn {
     margin: 10px 0px 0px 10px;
 }
-.back_btn_1{
+
+.back_btn_1 {
     border: none;
     outline: none;
     background: none;
-    
+
 }
-.back_btn_2{
+
+.back_btn_2 {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 15px;
 }
+
 .menu_item {
     height: 125px;
     width: 100px;
@@ -221,7 +228,8 @@ a:hover {
     height: 100%;
     width: 100%;
 }
-.main_box{
+
+.main_box {
     width: 75%;
     background-color: white;
     margin: auto;
@@ -229,16 +237,19 @@ a:hover {
     margin-top: 25px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.267), 0 3px 14px 0 rgba(0, 0, 0, 0.267);
 }
-.farmer_info_title{
+
+.farmer_info_title {
     padding: 15px;
     font-weight: 500;
 }
-.farmer_info_title_page{
+
+.farmer_info_title_page {
     padding: 25px 15px 0px 15px;
     font-weight: 500;
     border-bottom: 1px solid rgb(160, 160, 160);
 }
-.pages{
+
+.pages {
     border: 1px solid rgb(160, 160, 160);
     border-bottom: none;
     padding: 5px 8px 2px 8px;
@@ -246,14 +257,16 @@ a:hover {
     background-color: white;
     border-radius: 5px 5px 0px 0px;
 }
-.pages_1{
+
+.pages_1 {
     border: 1px solid rgb(160, 160, 160);
     /* border-bottom: none; */
     padding: 5px 8px 2px 8px;
     z-index: 5;
     background-color: white;
 }
-.farmer_info_details{
+
+.farmer_info_details {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -265,94 +278,160 @@ a:hover {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.116), 0 3px 14px 0 rgba(0, 0, 0, 0.116);
 
 }
-.farmer_info_details_1{
+
+.farmer_info_details_1 {
     width: 30%;
     margin-top: 20px;
-    
+
 }
-.farmer_info_title_1{
+
+.farmer_info_title_1 {
     font-size: 14px;
 }
-.farmer_details_1{
+
+.farmer_details_1 {
     font-weight: 600;
 }
-.farm_info{
+
+.farm_info {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-.farm_info_card{
+
+.farm_info_card {
     background-color: #e4fff5;
     width: 30%;
     height: 180px;
-    margin:  20px 10px 20px 10px;
+    margin: 20px 10px 20px 10px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     border-radius: 10px;
 }
-.farmer_info_details_2{
+
+.farmer_info_details_2 {
     width: 40%;
     margin-top: 20px;
 }
-.farm_information{
+
+.farm_information {
     font-size: 14px;
     color: rgb(70, 70, 70);
     width: 95%;
     margin: auto;
     border-top: 1px solid rgb(228, 249, 245);
-    
+
 
 }
-.farm_information:hover{
+
+.farm_information:hover {
     /* background-color: #eefff9; */
     color: black;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.116), 0 3px 14px 0 rgba(0, 0, 0, 0.116);
     border-radius: 10px;
 }
-.add_more_farm{
+
+.add_more_farm {
     margin: auto;
     width: 95%;
 }
-.add_more_farm_1{
+
+.add_more_farm_1 {
     font-weight: bold;
     font-size: 14px;
     /* margin-left: 60px; */
     width: 20%;
     text-align: center;
 }
-.material-symbols-outlined{
+
+.material-symbols-outlined {
     font-size: 20px !important;
     width: 20px !important;
-    margin: 10px 13px !important;
+    margin-left: 10px;
+    
 }
-.back_btn_3{
+
+.back_btn_3 {
     margin: 30px;
     width: 40px;
+    width: 170px;
     height: 40px;
-    background-color: aquamarine;
+    background-color: rgb(228, 249, 245);
     overflow: hidden;
     border-radius: 20px;
     transition-property: all;
-    transition-duration: 1000ms;
+    transition-duration: 400ms;
+    display: flex;
+    justify-content: space-around;
 }
 
-.back_btn_4{
+.back_btn_4 {
+    font-size: 14px;
     font-family: 'Poppins', sans-serif;
-    
+    margin-top: 0;
+    margin-top: 10px;
 
 }
-.back_btn_3:hover{
-    width: 240px;
+
+.back_btn_3:hover {
+    width: 170px;
 
     /* animation-name: smit;
     animation-duration: 3s;
     animation-iteration-count: 1; */
 
 }
+
 /* @keyframes smit{
     50% {transform: rotate(180deg);}
 } */
+
+.plant_seed_box {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.plant_box {
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.116), 0 4px 14px 0 rgba(0, 0, 0, 0.116);
+    border-radius: 7px;
+    background-color: white;
+    width: 45%;
+    cursor: pointer;
+    padding: 20px;
+
+}
+
+.plant_box_1,
+#seed_box {
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1), 0 4px 14px 0 rgba(0, 0, 0, 0.1);
+    background-color: rgb(228, 249, 245);
+    border: 1px solid rgb(228, 249, 245);
+    margin: 10px 20px;
+    border-radius: 7px;
+
+
+}
+#seed_box{
+    border: 1px solid rgb(247, 253, 252);
+    background-color: rgb(247, 253, 252);
+    
+}
+
+.plant_name {
+    margin: 10px;
+    padding: 10px 10px;
+}
+
+.plant_name:hover {
+    border-radius: 7px;
+    background-color: rgb(175, 252, 226);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.116), 0 4px 14px 0 rgba(0, 0, 0, 0.116);
+
+}
+
 @media(max-width: 768px) {
     .create_user_form {
         width: 80%;

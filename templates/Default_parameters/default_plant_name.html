@@ -1,15 +1,51 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
-{% load static %} 
+{% load static %}
 
-Default plant names
 <div class="d-flex justify-content-end">
-    <button><a href="{% url 'default_plant_name_reg'%}">Register plant/seed</a></button>
+    <button><a href="{% url '   '%}">Register plant/seed</a></button>
 </div>
 <div>
-    {% for seed in seed_name %}
-    <span>name: {{seed}}</span><br>
-    {% endfor %}
+    <div class="plant_seed_box">
+        <div class="plant_box">
+            Plant name
+            <div class="plant_box_1">
+                {% for seed in default_plant_name %}
+                <div class="plant_name">{{seed.plant_name}}</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="plant_box">Seed name
+            <div id="seed_box"></div>
+            <!-- {% for seed in default_plant_seed_name %}
+            <span class="">{{seed.seed_name}}</span><br>
+            {% endfor %} -->
+        </div>
+    </div>
+
 </div>
+<script>
+
+    a = {{ default_plant_name | safe }};
+    b = {{ default_plant_seed_name | safe }};
+    plant_select = document.getElementsByClassName('plant_name');
+    for (let i = 0; i < plant_select.length; i++) {
+        plant_select[i].addEventListener('click', function set_plant_type() {
+            var default_plant_seed_name = []
+            for (let j = 0; j <= b.length - 1; j++) {
+                c = b[j]['plant_name_id']
+                if (c == a[i]['id']) {
+                    default_plant_seed_name.push(b[j]['seed_name'])
+                }
+            }
+            seed_box = document.getElementById('seed_box')
+            seed_box.innerHTML = ''
+            for (var plant_seed in default_plant_seed_name) {
+                seed_box.innerHTML += `<div class="plant_name">${default_plant_seed_name[plant_seed]}</div>`
+            }
+        })
+    }
+
+</script>
 
 {% endblock %}
