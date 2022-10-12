@@ -3,7 +3,7 @@
 {% load static %}
 
 <div class="d-flex justify-content-end">
-    <button><a href="{% url '   '%}">Register plant/seed</a></button>
+    <button><a href="{% url 'default_plant_name_reg'%}">Register plant/seed</a></button>
 </div>
 <div>
     <div class="plant_seed_box">
@@ -29,22 +29,37 @@
     a = {{ default_plant_name | safe }};
     b = {{ default_plant_seed_name | safe }};
     plant_select = document.getElementsByClassName('plant_name');
-    for (let i = 0; i < plant_select.length; i++) {
-        plant_select[i].addEventListener('click', function set_plant_type() {
-            var default_plant_seed_name = []
-            for (let j = 0; j <= b.length - 1; j++) {
-                c = b[j]['plant_name_id']
-                if (c == a[i]['id']) {
-                    default_plant_seed_name.push(b[j]['seed_name'])
-                }
-            }
-            seed_box = document.getElementById('seed_box')
-            seed_box.innerHTML = ''
-            for (var plant_seed in default_plant_seed_name) {
-                seed_box.innerHTML += `<div class="plant_name">${default_plant_seed_name[plant_seed]}</div>`
-            }
-        })
+    function chnage_backgroud_color() {
+        for (let i = 0; i < plant_select.length; i++) {
+            plant_select[i].style.backgroundColor = 'unset'
+            plant_select[i].style.borderRadius = '0px'
+            plant_select[i].style.boxShadow = 'none'
+        }
     }
+    for (let i = 0; i < plant_select.length; i++) {
+        plant_select[i].addEventListener('click', function() {
+            set_plant_type(i)
+        }, false)
+    }
+    function set_plant_type(i) {
+        chnage_backgroud_color()
+        var default_plant_seed_name = []
+        for (let j = 0; j <= b.length - 1; j++) {
+            c = b[j]['plant_name_id']
+            if (c == a[i]['id']) {
+                default_plant_seed_name.push(b[j]['seed_name'])
+            }
+        }
+        plant_select[i].style.backgroundColor = 'rgb(175, 252, 226)'
+        plant_select[i].style.borderRadius = '7px'
+        plant_select[i].style.boxShadow = '0 3px 5px 0 rgba(0, 0, 0, 0.116), 0 4px 14px 0 rgba(0, 0, 0, 0.116)'
+        seed_box = document.getElementById('seed_box')
+        seed_box.innerHTML = ''
+        for (var plant_seed in default_plant_seed_name) {
+            seed_box.innerHTML += `<div class="plant_name">${default_plant_seed_name[plant_seed]}</div>`
+        }
+    }
+    set_plant_type(0)
 
 </script>
 

@@ -1,27 +1,31 @@
-{% extends 'dashboard/basic.html' %}
-{% block body %}
-{% load static %}
+{% extends 'dashboard/basic.html' %} {% block body %} {% load static %}
 
 <div class="cus_container">
   <div class="back_btn_3">
-    <div class="material-symbols-outlined back_btn_4">
-      arrow_back_ios 
-    </div><div class="back_btn_4">Back To Farmers</div>
+    
+    <a href="{% url 'farmers' %}" class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
+    <a href="{% url 'farmers' %}" class="back_btn_4">Back To Farmers</a>
   </div>
-  <div class="back_btn">
-    <button class="back_btn_1"><a class="back_btn_2" href="{% url 'farmers' %}">
+  {% comment %} <div class="back_btn">
+    <button class="back_btn_1">
+      <a class="back_btn_2" href="{% url 'farmers' %}">
         <span class="material-symbols-outlined back_btn_2">
           arrow_back_ios
         </span>
-        Back To Farmers</a></button>
-  </div>
+        Back To Farmers</a
+      >
+    </button>
+  </div> {% endcomment %}
   <div class="main_box">
     <div class="d-flex justify-content-between">
-    <div class="farmer_info_title text-muted">Farmer Info
-      </div>
-      <a href="/farmer_edit/farmer_id={{farmer_info.id}}" class="material-symbols-outlined m-3 text-muted">
+      <div class="farmer_info_title text-muted">Farmer Info</div>
+      <a
+        href="/farmer_edit/farmer_id={{farmer_info.id}}"
+        class="material-symbols-outlined m-3 text-muted"
+      >
         edit_square
-      </a></div>
+      </a>
+    </div>
     <div class="farmer_info_details">
       <div class="farmer_info_details_1">
         <div class="text-muted farmer_info_title_1">Name</div>
@@ -49,8 +53,10 @@
       </div>
     </div>
 
-    <div class="farmer_info_title_page text-muted"><span class="pages">Farms</span></div>
-    <div class="farm_info"> 
+    <div class="farmer_info_title_page text-muted">
+      <span class="pages">Farms</span>
+    </div>
+    <div class="farm_info">
       <div class="page_table">
         <div class="d-flex justify-content-evenly p-1 page_table_1">
           <div class="table_one_content">Name</div>
@@ -58,9 +64,12 @@
           <div class="table_one_content">Nick Name</div>
           <div class="table_one_content">Caretaker</div>
           <div class="table_one_content">Phone Number</div>
-        </div>  
+        </div>
         {% for farm in farm_info %}
-        <a class="d-flex justify-content-evenly p-1 farm_information" href="{% url 'farm_info' farm_id=farm.id%}">
+        <a
+          class="d-flex justify-content-evenly p-1 farm_information"
+          href="{% url 'farm_info' farm_id=farm.id%}"
+        >
           <div class="table_one_content_1">{{farm.farmer_id.name}}</div>
           <div class="table_one_content_1">{{farm.farm_space}}</div>
           <div class="table_one_content_1">{{farm.caretaker}}</div>
@@ -69,8 +78,10 @@
         </a>
         {% endfor %}
         <div class="add_more_farm">
-        <div class="add_more_farm_1 p-2"><a href="{% url 'farm_info_reg' %}">add more</a></div>
-      </div>
+          <div class="add_more_farm_1 p-2">
+            <a href="{% url 'farm_info_reg' %}">add more</a>
+          </div>
+        </div>
       </div>
       <!-- {% for farm in farm_info %}
       <a class="farm_info_card" href="{% url 'farm_info' farm_id=farm.id%}">
@@ -151,3 +162,4 @@
   {% endfor %}
 </div>
 {% endblock %} -->
+</div>

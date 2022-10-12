@@ -349,12 +349,10 @@ a:hover {
     font-size: 20px !important;
     width: 20px !important;
     margin-left: 10px;
-    
 }
 
 .back_btn_3 {
     margin: 30px;
-    width: 40px;
     width: 170px;
     height: 40px;
     background-color: rgb(228, 249, 245);
@@ -364,6 +362,7 @@ a:hover {
     transition-duration: 400ms;
     display: flex;
     justify-content: space-around;
+    overflow: hidden;
 }
 
 .back_btn_4 {
@@ -371,12 +370,11 @@ a:hover {
     font-family: 'Poppins', sans-serif;
     margin-top: 0;
     margin-top: 10px;
-
 }
 
 .back_btn_3:hover {
     width: 170px;
-
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.116), 0 3px 14px 0 rgba(0, 0, 0, 0.116);
     /* animation-name: smit;
     animation-duration: 3s;
     animation-iteration-count: 1; */
@@ -411,13 +409,10 @@ a:hover {
     border: 1px solid rgb(228, 249, 245);
     margin: 10px 20px;
     border-radius: 7px;
-
-
 }
 #seed_box{
     border: 1px solid rgb(247, 253, 252);
     background-color: rgb(247, 253, 252);
-    
 }
 
 .plant_name {
