@@ -19,8 +19,12 @@
     </span>
   </div>
   <div class="main_box">
-    <a href="/plant_edit/plant_id={{planting_history.id}}">Edit Planting</a>
-    <div class="farmer_info_title text-muted">Planting Info</div>
+    <div class="d-flex justify-content-between">
+      <div class="farmer_info_title text-muted">Planting Info</div>
+      <a href="/plant_edit/plant_id={{planting_history.id}}" class="material-symbols-outlined m-3 text-muted">
+        edit_square
+      </a>
+    </div>
     <div class="farmer_info_details">
       <div class="farmer_info_details_1">
         <div class="text-muted farmer_info_title_1">Farmer Name</div>
@@ -59,8 +63,88 @@
         <div class="farmer_details_1">{{planting_history.modified_date}}</div>
       </div>
     </div>
+    <div class="farmer_info_title_page text-muted">
+      <span class="pages">Fertilizer</span>
+      <span class="pages">Water Irrigation</span>
+      <span class="pages">Pesticide</span>
+      <span class="pages">Harvesting</span>
+      <span class="pages">Selling</span>
 
-    <div class="farmer_info_title_page text-muted"><span class="pages">Fertilizer</span><span class="pages_1">Water irrigation</span><span class="pages_1">Pesticide</span></div>
+    </div>
+    <div class="farm_info">
+      <div class="page_table">
+        <div class="d-flex justify-content-evenly p-1 page_table_1">
+          <div class="table_one_content">Fertilizer name</div>
+          <div class="table_one_content">Fertilizer Qty</div>
+          <div class="table_one_content">Rating</div>
+          <div class="table_one_content">Fertilizer Days From Planting</div>
+        </div>
+        {% for fer in fertilizer %}
+        <a class="d-flex justify-content-evenly p-1 farm_information" href="/fertilizer_info/fertilizer_id={{fer.id}}">
+          <div class="table_one_content_1">{{fer.fertilizer_name}}</div>
+          <div class="table_one_content_1">{{fer.fertilizer_qty}}</div>
+          <div class="table_one_content_1">{{fer.rating}}</div>
+          <div class="table_one_content_1">{{fer.fertilizer_days_from_planting}}</div>
+        </a>
+        {% endfor %}
+        <div class="add_more_farm">
+          <div class="add_more_farm_1 p-2">
+            <a href="{% url 'fertilizer_reg' %}">add more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="farm_info">
+      <div class="page_table">
+        <div class="d-flex justify-content-evenly p-1 page_table_1">
+          <div class="table_one_content">Water Irrigation Type</div>
+          <div class="table_one_content">Water Irrigation Date</div>
+          <div class="table_one_content">Time From Water Irrigation</div>
+          <div class="table_one_content">Days From Planting</div>
+        </div>
+        {% for water in water_irrigation %}
+        <a class="d-flex justify-content-evenly p-1 farm_information"
+          href="/water_irrigation_info/water_irrigation_id={{water.id}}">
+          <div class="table_one_content_1">{{water.water_irrigation_type}}</div>
+          <div class="table_one_content_1">{{water.water_irrigation_date}}</div>
+          <div class="table_one_content_1">{{water.time_from_water_irrigation}}</div>
+          <div class="table_one_content_1">{{water.water_date_from_planting}}</div>
+        </a>
+        {% endfor %}
+        <div class="add_more_farm">
+          <div class="add_more_farm_1 p-2">
+            <a href="{% url 'water_irrigation_reg' %}">add more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="farm_info">
+      <div class="page_table">
+        <div class="d-flex justify-content-evenly p-1 page_table_1">
+          <div class="table_one_content">Pesticide Name</div>
+          <div class="table_one_content">Pesticide Qty</div>
+          <div class="table_one_content">Pesticide Date</div>
+          <div class="table_one_content">Pesticide Days</div>
+        </div>
+        {% for pes in pesticide %}
+        <a class="d-flex justify-content-evenly p-1 farm_information" href="/pesticide_info/pesticide_id={{pes.id}}">
+          <div class="table_one_content_1">{{pes.pesticide_name}}</div>
+          <div class="table_one_content_1">{{pes.pesticide_qty}}</div>
+          <div class="table_one_content_1">{{pes.pesticide_date}}</div>
+          <div class="table_one_content_1">{{pes.time_from_prestiside}}</div>
+        </a>
+        {% endfor %}
+        <div class="add_more_farm">
+          <div class="add_more_farm_1 p-2">
+            <a href="{% url 'pesticide_reg' %}">add more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="farmer_info_title_page text-muted"><span class="pages">Fertilizer</span><span class="pages_1">Water
+        irrigation</span><span class="pages_1">Pesticide</span></div>
     <div class="farm_info">
       {% for fer in fertilizer %}
       <a class="farm_info_card" href="/fertilizer_info/fertilizer_id={{fer.id}}">
@@ -102,7 +186,7 @@
           <div class="farmer_details_1">{{water.water_date_from_planting}}</div>
         </div>
         </span>
-      </a>
+      </a>  
       {% endfor %}
       {% for pes in pesticide %}
       <a class="farm_info_card" href="/fertilizer_info/fertilizer_id={{fer.id}}">
@@ -128,8 +212,8 @@
     </div>
   </div>
 
-  <h2>  </h2>
-  <!-- <table class="table table-borderless table-width-40 farmer_detail">
+  <h2> </h2>
+  <table class="table table-borderless table-width-40 farmer_detail">
     <a href="/plant_edit/plant_id={{planting_history.id}}">Edit Planting</a>
     <tbody>
       <tr>
@@ -169,7 +253,7 @@
         <td>{{planting_history.modified_date}}</td>
       </tr>
     </tbody>
-  </table> -->
+  </table>
   <div class="col-md-12 d-flex">
     <div class="col-md-4">
       <button><a href="{% url 'fertilizer_reg' %}">Fertilizer Reg</a></button>
@@ -222,5 +306,5 @@
         {% endfor %}
       </div>
     </div>
-  </div>
-  {% endblock %}
+  </div> -->
+    {% endblock %}
