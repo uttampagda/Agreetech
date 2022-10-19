@@ -64,14 +64,13 @@
       </div>
     </div>
     <div class="farmer_info_title_page text-muted">
-      <span class="pages">Fertilizer</span>
-      <span class="pages">Water Irrigation</span>
-      <span class="pages">Pesticide</span>
-      <span class="pages">Harvesting</span>
-      <span class="pages">Selling</span>
-
+      <span class="pages" id="fertilizer_menu">Fertilizer</span>
+      <span class="pages" id="water_irrigation_menu">Water Irrigation</span>
+      <span class="pages" id="pesticide_menu">Pesticide</span>
+      <span class="pages" id="harvesting_menu">Harvesting</span>
+      <span class="pages" id="selling_menu">Selling</span>
     </div>
-    <div class="farm_info">
+    <div class="farm_info" id="fertilizer">
       <div class="page_table">
         <div class="d-flex justify-content-evenly p-1 page_table_1">
           <div class="table_one_content">Fertilizer name</div>
@@ -94,7 +93,7 @@
         </div>
       </div>
     </div>
-    <div class="farm_info">
+    <div class="farm_info" id="water_irrigation">
       <div class="page_table">
         <div class="d-flex justify-content-evenly p-1 page_table_1">
           <div class="table_one_content">Water Irrigation Type</div>
@@ -118,7 +117,7 @@
         </div>
       </div>
     </div>
-    <div class="farm_info">
+    <div class="farm_info" id="pesticide">
       <div class="page_table">
         <div class="d-flex justify-content-evenly p-1 page_table_1">
           <div class="table_one_content">Pesticide Name</div>
@@ -141,7 +140,95 @@
         </div>
       </div>
     </div>
-
+    <div class="farm_info" id="harvesting">
+      <div class="page_table">
+        <div class="d-flex justify-content-evenly p-1 page_table_1">
+          <div class="table_one_content">plant_type</div>
+          <div class="table_one_content">harvesting_time</div>
+          <div class="table_one_content">total_production</div>
+          <div class="table_one_content">per_acre_production</div>
+        </div>
+        {% for har in harvesting %}
+        <a class="d-flex justify-content-evenly p-1 farm_information" href="">
+          <div class="table_one_content_1">{{har.plant_type}}</div>
+          <div class="table_one_content_1">{{har.harvesting_time}}</div>
+          <div class="table_one_content_1">{{har.total_production}}</div>
+          <div class="table_one_content_1">{{har.per_acre_production}}</div>
+        </a>
+        {% endfor %}
+        <div class="add_more_farm">
+          <div class="add_more_farm_1 p-2">
+            <a href="{% url 'harvesting_reg' %}">add more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="farm_info" id="selling">
+      <div class="page_table">
+        <div class="d-flex justify-content-evenly p-1 page_table_1">
+          <div class="table_one_content">sell_quantity</div>
+          <div class="table_one_content">sell_date</div>
+          <div class="table_one_content">sell_rate</div>
+          <div class="table_one_content">purchaser_name</div>
+          <div class="table_one_content">purchaser_number</div>
+        </div>
+        {% for cs in crop_selling %}
+        <a class="d-flex justify-content-evenly p-1 farm_information" href="/pesticide_info/pesticide_id={{pes.id}}">
+          <div class="table_one_content_1">{{cs.sell_quantity}}</div>
+          <div class="table_one_content_1">{{cs.sell_date}}</div>
+          <div class="table_one_content_1">{{cs.sell_rate}}</div>
+          <div class="table_one_content_1">{{cs.purchaser_name}}</div>
+          <div class="table_one_content_1">{{cs.purchaser_number}}</div>
+        </a>
+        {% endfor %}
+        <div class="add_more_farm">
+          <div class="add_more_farm_1 p-2">
+            <a href="{% url 'crop_selling_reg' %}">add more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% comment %} <div class="col-md-6">
+      <button>
+        <a href="{% url 'harvesting_reg' %}">Harvesting Registration</a>
+      </button>
+      <div class="d-flex justify-content-evenly flex-wrap">
+        {% for har in harvesting %}
+        <div class="card m-2" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title">plant_type: {{har.plant_type}}</h5>
+            <p class="card-text">harvesting_time: {{har.harvesting_time}}</p>
+            <p class="card-text">total_production:{{har.total_production}}</p>
+            <p class="card-text">
+              per_acre_production: {{har.per_acre_production}}
+            </p>
+            <p class="card-text">create_date: {{har.create_date}}</p>
+            <p class="card-text">modified_date: {{har.modified_date}}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <button>
+        <a href="{% url 'crop_selling_reg' %}">Crop Selling Registration</a>
+      </button>
+      <div class="d-flex justify-content-evenly flex-wrap">
+        {% for cs in crop_selling %}
+        <div class="card m-2" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title">sell_quantity: {{cs.sell_quantity}}</h5>
+            <p class="card-text">sell_date: {{cs.sell_date}}</p>
+            <p class="card-text">sell_rate:{{cs.sell_rate}}</p>
+            <p class="card-text">purchaser_name: {{cs.purchaser_name}}</p>
+            <p class="card-text">purchaser_number: {{cs.purchaser_number}}</p>
+            <p class="card-text">creation_date: {{cs.creation_date}}</p>
+            <p class="card-text">modified_date: {{cs.modified_date}}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div> {% endcomment %}
 
     <!-- <div class="farmer_info_title_page text-muted"><span class="pages">Fertilizer</span><span class="pages_1">Water
         irrigation</span><span class="pages_1">Pesticide</span></div>

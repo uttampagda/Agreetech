@@ -256,6 +256,10 @@ a:hover {
     z-index: 5;
     background-color: white;
     border-radius: 5px 5px 0px 0px;
+    cursor: pointer;
+}
+#fertilizer_menu{
+    background-color: #e4fff5;
 }
 
 .pages_1 {
@@ -410,7 +414,8 @@ a:hover {
     margin: 10px 20px;
     border-radius: 7px;
 }
-#seed_box{
+
+#seed_box {
     border: 1px solid rgb(247, 253, 252);
     background-color: rgb(247, 253, 252);
 }
@@ -427,6 +432,19 @@ a:hover {
 
 }
 
+#water_irrigation {
+    display: none;
+}
+
+#pesticide {
+    display: none;
+}
+#harvesting{
+    display: none;
+}
+#selling{
+    display: none;
+}
 @media(max-width: 768px) {
     .create_user_form {
         width: 80%;

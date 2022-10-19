@@ -1,35 +1,41 @@
-{% extends 'dashboard/basic.html' %}
-{% block body %}
-{% load static %} 
+{% extends 'dashboard/basic.html' %} {% block body %} {% load static %}
 
 <div class="d-flex justify-content-center align-items-center">
-    <button><a href="{% url 'planting' planting_id=planting_id%}">Back to Planting</a></button>
+  <button>
+    <a href="{% url 'planting' planting_id=planting_id%}">Back to Planting</a>
+  </button>
 </div>
-<br>
+<br />
 <div class="col-md-12 d-flex">
-    <div class="col-md-6">
-      <button><a href="{% url 'harvesting_reg' %}">Harvesting Registration</a></button>
-          <div class="d-flex justify-content-evenly flex-wrap">
+  <div class="col-md-6">
+    <button>
+      <a href="{% url 'harvesting_reg' %}">Harvesting Registration</a>
+    </button>
+    <div class="d-flex justify-content-evenly flex-wrap">
       {% for har in harvesting %}
-      <div class="card m-2" style="width: 18rem;">
+      <div class="card m-2" style="width: 18rem">
         <div class="card-body">
           <h5 class="card-title">plant_type: {{har.plant_type}}</h5>
           <p class="card-text">harvesting_time: {{har.harvesting_time}}</p>
           <p class="card-text">total_production:{{har.total_production}}</p>
-          <p class="card-text">per_acre_production: {{har.per_acre_production}}</p>
+          <p class="card-text">
+            per_acre_production: {{har.per_acre_production}}
+          </p>
           <p class="card-text">create_date: {{har.create_date}}</p>
           <p class="card-text">modified_date: {{har.modified_date}}</p>
         </div>
       </div>
       {% endfor %}
     </div>
-    </div>
+  </div>
 
-    <div class="col-md-6 ">
-      <button><a href="{% url 'crop_selling_reg' %}">Crop Selling Registration</a></button>
-          <div class="d-flex justify-content-evenly flex-wrap">
+  <div class="col-md-6">
+    <button>
+      <a href="{% url 'crop_selling_reg' %}">Crop Selling Registration</a>
+    </button>
+    <div class="d-flex justify-content-evenly flex-wrap">
       {% for cs in crop_selling %}
-      <div class="card m-2" style="width: 18rem;">
+      <div class="card m-2" style="width: 18rem">
         <div class="card-body">
           <h5 class="card-title">sell_quantity: {{cs.sell_quantity}}</h5>
           <p class="card-text">sell_date: {{cs.sell_date}}</p>
@@ -42,7 +48,7 @@
       </div>
       {% endfor %}
     </div>
-    </div>
+  </div>
 </div>
 
 {% endblock %}

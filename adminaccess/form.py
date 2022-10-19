@@ -42,7 +42,7 @@ class Crop_selling_Form(forms.ModelForm):
     class Meta:
         model = Crop_selling
         fields = ['farmer_id', 'farm_id', 'planting_id', 'sell_quantity', 'sell_rate', 'purchaser_name',
-                  'purchaser_number']
+                  'purchaser_number', 'sell_date']
 
 
 class Fertilizer_Form(forms.ModelForm):

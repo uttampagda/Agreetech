@@ -216,6 +216,7 @@ def planting(request,planting_id):
     pesticide = Pesticide.objects.filter(planting_id=planting_id).values()
     crop_selling = Crop_selling.objects.filter(planting_id=planting_id).values()
     harvesting = Harvesting.objects.filter(planting_id=planting_id).values()
+    
 
     # Creating DateTime var for multiple use
     date_now=datetime.now().date()
