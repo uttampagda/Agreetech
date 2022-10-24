@@ -11,7 +11,6 @@
     <span class="dropdown">
       <button class="dropbtn">More Registration</button>
       <div class="dropdown-content">
-        <div><a href="{% url 'harvesting_and_crop_selling' %}">Harvesting and Selling</a></div>
         <div><a href="{% url 'fertilizer_reg' %}">Fertilizer Reg</a></div>
         <div><a href="{% url 'water_irrigation_reg' %}">Water irrigation</a></div>
         <div><a href="{% url 'pesticide_reg' %}">Pesticide</a></div>
@@ -149,7 +148,7 @@
           <div class="table_one_content">per_acre_production</div>
         </div>
         {% for har in harvesting %}
-        <a class="d-flex justify-content-evenly p-1 farm_information" href="">
+        <a class="d-flex justify-content-evenly p-1 farm_information" href="{% url 'harvesting_info' id=har.id%}">
           <div class="table_one_content_1">{{har.plant_type}}</div>
           <div class="table_one_content_1">{{har.harvesting_time}}</div>
           <div class="table_one_content_1">{{har.total_production}}</div>
@@ -173,7 +172,7 @@
           <div class="table_one_content">purchaser_number</div>
         </div>
         {% for cs in crop_selling %}
-        <a class="d-flex justify-content-evenly p-1 farm_information" href="/pesticide_info/pesticide_id={{pes.id}}">
+        <a class="d-flex justify-content-evenly p-1 farm_information" href="{% url 'crop_selling_info' id=cs.id%}">
           <div class="table_one_content_1">{{cs.sell_quantity}}</div>
           <div class="table_one_content_1">{{cs.sell_date}}</div>
           <div class="table_one_content_1">{{cs.sell_rate}}</div>

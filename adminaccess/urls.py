@@ -18,11 +18,13 @@ urlpatterns = [
     path('planting_reg', views.planting_reg, name="planting_reg"),
     path('planting/planting_id=<int:planting_id>', views.planting, name="planting"),
     # path('planting/<int:farmer_id>', views.planting, name="planting"),
-    path('harvesting_and_crop_selling', views.harvesting_and_crop_selling, name="harvesting_and_crop_selling"),
+    # path('harvesting_and_crop_selling', views.harvesting_and_crop_selling, name="harvesting_and_crop_selling"),
     path('harvesting_reg', views.harvesting_reg, name="harvesting_reg"),
     path('crop_selling_reg', views.crop_selling_reg, name="crop_selling_reg"),
     path('fertilizer_reg', views.fertilizer_reg, name="fertilizer_reg"),
     path('fertilizer_info/fertilizer_id=<int:fertilizer_id>', views.fertilizer_info, name="fertilizer_info"),
+    path('harvesting_info/id=<int:id>', views.harvesting_info, name="harvesting_info"),
+    path('crop_selling_info/id=<int:id>', views.crop_selling_info, name="crop_selling_info"),
     path('Water_irrigation_reg', views.water_irrigation_reg, name="water_irrigation_reg"),
     path('water_irrigation_info/water_irrigation_id=<int:water_irrigation_id>', views.water_irrigation_info, name="water_irrigation_info"),
     path('Pesticide_reg', views.pesticide_reg, name="pesticide_reg"),
@@ -45,6 +47,7 @@ urlpatterns = [
     #statistics
     path('fertilizer_name=<str:fertilizer_name>', views.fertilizer_stats, name="fertilizer_stats"),
     path('pesticide_name=<str:pesticide_name>', views.pesticide_stats, name="pesticide_stats"),
+    path('seed_id=<int:seed_id>', views.seed_status, name="seed_stats"),
 
     
 
