@@ -274,6 +274,7 @@ def harvesting_reg(request):
             request.session['farmer_id'] = farmer_id
             request.session['farm_id'] = farm_id
             request.session['planting_id'] = planting_id
+            # return redirect('harvesting_and_crop_selling')
             return redirect('planting',planting_id=planting_id)
     data = {
         'farm_id': farm_id,
@@ -293,6 +294,7 @@ def crop_selling_reg(request):
             request.session['farmer_id'] = farmer_id
             request.session['farm_id'] = farm_id
             request.session['planting_id'] = planting_id
+            # return redirect('harvesting_and_crop_selling')
             return redirect('planting',planting_id=planting_id)
     data = {
         'farm_id':farm_id,
@@ -301,23 +303,23 @@ def crop_selling_reg(request):
     }
     return render(request, 'forms/crop_selling_reg.html',data)
 
-# def harvesting_and_crop_selling(request):
-#     farm_id = request.session['farm_id']
-#     farmer_id = request.session['farmer_id']
-#     planting_id = request.session['planting_id']
-#     harvesting = Harvesting.objects.filter(planting_id=planting_id)
-#     crop_selling = Crop_selling.objects.filter(planting_id=planting_id)
-#     data = {
-#           'farmer_id': farmer_id,
-#           'farm_id': farm_id,
-#           'planting_id': planting_id,
-#           'harvesting': harvesting,
-#           'crop_selling': crop_selling,
-#       }
-#     request.session['farmer_id'] = farmer_id
-#     request.session['farm_id'] = farm_id
-#     request.session['planting_id'] = planting_id
-#     return render(request, 'forms/harvesting_and_selling.html',data)
+def harvesting_and_crop_selling(request):
+    farm_id = request.session['farm_id']
+    farmer_id = request.session['farmer_id']
+    planting_id = request.session['planting_id']
+    harvesting = Harvesting.objects.filter(planting_id=planting_id)
+    crop_selling = Crop_selling.objects.filter(planting_id=planting_id)
+    data = {
+          'farmer_id': farmer_id,
+          'farm_id': farm_id,
+          'planting_id': planting_id,
+          'harvesting': harvesting,
+          'crop_selling': crop_selling,
+      }
+    request.session['farmer_id'] = farmer_id
+    request.session['farm_id'] = farm_id
+    request.session['planting_id'] = planting_id
+    return render(request, 'forms/harvesting_and_selling.html',data)
 
 def fertilizer_reg(request):
     farm_id = request.session['farm_id']
@@ -394,9 +396,9 @@ def pesticide_info(request, pesticide_id):
     }
     return render(request, 'forms/pesticide_info.html', data)  
 
-def harvesting_info(request,id):
-    harvesting = Harvesting.objects.filter(id=id)[0]
-    if staff_permission(harvesting.farmer_id.id,staff_type=request.user.is_staff):
+def harvesting_info(request,harvesting_id):
+    harvesting = Harvesting.objects.filter(id=harvesting_id)[0]
+    if staff_permission(pesticide.farmer_id.id,staff_type=request.user.is_staff):
         pass
     else:
         return redirect('403')
@@ -406,9 +408,9 @@ def harvesting_info(request,id):
     }
     return render(request, 'forms/harvesting_info.html', data)
 
-def crop_selling_info(request,id):
-    crop_selling = Crop_selling.objects.filter(id=id)[0]
-    if staff_permission(crop_selling.farmer_id.id,staff_type=request.user.is_staff):
+def crop_selling_info(request,crop_selling_id):
+    crop_selling = Crop_selling.objects.filter(id=crop_selling_id)
+    if staff_permission(pesticide.farmer_id.id,staff_type=request.user.is_staff):
         pass
     else:
         return redirect('403')
@@ -492,7 +494,7 @@ def search_utm(request):
     farmers = Farmer.objects.all()
     temp_list = []
     for i in farms:
-        temp_list.append([i.farmer_id.id,i.farm_space])
+        temp_list.append([i.farmer_id,i.farm_space])
     temp_farmer_ids = []
     for i in range(len(temp_list)):
         temp_farmer_ids.append(temp_list[i][0])
@@ -700,11 +702,4 @@ def pesticide_stats(request,pesticide_name):
         'pesticide': pesticide
     }
     return render(request, 'stats/pesticide_stats.html', data)
-
-@permission_required('is_staff','403')
-def seed_status(request,seed_id):
-    seed = Default_plant_seed_name.objects.filter(id=seed_id)
-    data = {
-        'seed': seed,
-    }
-    return render(request, 'stats/seed_stats.html', data)
+    

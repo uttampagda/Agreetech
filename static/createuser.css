@@ -15,7 +15,9 @@ a:hover {
     color: black;
 
 }
-
+.border-invisible{
+    border: 1px solid rgba(0, 0, 0, 0);
+}
 .add_btn {
     background-color: rgb(202, 202, 202);
     padding: 4px 8px;

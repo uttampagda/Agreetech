@@ -2,7 +2,65 @@
 {% block body %}
 {% load static %} 
 
-    <h2>Pesticide Info</h2>
+<div class="main_box">
+    <div class="d-flex justify-content-between">
+        <div class="farmer_info_title text-muted">Pesticide Info</div>
+        <a href="/pesticide_edit/pesticide_id={{pesticide.id}}" class="material-symbols-outlined m-3 text-muted">
+            edit_square
+        </a>
+    </div>
+    <div class="farmer_info_details">
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Farmer Name</div>
+            <div class="farmer_details_1">{{pesticide.farmer_id.name}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Farm Name</div>
+            <div class="farmer_details_1">
+                {{pesticide.farm_id.farm_nick_name}}
+            </div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Planting Name</div>
+            <div class="farmer_details_1">{{pesticide.planting_id.plant}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Pesticide Name</div>
+            <div class="farmer_details_1">{{pesticide.pesticide_name}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Pesticide Qty</div>
+            <div class="farmer_details_1">{{pesticide.pesticide_qty}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Reason</div>
+            <div class="farmer_details_1">{{pesticide.reason}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Pesticide Date</div>
+            <div class="farmer_details_1">{{pesticide.pesticide_date}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Pesticide days from planting</div>
+            <div class="farmer_details_1">{{pesticide.pesticide_date_from_planting}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Rating</div>
+            <div class="farmer_details_1">{{pesticide.rating}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Create Date</div>
+            <div class="farmer_details_1">{{pesticide.create_date}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Modified Date</div>
+            <div class="farmer_details_1">{{pesticide.modified_date}}</div>
+        </div>
+    </div>
+    <div class="mt-4 border-invisible"></div>
+</div>
+
+    {% comment %} <h2>Pesticide Info</h2>
     <table class="table table-borderless table-width-40 farmer_detail">
         <a href="/pesticide_edit/pesticide_id={{pesticide.id}}">Edit Planting</a>
         <tbody>
@@ -51,6 +109,6 @@
                 <td>{{pesticide.modified_date}}</td>
             </tr>
         </tbody>
-    </table>
+    </table> {% endcomment %}
 
 {% endblock %}
