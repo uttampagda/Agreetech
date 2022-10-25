@@ -1,0 +1,52 @@
+{% extends 'dashboard/basic.html' %}
+{% block body %}
+{% load static %} 
+
+    <h2>Crop selling Info</h2>
+    <table class="table table-borderless table-width-40 farmer_detail">
+        <a >Edit Planting</a>
+        <tbody>
+            <tr>
+                <th scope="row">Farmer ID:</th>
+                <td>{{crop_selling.farmer_id}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Farm ID:</th>
+                <td>{{crop_selling.farm_id.farm_nick_name}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Planting Id:</th>
+                <td>{{crop_selling.planting_id.plant}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Sell quantity:</th>
+                <td>{{crop_selling.sell_quantity}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Sell date:</th>
+                <td>{{crop_selling.sell_date}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Sell rate:</th>
+                <td>{{crop_selling.sell_rate}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Purchaser name:</th>
+                <td>{{crop_selling.purchaser_name}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Purchaser number:</th>
+                <td>{{crop_selling.purchaser_number}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Create Date:</th>
+                <td>{{crop_selling.create_date}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Modified Date:</th>
+                <td>{{crop_selling.modified_date}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

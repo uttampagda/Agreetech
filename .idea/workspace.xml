@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="user permission">
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="harvesting and cropselling info backend">
+      <change afterPath="$PROJECT_DIR$/templates/forms/crop_selling_info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/forms/harvesting_info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/stats/seed_stats.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/planting.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/planting.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,15 +73,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/stats" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/forms" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/forms" />
       <recent name="$PROJECT_DIR$/templates/stats" />
       <recent name="$PROJECT_DIR$/templates/Default_parameters" />
-      <recent name="$PROJECT_DIR$/templates/forms" />
     </key>
   </component>
   <component name="RunManager" selected="Django Server.agritech">
@@ -357,7 +362,11 @@
       <workItem from="1664705704125" duration="3283000" />
       <workItem from="1664815569754" duration="4331000" />
       <workItem from="1664992672052" duration="3773000" />
-      <workItem from="1665073626983" duration="1514000" />
+      <workItem from="1665073626983" duration="1575000" />
+      <workItem from="1665416561193" duration="1369000" />
+      <workItem from="1665505730794" duration="4523000" />
+      <workItem from="1665593462134" duration="2300000" />
+      <workItem from="1666585680927" duration="3237000" />
     </task>
     <task id="LOCAL-00001" summary="forms initial">
       <created>1654536683658</created>
@@ -618,7 +627,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664997972113</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="harvesting and cropselling info backend">
+      <created>1665082068948</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1665082068948</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -660,6 +676,7 @@
     <MESSAGE value="changes in default parameters" />
     <MESSAGE value="rating system in pesticide table" />
     <MESSAGE value="user permission" />
-    <option name="LAST_COMMIT_MESSAGE" value="user permission" />
+    <MESSAGE value="harvesting and cropselling info backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="harvesting and cropselling info backend" />
   </component>
 </project>

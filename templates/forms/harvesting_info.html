@@ -1,0 +1,48 @@
+{% extends 'dashboard/basic.html' %}
+{% block body %}
+{% load static %} 
+
+    <h2>Harvesting Info</h2>
+    <table class="table table-borderless table-width-40 farmer_detail">
+        <a >Edit Planting</a>
+        <tbody>
+            <tr>
+                <th scope="row">Farmer ID:</th>
+                <td>{{harvesting.farmer_id}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Farm ID:</th>
+                <td>{{harvesting.farm_id.farm_nick_name}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Planting Id:</th>
+                <td>{{harvesting.planting_id.plant}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Plant type:</th>
+                <td>{{harvesting.plant_type}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Harvesting time:</th>
+                <td>{{harvesting.harvesting_time}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Total production:</th>
+                <td>{{harvesting.total_production}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Per acre production:</th>
+                <td>{{harvesting.per_acre_production}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Create Date:</th>
+                <td>{{harvesting.create_date}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Modified Date:</th>
+                <td>{{harvesting.modified_date}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
