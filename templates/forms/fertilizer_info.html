@@ -1,8 +1,15 @@
 {% extends 'dashboard/basic.html' %} {% block body %} {% load static %}
-<div class="d-flex justify-content-center align-items-center">
-    {% comment %} <button>
+{% comment %} <div class="d-flex justify-content-center align-items-center">
+    <button>
         <a href="{% url 'farm_info' farm_id=farm_id%}">Back to Farm info</a>
-    </button> {% endcomment %}
+    </button>
+</div> {% endcomment %}
+<div class="back_btn">
+    <button class="back_btn_1"><a class="back_btn_2" href="{% url 'planting' planting_id=fertilizer.planting_id.id%}">
+        <span class="material-symbols-outlined back_btn_2">
+          arrow_back_ios
+        </span>
+        Back to Planting info</a></button>
 </div>
 <div class="main_box">
     <div class="d-flex justify-content-between">

@@ -3,11 +3,17 @@
 {% load static %}
 
 <body>
-  <div class="d-flex justify-content-center align-items-center">
+  {% comment %} <div class="d-flex justify-content-center align-items-center">
     <button><a href="{% url 'farm_info' farm_id=farm_id%}">Back to Farm info</a></button>
+  </div> {% endcomment %}
+  <div class="back_btn">
+    <button class="back_btn_1"><a class="back_btn_2" href="{% url 'farm_info' farm_id=farm_id%}">
+        <span class="material-symbols-outlined back_btn_2">
+          arrow_back_ios
+        </span>
+        Back to Farm info</a></button>
   </div>
-
-  <div class="d-flex justify-content-end">
+  {% comment %} <div class="d-flex justify-content-end">
     <span class="dropdown">
       <button class="dropbtn">More Registration</button>
       <div class="dropdown-content">
@@ -16,7 +22,7 @@
         <div><a href="{% url 'pesticide_reg' %}">Pesticide</a></div>
       </div>
     </span>
-  </div>
+  </div> {% endcomment %}
   <div class="main_box">
     <div class="d-flex justify-content-between">
       <div class="farmer_info_title text-muted">Planting Info</div>

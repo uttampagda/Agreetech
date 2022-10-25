@@ -1,7 +1,13 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
 {% load static %} 
-
+<div class="back_btn">
+    <button class="back_btn_1"><a class="back_btn_2" href="{% url 'planting' planting_id=pesticide.planting_id.id%}">
+            <span class="material-symbols-outlined back_btn_2">
+                arrow_back_ios
+            </span>
+            Back to Planting info</a></button>
+</div>
 <div class="main_box">
     <div class="d-flex justify-content-between">
         <div class="farmer_info_title text-muted">Pesticide Info</div>
