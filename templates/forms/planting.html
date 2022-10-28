@@ -6,13 +6,18 @@
   {% comment %} <div class="d-flex justify-content-center align-items-center">
     <button><a href="{% url 'farm_info' farm_id=farm_id%}">Back to Farm info</a></button>
   </div> {% endcomment %}
-  <div class="back_btn">
+  <div class="back_btn_3">
+    <a href="{% url 'farm_info' farm_id=farm_id%}"
+      class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
+    <a href="{% url 'farm_info' farm_id=farm_id%}" class="back_btn_4">Back To Farm</a>
+  </div>
+  {% comment %} <div class="back_btn">
     <button class="back_btn_1"><a class="back_btn_2" href="{% url 'farm_info' farm_id=farm_id%}">
         <span class="material-symbols-outlined back_btn_2">
           arrow_back_ios
         </span>
         Back to Farm info</a></button>
-  </div>
+  </div> {% endcomment %}
   {% comment %} <div class="d-flex justify-content-end">
     <span class="dropdown">
       <button class="dropbtn">More Registration</button>
@@ -399,4 +404,8 @@
       </div>
     </div>
   </div> -->
+    {% endblock %}
+
+    {% block jsfile %}
+    <script src="{% static 'planting.js' %}"></script>
     {% endblock %}

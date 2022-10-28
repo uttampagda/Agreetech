@@ -1,31 +1,63 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
-{% load static %} 
+{% load static %}
 
-    <div class="d-flex justify-content-between p-3">
-        <div class="h2">Farmers</div>
-        <div class="d-flex justify-content-center align-items-center">
-            <a href="farmer_registration" class="add_btn">+ Create Farmer</a>
-        </div>
+<div class="d-flex justify-content-between p-3">
+    <div class="h2">Farmers</div>
+    {% comment %} <div class="d-flex justify-content-center align-items-center">
+        <a href="farmer_registration" class="add_btn">+ Create Farmer</a>
+    </div> {% endcomment %}
+    <div class="create_farmer">
+        <a href="farmer_registration" class="create_farmer_1">+ Create Farmer</a>
     </div>
+</div>
 
-    <div class="container">
-        <div class="form-outline mb-4">
-            <input type="search" class="form-control" id="datatable-search-input" placeholder="Search Farmer">
+<div class="container">
+    <div class="form-outline mb-4 search_farmer">
+        <input type="search" class="form-control search_farmer_1" id="datatable-search-input"
+            placeholder="Search Farmer">
+    </div>
+    <div id="datatable">
+        <div class="farm_info">
+            <div class="page_table pb-2">
+                <div class="d-flex justify-content-evenly p-2 mt-2 page_table_1">
+                    <div class="table_one_content">Farmer Id</div>
+                    <div class="table_one_content">Name</div>
+                    <div class="table_one_content">Phone Number</div>
+                    <div class="table_one_content">Aadhar Number</div>
+                </div>
+                {% for farmer in farmers %}
+                <div class="farmers">
+                    <a class="d-flex justify-content-evenly p-2 farm_information"
+                        href="{% url 'farmer_details' farmer_id=farmer.id %}">
+                        <div class="table_one_content_1">{{farmer.id}}</div>
+                        <div class=" table_one_content_1"><span class="farmer_name">{{farmer.name}}</span></div>
+                        <div class=" table_one_content_1"><span class="farmer_mobile">{{farmer.phone_number}}</span>
+                        </div>
+                        <div class="table_one_content_1">{{farmer.aadhar_number}}</div>
+                    </a>
+                </div>
+
+                {% endfor %}
+                {% comment %} <div class="add_more_farm">
+                    <div class="add_more_farm_1 p-2">
+                        <a href="{% url 'farm_info_reg' %}">add more</a>
+                    </div>
+                </div> {% endcomment %}
+            </div>
         </div>
-        <div id="datatable">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Farmer Id</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Phone Number</th>
-                        <th scope="col">Aadhar Number</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for farmer in farmers %}
-                    <div>
+        {% comment %} <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Farmer Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Aadhar Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for farmer in farmers %}
+                <a href="{% url 'farmer_details' farmer_id=farmer.id %}">
                     <tr class="farmers">
                         <th scope="row">{{farmer.id}}</th>
                         <td class="farmer_name">{{farmer.name}}</td>
@@ -33,17 +65,18 @@
                         <td>{{farmer.aadhar_number}}</td>
                         <td>
 
-                            <button><a href=" {% url 'farmer_details' farmer_id=farmer.id %}">Farmer Details</a></button>
+                            <button><a href=" {% url 'farmer_details' farmer_id=farmer.id %}">Farmer
+                                    Details</a></button>
                         </td>
                     </tr>
-                </div>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+                </a>
+                {% endfor %}
+            </tbody>
+        </table> {% endcomment %}
     </div>
-    {% block jsfile %}
-    <script src="{% static 'search_farmer.js' %}"></script>
-    {% endblock %}
+</div>
+{% block jsfile %}
+<script src="{% static 'search_farmer.js' %}"></script>
+{% endblock %}
 
 {% endblock %}

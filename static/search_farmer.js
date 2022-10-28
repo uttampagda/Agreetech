@@ -1,6 +1,6 @@
-let search_input = document.getElementById('datatable-search-input');
-search_input.addEventListener("input", function() {
-    let farmer_name = search_input.value.toLowerCase()
+var search_input_ = document.getElementById('datatable-search-input');
+search_input_.addEventListener("input", function() {
+    let farmer_name = search_input_.value.toLowerCase()
     let farmer = document.getElementsByClassName('farmers');
     for (let i = 0; i < farmer.length; i++) {
         let farmers = document.getElementsByClassName('farmer_name')[i].innerText.toLowerCase();

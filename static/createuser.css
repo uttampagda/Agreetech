@@ -19,9 +19,24 @@ a:hover {
     border: 1px solid rgba(0, 0, 0, 0);
 }
 .add_btn {
-    background-color: rgb(202, 202, 202);
     padding: 4px 8px;
-    border-radius: 12px;
+    border-radius: 12px;   
+}
+.search_farmer{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.267), 0 3px 14px 0 rgba(0, 0, 0, 0.267);
+    border-radius: 5px;
+
+}
+.search_farmer_1{
+    border-radius: 5px;
+}
+
+#datatable{
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 25px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.267), 0 3px 14px 0 rgba(0, 0, 0, 0.267);
 }
 
 .create_user_form {
@@ -274,7 +289,8 @@ a:hover {
 
 .farmer_info_details {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: start;
+    align-items: center;
     flex-wrap: wrap;
     background-color: rgb(228, 249, 245);
     width: 95%;
@@ -282,11 +298,12 @@ a:hover {
     border-radius: 10px;
     padding-bottom: 20px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.116), 0 3px 14px 0 rgba(0, 0, 0, 0.116);
+    padding: 0px 15px 15px 15px;
 
 }
 
 .farmer_info_details_1 {
-    width: 30%;
+    width: 33.33%;
     margin-top: 20px;
 
 }
@@ -356,31 +373,32 @@ a:hover {
     width: 20px !important;
     margin-left: 10px;
 }
-
+.back_btn_5{
+    
+}
 .back_btn_3 {
-    margin: 30px;
-    width: 170px;
-    height: 40px;
-    background-color: rgb(228, 249, 245);
-    overflow: hidden;
+    margin: 20px 30px;
+    width: 155px;
+    height: 35px;
+    /* background-color: rgb(228, 249, 245); */
+    background-color: white;
     border-radius: 20px;
     transition-property: all;
-    transition-duration: 400ms;
+    transition-duration: 300ms;
     display: flex;
-    justify-content: space-around;
     overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.18), 0 3px 14px 0 rgba(0, 0, 0, 0.18);
 }
 
 .back_btn_4 {
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
-    margin-top: 0;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .back_btn_3:hover {
-    width: 170px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.116), 0 3px 14px 0 rgba(0, 0, 0, 0.116);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 14px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgb(228, 249, 245);
     /* animation-name: smit;
     animation-duration: 3s;
     animation-iteration-count: 1; */
@@ -388,7 +406,12 @@ a:hover {
 }
 
 /* @keyframes smit{
-    50% {transform: rotate(180deg);}
+    from{
+        background-color: white;
+    }
+    to{
+        background-color: rgb(228, 249, 245);
+    }
 } */
 
 .plant_seed_box {
@@ -446,6 +469,22 @@ a:hover {
 }
 #selling{
     display: none;
+}
+#soil_test{
+    display: none;
+}
+#planting_history_menu{
+    background-color: #e4fff5;
+}
+.create_farmer{
+    height: 40px;
+    border-radius: 20px;
+    padding: 0px 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.18), 0 3px 14px 0 rgba(0, 0, 0, 0.18);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @media(max-width: 768px) {
     .create_user_form {

@@ -1,6 +1,6 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
-<h1 class="">Welcome to {{ user.username }} dashboard</h1>
+{% comment %} <h1 class="">Welcome to {{ user.username }} dashboard</h1> {% endcomment %}
 {% comment %} <div>
     <a href="createuser">Create User</a>
     <br />
@@ -20,12 +20,12 @@
 {% comment %} <a href="logout">Logout</a> {% endcomment %}
 
 <div class="dash_menu">
-    <a href="#" class="menu_box">
+    {% comment %} <a href="#" class="menu_box">
         <div class="menu_item">
             <div class="menu_item_img"><img src="static/images/dashboard.jpg" alt="" class="menu_item_img_1"></div>
             <div class="menu_item_name">Dashboard</div>
         </div>
-    </a>
+    </a> {% endcomment %}
     <a href="farmers" class="menu_box">
         <div class="menu_item">
             <div class="menu_item_img"><img src="static/images/farmer.png" alt="" class="menu_item_img_1"></div>
@@ -40,19 +40,19 @@
     </a>
     <a href="{% url 'default_plant_name'%}" class="menu_box">
         <div class="menu_item">
-            <div class="menu_item_img"><img src="static/images/parameter.png" alt="" class="menu_item_img_1"></div>
+            <div class="menu_item_img"><img src="static/images/Plant.png" alt="" class="menu_item_img_1"></div>
             <div class="menu_item_name">Plant Names</div>
         </div>
     </a>
     <a href="{% url 'add_default_fertilizer'%}" class="menu_box">
         <div class="menu_item">
-            <div class="menu_item_img"><img src="static/images/parameter.png" alt="" class="menu_item_img_1"></div>
+            <div class="menu_item_img"><img src="static/images/fertilizer.png" alt="" class="menu_item_img_1"></div>
             <div class="menu_item_name">Fertilizer</div>
         </div>
     </a>
     <a href="{% url 'add_default_pesticide'%}" class="menu_box">
         <div class="menu_item">
-            <div class="menu_item_img"><img src="static/images/parameter.png" alt="" class="menu_item_img_1"></div>
+            <div class="menu_item_img"><img src="static/images/pesticide.png" alt="" class="menu_item_img_1"></div>
             <div class="menu_item_name">Pesticide</div>
         </div>
     </a>

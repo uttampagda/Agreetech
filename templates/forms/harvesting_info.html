@@ -1,13 +1,20 @@
-{% extends 'dashboard/basic.html' %}
-{% block body %}
-{% load static %} 
+{% extends 'dashboard/basic.html' %} {% block body %} {% load static %}
 
-{% comment %} <div class="main_box">
+<div class="back_btn">
+    <button class="back_btn_1"><a class="back_btn_2" href="{% url 'planting' planting_id=harvesting.planting_id.id%}">
+            <span class="material-symbols-outlined back_btn_2">
+                arrow_back_ios
+            </span>
+            Back to Planting info</a></button>
+</div>
+
+<div class="main_box">
     <div class="d-flex justify-content-between">
         <div class="farmer_info_title text-muted">Harvesting Info</div>
-        {% comment %} <a href="/water_irrigation_edit/water_irrigation_id={{water_irrigation.id}}" class="material-symbols-outlined m-3 text-muted">
+        <a href="/water_irrigation_edit/water_irrigation_id={{water_irrigation.id}}"
+            class="material-symbols-outlined m-3 text-muted">
             edit_square
-        </a> {% endcomment %}
+        </a>
     </div>
     <div class="farmer_info_details">
         <div class="farmer_info_details_1">
@@ -16,9 +23,7 @@
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Farm Name</div>
-            <div class="farmer_details_1">
-                {{harvesting.farm_id.farm_nick_name}}
-            </div>
+            <div class="farmer_details_1">{{harvesting.farm_id.farm_nick_name}}</div>
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Planting Name</div>
@@ -26,19 +31,23 @@
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Plant type</div>
-            <div class="farmer_details_1">{{harvesting.water_irrigation_type}}</div>
+            <div class="farmer_details_1">{{harvesting.plant_type}}</div>
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Harvesting time</div>
-            <div class="farmer_details_1">{{harvesting.water_irrigation_date}}</div>
+            <div class="farmer_details_1">{{harvesting.harvesting_time}}</div>
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Total production</div>
-            <div class="farmer_details_1">{{harvesting.water_date_from_planting}}</div>
+            <div class="farmer_details_1">
+                {{harvesting.total_production}}
+            </div>
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Per acre production</div>
-            <div class="farmer_details_1">{{harvesting.water_date_from_planting}}</div>
+            <div class="farmer_details_1">
+                {{harvesting.per_acre_production}}
+            </div>
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Create Date</div>
@@ -52,47 +61,47 @@
     <div class="mt-4 border-invisible"></div>
 </div>
 
-    <h2>Harvesting Info</h2>
-    <table class="table table-borderless table-width-40 farmer_detail">
-        <a >Edit Planting</a>
-        <tbody>
-            <tr>
-                <th scope="row">Farmer ID:</th>
-                <td>{{harvesting.farmer_id}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Farm ID:</th>
-                <td>{{harvesting.farm_id.farm_nick_name}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Planting Id:</th>
-                <td>{{harvesting.planting_id.plant}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Plant type:</th>
-                <td>{{harvesting.plant_type}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Harvesting time:</th>
-                <td>{{harvesting.harvesting_time}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Total production:</th>
-                <td>{{harvesting.total_production}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Per acre production:</th>
-                <td>{{harvesting.per_acre_production}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Create Date:</th>
-                <td>{{harvesting.create_date}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Modified Date:</th>
-                <td>{{harvesting.modified_date}}</td>
-            </tr>
-        </tbody>
-    </table>
+{% comment %} <h2>Harvesting Info</h2>
+<table class="table table-borderless table-width-40 farmer_detail">
+    <a>Edit Planting</a>
+    <tbody>
+        <tr>
+            <th scope="row">Farmer ID:</th>
+            <td>{{harvesting.farmer_id}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Farm ID:</th>
+            <td>{{harvesting.farm_id.farm_nick_name}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Planting Id:</th>
+            <td>{{harvesting.planting_id.plant}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Plant type:</th>
+            <td>{{harvesting.plant_type}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Harvesting time:</th>
+            <td>{{harvesting.harvesting_time}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Total production:</th>
+            <td>{{harvesting.total_production}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Per acre production:</th>
+            <td>{{harvesting.per_acre_production}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Create Date:</th>
+            <td>{{harvesting.create_date}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Modified Date:</th>
+            <td>{{harvesting.modified_date}}</td>
+        </tr>
+    </tbody>
+</table> {% endcomment %}
 
 {% endblock %}
