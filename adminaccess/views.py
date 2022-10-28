@@ -396,9 +396,9 @@ def pesticide_info(request, pesticide_id):
     }
     return render(request, 'forms/pesticide_info.html', data)  
 
-def harvesting_info(request,harvesting_id):
-    harvesting = Harvesting.objects.filter(id=harvesting_id)[0]
-    if staff_permission(pesticide.farmer_id.id,staff_type=request.user.is_staff):
+def harvesting_info(request,id):
+    harvesting = Harvesting.objects.filter(id=id)[0]
+    if staff_permission(harvesting.farmer_id.id,staff_type=request.user.is_staff):
         pass
     else:
         return redirect('403')
@@ -408,9 +408,9 @@ def harvesting_info(request,harvesting_id):
     }
     return render(request, 'forms/harvesting_info.html', data)
 
-def crop_selling_info(request,crop_selling_id):
-    crop_selling = Crop_selling.objects.filter(id=crop_selling_id)
-    if staff_permission(pesticide.farmer_id.id,staff_type=request.user.is_staff):
+def crop_selling_info(request,id):
+    crop_selling = Crop_selling.objects.filter(id=id)[0]
+    if staff_permission(crop_selling.farmer_id.id,staff_type=request.user.is_staff):
         pass
     else:
         return redirect('403')

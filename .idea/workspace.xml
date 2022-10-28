@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="harvesting and cropselling info backend">
-      <change afterPath="$PROJECT_DIR$/templates/forms/crop_selling_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/forms/harvesting_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/stats/seed_stats.html" afterDir="false" />
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="harvesting and cropselling info frontend done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/planting.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/planting.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -366,7 +361,9 @@
       <workItem from="1665416561193" duration="1369000" />
       <workItem from="1665505730794" duration="4523000" />
       <workItem from="1665593462134" duration="2300000" />
-      <workItem from="1666585680927" duration="3237000" />
+      <workItem from="1666585680927" duration="3271000" />
+      <workItem from="1666675269011" duration="608000" />
+      <workItem from="1666933141545" duration="308000" />
     </task>
     <task id="LOCAL-00001" summary="forms initial">
       <created>1654536683658</created>
@@ -634,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665082068948</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="harvesting and cropselling info frontend done">
+      <created>1666589626297</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1666589626297</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -677,6 +681,7 @@
     <MESSAGE value="rating system in pesticide table" />
     <MESSAGE value="user permission" />
     <MESSAGE value="harvesting and cropselling info backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="harvesting and cropselling info backend" />
+    <MESSAGE value="harvesting and cropselling info frontend done" />
+    <option name="LAST_COMMIT_MESSAGE" value="harvesting and cropselling info frontend done" />
   </component>
 </project>
