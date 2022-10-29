@@ -103,7 +103,7 @@
         <div class="table_one_content">Other element</div>
       </div>
       {% for soil in soil_test %}
-      <a class="d-flex justify-content-evenly p-1 farm_information" href="/">
+      <a class="d-flex justify-content-evenly p-1 farm_information" href="{% url 'soil_test_info' id=soil.id%}">
         <div class="table_one_content_1">{{soil.test_year}}</div>
         <div class="table_one_content_1">{{soil.soil_test}}</div>
         <div class="table_one_content_1">{{soil.water_test}}</div>

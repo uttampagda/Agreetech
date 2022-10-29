@@ -173,6 +173,20 @@ def soil_test(request):
     }
     return render(request, 'forms/soil_test.html',data)
 
+def soil_test_info(request,id):
+    soil_test = Soil_test.objects.filter(id=id)[0]
+    farm_id = request.session['farm_id']
+    if staff_permission(soil_test.farmer_id.id,staff_type=request.user.is_staff):
+        pass
+    else:
+        return redirect('403')
+    data = {
+        'soil_test': soil_test,
+        'farmer': soil_test.farmer_id,
+        'farm_id' : farm_id,
+    }
+    return render(request, 'forms/soil_test_info.html', data)
+
 def planting_reg(request):
     if request.method == 'POST':
         farmer_id = request.POST.get('farmer_id')

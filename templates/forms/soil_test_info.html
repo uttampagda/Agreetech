@@ -1,16 +1,14 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
 {% load static %}
-<div class="back_btn">
-    <button class="back_btn_1"><a class="back_btn_2" href="{% url 'planting' planting_id=water_irrigation.planting_id.id%}">
-            <span class="material-symbols-outlined back_btn_2">
-                arrow_back_ios
-            </span>
-            Back to Planting info</a></button>
+<div class="back_btn_3">
+    <a href="{% url 'farm_info' farm_id=farm_id%}"
+      class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
+    <a href="{% url 'farm_info' farm_id=farm_id%}" class="back_btn_4">Back To Farm</a>
 </div>
 <div class="main_box">
     <div class="d-flex justify-content-between">
-        <div class="farmer_info_title text-muted">Water Irrigation Info</div>
+        <div class="farmer_info_title text-muted">Soil Test Info</div>
         <a href="/water_irrigation_edit/water_irrigation_id={{water_irrigation.id}}"
             class="material-symbols-outlined m-3 text-muted">
             edit_square
@@ -19,37 +17,53 @@
     <div class="farmer_info_details">
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Farmer Name</div>
-            <div class="farmer_details_1">{{water_irrigation.farmer_id.name}}</div>
+            <div class="farmer_details_1">{{soil_test.farmer_id.name}}</div>
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Farm Name</div>
             <div class="farmer_details_1">
-                {{water_irrigation.farm_id.farm_nick_name}}
+                {{soil_test.farm_id.farm_nick_name}}
             </div>
         </div>
         <div class="farmer_info_details_1">
-            <div class="text-muted farmer_info_title_1">Planting Name</div>
-            <div class="farmer_details_1">{{water_irrigation.planting_id.plant}}</div>
+            <div class="text-muted farmer_info_title_1">Test Year</div>
+            <div class="farmer_details_1">{{soil_test.test_year}}</div>
         </div>
         <div class="farmer_info_details_1">
-            <div class="text-muted farmer_info_title_1">Water Irrigation Type</div>
-            <div class="farmer_details_1">{{water_irrigation.water_irrigation_type}}</div>
+            <div class="text-muted farmer_info_title_1">Soil Test</div>
+            <div class="farmer_details_1">{{soil_test.soil_test}}</div>
         </div>
         <div class="farmer_info_details_1">
-            <div class="text-muted farmer_info_title_1">Water Irrigation Date</div>
-            <div class="farmer_details_1">{{water_irrigation.water_irrigation_date}}</div>
+            <div class="text-muted farmer_info_title_1">Water Test</div>
+            <div class="farmer_details_1">{{soil_test.water_test}}</div>
         </div>
         <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Nitrogen</div>
+            <div class="farmer_details_1">{{soil_test.nitrogen}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Phosphorus</div>
+            <div class="farmer_details_1">{{soil_test.phosphorus}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Potassium</div>
+            <div class="farmer_details_1">{{soil_test.potassium}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Other Element</div>
+            <div class="farmer_details_1">{{soil_test.other_element}}</div>
+        </div>
+        {% comment %} <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Water Irrigation Days from planting</div>
-            <div class="farmer_details_1">{{water_irrigation.water_date_from_planting}}</div>
-        </div>
+            <div class="farmer_details_1">{{soil_test.test_file}}</div>
+        </div> {% endcomment %}
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Create Date</div>
-            <div class="farmer_details_1">{{water_irrigation.create_date}}</div>
+            <div class="farmer_details_1">{{soil_test.create_date}}</div>
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Modified Date</div>
-            <div class="farmer_details_1">{{water_irrigation.modified_date}}</div>
+            <div class="farmer_details_1">{{soil_test.modified_date}}</div>
         </div>
     </div>
     <div class="mt-4 border-invisible"></div>

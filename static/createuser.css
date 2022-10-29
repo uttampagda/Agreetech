@@ -378,7 +378,8 @@ a:hover {
 }
 .back_btn_3 {
     margin: 20px 30px;
-    width: 155px;
+    width: fit-content;
+    padding-right: 10px;
     height: 35px;
     /* background-color: rgb(228, 249, 245); */
     background-color: white;

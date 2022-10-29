@@ -13,6 +13,7 @@ urlpatterns = [
     # path('Farmer', views.Farmer, name="Farmer"),
     path('farmers', views.farmers, name="farmers"),
     path('soil_test', views.soil_test, name="soil_test"),
+    path('soil_test_info/id=<int:id>', views.soil_test_info, name="soil_test_info"),
     path('farm_info_reg', views.farm_info_reg, name="farm_info_reg"),
     path('farm_info/farm_id=<int:farm_id>', views.farm_info, name="farm_info"),
     path('planting_reg', views.planting_reg, name="planting_reg"),
