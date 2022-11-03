@@ -1,9 +1,16 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
 {% load static %}
-
-<div class="d-flex justify-content-end">
-    <button><a href="{% url 'default_plant_name_reg'%}">Register plant/seed</a></button>
+<div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between">
+        <div class="back_btn_3">
+          <a href="/" class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
+          <a href="/" class="back_btn_4">Back To Home</a>
+        </div>
+      </div>
+    <div class="create_farmer m-3">
+        <a href="{% url 'default_plant_name_reg'%}" class="create_farmer_1">Register plant/seed</a>
+    </div>
 </div>
 <div>
     <div class="plant_seed_box">
@@ -37,7 +44,7 @@
         }
     }
     for (let i = 0; i < plant_select.length; i++) {
-        plant_select[i].addEventListener('click', function() {
+        plant_select[i].addEventListener('click', function () {
             set_plant_type(i)
         }, false)
     }

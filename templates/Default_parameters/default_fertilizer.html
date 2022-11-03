@@ -1,24 +1,44 @@
-{% extends 'dashboard/basic.html' %} {% block body %} {% load static %} Default
-fertilizers
+{% extends 'dashboard/basic.html' %} {% block body %} {% load static %}
+<!-- Default fertilizers
 <div>
   {% for fer in default_fertilizer %}
   <span>name: {{fer}} | rating: {{fer.avarage_review}}</span>
-  <a href="{% url 'fertilizer_stats' fertilizer_name=fer.fertilizer_name%}"
-    >info</a
-  ><br />
+  <a href="{% url 'fertilizer_stats' fertilizer_name=fer.fertilizer_name%}">info</a><br />
   {% endfor %}
+</div> -->
+<div class="d-flex justify-content-between">
+  <div class="back_btn_3">
+    <a href="/" class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
+    <a href="/" class="back_btn_4">Back To Home</a>
+  </div>
 </div>
+
+<div class="plant_box m-auto mt-3">
+  Default Fertilizers 
+  <div class="plant_box_1">
+    <div class="plant_name d-flex justify-content-around">
+      <div class="w-25 border-bottom border-dark text-center pb-1">Name</div>
+      <div>|</div>
+      <div class="w-25 border-bottom border-dark text-center pb-1">Rating</div>
+    </div>
+    {% for fer in default_fertilizer %}
+    <a href="{% url 'fertilizer_stats' fertilizer_name=fer.fertilizer_name%}">
+      <div class="plant_name d-flex justify-content-around">
+        <div class="w-25 text-center">{{fer}}</div>
+        <div>|</div>
+        <div class="w-25 text-center">{{fer.avarage_review}}</div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
 <div class="container create_user_form">
   <form method="post" id="loginid">
     {% csrf_token %}
     <div class="form-group mt-2">
       <label>Fertilizers name</label>
-      <input
-        type="text"
-        class="form-control"
-        name="fertilizer_name"
-        placeholder="Plant name"
-      />
+      <input type="text" class="form-control" name="fertilizer_name" placeholder="Plant name" />
     </div>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
   </form>
