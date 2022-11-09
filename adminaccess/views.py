@@ -693,6 +693,39 @@ def pesticide_edit(request, pesticide_id):
     
     return render(request, 'form_edit/pesticide_edit.html', {'pesticides':pesticides})
 
+
+def harvesting_edit(request, harvesting_id):
+    harvesting = Harvesting.objects.get(id=harvesting_id)
+    harvestings = Harvesting.objects.filter(id=harvesting_id)
+    if request.method == 'POST':
+        form = Pesticide_Form(request.POST, instance=harvesting)
+
+        if form.is_valid():
+            form_save = form.save(commit=False)
+            harvesting_date_from_planting = (datetime.fromisoformat(form.data['harvesting_time']).date() - harvesting.planting_id.planting_time.date()).days
+            form_save.harvesting_date_from_planting = harvesting_date_from_planting
+            form_save.save()
+            return redirect(f'/harvesting_info/harvesting_id={harvesting_id}')
+    
+    return render(request, 'form_edit/harvesting_edit.html', {'harvestings':harvestings})
+
+
+def crop_selling_edit(request, crop_selling_id):
+    crop_selling = Crop_selling.objects.get(id=crop_selling_id)
+    crop_sellings = Crop_selling.objects.filter(id=crop_selling_id)
+    if request.method == 'POST':
+        form = Pesticide_Form(request.POST, instance=crop_selling)
+
+        if form.is_valid():
+            form_save = form.save(commit=False)
+            crop_selling_date_from_planting = (datetime.fromisoformat(form.data['sell_date']).date() - crop_selling.planting_id.planting_time.date()).days
+            form_save.crop_selling_date_from_planting = crop_selling_date_from_planting
+            form_save.save()
+            return redirect(f'/crop_selling_info/crop_selling_id={crop_selling_id}')
+    
+    return render(request, 'form_edit/crop_selling_edit.html', {'crop_sellings':crop_sellings})
+
+
 @permission_required('is_staff','403')
 def fertilizer_stats(request,fertilizer_name):
     fertilizer = Fertilizer.objects.filter(fertilizer_name=fertilizer_name).order_by('create_date')
