@@ -275,7 +275,7 @@ a:hover {
     border-radius: 5px 5px 0px 0px;
     cursor: pointer;
 }
-#fertilizer_menu{
+#pesticide_dose_menu{
     background-color: #e4fff5;
 }
 
@@ -461,7 +461,9 @@ a:hover {
 #water_irrigation {
     display: none;
 }
-
+#fertilizer {
+    display: none;
+}
 #pesticide {
     display: none;
 }

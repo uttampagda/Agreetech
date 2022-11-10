@@ -32,7 +32,7 @@
 
                 <option value="" selected>--Please choose an option--</option>
                     {% for fer in default_plant_name %}
-                    <option value="{{fer.id}}">{{fer.plant_name}}</option>
+                    <option value="{{fer.plant_name}}">{{fer.plant_name}}</option>
                     {% endfor %}
             </select>
         </div>
@@ -69,10 +69,11 @@
     plant_select.addEventListener('change', function set_plant_type(){
         var default_plant_seed_name = []
         for(let i=0; i<=b.length-1; i++){
-            c = b[i]['plant_name_id']
-
+            c = b[i]['plant_name']
+            console.log("werty")
+            console.log(b, plant_select.value)
             if(c == plant_select.value){
-                default_plant_seed_name.push(b[i]['seed_name']) 
+                default_plant_seed_name.push(b[i]['plant']) 
             }
         }
         pet_select = document.getElementById('pet_select')

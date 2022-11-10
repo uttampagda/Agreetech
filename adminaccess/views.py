@@ -209,7 +209,13 @@ def planting_reg(request):
     planting_history = Planting.objects.filter(farm_id=farm_id)
 
     default_plant_name = list(Default_plant_name.objects.values())
-    default_plant_seed_name = list(Default_plant_seed_name.objects.values())
+    default_plant_seed_name_1 = Default_plant_seed_name.objects.all()
+    default_plant_seed_name = []
+    for plant_seed_name in default_plant_seed_name_1:
+        default_plant_seed_name_dict = {}
+        default_plant_seed_name_dict['plant_name'] = plant_seed_name.plant_name.plant_name
+        default_plant_seed_name_dict['plant'] = plant_seed_name.seed_name
+        default_plant_seed_name.append(default_plant_seed_name_dict)
     data = {
         'default_plant_name':default_plant_name,
         'default_plant_seed_name': default_plant_seed_name,
