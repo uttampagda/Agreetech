@@ -111,7 +111,7 @@ class Water_irrigation(models.Model):
     create_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
 
-class Pesticide_dose_form(models.Model):
+class Pesticide_dose(models.Model):
     farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
     farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
     planting_id = models.ForeignKey(Planting, on_delete=models.CASCADE)
@@ -126,7 +126,7 @@ class Pesticide(models.Model):
     farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
     planting_id = models.ForeignKey(Planting, on_delete=models.CASCADE)
     pesticide_name = models.CharField(max_length=50)
-    dose_id = models.ForeignKey(Pesticide_dose_form, on_delete=models.CASCADE)
+    dose_id = models.ForeignKey(Pesticide_dose, on_delete=models.CASCADE)
     pesticide_qty_per_acer = models.CharField(max_length=50,blank=True, null=True)
     reason = models.CharField(max_length=50,blank=True, null=True)
     pesticide_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)#selection

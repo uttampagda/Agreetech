@@ -232,7 +232,7 @@ def planting(request,planting_id):
     pesticide = Pesticide.objects.filter(planting_id=planting_id).values()
     crop_selling = Crop_selling.objects.filter(planting_id=planting_id).values()
     harvesting = Harvesting.objects.filter(planting_id=planting_id).values()
-    pesticide_dose = Pesticide_dose_form.objects.filter(planting_id=planting_id).values()
+    pesticide_dose = Pesticide_dose.objects.filter(planting_id=planting_id).values()
     
 
     # Creating DateTime var for multiple use
@@ -479,7 +479,7 @@ def pesticide_dose_info(request,dose_id):
     farm_id = request.session['farm_id']
     farmer_id = request.session['farmer_id']
     planting_id = request.session['planting_id']
-    dose = Pesticide_dose_form.objects.filter(id=dose_id)[0]
+    dose = Pesticide_dose.objects.filter(id=dose_id)[0]
     data = {
         'farmer_id': farmer_id,
         'farm_id': farm_id,

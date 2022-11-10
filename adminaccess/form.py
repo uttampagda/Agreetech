@@ -57,11 +57,16 @@ class Water_irrigation_Form(forms.ModelForm):
         model = Water_irrigation
         fields = ['farmer_id', 'farm_id', 'planting_id', 'water_irrigation_type', 'water_irrigation_date','water_date_from_planting']
 
+class Pesticide_dose_Form(forms.ModelForm):
+    class Meta:
+        model = Pesticide_dose
+        fields = ['farmer_id', 'farm_id', 'planting_id', 'dose_name', 'reason']
+
 
 class Pesticide_Form(forms.ModelForm):
     class Meta:
         model = Pesticide
-        fields = ['farmer_id', 'farm_id', 'planting_id', 'pesticide_name', 'reason','pesticide_date_from_planting', 'rating']
+        fields = ['farmer_id', 'farm_id', 'planting_id', 'pesticide_name','pesticide_qty_per_acer', 'reason','pesticide_date_from_planting', 'rating']
 
 class Default_plant_name_Form(forms.ModelForm):
     class Meta:
