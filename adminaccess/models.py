@@ -93,7 +93,6 @@ class Fertilizer(models.Model):
     farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
     planting_id = models.ForeignKey(Planting, on_delete=models.CASCADE)
     fertilizer_name = models.CharField(max_length=50)
-    fertilizer_qty = models.CharField(max_length=50,blank=True, null=True)
     fertilizer_qty_per_acre = models.CharField(max_length=50,blank=True, null=True)
     fertilizer_date = models.DateTimeField(blank=True, null=True)
     fertilizer_days_from_planting = models.IntegerField(default=0,blank=True, null=True)
@@ -112,13 +111,23 @@ class Water_irrigation(models.Model):
     create_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
 
+class Pesticide_dose_form(models.Model):
+    farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
+    farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
+    planting_id = models.ForeignKey(Planting, on_delete=models.CASCADE)
+    dose_name = models.CharField(max_length=50)
+    reason = models.CharField(max_length=150,blank=True, null=True)
+    create_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    modified_date = models.DateTimeField(auto_now=True, blank=True, null=True)
+
 
 class Pesticide(models.Model):
     farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
     farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
     planting_id = models.ForeignKey(Planting, on_delete=models.CASCADE)
     pesticide_name = models.CharField(max_length=50)
-    pesticide_qty = models.CharField(max_length=50)
+    dose_id = models.ForeignKey(Pesticide_dose_form, on_delete=models.CASCADE)
+    pesticide_qty_per_acer = models.CharField(max_length=50,blank=True, null=True)
     reason = models.CharField(max_length=50,blank=True, null=True)
     pesticide_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)#selection
     pesticide_date_from_planting = models.IntegerField(default=0, blank=True, null=True)

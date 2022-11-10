@@ -232,6 +232,7 @@ def planting(request,planting_id):
     pesticide = Pesticide.objects.filter(planting_id=planting_id).values()
     crop_selling = Crop_selling.objects.filter(planting_id=planting_id).values()
     harvesting = Harvesting.objects.filter(planting_id=planting_id).values()
+    pesticide_dose = Pesticide_dose_form.objects.filter(planting_id=planting_id).values()
     
 
     # Creating DateTime var for multiple use
@@ -272,7 +273,8 @@ def planting(request,planting_id):
         'water_irrigation': water_irrigation,
         'pesticide': pesticide,
         'harvesting': harvesting,
-        'crop_selling': crop_selling
+        'crop_selling': crop_selling,
+        'pesticide_dose': pesticide_dose
     }
     request.session['farmer_id'] = farmer_id
     request.session['farm_id'] = farm_id
@@ -412,7 +414,7 @@ def pesticide_info(request, pesticide_id):
     }
     return render(request, 'forms/pesticide_info.html', data)  
 
-def harvesting_info(request,id):
+def harvesting_info(request, id):
     harvesting = Harvesting.objects.filter(id=id)[0]
     if staff_permission(harvesting.farmer_id.id,staff_type=request.user.is_staff):
         pass
@@ -457,10 +459,42 @@ def water_irrigation_reg(request):
     }
     return render(request, 'forms/water_irrigation_reg.html',data)
 
+def pesticide_dose_reg(request):
+    farm_id = request.session['farm_id']
+    farmer_id = request.session['farmer_id']
+    planting_id = request.session['planting_id']
+    if request.method == 'POST':
+        form = Pesticide_dose_Form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('planting', planting_id=planting_id)
+    data = {
+        'farmer_id': farmer_id,
+        'farm_id': farm_id,
+        'planting_id': planting_id,
+    }
+    return render(request, 'forms/pesticide_dose_reg.html', data)
+
+def pesticide_dose_info(request,dose_id):
+    farm_id = request.session['farm_id']
+    farmer_id = request.session['farmer_id']
+    planting_id = request.session['planting_id']
+    dose = Pesticide_dose_form.objects.filter(id=dose_id)[0]
+    data = {
+        'farmer_id': farmer_id,
+        'farm_id': farm_id,
+        'planting_id': planting_id,
+        'dose': dose
+    }
+    request.session['dose_id'] = dose.id
+    return render(request, 'forms/pesticide_dose_info.html', data)
+
+
 def pesticide_reg(request):
     farm_id = request.session['farm_id']
     farmer_id = request.session['farmer_id']
     planting_id = request.session['planting_id']
+    dose_id = request.session['dose_id']
     pesticide_selection = Default_pesticide.objects.all()
     if request.method == 'POST':
         form = Pesticide_Form(request.POST, request.FILES)
@@ -486,6 +520,7 @@ def pesticide_reg(request):
                 'farmer_id': farmer_id,
                 'farm_id': farm_id,
                 'planting_id': planting_id,
+                'dose_id': dose_id
             }
     return render(request, 'forms/pesticide_reg.html',data)
 
@@ -692,39 +727,6 @@ def pesticide_edit(request, pesticide_id):
             return redirect(f'/pesticide_info/pesticide_id={pesticide_id}')
     
     return render(request, 'form_edit/pesticide_edit.html', {'pesticides':pesticides})
-
-
-def harvesting_edit(request, harvesting_id):
-    harvesting = Harvesting.objects.get(id=harvesting_id)
-    harvestings = Harvesting.objects.filter(id=harvesting_id)
-    if request.method == 'POST':
-        form = Pesticide_Form(request.POST, instance=harvesting)
-
-        if form.is_valid():
-            form_save = form.save(commit=False)
-            harvesting_date_from_planting = (datetime.fromisoformat(form.data['harvesting_time']).date() - harvesting.planting_id.planting_time.date()).days
-            form_save.harvesting_date_from_planting = harvesting_date_from_planting
-            form_save.save()
-            return redirect(f'/harvesting_info/harvesting_id={harvesting_id}')
-    
-    return render(request, 'form_edit/harvesting_edit.html', {'harvestings':harvestings})
-
-
-def crop_selling_edit(request, crop_selling_id):
-    crop_selling = Crop_selling.objects.get(id=crop_selling_id)
-    crop_sellings = Crop_selling.objects.filter(id=crop_selling_id)
-    if request.method == 'POST':
-        form = Pesticide_Form(request.POST, instance=crop_selling)
-
-        if form.is_valid():
-            form_save = form.save(commit=False)
-            crop_selling_date_from_planting = (datetime.fromisoformat(form.data['sell_date']).date() - crop_selling.planting_id.planting_time.date()).days
-            form_save.crop_selling_date_from_planting = crop_selling_date_from_planting
-            form_save.save()
-            return redirect(f'/crop_selling_info/crop_selling_id={crop_selling_id}')
-    
-    return render(request, 'form_edit/crop_selling_edit.html', {'crop_sellings':crop_sellings})
-
 
 @permission_required('is_staff','403')
 def fertilizer_stats(request,fertilizer_name):

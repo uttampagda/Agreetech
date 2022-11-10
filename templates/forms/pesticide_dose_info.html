@@ -1,0 +1,41 @@
+{% extends 'dashboard/basic.html' %}
+{% block body %}
+{% load static %} 
+<div class="back_btn_3">
+    <a href="{% url 'planting' planting_id=dose.planting_id.id%}"
+        class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
+    <a href="{% url 'planting' planting_id=dose.planting_id.id%}" class="back_btn_4">Back To Planting
+        info</a>
+</div>
+<div class="main_box">
+    <div class="d-flex justify-content-between">
+        <div class="farmer_info_title text-muted">Pesticide dose Info</div>
+    </div>
+    <div class="farmer_info_details">
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Farmer Name</div>
+            <div class="farmer_details_1">{{dose.farmer_id.name}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Farm Name</div>
+            <div class="farmer_details_1">
+                {{dose.farm_id.farm_nick_name}}
+            </div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Planting Name</div>
+            <div class="farmer_details_1">{{dose.planting_id.plant_type}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Dose name</div>
+            <div class="farmer_details_1">{{dose.dose_name}}</div>
+        </div>
+        <div class="farmer_info_details_1">
+            <div class="text-muted farmer_info_title_1">Dose Reason</div>
+            <div class="farmer_details_1">{{dose.reason}}</div>
+        </div>
+    </div>
+    <div class="mt-4 border-invisible"></div>
+</div>
+
+{% endblock %}

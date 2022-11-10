@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="harvesting and cropselling info frontend done">
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="harvesting and cropselling bug caused on SMNA site">
+      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminaccess/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/forms/pesticide_dose_info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/forms/pesticide_dose_reg.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0009_default_pesticide_avarage_review_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/migrations/0010_pesticide_rating.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form_edit/crop_selling_edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form_edit/harvesting_edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/planting.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/planting.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -649,7 +658,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
