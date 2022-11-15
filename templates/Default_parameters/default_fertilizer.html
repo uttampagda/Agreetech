@@ -14,18 +14,22 @@
 </div>
 
 <div class="plant_box m-auto mt-3">
-  Default Fertilizers 
+  <div class="d-flex justify-content-between">
+    <div> Default Fertilizers </div>
+    <a href="add_default_fertilizer" class="material-symbols-outlined text-muted">
+      edit_square
+    </a>
+  </div>
+
   <div class="plant_box_1">
-    <div class="plant_name d-flex justify-content-around">
+    <div class="plant_name_title d-flex justify-content-around">
       <div class="w-25 border-bottom border-dark text-center pb-1">Name</div>
-      <div>|</div>
       <div class="w-25 border-bottom border-dark text-center pb-1">Rating</div>
     </div>
     {% for fer in default_fertilizer %}
     <a href="{% url 'fertilizer_stats' fertilizer_name=fer.fertilizer_name%}">
       <div class="plant_name d-flex justify-content-around">
         <div class="w-25 text-center">{{fer}}</div>
-        <div>|</div>
         <div class="w-25 text-center">{{fer.avarage_review}}</div>
       </div>
     </a>
@@ -33,7 +37,7 @@
   </div>
 </div>
 
-<div class="container create_user_form">
+<!-- <div class="container create_user_form">
   <form method="post" id="loginid">
     {% csrf_token %}
     <div class="form-group mt-2">
@@ -42,6 +46,6 @@
     </div>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
   </form>
-</div>
+</div> -->
 
 {% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'dashboard/basic.html' %}
+{% block body %}
+{% load static %} 
+<div class="d-flex justify-content-between">
+    <div class="back_btn_3">
+      <a href="default_pesticides" class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
+      <a href="default_pesticides" class="back_btn_4">Back To Pesticide</a>
+    </div>
+</div>
+
+<div class="container create_user_form">
+    <form method="post" id="loginid" >
+        {% csrf_token %}
+        <div class="form-group mt-2">
+            <label>Pesticide name</label>
+            <input type="text" class="form-control"  name="pesticide_name"  placeholder="Pesticide name" >
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+</div>
+{% endblock %}

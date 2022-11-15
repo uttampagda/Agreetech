@@ -10,18 +10,21 @@
   </div>
   
   <div class="plant_box m-auto mt-3">
-    Default Pesticides
+    <div class="d-flex justify-content-between">
+    <div> Default Pesticides</div>
+    <a href="add_default_pesticide" class="material-symbols-outlined text-muted">
+      edit_square
+    </a>
+  </div>
     <div class="plant_box_1">
-      <div class="plant_name d-flex justify-content-around">
+      <div class="plant_name_title d-flex justify-content-around">
         <div class="w-25 border-bottom border-dark text-center pb-1">Name</div>
-        <div>|</div>
         <div class="w-25 border-bottom border-dark text-center pb-1">Rating</div>
       </div>
       {% for pes in default_pesticide %}
       <a href="{% url 'pesticide_stats' pesticide_name=pes.pesticide_name%}">
         <div class="plant_name d-flex justify-content-around">
           <div class="w-25 text-center">{{pes}}</div>
-          <div>|</div>
           <div class="w-25 text-center">{{pes.avarage_review}}</div>
         </div>
       </a>
@@ -37,7 +40,7 @@
     <br>
     {% endfor %}
 </div> {% endcomment %}
-<div class="container create_user_form">
+{% comment %} <div class="container create_user_form">
     <form method="post" id="loginid" >
         {% csrf_token %}
         <div class="form-group mt-2">
@@ -46,6 +49,6 @@
         </div>
         <button type="submit" class="btn btn-primary mt-3">Submit</button>
     </form>
-</div>
+</div> {% endcomment %}
 
 {% endblock %}

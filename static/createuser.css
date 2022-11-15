@@ -446,6 +446,10 @@ a:hover {
     background-color: rgb(247, 253, 252);
 }
 
+.plant_name_title {
+    margin: 10px;
+    padding: 10px 10px;
+}
 .plant_name {
     margin: 10px;
     padding: 10px 10px;

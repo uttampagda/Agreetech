@@ -616,12 +616,16 @@ def add_default_plant_seed_name(request):
 
 @permission_required('is_staff','403')
 def add_default_fertilizer(request):
-    default_fertilizer = Default_fertilizer.objects.all()
     if request.method == 'POST':
         form = Default_fertilizer_Form(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('add_default_fertilizer')
+            return redirect('add_default_fertilizer')   
+    return render(request, 'Default_parameters/default_fertilizer_add.html')
+
+@permission_required('is_staff','403')
+def default_fertilizers(request):
+    default_fertilizer = Default_fertilizer.objects.all()
     data = {
         'default_fertilizer' : default_fertilizer
     }    
@@ -629,15 +633,19 @@ def add_default_fertilizer(request):
 
 @permission_required('is_staff','403')
 def add_default_pesticide(request):
-    default_pesticide = Default_pesticide.objects.all()
     if request.method == 'POST':
         form = Default_pesticide_Form(request.POST)
         if form.is_valid():
             form.save()
             return redirect('add_default_pesticide')
+    return render(request, 'Default_parameters/default_pesticide_add.html')
+
+@permission_required('is_staff','403')
+def default_pesticides(request):
+    default_pesticide = Default_pesticide.objects.all()
     data = {
         'default_pesticide' : default_pesticide
-    }    
+    }
     return render(request, 'Default_parameters/default_pesticide.html',data)
 
 def farmer_edit(request, farmer_id):
