@@ -28,18 +28,18 @@
         <span class="admin_dash">
             <a href="/" id="menu_btn" class="material-symbols-outlined">apps</a> &nbsp;&nbsp;<span class="admin_dash_1">Agreetech</span> 
         </span>
-        <div>
-            {% if farmer != null %}
-            <p>{{farmer.name}}</p>
-            <p>{{farmer.address}}</p>
-            {% endif %}
-        </div>
+
         <div class="user_info">
+            {% if farmer.name %}
             <div class="user_avtar"><img class="user_avtar_img" src="{% static 'images/DefaultProfilePicture.png' %}"
                     alt=""></div>
-            <div class="user_name">{{ user.username }} &nbsp;
-                <span id="hide_unhide_logout_btn" class="material-symbols-outlined">expand_more</span>
+            <div class="user_name">{{farmer.name}}
             </div>
+            {% endif %}
+            {% comment %} {% if farmer != null %}
+            <p>{{farmer.name}}</p>
+            <p>{{farmer.address}}</p>
+            {% endif %} {% endcomment %}
         </div>
         <div id="logout_btn"><a href="logout">Log Out</a></div>
     </nav>

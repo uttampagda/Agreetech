@@ -76,7 +76,6 @@
       <span class="pages" id="pesticide_dose_menu">Pesticide dose</span>
       <span class="pages" id="fertilizer_menu">Fertilizer</span>
       <span class="pages" id="water_irrigation_menu">Water Irrigation</span>
-      <span class="pages" id="pesticide_menu">Pesticide</span>
       <span class="pages" id="harvesting_menu">Harvesting</span>
       <span class="pages" id="selling_menu">Selling</span>
     </div>
@@ -89,7 +88,8 @@
         </div>
 
         {% for dose in pesticide_dose %}
-        <a class="d-flex justify-content-evenly p-1 farm_information" href="/pesticide_dose_info/id={{dose.id}}">
+        <a class="d-flex justify-content-evenly p-1 farm_information"
+          href="/pesticide_dose_info/pesticide_dose_id={{dose.id}}">
           <div class="table_one_content_1">{{dose.dose_name}}</div>
           <div class="table_one_content_1">{{dose.reason}}</div>
         </a>
@@ -149,7 +149,7 @@
         </div>
       </div>
     </div>
-    <div class="farm_info" id="pesticide">
+    <!-- <div class="farm_info" id="pesticide">
       <div class="page_table">
         <div class="d-flex justify-content-evenly p-1 page_table_1">
           <div class="table_one_content">Pesticide Name</div>
@@ -171,7 +171,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="farm_info" id="harvesting">
       <div class="page_table">
         <div class="d-flex justify-content-evenly p-1 page_table_1">

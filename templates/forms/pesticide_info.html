@@ -1,10 +1,8 @@
-{% extends 'dashboard/basic.html' %}
-{% block body %}
-{% load static %} 
+{% extends 'dashboard/basic.html' %} {% block body %} {% load static %}
 <div class="back_btn_3">
-    <a href="{% url 'planting' planting_id=pesticide.planting_id.id%}"
+    <a href="/pesticide_dose_info/pesticide_dose_id={{pesticide.dose_id.id}}"
         class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
-    <a href="{% url 'planting' planting_id=pesticide.planting_id.id%}" class="back_btn_4">Back To Planting
+    <a href="/pesticide_dose_info/pesticide_dose_id={{pesticide.dose_id.id}}" class="back_btn_4">Back To Planting
         info</a>
 </div>
 <div class="main_box">
@@ -21,9 +19,7 @@
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Farm Name</div>
-            <div class="farmer_details_1">
-                {{pesticide.farm_id.farm_nick_name}}
-            </div>
+            <div class="farmer_details_1">{{pesticide.farm_id.farm_nick_name}}</div>
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Planting Name</div>
@@ -35,7 +31,7 @@
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Pesticide Qty</div>
-            <div class="farmer_details_1">{{pesticide.pesticide_qty}}</div>
+            <div class="farmer_details_1">{{pesticide.pesticide_qty_per_acer}}</div>
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Reason</div>
@@ -46,8 +42,12 @@
             <div class="farmer_details_1">{{pesticide.pesticide_date}}</div>
         </div>
         <div class="farmer_info_details_1">
-            <div class="text-muted farmer_info_title_1">Pesticide days from planting</div>
-            <div class="farmer_details_1">{{pesticide.pesticide_date_from_planting}}</div>
+            <div class="text-muted farmer_info_title_1">
+                Pesticide days from planting
+            </div>
+            <div class="farmer_details_1">
+                {{pesticide.pesticide_date_from_planting}}
+            </div>
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Rating</div>
@@ -65,55 +65,55 @@
     <div class="mt-4 border-invisible"></div>
 </div>
 
-    {% comment %} <h2>Pesticide Info</h2>
-    <table class="table table-borderless table-width-40 farmer_detail">
-        <a href="/pesticide_edit/pesticide_id={{pesticide.id}}">Edit Planting</a>
-        <tbody>
-            <tr>
-                <th scope="row">Farmer ID:</th>
-                <td>{{pesticide.farmer_id}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Farm ID:</th>
-                <td>{{pesticide.farm_id.farm_nick_name}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Planting Id:</th>
-                <td>{{pesticide.planting_id.plant}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Pesticide Name:</th>
-                <td>{{pesticide.pesticide_name}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Pesticide Qty:</th>
-                <td>{{pesticide.pesticide_qty}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Reason:</th>
-                <td>{{pesticide.reason}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Pesticide Date:</th>
-                <td>{{pesticide.pesticide_date}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Pesticide days from planting:</th>
-                <td>{{pesticide.pesticide_date_from_planting}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Rating</th>
-                <td>{{pesticide.rating}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Create Date:</th>
-                <td>{{pesticide.create_date}}</td>
-            </tr>
-            <tr>
-                <th scope="row">Modified Date:</th>
-                <td>{{pesticide.modified_date}}</td>
-            </tr>
-        </tbody>
-    </table> {% endcomment %}
-
-{% endblock %}
+{% comment %}
+<h2>Pesticide Info</h2>
+<table class="table table-borderless table-width-40 farmer_detail">
+    <a href="/pesticide_edit/pesticide_id={{pesticide.id}}">Edit Planting</a>
+    <tbody>
+        <tr>
+            <th scope="row">Farmer ID:</th>
+            <td>{{pesticide.farmer_id}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Farm ID:</th>
+            <td>{{pesticide.farm_id.farm_nick_name}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Planting Id:</th>
+            <td>{{pesticide.planting_id.plant}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Pesticide Name:</th>
+            <td>{{pesticide.pesticide_name}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Pesticide Qty:</th>
+            <td>{{pesticide.pesticide_qty}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Reason:</th>
+            <td>{{pesticide.reason}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Pesticide Date:</th>
+            <td>{{pesticide.pesticide_date}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Pesticide days from planting:</th>
+            <td>{{pesticide.pesticide_date_from_planting}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Rating</th>
+            <td>{{pesticide.rating}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Create Date:</th>
+            <td>{{pesticide.create_date}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Modified Date:</th>
+            <td>{{pesticide.modified_date}}</td>
+        </tr>
+    </tbody>
+</table>
+{% endcomment %} {% endblock %}

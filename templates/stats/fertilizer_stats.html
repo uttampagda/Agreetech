@@ -1,17 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Fertilizer statistics</title>
-</head>
-<body>
+{% extends 'dashboard/basic.html' %} {% block body %} {% load static %}
+
 <h2>Fertilizer statistics</h2>
 
 {{fertilizer_name}}
 
 <br>
 {%for fer in fertilizer%}
-  <span>Purchased by {{fer.farmer_id.name}} For farm {{fer.farm_id.farm_nick_name}} | fertilizer_qty {{fer.fertilizer_qty}} | creation_date  {{fer.create_date}}</span><br>
+<span>Purchased by {{fer.farmer_id.name}} For farm {{fer.farm_id.farm_nick_name}} | fertilizer_qty
+  {{fer.fertilizer_qty}} | creation_date {{fer.create_date}}</span><br>
 {% endfor %}
-</body>
-</html>
+<div class="w-75 p-3" style="background-color: white; border-radius:10px;">
+  <table class="table w-75 container">
+    <thead class="table">
+      <tr style="background-color:rgb(175, 252, 226);">
+        <td>Purchased</td>
+        <td>Farm</td>
+        <td>Fertilizer Qty</td>
+        <td>Creation Date</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for fer in fertilizer %}
+      <tr>
+        <td>{{fer.farmer_id.name}}</td>
+        <td>{{fer.farm_id.farm_nick_name}}</td>
+        <td>{{fer.fertilizer_qty}}</td>
+        <td>{{fer.create_date}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

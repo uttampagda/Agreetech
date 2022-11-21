@@ -29,7 +29,7 @@ urlpatterns = [
     path('Water_irrigation_reg', views.water_irrigation_reg, name="water_irrigation_reg"),
     path('water_irrigation_info/water_irrigation_id=<int:water_irrigation_id>', views.water_irrigation_info, name="water_irrigation_info"),
     path('pesticide_dose_reg', views.pesticide_dose_reg, name="pesticide_dose_reg"),
-    path('pesticide_dose_info/id=<int:dose_id>', views.pesticide_dose_info, name="pesticide_dose_info"),
+    path('pesticide_dose_info/pesticide_dose_id=<int:dose_id>', views.pesticide_dose_info, name="pesticide_dose_info"),
     path('Pesticide_reg', views.pesticide_reg, name="pesticide_reg"),
     path('pesticide_info/pesticide_id=<int:pesticide_id>', views.pesticide_info, name="pesticide_info"),
     path('search', views.search, name="search"),

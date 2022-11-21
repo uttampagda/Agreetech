@@ -1,11 +1,8 @@
-{% extends 'dashboard/basic.html' %}
-{% block body %}
-{% load static %} 
+{% extends 'dashboard/basic.html' %} {% block body %} {% load static %}
 <div class="back_btn_3">
     <a href="{% url 'planting' planting_id=dose.planting_id.id%}"
         class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
-    <a href="{% url 'planting' planting_id=dose.planting_id.id%}" class="back_btn_4">Back To Planting
-        info</a>
+    <a href="{% url 'planting' planting_id=dose.planting_id.id%}" class="back_btn_4">Back To Planting info</a>
 </div>
 <div class="main_box">
     <div class="d-flex justify-content-between">
@@ -18,9 +15,7 @@
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Farm Name</div>
-            <div class="farmer_details_1">
-                {{dose.farm_id.farm_nick_name}}
-            </div>
+            <div class="farmer_details_1">{{dose.farm_id.farm_nick_name}}</div>
         </div>
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Planting Name</div>
@@ -33,6 +28,33 @@
         <div class="farmer_info_details_1">
             <div class="text-muted farmer_info_title_1">Dose Reason</div>
             <div class="farmer_details_1">{{dose.reason}}</div>
+        </div>
+    </div>
+    <div class="farmer_info_title_page text-muted">
+        <span class="pages" id="">Pesticide</span>
+    </div>
+    <div class="farm_info">
+        <div class="page_table">
+            <div class="d-flex justify-content-evenly p-1 page_table_1">
+                <div class="table_one_content">Pesticide Name</div>
+                <div class="table_one_content">Pesticide Qty</div>
+                <div class="table_one_content">Pesticide Date</div>
+                <div class="table_one_content">Pesticide Days</div>
+            </div>
+            {% for pes in pesticide %}
+            <a class="d-flex justify-content-evenly p-1 farm_information"
+                href="/pesticide_info/pesticide_id={{pes.id}}">
+                <div class="table_one_content_1">{{pes.pesticide_name}}</div>
+                <div class="table_one_content_1">{{pes.pesticide_qty_per_acer}}</div>
+                <div class="table_one_content_1">{{pes.pesticide_date}}</div>
+                <div class="table_one_content_1">{{pes.time_from_prestiside}}</div>
+            </a>
+            {% endfor %}
+            <div class="add_more_farm">
+                <div class="add_more_farm_1 p-2">
+                    <a href="{% url 'pesticide_reg' %}">add more</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="mt-4 border-invisible"></div>
