@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="dose backend(with correct DB)">
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="django version change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form_edit/pesticide_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/pesticide_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/pesticide_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/pesticide_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/pesticide_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/pesticide_reg.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,7 +368,7 @@
       <workItem from="1669048128706" duration="264000" />
       <workItem from="1669740823386" duration="488000" />
       <workItem from="1669974812981" duration="46000" />
-      <workItem from="1670258636635" duration="585000" />
+      <workItem from="1670258636635" duration="955000" />
     </task>
     <task id="LOCAL-00001" summary="forms initial">
       <created>1654536683658</created>
@@ -663,7 +657,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668104004563</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="django version change">
+      <created>1670260632420</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1670260632420</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -694,7 +695,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="farm info and farm reg" />
     <MESSAGE value="solution of form submission conformation(Done till planting)" />
     <MESSAGE value="harvesting and fertilizer reg is done" />
     <MESSAGE value="farmer category by space" />
@@ -719,7 +719,8 @@
     <MESSAGE value="harvesting and cropselling info frontend done" />
     <MESSAGE value="dose backend" />
     <MESSAGE value="dose backend(with correct DB)" />
-    <option name="LAST_COMMIT_MESSAGE" value="dose backend(with correct DB)" />
+    <MESSAGE value="django version change" />
+    <option name="LAST_COMMIT_MESSAGE" value="django version change" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
