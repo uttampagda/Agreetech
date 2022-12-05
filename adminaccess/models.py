@@ -127,6 +127,7 @@ class Pesticide(models.Model):
     planting_id = models.ForeignKey(Planting, on_delete=models.CASCADE)
     pesticide_name = models.CharField(max_length=50)
     dose_id = models.ForeignKey(Pesticide_dose, on_delete=models.CASCADE)
+    purchased_from = models.BooleanField(default=True)
     pesticide_qty_per_acer = models.CharField(max_length=50,blank=True, null=True)
     reason = models.CharField(max_length=50,blank=True, null=True)
     pesticide_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)#selection

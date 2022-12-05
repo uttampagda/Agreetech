@@ -66,7 +66,7 @@ class Pesticide_dose_Form(forms.ModelForm):
 class Pesticide_Form(forms.ModelForm):
     class Meta:
         model = Pesticide
-        fields = ['farmer_id', 'farm_id', 'planting_id', 'pesticide_name','pesticide_qty_per_acer', 'reason','pesticide_date_from_planting', 'rating']
+        fields = ['farmer_id', 'farm_id', 'planting_id', 'pesticide_name','pesticide_qty_per_acer','purchased_from' ,'reason' ,'pesticide_date_from_planting', 'rating']
 
 class Default_plant_name_Form(forms.ModelForm):
     class Meta:
