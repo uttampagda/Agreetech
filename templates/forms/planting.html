@@ -106,14 +106,14 @@
       <div class="page_table">
         <div class="d-flex justify-content-evenly p-1 page_table_1">
           <div class="table_one_content">Fertilizer name</div>
-          <div class="table_one_content">Fertilizer Qty</div>
+          <div class="table_one_content">Suggested Qty</div>
           <div class="table_one_content">Rating</div>
           <div class="table_one_content">Fertilizer Days From Planting</div>
         </div>
         {% for fer in fertilizer %}
         <a class="d-flex justify-content-evenly p-1 farm_information" href="/fertilizer_info/fertilizer_id={{fer.id}}">
           <div class="table_one_content_1">{{fer.fertilizer_name}}</div>
-          <div class="table_one_content_1">{{fer.fertilizer_qty}}</div>
+          <div class="table_one_content_1">{{fer.fertilizer_qty_per_acre}}</div>
           <div class="table_one_content_1">{{fer.rating}}</div>
           <div class="table_one_content_1">{{fer.fertilizer_days_from_planting}}</div>
         </a>

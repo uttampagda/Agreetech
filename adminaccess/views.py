@@ -385,13 +385,16 @@ def fertilizer_reg(request):
             # for review
             fertilizer = Default_fertilizer.objects.filter(
                 fertilizer_name=form.data['fertilizer_name'])[0]
-            total_review = fertilizer.total_review + int(form.data['rating'])
-            number_of_reviews = fertilizer.number_of_reviews + 1
-            avarage_review = round(total_review / number_of_reviews, 1)
-            fertilizer.total_review = total_review
-            fertilizer.number_of_reviews = number_of_reviews
-            fertilizer.avarage_review = avarage_review
-            fertilizer.save()
+            try:
+                total_review = fertilizer.total_review + int(form.data['rating'])
+                number_of_reviews = fertilizer.number_of_reviews + 1
+                avarage_review = round(total_review / number_of_reviews, 1)
+                fertilizer.total_review = total_review
+                fertilizer.number_of_reviews = number_of_reviews
+                fertilizer.avarage_review = avarage_review
+                fertilizer.save()
+            except:
+                pass
 
             # calculating => fertilizer_days_from_planting
             planting = Planting.objects.filter(id=planting_id)[0]
@@ -540,19 +543,22 @@ def pesticide_reg(request):
     pesticide_selection = Default_pesticide.objects.all()
     if request.method == 'POST':
         form = Pesticide_Form(request.POST, request.FILES)
+        print(form.errors)
         if form.is_valid():
             form_save = form.save(commit=False)
             # for review
             pesticide = Default_pesticide.objects.filter(
                 pesticide_name=form.data['pesticide_name'])[0]
-            total_review = pesticide.total_review + int(form.data['rating'])
-            number_of_reviews = pesticide.number_of_reviews + 1
-            avarage_review = round(total_review / number_of_reviews, 1)
-            pesticide.total_review = total_review
-            pesticide.number_of_reviews = number_of_reviews
-            pesticide.avarage_review = avarage_review
-            pesticide.save()
-
+            try:
+                total_review = pesticide.total_review + int(form.data['rating'])
+                number_of_reviews = pesticide.number_of_reviews + 1
+                avarage_review = round(total_review / number_of_reviews, 1)
+                pesticide.total_review = total_review
+                pesticide.number_of_reviews = number_of_reviews
+                pesticide.avarage_review = avarage_review
+                pesticide.save()
+            except:
+                pass
             planting = Planting.objects.filter(id=planting_id)[0]
             pesticide_date_from_planting = (datetime.fromisoformat(
                 form.data['pesticide_date']).date() - planting.planting_time.date()).days
@@ -755,6 +761,17 @@ def fertilizer_edit(request, fertilizer_id):
             fertilizer_days_from_planting = (datetime.fromisoformat(
                 form.data['fertilizer_date']).date() - fertilizer.planting_id.planting_time.date()).days
             form_save.fertilizer_days_from_planting = fertilizer_days_from_planting
+            try:
+                fertilizer = Default_fertilizer.objects.filter(fertilizer_name=form.data['fertilizer_name'])[0]
+                total_review = fertilizer.total_review + int(form.data['rating'])
+                number_of_reviews = fertilizer.number_of_reviews + 1
+                avarage_review = round(total_review / number_of_reviews, 1)
+                fertilizer.total_review = total_review
+                fertilizer.number_of_reviews = number_of_reviews
+                fertilizer.avarage_review = avarage_review
+                fertilizer.save()
+            except:
+                pass
             form_save.save()
             return redirect(f'/fertilizer_info/fertilizer_id={fertilizer_id}')
 
@@ -790,6 +807,18 @@ def pesticide_edit(request, pesticide_id):
             pesticide_date_from_planting = (datetime.fromisoformat(
                 form.data['pesticide_date']).date() - pesticide.planting_id.planting_time.date()).days
             form_save.pesticide_date_from_planting = pesticide_date_from_planting
+            try:
+                pesticide = Default_pesticide.objects.filter(
+                    pesticide_name=form.data['pesticide_name'])[0]
+                total_review = pesticide.total_review + int(form.data['rating'])
+                number_of_reviews = pesticide.number_of_reviews + 1
+                avarage_review = round(total_review / number_of_reviews, 1)
+                pesticide.total_review = total_review
+                pesticide.number_of_reviews = number_of_reviews
+                pesticide.avarage_review = avarage_review
+                pesticide.save()
+            except:
+                pass
             form_save.save()
             return redirect(f'/pesticide_info/pesticide_id={pesticide_id}')
 
