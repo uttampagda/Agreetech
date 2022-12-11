@@ -1,34 +1,39 @@
 {% extends 'dashboard/basic.html' %} {% block body %} {% load static %}
 
 <h2>Fertilizer statistics</h2>
-
-{{fertilizer_name}}
-
-<br>
-{%for fer in fertilizer%}
-<span>Purchased by {{fer.farmer_id.name}} For farm {{fer.farm_id.farm_nick_name}} | fertilizer_qty
-  {{fer.fertilizer_qty}} | creation_date {{fer.create_date}}</span><br>
-{% endfor %}
-<div class="w-75 p-3" style="background-color: white; border-radius:10px;">
-  <table class="table w-75 container">
-    <thead class="table">
-      <tr style="background-color:rgb(175, 252, 226);">
-        <td>Purchased</td>
-        <td>Farm</td>
-        <td>Fertilizer Qty</td>
-        <td>Creation Date</td>
-      </tr>
-    </thead>
-    <tbody>
-      {% for fer in fertilizer %}
-      <tr>
-        <td>{{fer.farmer_id.name}}</td>
-        <td>{{fer.farm_id.farm_nick_name}}</td>
-        <td>{{fer.fertilizer_qty}}</td>
-        <td>{{fer.create_date}}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<div class="back_btn_3">
+  <a href="/default_fertilizers" class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
+  <a href="/default_fertilizers" class="back_btn_4">Back To Fertilizer</a>
 </div>
-{% endblock %}
+{% if fertilizer_name == 'No information about this fertilizer' %}
+{{fertilizer_name}} {% else %} {% comment %} {%for fer in fertilizer%}
+<span>Purchased by {{fer.farmer_id.name}} For farm {{fer.farm_id.farm_nick_name}} |
+  fertilizer_qty {{fer.fertilizer_qty}} | creation_date
+  {{fer.create_date}}</span><br />
+{% endfor %} {% endcomment %}
+<div class="fertilizer_box m-auto mt-3">
+  {{fertilizer_name}}
+  <div class="plant_box_1">
+    <div class="plant_name_title d-flex justify-content-around">
+      <div class="w-25 border-bottom border-dark text-center pb-1">
+        Purchased
+      </div>
+      <div class="w-25 border-bottom border-dark text-center pb-1">Farm</div>
+      <div class="w-25 border-bottom border-dark text-center pb-1">
+        Fertilizer Qty
+      </div>
+      <div class="w-25 border-bottom border-dark text-center pb-1">
+        Creation Date
+      </div>
+    </div>
+    {% for fer in fertilizer %}
+    <div class="plant_name d-flex justify-content-around">
+      <div class="w-25 text-center">{{fer.farmer_id.name}}</div>
+      <div class="w-25 text-center">{{fer.farm_id.farm_nick_name}}</div>
+      <div class="w-25 text-center">{{fer.fertilizer_qty}}</div>
+      <div class="w-25 text-center">{{fer.create_date}}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %} {% endblock %}

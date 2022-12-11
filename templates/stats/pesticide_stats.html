@@ -1,17 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pesticide statistics</title>
-</head>
-<body>
+{% extends 'dashboard/basic.html' %} {% block body %} {% load static %}
+
 <h2>Pesticide statistics</h2>
-
+<div class="back_btn_3">
+  <a href="/default_pesticides" class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
+  <a href="/default_pesticides" class="back_btn_4">Back To Pesticide</a>
+</div>
+{% if pesticide_name == 'No information about this pesticide' %}
 {{pesticide_name}}
+{% else %}
 
-<br>
-{%for pes in pesticide%}
-  <span>Purchased by {{pes.farmer_id.name}} For farm {{pes.farm_id.farm_nick_name}} | pesticide qty {{pes.pesticide_qty}} | creation_date  {{pes.create_date}}</span><br>
-{% endfor %}
-</body>
-</html>
+
+{% comment %} {%for fer in fertilizer%}
+<span>Purchased by {{fer.farmer_id.name}} For farm {{fer.farm_id.farm_nick_name}} | fertilizer_qty
+  {{fer.fertilizer_qty}} | creation_date {{fer.create_date}}</span><br>
+{% endfor %} {% endcomment %}
+<div class="fertilizer_box m-auto mt-3">
+  {{pesticide_name}}
+  <div class="plant_box_1">
+    <div class="plant_name_title d-flex justify-content-around">
+      <div class="w-25 border-bottom border-dark text-center pb-1">Purchased</div>
+      <div class="w-25 border-bottom border-dark text-center pb-1">Farm</div>
+      <div class="w-25 border-bottom border-dark text-center pb-1">Fertilizer Qty</div>
+      <div class="w-25 border-bottom border-dark text-center pb-1">Creation Date</div>
+    </div>
+    {% for pes in pesticide %}
+    <div class="plant_name d-flex justify-content-around">
+      <div class="w-25 text-center">{{pes.farmer_id.name}}</div>
+      <div class="w-25 text-center">{{pes.farm_id.farm_nick_name}}</div>
+      <div class="w-25 text-center">{{pes.pesticide_qty}}</div>
+      <div class="w-25 text-center">{{pes.create_date}}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+{% endblock %}

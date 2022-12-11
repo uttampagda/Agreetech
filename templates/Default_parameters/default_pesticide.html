@@ -1,54 +1,52 @@
-{% extends 'dashboard/basic.html' %}
-{% block body %}
-{% load static %} 
+{% extends 'dashboard/basic.html' %} {% block body %} {% load static %}
 
 <div class="d-flex justify-content-between">
-    <div class="back_btn_3">
-      <a href="/" class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
-      <a href="/" class="back_btn_4">Back To Home</a>
-    </div>
+  <div class="back_btn_3">
+    <a href="/" class="material-symbols-outlined back_btn_4">arrow_back_ios</a>
+    <a href="/" class="back_btn_4">Back To Home</a>
   </div>
-  
-  <div class="plant_box m-auto mt-3">
-    <div class="d-flex justify-content-between">
-    <div> Default Pesticides</div>
+</div>
+
+<div class="plant_box m-auto mt-3">
+  <div class="d-flex justify-content-between">
+    <div>Default Pesticides</div>
     <a href="add_default_pesticide" class="material-symbols-outlined text-muted">
       edit_square
     </a>
   </div>
-    <div class="plant_box_1">
-      <div class="plant_name_title d-flex justify-content-around">
-        <div class="w-25 border-bottom border-dark text-center pb-1">Name</div>
-        <div class="w-25 border-bottom border-dark text-center pb-1">Rating</div>
-      </div>
-      {% for pes in default_pesticide %}
-      <a href="{% url 'pesticide_stats' pesticide_name=pes.pesticide_name%}">
-        <div class="plant_name d-flex justify-content-around">
-          <div class="w-25 text-center">{{pes}}</div>
-          <div class="w-25 text-center">{{pes.avarage_review}}</div>
-        </div>
-      </a>
-      {% endfor %}
+  <div class="plant_box_1">
+    <div class="plant_name_title d-flex justify-content-around">
+      <div class="w-25 border-bottom border-dark text-center pb-1">Name</div>
+      <div class="w-25 border-bottom border-dark text-center pb-1">Rating</div>
     </div>
+    {% for pes in default_pesticide %}
+    <a href="{% url 'pesticide_stats' pesticide_name=pes.pesticide_name%}">
+      <div class="plant_name d-flex justify-content-around">
+        <div class="w-25 text-center">{{pes}}</div>
+        <div class="w-25 text-center">{{pes.avarage_review}}</div>
+      </div>
+    </a>
+    {% endfor %}
   </div>
+</div>
 {% comment %} Default Pesticides
 <div>
-    {% for pes in default_pesticide %}
-    <span>{{pes}}</span>
-    <span>{{pes.avarage_review}}</span>
-    <a href="{% url 'pesticide_stats' pesticide_name=pes.pesticide_name%}">info</a>
-    <br>
-    {% endfor %}
-</div> {% endcomment %}
-{% comment %} <div class="container create_user_form">
-    <form method="post" id="loginid" >
-        {% csrf_token %}
-        <div class="form-group mt-2">
-            <label>Pesticide name</label>
-            <input type="text" class="form-control"  name="pesticide_name"  placeholder="Pesticide name" >
-        </div>
-        <button type="submit" class="btn btn-primary mt-3">Submit</button>
-    </form>
-</div> {% endcomment %}
-
-{% endblock %}
+  {% for pes in default_pesticide %}
+  <span>{{pes}}</span>
+  <span>{{pes.avarage_review}}</span>
+  <a href="{% url 'pesticide_stats' pesticide_name=pes.pesticide_name%}">info</a>
+  <br />
+  {% endfor %}
+</div>
+{% endcomment %} {% comment %}
+<div class="container create_user_form">
+  <form method="post" id="loginid">
+    {% csrf_token %}
+    <div class="form-group mt-2">
+      <label>Pesticide name</label>
+      <input type="text" class="form-control" name="pesticide_name" placeholder="Pesticide name" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+</div>
+{% endcomment %} {% endblock %}

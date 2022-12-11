@@ -15,23 +15,27 @@ a:hover {
     color: black;
 
 }
-.border-invisible{
+
+.border-invisible {
     border: 1px solid rgba(0, 0, 0, 0);
 }
+
 .add_btn {
     padding: 4px 8px;
-    border-radius: 12px;   
+    border-radius: 12px;
 }
-.search_farmer{
+
+.search_farmer {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.267), 0 3px 14px 0 rgba(0, 0, 0, 0.267);
     border-radius: 5px;
 
 }
-.search_farmer_1{
+
+.search_farmer_1 {
     border-radius: 5px;
 }
 
-#datatable{
+#datatable {
     background-color: white;
     margin: auto;
     border-radius: 10px;
@@ -275,7 +279,8 @@ a:hover {
     border-radius: 5px 5px 0px 0px;
     cursor: pointer;
 }
-#pesticide_dose_menu{
+
+#pesticide_dose_menu {
     background-color: #e4fff5;
 }
 
@@ -373,9 +378,9 @@ a:hover {
     width: 20px !important;
     margin-left: 10px;
 }
-.back_btn_5{
-    
-}
+
+.back_btn_5 {}
+
 .back_btn_3 {
     margin: 20px 30px;
     width: fit-content;
@@ -432,6 +437,16 @@ a:hover {
 
 }
 
+.fertilizer_box {
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.116), 0 4px 14px 0 rgba(0, 0, 0, 0.116);
+    border-radius: 7px;
+    background-color: white;
+    width: 65%;
+    cursor: pointer;
+    padding: 20px;
+
+}
+
 .plant_box_1,
 #seed_box {
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1), 0 4px 14px 0 rgba(0, 0, 0, 0.1);
@@ -450,6 +465,7 @@ a:hover {
     margin: 10px;
     padding: 10px 10px;
 }
+
 .plant_name {
     margin: 10px;
     padding: 10px 10px;
@@ -465,25 +481,32 @@ a:hover {
 #water_irrigation {
     display: none;
 }
+
 #fertilizer {
     display: none;
 }
+
 #pesticide {
     display: none;
 }
-#harvesting{
+
+#harvesting {
     display: none;
 }
-#selling{
+
+#selling {
     display: none;
 }
-#soil_test{
+
+#soil_test {
     display: none;
 }
-#planting_history_menu{
+
+#planting_history_menu {
     background-color: #e4fff5;
 }
-.create_farmer{
+
+.create_farmer {
     height: 40px;
     border-radius: 20px;
     padding: 0px 10px;
@@ -493,6 +516,7 @@ a:hover {
     justify-content: center;
     align-items: center;
 }
+
 @media(max-width: 768px) {
     .create_user_form {
         width: 80%;
