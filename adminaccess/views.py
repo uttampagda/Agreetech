@@ -386,7 +386,8 @@ def fertilizer_reg(request):
             fertilizer = Default_fertilizer.objects.filter(
                 fertilizer_name=form.data['fertilizer_name'])[0]
             try:
-                total_review = fertilizer.total_review + int(form.data['rating'])
+                total_review = fertilizer.total_review + \
+                    int(form.data['rating'])
                 number_of_reviews = fertilizer.number_of_reviews + 1
                 avarage_review = round(total_review / number_of_reviews, 1)
                 fertilizer.total_review = total_review
@@ -550,7 +551,8 @@ def pesticide_reg(request):
             pesticide = Default_pesticide.objects.filter(
                 pesticide_name=form.data['pesticide_name'])[0]
             try:
-                total_review = pesticide.total_review + int(form.data['rating'])
+                total_review = pesticide.total_review + \
+                    int(form.data['rating'])
                 number_of_reviews = pesticide.number_of_reviews + 1
                 avarage_review = round(total_review / number_of_reviews, 1)
                 pesticide.total_review = total_review
@@ -745,8 +747,20 @@ def plant_edit(request, plant_id):
         if form.is_valid():
             form.save()
             return redirect(f'/planting/planting_id={plant_id}')
+    default_plant_name = list(Default_plant_name.objects.values())
+    default_plant_seed_name_1 = Default_plant_seed_name.objects.all()
+    default_plant_seed_name = []
+    for plant_seed_name in default_plant_seed_name_1:
+        default_plant_seed_name_dict = {}
+        default_plant_seed_name_dict['plant_name'] = plant_seed_name.plant_name.plant_name
+        default_plant_seed_name_dict['plant'] = plant_seed_name.seed_name
+        default_plant_seed_name.append(default_plant_seed_name_dict)
+    data = {
+        'default_plant_name': default_plant_name,
+        'default_plant_seed_name': default_plant_seed_name,
+        'plants': plants}
 
-    return render(request, 'form_edit/planting_edit.html', {'plants': plants})
+    return render(request, 'form_edit/planting_edit.html', data)
 
 
 def fertilizer_edit(request, fertilizer_id):
@@ -762,8 +776,10 @@ def fertilizer_edit(request, fertilizer_id):
                 form.data['fertilizer_date']).date() - fertilizer.planting_id.planting_time.date()).days
             form_save.fertilizer_days_from_planting = fertilizer_days_from_planting
             try:
-                fertilizer = Default_fertilizer.objects.filter(fertilizer_name=form.data['fertilizer_name'])[0]
-                total_review = fertilizer.total_review + int(form.data['rating'])
+                fertilizer = Default_fertilizer.objects.filter(
+                    fertilizer_name=form.data['fertilizer_name'])[0]
+                total_review = fertilizer.total_review + \
+                    int(form.data['rating'])
                 number_of_reviews = fertilizer.number_of_reviews + 1
                 avarage_review = round(total_review / number_of_reviews, 1)
                 fertilizer.total_review = total_review
@@ -810,7 +826,8 @@ def pesticide_edit(request, pesticide_id):
             try:
                 pesticide = Default_pesticide.objects.filter(
                     pesticide_name=form.data['pesticide_name'])[0]
-                total_review = pesticide.total_review + int(form.data['rating'])
+                total_review = pesticide.total_review + \
+                    int(form.data['rating'])
                 number_of_reviews = pesticide.number_of_reviews + 1
                 avarage_review = round(total_review / number_of_reviews, 1)
                 pesticide.total_review = total_review

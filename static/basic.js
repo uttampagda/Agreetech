@@ -88,18 +88,15 @@ menu_btn.addEventListener("mouseout", function hide_side_menu_() {
   menu_btn.innerText = `apps`;
 });
 
-let hide_unhide_logout_btn = document.getElementById("hide_unhide_logout_btn");
-hide_unhide_logout_btn.addEventListener(
-  "click",
-  function hide_unhide_logout_box() {
-    let logout_btn = document.getElementById("logout_btn");
-    if (logout_btn.style.display != "block") {
-      logout_btn.style.display = "block";
-    } else {
-      logout_btn.style.display = "none";
-    }
-  }
-);
-
-
-
+// let hide_unhide_logout_btn = document.getElementById("hide_unhide_logout_btn");
+// hide_unhide_logout_btn.addEventListener(
+//   "click",
+//   function hide_unhide_logout_box() {
+//     let logout_btn = document.getElementById("logout_btn");
+//     if (logout_btn.style.display != "block") {
+//       logout_btn.style.display = "block";
+//     } else {
+//       logout_btn.style.display = "none";
+//     }
+//   }
+// );
