@@ -89,6 +89,7 @@ def forms(request):
 
 def farmers(request):
     farmers = Farmer.objects.all()
+
     return render(request, 'forms/farmers.html', {'farmers': farmers})
 
 
@@ -566,7 +567,7 @@ def pesticide_reg(request):
                 form.data['pesticide_date']).date() - planting.planting_time.date()).days
             form_save.pesticide_date_from_planting = pesticide_date_from_planting
             form_save.save()
-            return redirect('planting', planting_id=planting_id)
+            return redirect('pesticide_dose_info', dose_id=dose_id)
     data = {
         'pesticide_selection': pesticide_selection,
         'farmer_id': farmer_id,
@@ -599,7 +600,7 @@ def search_utm(request):
     farmers = Farmer.objects.all()
     temp_list = []
     for i in farms:
-        temp_list.append([i.farmer_id, i.farm_space])
+        temp_list.append([i.farmer_id.id, i.farm_space])
     temp_farmer_ids = []
     for i in range(len(temp_list)):
         temp_farmer_ids.append(temp_list[i][0])

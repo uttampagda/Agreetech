@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="add render as allowed host">
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="edit forms changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/form.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form_edit/fertilizer_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/fertilizer_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form_edit/pesticide_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_edit/pesticide_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/fertilizer_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/fertilizer_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/fertilizer_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/fertilizer_reg.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/pesticide_dose_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/pesticide_dose_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/forms/pesticide_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/pesticide_info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/forms/pesticide_reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/pesticide_reg.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forms/planting.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/planting.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/stats/fertilizer_stats.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stats/fertilizer_stats.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/stats/pesticide_stats.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stats/pesticide_stats.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -378,7 +376,8 @@
       <workItem from="1669974812981" duration="46000" />
       <workItem from="1670258636635" duration="2448000" />
       <workItem from="1670304237475" duration="151000" />
-      <workItem from="1670432377420" duration="5334000" />
+      <workItem from="1670432377420" duration="5635000" />
+      <workItem from="1670815315214" duration="1801000" />
     </task>
     <task id="LOCAL-00001" summary="forms initial">
       <created>1654536683658</created>
@@ -695,7 +694,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670304357404</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="edit forms changes">
+      <created>1670439194766</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1670439194766</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -726,7 +732,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="farmer category by space" />
     <MESSAGE value="Date count and initial Default values" />
     <MESSAGE value="Default values" />
     <MESSAGE value="Default values done" />
@@ -751,7 +756,8 @@
     <MESSAGE value="django version change" />
     <MESSAGE value="render deploy 1" />
     <MESSAGE value="add render as allowed host" />
-    <option name="LAST_COMMIT_MESSAGE" value="add render as allowed host" />
+    <MESSAGE value="edit forms changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit forms changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
