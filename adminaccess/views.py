@@ -581,16 +581,36 @@ def pesticide_reg(request):
 def search(request):
     farm_info = Farm_info.objects.values()
     farm = []
+    s = []
     for i in farm_info:
         if farm:
             for j in farm:
-                if j['farmer_id'] == i['farmer_id']:
-                    print(i['farmer_id'], j['farmer_id'])
+                if i['farmer_id_id'] == j['farmer_id_id']:
                     j['farm_space'] += i['farm_space']
+                    s = []
+                    break
                 else:
-                    farm.append(i)
+                    s.append(i)
+            if s:
+                farm.append(s[0])
+                s = []
         else:
             farm.append(i)
+    # farm = []
+    # for i in farm_info:
+    #     print("\n\n1", i)
+    #     if farm:
+    #         print("\n\nfarm", farm)
+    #         for j in farm:
+    #             print("\n\n", j)
+    #             if j['farmer_id_id'] == i['farmer_id_id']:
+    #                 print(i['farmer_id_id'], j['farmer_id_id'])
+    #                 j['farm_space'] += i['farm_space']
+    #             else:
+    #                 farm.append(i)
+    #     else:
+    #         farm.append(i)
+    # print("\n\n\n\n", farm)
     data = {'farm_info': farm}
     return render(request, 'forms/search.html', data)
 
