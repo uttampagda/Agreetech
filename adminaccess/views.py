@@ -122,9 +122,13 @@ def farmer_details(request, farmer_id):
     else:
         farm_info = Farm_info.objects.filter(farmer_id=farmer_id)
         farmer_info = Farmer.objects.filter(id=farmer_id)[0]
+        total_farm_space = 0
+        for farm in farm_info:
+            total_farm_space += farm.farm_space
         data = {'farmer_id': farmer_id,
                 'farm_info': farm_info,
                 'farmer_info': farmer_info,
+                'total_farm_space':total_farm_space,
                 }
         request.session['farmer_id'] = farmer_id
         return render(request, 'forms/farmer_details.html', data)
