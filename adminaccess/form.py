@@ -21,8 +21,9 @@ class Farm_info_Form(forms.ModelForm):
 class Soil_test_Form(forms.ModelForm):
     class Meta:
         model = Soil_test
-        fields = ['farmer_id', 'farm_id', 'test_year', 'soil_test', 'water_test', 'nitrogen', 'phosphorus', 'potassium',
-                  'other_element', 'test_file']
+        fields = ['farmer_id', 'farm_id', 'test_date', 'water_source', 'ph', 'ec', 'organic_carbon', 'available_nitrogen',
+                  'available_phosphorus', 'available_potassium','available_zinc','available_boron','available_iron',
+                  'available_manganese','available_copper','available_sulphur']
 
 
 class Planting_Form(forms.ModelForm):

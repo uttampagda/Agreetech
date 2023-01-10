@@ -35,17 +35,35 @@ class Farm_info(models.Model):
 class Soil_test(models.Model):
     farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
     farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
-    test_year = models.IntegerField()
-    soil_test = models.CharField(max_length=50, blank=True, null=True)
-    water_test = models.CharField(max_length=50, blank=True, null=True)
-    nitrogen = models.CharField(max_length=50, blank=True, null=True)
-    phosphorus = models.CharField(max_length=50, blank=True, null=True)
-    potassium = models.CharField(max_length=50, blank=True, null=True)
-    other_element = models.CharField(max_length=50, blank=True, null=True)
-    test_file = models.FileField(upload_to=str(farm_id) + '/' + 'soil_test', blank=True, null=True)
-    create_date = models.DateTimeField(auto_now_add=True)
-    modified_date = models.DateTimeField(auto_now=True)
+    test_date = models.DateTimeField(blank=True,null=True)
+    water_source = models.CharField(max_length=50, blank=True, null=True)
+    ph = models.CharField(max_length=50, blank=True, null=True)
+    ec = models.CharField(max_length=50, blank=True, null=True)
+    organic_carbon = models.CharField(max_length=50, blank=True, null=True)
+    available_nitrogen = models.CharField(max_length=50, blank=True, null=True)
+    available_phosphorus = models.CharField(max_length=50, blank=True, null=True)
+    available_potassium = models.CharField(max_length=50, blank=True, null=True)
+    available_zinc = models.CharField(max_length=50, blank=True, null=True)
+    available_boron = models.CharField(max_length=50, blank=True, null=True)
+    available_iron = models.CharField(max_length=50, blank=True, null=True)
+    available_manganese = models.CharField(max_length=50, blank=True, null=True)
+    available_copper = models.CharField(max_length=50, blank=True, null=True)
+    available_sulphur = models.CharField(max_length=50, blank=True, null=True)
 
+
+class Water_test(models.Model):
+    farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
+    farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)
+    test_date = models.DateTimeField(blank=True,null=True)
+    sample_no = models.CharField(max_length=50, blank=True, null=True)
+    ph = models.CharField(max_length=50, blank=True, null=True)
+    ec = models.CharField(max_length=50, blank=True, null=True)
+    tds = models.CharField(max_length=50, blank=True, null=True)
+    ca = models.CharField(max_length=50, blank=True, null=True)
+    mg = models.CharField(max_length=50, blank=True, null=True)
+    hardness = models.CharField(max_length=50, blank=True, null=True)
+    turbidity = models.CharField(max_length=50, blank=True, null=True)
+    chloride = models.CharField(max_length=50, blank=True, null=True)
 
 class Planting(models.Model):
     farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
@@ -68,11 +86,6 @@ class Harvesting(models.Model):
     per_acre_production = models.IntegerField(blank=True, null=True)
     create_date = models.DateTimeField(auto_now_add=True,blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True,blank=True, null=True)
-    # sell_quantity = models.IntegerField()
-    # sell_date = models.CharField(max_length=50)
-    # sell_rate = models.IntegerField()
-    # purchaser_name = models.CharField(max_length=50)
-    # purchaser_number = models.IntegerField()
 
 
 class Crop_selling(models.Model):
