@@ -502,6 +502,10 @@ a:hover {
     display: none;
 }
 
+#water_test {
+    display: none;
+}
+
 #planting_history_menu {
     background-color: #e4fff5;
 }

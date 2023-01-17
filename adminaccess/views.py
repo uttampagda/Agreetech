@@ -158,12 +158,14 @@ def farm_info(request, farm_id):
     farm_info = Farm_info.objects.filter(id=farm_id)[0]
     planting_history = Planting.objects.filter(farm_id=farm_id)
     soil_test = Soil_test.objects.filter(farm_id=farm_id).values()
+    water_test = Soil_test.objects.filter(farm_id=farm_id).values()
     data = {
         'farmer': farm_info.farmer_id,
         'farmer_id': farmer_id,
         'farm': farm_info,
         'planting_history': planting_history,
         'soil_test': soil_test,
+        'water_test':water_test,
     }
     request.session['farmer_id'] = farmer_id
     request.session['farm_id'] = farm_id
