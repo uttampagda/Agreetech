@@ -65,6 +65,7 @@ class Water_test(models.Model):
     turbidity = models.CharField(max_length=50, blank=True, null=True)
     chloride = models.CharField(max_length=50, blank=True, null=True)
 
+
 class Planting(models.Model):
     farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
     farm_id = models.ForeignKey(Farm_info, on_delete=models.CASCADE)

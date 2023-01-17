@@ -8,8 +8,9 @@ from .form import *
 from .models import *
 from datetime import datetime
 from django.core.exceptions import PermissionDenied
+from django.http import JsonResponse
 
-
+global cur_obj
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -158,6 +159,8 @@ def farm_info(request, farm_id):
     farm_info = Farm_info.objects.filter(id=farm_id)[0]
     planting_history = Planting.objects.filter(farm_id=farm_id)
     soil_test = Soil_test.objects.filter(farm_id=farm_id).values()
+    global cur_obj
+    cur_obj = farm_info
     data = {
         'farmer': farm_info.farmer_id,
         'farmer_id': farmer_id,
@@ -196,6 +199,8 @@ def soil_test_info(request, id):
         pass
     else:
         return redirect('403')
+    global cur_obj
+    cur_obj = soil_test
     data = {
         'soil_test': soil_test,
         'farmer': soil_test.farmer_id,
@@ -293,6 +298,8 @@ def planting(request, planting_id):
         else:
             time_from_prestiside = "No information provided"
         pes['time_from_prestiside'] = time_from_prestiside
+    global cur_obj
+    cur_obj = planting_history
     data = {
         'farmer': planting_history.farmer_id,
         'farm_id': farm_id,
@@ -445,18 +452,26 @@ def water_irrigation_info(request, water_irrigation_id):
     return render(request, 'forms/water_irrigation_info.html', data)
 
 
+
 def pesticide_info(request, pesticide_id):
     pesticide = Pesticide.objects.filter(id=pesticide_id)[0]
     if staff_permission(pesticide.farmer_id.id, staff_type=request.user.is_staff):
         pass
     else:
         return redirect('403')
+    global cur_obj
+    cur_obj = pesticide
     data = {
         'pesticide': pesticide,
-        'farmer': pesticide.farmer_id
+        'farmer': pesticide.farmer_id,
+        'cur_obj': cur_obj,
     }
     return render(request, 'forms/pesticide_info.html', data)
 
+def delete_record(request):
+    record = cur_obj.__class__.objects.filter(id=cur_obj.id)[0]
+    data = {'record': vars(record)}
+    return render(request,'extras/delete.html',data)
 
 def harvesting_info(request, id):
     harvesting = Harvesting.objects.filter(id=id)[0]
@@ -464,6 +479,8 @@ def harvesting_info(request, id):
         pass
     else:
         return redirect('403')
+    global cur_obj
+    cur_obj = harvesting
     data = {
         'harvesting': harvesting,
         'farmer': harvesting.farmer_id
@@ -477,6 +494,8 @@ def crop_selling_info(request, id):
         pass
     else:
         return redirect('403')
+    global cur_obj
+    cur_obj = crop_selling
     data = {
         'crop_selling': crop_selling,
         'farmer': crop_selling.farmer_id
@@ -530,6 +549,8 @@ def pesticide_dose_info(request, dose_id):
     planting_id = request.session['planting_id']
     dose = Pesticide_dose.objects.filter(id=dose_id)[0]
     pesticide = Pesticide.objects.filter(dose_id=dose_id)
+    global cur_obj
+    cur_obj = dose
     data = {
         'farmer_id': farmer_id,
         'farm_id': farm_id,
