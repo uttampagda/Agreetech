@@ -67,6 +67,8 @@
   <div class="farmer_info_title_page text-muted">
     <span class="pages" id="planting_history_menu">Planting History</span>
     <span class="pages" id="soil_test_menu">Soil Test</span>
+    <span class="pages" id="water_test_menu">Water Test</span>
+
   </div>
   <div class="farm_info" id="planting_history">
     <div class="page_table">
@@ -95,23 +97,49 @@
 
     <div class="page_table">
       <div class="d-flex justify-content-evenly p-1 page_table_1">
-        <div class="table_one_content">Year</div>
-        <div class="table_one_content">Soil test</div>
-        <div class="table_one_content">Water test</div>
-        <div class="table_one_content">Nitrogen</div>
-        <div class="table_one_content">Phosphorus</div>
-        <div class="table_one_content">Potassium</div>
-        <div class="table_one_content">Other element</div>
+        <div class="table_one_content">Test Date</div>
+        <div class="table_one_content">Water Source</div>
+        <div class="table_one_content">PH</div>
+        <div class="table_one_content">EC</div>
+        <div class="table_one_content">Organic Carbon</div>
       </div>
       {% for soil in soil_test %}
       <a class="d-flex justify-content-evenly p-1 farm_information" href="{% url 'soil_test_info' id=soil.id%}">
-        <div class="table_one_content_1">{{soil.test_year}}</div>
-        <div class="table_one_content_1">{{soil.soil_test}}</div>
-        <div class="table_one_content_1">{{soil.water_test}}</div>
-        <div class="table_one_content_1">{{soil.nitrogen}}</div>
-        <div class="table_one_content_1">{{soil.phosphorus}}</div>
-        <div class="table_one_content_1">{{soil.potassium}}</div>
-        <div class="table_one_content_1">{{soil.other_element}}</div>
+        <div class="table_one_content_1">{{soil.test_date}}</div>
+        <div class="table_one_content_1">{{soil.water_source}}</div>
+        <div class="table_one_content_1">{{soil.ph}}</div>
+        <div class="table_one_content_1">{{soil.ec}}</div>
+        <div class="table_one_content_1">{{soil.organic_carbon}}</div>
+      </a>
+      {% endfor %}
+      <div class="add_more_farm">
+        <div class="add_more_farm_1 p-2">
+          <a href="{% url 'soil_test' %}">add more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="farm_info" id="water_test">
+    <div class="page_table">
+      <div class="d-flex justify-content-evenly p-1 page_table_1">
+        <div class="table_one_content">Test Date</div>
+        <div class="table_one_content">Sample No</div>
+        <div class="table_one_content">PH</div>
+        <div class="table_one_content">EC</div>
+        <div class="table_one_content">TDS</div>
+        <div class="table_one_content">CA</div>
+        <div class="table_one_content">MG</div>
+
+      </div>
+      {% for water in water_test %}
+      <a class="d-flex justify-content-evenly p-1 farm_information" href="{% url 'soil_test_info' id=soil.id%}">
+        <div class="table_one_content_1">{{water.test_date}}</div>
+        <div class="table_one_content_1">{{water.sample_no}}</div>
+        <div class="table_one_content_1">{{water.ph}}</div>
+        <div class="table_one_content_1">{{water.ec}}</div>
+        <div class="table_one_content_1">{{water.tds}}</div>
+        <div class="table_one_content_1">{{water.ca}}</div>
+        <div class="table_one_content_1">{{water.mg}}</div>
       </a>
       {% endfor %}
       <div class="add_more_farm">
