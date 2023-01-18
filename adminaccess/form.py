@@ -26,6 +26,13 @@ class Soil_test_Form(forms.ModelForm):
                   'available_manganese','available_copper','available_sulphur']
 
 
+class Water_test_Form(forms.ModelForm):
+    class Meta:
+        model = Water_test
+        fields = ['farmer_id', 'farm_id', 'test_date', 'sample_no', 'ph', 'ec', 'tds', 'ca',
+                  'mg', 'hardness','turbidity','chloride']
+
+
 class Planting_Form(forms.ModelForm):
     class Meta:
         model = Planting

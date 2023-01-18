@@ -159,6 +159,7 @@ def farm_info(request, farm_id):
     farm_info = Farm_info.objects.filter(id=farm_id)[0]
     planting_history = Planting.objects.filter(farm_id=farm_id)
     soil_test = Soil_test.objects.filter(farm_id=farm_id).values()
+    water_test = Water_test.objects.filter(farm_id=farm_id).values()
     global cur_obj
     cur_obj = farm_info
     data = {
@@ -167,6 +168,7 @@ def farm_info(request, farm_id):
         'farm': farm_info,
         'planting_history': planting_history,
         'soil_test': soil_test,
+        'water_test':water_test,
     }
     request.session['farmer_id'] = farmer_id
     request.session['farm_id'] = farm_id
@@ -182,7 +184,7 @@ def soil_test(request):
         form = Soil_test_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('soil_test')
+            return redirect(f'/farm_info/farm_id={farm_id}')
     else:
         form = Soil_test_Form()
     data = {
@@ -208,6 +210,66 @@ def soil_test_info(request, id):
     }
     return render(request, 'forms/soil_test_info.html', data)
 
+def water_test(request):
+    farmer_id = request.session['farmer_id']
+    farm_id = request.session['farm_id']
+
+    if request.method == 'POST':
+        farmer_id = request.session['farmer_id']
+        form = Water_test_Form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/farm_info/farm_id={farm_id}')
+    else:
+        form = Water_test_Form()
+    data = {
+        'farmer_id': farmer_id,
+        'farm_id': farm_id,
+    }
+    return render(request, 'forms/water_test.html', data)
+
+def soil_test_edit(request, soil_test_id):
+    soil_test = Soil_test.objects.get(id=soil_test_id)
+    soil_test_data = Soil_test.objects.filter(id=soil_test_id)
+
+    if request.method == 'POST':
+        form = Soil_test_Form(request.POST, instance=soil_test)
+
+        if form.is_valid():
+            form.save()
+            return redirect(f'/farm_info/farm_id={soil_test_id}')
+
+    return render(request, 'form_edit/soil_test_edit.html', {'soil_test': soil_test_data})
+
+
+def water_test_info(request, id):
+    water_test = Water_test.objects.filter(id=id)[0]
+    farm_id = request.session['farm_id']
+    if staff_permission(water_test.farmer_id.id, staff_type=request.user.is_staff):
+        pass
+    else:
+        return redirect('403')
+    global cur_obj
+    cur_obj = water_test
+    data = {
+        'water_test': water_test,
+        'farmer': water_test.farmer_id,
+        'farm_id': farm_id,
+    }
+    return render(request, 'forms/water_test_info.html', data)
+
+def water_test_edit(request, water_test_id):
+    water_test = Water_test.objects.get(id=water_test_id)
+    water_test_data = Water_test.objects.filter(id=water_test_id)
+
+    if request.method == 'POST':
+        form = Water_test_Form(request.POST, instance=water_test)
+
+        if form.is_valid():
+            form.save()
+            return redirect(f'/farm_info/farm_id={water_test_id}')
+
+    return render(request, 'form_edit/water_test_edit.html', {'water_test': water_test_data})
 
 def planting_reg(request):
     if request.method == 'POST':

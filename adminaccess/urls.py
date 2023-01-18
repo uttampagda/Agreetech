@@ -14,6 +14,8 @@ urlpatterns = [
     path('farmers', views.farmers, name="farmers"),
     path('soil_test', views.soil_test, name="soil_test"),
     path('soil_test_info/id=<int:id>', views.soil_test_info, name="soil_test_info"),
+    path('water_test', views.water_test, name="water_test"),
+    path('water_test_info/id=<int:id>', views.water_test_info, name="water_test_info"),
     path('farm_info_reg', views.farm_info_reg, name="farm_info_reg"),
     path('farm_info/farm_id=<int:farm_id>', views.farm_info, name="farm_info"),
     path('planting_reg', views.planting_reg, name="planting_reg"),
@@ -49,6 +51,8 @@ urlpatterns = [
     path('fertilizer_edit/fertilizer_id=<int:fertilizer_id>', views.fertilizer_edit, name="fertilizer_edit"),
     path('water_irrigation_edit/water_irrigation_id=<int:water_irrigation_id>', views.water_irrigation_edit, name="water_irrigation_id_edit"),
     path('pesticide_edit/pesticide_id=<int:pesticide_id>', views.pesticide_edit, name="Pesticide_edit"),
+    path('soil_test_edit/soil_test_id=<int:soil_test_id>', views.soil_test_edit, name="soil_test_edit"),
+    path('water_test_edit/water_test_id=<int:water_test_id>', views.water_test_edit, name="water_test_edit"),
     # path('harvesting_edit/harvesting_id=<int:harvesting_id>', views.harvesting_edit, name="Pesticide_edit"),
     # path('crop_selling_edit/crop_selling_id=<int:crop_selling_id>', views.crop_selling_edit, name="crop_selling_edit"),
     #statistics

@@ -132,7 +132,7 @@
 
       </div>
       {% for water in water_test %}
-      <a class="d-flex justify-content-evenly p-1 farm_information" href="{% url 'soil_test_info' id=soil.id%}">
+      <a class="d-flex justify-content-evenly p-1 farm_information" href="{% url 'water_test_info' id=water.id%}">
         <div class="table_one_content_1">{{water.test_date}}</div>
         <div class="table_one_content_1">{{water.sample_no}}</div>
         <div class="table_one_content_1">{{water.ph}}</div>
@@ -144,7 +144,7 @@
       {% endfor %}
       <div class="add_more_farm">
         <div class="add_more_farm_1 p-2">
-          <a href="{% url 'soil_test' %}">add more</a>
+          <a href="{% url 'water_test' %}">add more</a>
         </div>
       </div>
     </div>

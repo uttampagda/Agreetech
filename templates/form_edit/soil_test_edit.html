@@ -1,0 +1,89 @@
+{% extends 'dashboard/basic.html' %}
+{% block body %}
+{% load static %} 
+
+<h2>Soil Test</h2>
+
+<div class="container create_user_form">
+    <form method="post" id="loginid">
+        {% csrf_token %}
+        {% for w in soil_test %}
+        <div class="form-group mt-3">
+            <label for="id_farmer_id">Farmer Id</label>
+            <input type="number" value="{{w.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}"
+                placeholder="Farmer Id" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_farm_id">Farm Id</label>
+            <input type="number" value="{{w.farm_id.id}}" class="form-control" id="id_farm_id" name="farm_id" value="{{farm_id}}"
+                placeholder="Farm Id" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_test_date">Test Date</label>
+            <input type="datetime-local" value="{{w.test_date|date:'Y-m-d H:i'}}" class="form-control" id="id_test_date" name="test_date" placeholder="Test Date"
+                required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_water_source">Water Source</label>
+            <input type="text" value="{{w.water_source}}" class="form-control" id="id_water_source" name="water_source" placeholder="Water Source" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_ph">PH</label>
+            <input type="text" value="{{w.ph}}" class="form-control" id="id_ph" name="ph" placeholder="PH"
+                required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_ec">EC</label>
+            <input type="text" value="{{w.ec}}" class="form-control" id="id_ec" name="ec" placeholder="EC" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_organic_carbon">Organic Carbon</label>
+            <input type="text" value="{{w.organic_carbon}}" class="form-control" id="id_organic_carbon" name="organic_carbon" placeholder="Organic Carbon"
+                required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_available_nitrogen">Available Nitrogen</label>
+            <input type="text" value="{{w.available_nitrogen}}" class="form-control" id="id_available_nitrogen" name="available_nitrogen" placeholder="Available Nitrogen" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_available_phosphorus">Available Phosphorus</label>
+            <input type="text" value="{{w.available_phosphorus}}" class="form-control" id="id_available_phosphorus" name="available_phosphorus"
+                placeholder="Available Phosphorus" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_available_potassium">Available Potassium</label>
+            <input type="text" value="{{w.available_potassium}}" class="form-control" id="id_available_potassium" name="available_potassium" placeholder="Available Potassium" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_available_zinc">Available Zinc</label>
+            <input type="text" value="{{w.available_zinc}}" class="form-control" id="id_available_zinc" name="available_zinc"
+                placeholder="Available Zinc" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_available_boron">Available Boron</label>
+            <input type="text" value="{{w.available_boron}}" class="form-control" id="id_available_boron" name="available_boron" placeholder="Available Boron" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_available_iron">Available Iron</label>
+            <input type="text" value="{{w.available_iron}}" class="form-control" id="id_available_iron" name="available_iron"
+                placeholder="Available Iron" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_available_manganese">Available Manganese</label>
+            <input type="text" value="{{w.available_manganese}}" class="form-control" id="id_available_manganese" name="available_manganese" placeholder="Available Manganese" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_available_copper">Available Copper</label>
+            <input type="text" value="{{w.available_copper}}" class="form-control" id="id_available_copper" name="available_copper"
+                placeholder="Available Copper" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_available_sulphur">Available Sulphur</label>
+            <input type="text" value="{{w.available_sulphur}}" class="form-control" id="id_available_sulphur" name="available_sulphur" placeholder="Available Sulphur" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
+        {% endfor %}
+    </form>
+</div>
+
+{% endblock %}
