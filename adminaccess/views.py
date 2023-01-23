@@ -139,6 +139,7 @@ def farm_info_reg(request):
     farmer_id = request.session['farmer_id']
     if request.method == 'POST':
         form = Farm_info_Form(request.POST, request.FILES)
+        print(form.errors)
         if form.is_valid() and form['farm_nick_name'].value() != None:
             form.save()
             request.session['farmer_id'] = farmer_id

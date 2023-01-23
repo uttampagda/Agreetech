@@ -7,9 +7,9 @@
 <div class="container create_user_form">
     <form method="post" id="loginid">
         {% csrf_token %}
-        <div class="form-group mt-2">
+        <div class="form-group mt-2 d-none">
             <label for="id_farmer_id">Farmer Id</label>
-            <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id"
+            <input type="number" class="form-control d-none" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id"
                 value="{{farmer_id}}" required>
         </div>
         <div class="form-group mt-3">
@@ -25,7 +25,7 @@
             <label for="id_geo_location">Geo Location</label>
             <input type="text" class="form-control" id="id_geo_location" name="geo_location" placeholder="Geo Location">
         </div>
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_farm_village">Farm Village</label>
             <input type="text" class="form-control" id="id_farm_village" name="farm_village" placeholder="Farm Village">
         </div>
@@ -40,12 +40,12 @@
         </div>
         <div class="form-group mt-3">
             <label for="id_caretaker">Caretaker</label>
-            <input type="text" class="form-control" id="id_caretaker" name="caretaker" placeholder="Caretaker" required>
+            <input type="text" class="form-control" id="id_caretaker" name="caretaker" placeholder="Caretaker">
         </div>
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_caretaker_phone_number">Caretaker Phone Number</label>
             <input type="number" class="form-control" id="id_caretaker_phone_number" name="caretaker_phone_number"
-                placeholder="Caretaker phone Number" required>
+                placeholder="Caretaker phone Number">
         </div>
         <div class="form-group mt-3">
             <label for="id_soil_type">Soil Type</label>
