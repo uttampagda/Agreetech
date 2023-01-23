@@ -8,7 +8,6 @@ from .form import *
 from .models import *
 from datetime import datetime
 from django.core.exceptions import PermissionDenied
-from django.http import JsonResponse
 
 global cur_obj
 def login(request):
