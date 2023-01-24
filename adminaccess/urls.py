@@ -53,6 +53,7 @@ urlpatterns = [
     path('pesticide_edit/pesticide_id=<int:pesticide_id>', views.pesticide_edit, name="Pesticide_edit"),
     path('soil_test_edit/soil_test_id=<int:soil_test_id>', views.soil_test_edit, name="soil_test_edit"),
     path('water_test_edit/water_test_id=<int:water_test_id>', views.water_test_edit, name="water_test_edit"),
+    path('pesticide_dose_edit/pesticide_dose_id=<int:pesticide_dose_id>', views.pesticide_dose_edit, name="pesticide_dose_edit"),
     # path('harvesting_edit/harvesting_id=<int:harvesting_id>', views.harvesting_edit, name="Pesticide_edit"),
     # path('crop_selling_edit/crop_selling_id=<int:crop_selling_id>', views.crop_selling_edit, name="crop_selling_edit"),
     #statistics

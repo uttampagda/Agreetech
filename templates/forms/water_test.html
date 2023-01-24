@@ -2,17 +2,16 @@
 {% block body %}
 {% load static %}
 
-<h2>Soil Test</h2>
-
 <div class="container create_user_form">
+    <h5 class="font-weight-bold">Water Test</h5>
     <form method="post" id="loginid">
         {% csrf_token %}
-        <div class="form-group mt-2">
+        <div class="form-group mt-2 d-none">
             <label for="id_farmer_id">Farmer Id</label>
             <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}"
                 placeholder="Farmer Id" required>
         </div>
-        <div class="form-group mt-3">
+        <div class="form-group mt-3 d-none">
             <label for="id_farm_id">Farm Id</label>
             <input type="number" class="form-control" id="id_farm_id" name="farm_id" value="{{farm_id}}"
                 placeholder="Farm Id" required>
@@ -24,39 +23,39 @@
         </div>
         <div class="form-group mt-3">
             <label for="id_sample_no">Sample No</label>
-            <input type="text" class="form-control" id="id_sample_no" name="sample_no" placeholder="Sample No" required>
+            <input type="text" class="form-control" id="id_sample_no" name="sample_no" placeholder="Sample No">
         </div>
         <div class="form-group mt-2">
             <label for="id_ph">PH</label>
-            <input type="text" class="form-control" id="id_ph" name="ph" placeholder="PH" required>
+            <input type="text" class="form-control" id="id_ph" name="ph" placeholder="PH">
         </div>
         <div class="form-group mt-3">
             <label for="id_ec">EC</label>
-            <input type="text" class="form-control" id="id_ec" name="ec" placeholder="EC" required>
+            <input type="text" class="form-control" id="id_ec" name="ec" placeholder="EC">
         </div>
         <div class="form-group mt-3">
             <label for="id_tds">TDS</label>
-            <input type="text" class="form-control" id="id_tds" name="tds" placeholder="TDS" required>
+            <input type="text" class="form-control" id="id_tds" name="tds" placeholder="TDS">
         </div>
         <div class="form-group mt-3">
             <label for="id_ca">CA</label>
-            <input type="text" class="form-control" id="id_ca" name="ca" placeholder="CA" required>
+            <input type="text" class="form-control" id="id_ca" name="ca" placeholder="CA">
         </div>
         <div class="form-group mt-2">
             <label for="id_mg">MG</label>
-            <input type="text" class="form-control" id="id_mg" name="mg" placeholder="MG" required>
+            <input type="text" class="form-control" id="id_mg" name="mg" placeholder="MG">
         </div>
         <div class="form-group mt-3">
             <label for="id_hardness">Hardness</label>
-            <input type="text" class="form-control" id="id_hardness" name="hardness" placeholder="Hardness" required>
+            <input type="text" class="form-control" id="id_hardness" name="hardness" placeholder="Hardness">
         </div>
         <div class="form-group mt-2">
             <label for="id_turbidity">Turbidity</label>
-            <input type="text" class="form-control" id="id_turbidity" name="turbidity" placeholder="Turbidity" required>
+            <input type="text" class="form-control" id="id_turbidity" name="turbidity" placeholder="Turbidity">
         </div>
         <div class="form-group mt-3">
             <label for="id_chloride">Chloride</label>
-            <input type="text" class="form-control" id="id_chloride" name="chloride" placeholder="chloride" required>
+            <input type="text" class="form-control" id="id_chloride" name="chloride" placeholder="chloride">
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
     </form>

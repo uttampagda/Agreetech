@@ -2,9 +2,8 @@
 {% block body %}
 {% load static %} 
 
-<h2>Farmer Registration</h2>
-
 <div class="container create_user_form">
+    <h5 class="font-weight-bold">Farmer Registarion</h5>
     <form method="post" id="loginid">
         {% csrf_token %}
         {% for s in farmer %}

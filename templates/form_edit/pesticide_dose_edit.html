@@ -6,31 +6,33 @@
     <h5 class="font-weight-bold">Pesticide Dose</h5>
     <form method="post" id="loginid">
         {% csrf_token %}
+        {% for p in Pesticides_dose %}
         <div class="form-group mt-2 d-none">
             <label for="id_farmer_id">Farmer Id</label>
-            <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}"
+            <input type="number" value="{{p.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}"
                 placeholder="Farmer Id" required>
         </div>
         <div class="form-group mt-3 d-none">
             <label for="id_farm_id">Farm Id</label>
-            <input type="number" class="form-control" id="id_farm_id" name="farm_id" value="{{farm_id}}"
+            <input type="number" value="{{p.farm_id.id}}" class="form-control" id="id_farm_id" name="farm_id" value="{{farm_id}}"
                 placeholder="Farm Id" required>
         </div>
         <div class="form-group mt-3 d-none">
             <label for="id_planting_id">Planting Id</label>
-            <input type="number" class="form-control" id="id_planting_id" name="planting_id" value="{{planting_id}}"
+            <input type="number" value="{{p.planting_id.id}}" class="form-control" id="id_planting_id" name="planting_id" value="{{planting_id}}"
                 placeholder="Planting Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_dose_name">Dose name</label>
-            <input type="text" class="form-control" id="id_dose_name" name="dose_name"
+            <input type="text" value="{{p.dose_name}}" class="form-control" id="id_dose_name" name="dose_name"
                 placeholder="Planting Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_dose_reason">Reason</label>
-            <input type="text" class="form-control" id="id_dose_reason" name="reason"
+            <input type="text" value="{{p.reason}}" class="form-control" id="id_dose_reason" name="reason"
                 placeholder="Planting Id" required>
         </div>
+        {% endfor %}
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
     </form>
 </div>

@@ -2,41 +2,34 @@
 {% block body %}
 {% load static %}
 
-<h2>Fertilizer</h2>
-
 <div class="container create_user_form">
+    <h5 class="font-weight-bold">Fertilizer</h5>
     <form method="post" id="loginid">
         {% csrf_token %}
-        <div class="form-group mt-2">
+        <div class="form-group mt-2 d-none">
             <label for="id_farmer_id">Farmer Id</label>
             <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}"
                 placeholder="Farmer Id" required>
         </div>
-        <div class="form-group mt-3">
+        <div class="form-group mt-3 d-none">
             <label for="id_farm_id">Farm Id</label>
             <input type="number" class="form-control" id="id_farm_id" name="farm_id" value="{{farm_id}}"
                 placeholder="Farm Id" required>
         </div>
-        <div class="form-group mt-3">
+        <div class="form-group mt-3 d-none">
             <label for="id_planting_id">Planting Id</label>
             <input type="number" class="form-control" id="id_planting_id" name="planting_id" value="{{planting_id}}"
                 placeholder="Planting Id" required>
         </div>
         <div>
             <label>Fertilizer name</label>
-            <select name="fertilizer_name" id="pet-select">
+            <select name="fertilizer_name" id="pet-select" required>
 
                 <option value="" selected>--Please choose an option--</option>
                 {% for fer in fertilizer_selection %}
                 <option value="{{fer.fertilizer_name}}">{{fer.fertilizer_name}}</option>
                 {% endfor %}
             </select>
-        </div>
-
-        <div class="form-group mt-2">
-            <label for="id_fertilizer_qty">Suggested Qty</label>
-            <input type="text" class="form-control" id="id_fertilizer_qty" name="fertilizer_qty"
-                placeholder="Fertilizer Qty" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_fertilizer_qty_per_acre">Fertilizer Qty Per Acre</label>

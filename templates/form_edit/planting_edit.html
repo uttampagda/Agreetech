@@ -1,22 +1,16 @@
 {% extends 'dashboard/basic.html' %} {% block body %} {% load static %}
 
-<h2>Pesticide</h2>
-
 <div class="container create_user_form">
+    <h5 class="font-weight-bold">Pesticide</h5>
     <form method="post" id="loginid">
         {% csrf_token %} {% for p in plants %}
-        <div class="form-group mt-2">
+        <div class="form-group mt-2 d-none">
             <label for="id_farmer_id">Farmer Id</label>
             <input type="number" value="{{p.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id" />
         </div>
-        <div class="form-group mt-3">
+        <div class="form-group mt-3 d-none">
             <label for="id_farm_id">Farm Id</label>
             <input type="number" value="{{p.farm_id.id}}" class="form-control" id="id_farm_id" name="farm_id" />
-        </div>
-        <div class="form-group mt-3">
-            <label for="id_planting_time">Planting Time</label>
-            <input type="datetime-local" value="{{p.planting_time|date:'Y-m-d H:i'}}" id="id_planting_time"
-                class="form-control" name="planting_time" placeholder="Planting Time" />
         </div>
         {{p.planting_time}}
         <!-- <div class="form-group mt-3">
@@ -55,6 +49,11 @@
             <label for="id_planting_area">Planting Area</label>
             <input type="text" value="{{p.planting_area}}" class="form-control" id="id_planting_area"
                 name="planting_area" placeholder="Planting Area" required />
+        </div>
+        <div class="form-group mt-3">
+            <label for="id_planting_time">Planting Time</label>
+            <input type="datetime-local" value="{{p.planting_time|date:'Y-m-d H:i'}}" id="id_planting_time"
+                class="form-control" name="planting_time" placeholder="Planting Time" />
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">
             Submit

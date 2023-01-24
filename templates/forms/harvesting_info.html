@@ -9,10 +9,14 @@
 <div class="main_box">
     <div class="d-flex justify-content-between">
         <div class="farmer_info_title text-muted">Harvesting Info</div>
-        <a href="/harvesting_edit/harvesting_id={{harvesting.id}}"
-            class="material-symbols-outlined m-3 text-muted">
-            edit_square
-        </a>
+        <div class="m-3">
+            <a href="/harvesting_edit/harvesting_id={{harvesting.id}}" class="material-symbols-outlined text-muted">
+              edit_square
+            </a>
+            <a href="{% url 'delete_record'%}" class="material-symbols-outlined text-muted">
+              delete
+            </a>
+        </div>
     </div>
     <div class="farmer_info_details">
         <div class="farmer_info_details_1">

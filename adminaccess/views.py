@@ -124,7 +124,10 @@ def farmer_details(request, farmer_id):
         farmer_info = Farmer.objects.filter(id=farmer_id)[0]
         total_farm_space = 0
         for farm in farm_info:
-            total_farm_space += farm.farm_space
+            try:
+                total_farm_space += farm.farm_space
+            except:
+                pass
         data = {'farmer_id': farmer_id,
                 'farm_info': farm_info,
                 'farmer_info': farmer_info,
@@ -870,6 +873,18 @@ def plant_edit(request, plant_id):
 
     return render(request, 'form_edit/planting_edit.html', data)
 
+def pesticide_dose_edit(request, pesticide_dose_id):
+    Pesticides_dose = Pesticide_dose.objects.get(id=pesticide_dose_id)
+    Pesticides_doses = Pesticide_dose.objects.filter(id=pesticide_dose_id)
+
+    if request.method == 'POST':
+        form = Pesticide_dose_Form(request.POST, instance=Pesticides_dose)
+
+        if form.is_valid():
+            form.save()
+            return redirect(f'/pesticide_dose_info/pesticide_dose_id={pesticide_dose_id}')
+
+    return render(request, 'form_edit/pesticide_dose_edit.html', {'Pesticides_dose': Pesticides_doses})
 
 def fertilizer_edit(request, fertilizer_id):
     fertilizer = Fertilizer.objects.get(id=fertilizer_id)

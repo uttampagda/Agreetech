@@ -1,64 +1,76 @@
 {% extends 'dashboard/basic.html' %}
 {% block body %}
-{% load static %} 
-
-<h2>Farm Registarion</h2>
+{% load static %}
 
 <div class="container create_user_form">
+    <h5 class="font-weight-bold">Farm Registarion</h5>
     <form method="post" id="loginid">
         {% csrf_token %}
         {% for f in farms %}
-        <div class="form-group mt-2">
+        <div class="form-group mt-2 d-none">
             <label for="id_farmer_id">Farmer Id</label>
-            <input type="number" value="{{f.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id" required >
+            <input type="number" value="{{f.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id"
+                placeholder="Farmer Id" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_farm_nick_name">Farm Nick Name</label>
-            <input type="text" value="{{f.farm_nick_name}}" class="form-control" id="id_farm_nick_name" name="farm_nick_name" placeholder="Farm Nick Name" required >
+            <input type="text" value="{{f.farm_nick_name}}" class="form-control" id="id_farm_nick_name"
+                name="farm_nick_name" placeholder="Farm Nick Name" required>
         </div>
         <div class="form-group mt-3">
             <label for="id_farm_space">Farm Space</label>
-            <input type="number" value="{{f.farm_space}}" class="form-control" id="id_farm_space" name="farm_space" placeholder="Farm Space" >
+            <input type="number" value="{{f.farm_space}}" class="form-control" id="id_farm_space" name="farm_space"
+                placeholder="Farm Space">
         </div>
         <div class="form-group mt-3">
             <label for="id_geo_location">Geo Location</label>
-            <input type="text" value="{{f.geo_location}}" class="form-control" id="id_geo_location" name="geo_location" placeholder="Geo Location" >
+            <input type="text" value="{{f.geo_location}}" class="form-control" id="id_geo_location" name="geo_location"
+                placeholder="Geo Location">
         </div>
         <div class="form-group mt-2">
             <label for="id_farm_village">Farm Village</label>
-            <input type="text" value="{{f.farm_village}}" class="form-control" id="id_farm_village" name="farm_village" placeholder="Farm Village" >
+            <input type="text" value="{{f.farm_village}}" class="form-control" id="id_farm_village" name="farm_village"
+                placeholder="Farm Village">
         </div>
         <div class="form-group mt-3">
             <label for="id_khata_no">Khata No</label>
-            <input type="text" value="{{f.khata_no}}" class="form-control" id="id_khata_no" name="khata_no" placeholder="Khata No" >
+            <input type="text" value="{{f.khata_no}}" class="form-control" id="id_khata_no" name="khata_no"
+                pattern="^\d{10}$" placeholder="Khata No">
         </div>
         <div class="form-group mt-3">
             <label for="id_who_caretaker">Who Caretaker</label>
-            <input type="text" value="{{f.who_caretaker}}" class="form-control" id="id_who_caretaker" name="who_caretaker" placeholder="Who Caretaker" >
+            <input type="text" value="{{f.who_caretaker}}" class="form-control" id="id_who_caretaker"
+                name="who_caretaker" placeholder="Who Caretaker">
         </div>
         <div class="form-group mt-3">
             <label for="id_caretaker">Caretaker</label>
-            <input type="text" value="{{f.caretaker}}" class="form-control" id="id_caretaker" name="caretaker" placeholder="Caretaker" required>
+            <input type="text" value="{{f.caretaker}}" class="form-control" id="id_caretaker" name="caretaker"
+                placeholder="Caretaker">
         </div>
         <div class="form-group mt-2">
             <label for="id_caretaker_phone_number">Caretaker Phone Number</label>
-            <input type="number" value="{{f.caretaker_phone_number}}" class="form-control" id="id_caretaker_phone_number" name="caretaker_phone_number" placeholder="Caretaker phone Number" required>
+            <input type="number" value="{{f.caretaker_phone_number}}" class="form-control" pattern="^\d{10}$"
+                id="id_caretaker_phone_number" name="caretaker_phone_number" placeholder="Caretaker phone Number">
         </div>
         <div class="form-group mt-3">
             <label for="id_soil_type">Soil Type</label>
-            <input type="text" value="{{f.soil_type}}" class="form-control" id="id_soil_type" name="soil_type" placeholder="Soil Type" >
+            <input type="text" value="{{f.soil_type}}" class="form-control" id="id_soil_type" name="soil_type"
+                placeholder="Soil Type">
         </div>
         <div class="form-group mt-3">
             <label for="id_water_source">Water Source</label>
-            <input type="text" value="{{f.water_source}}" class="form-control" id="id_water_source" name="water_source" placeholder="Water Source" >
-        </div> 
+            <input type="text" value="{{f.water_source}}" class="form-control" id="id_water_source" name="water_source"
+                placeholder="Water Source">
+        </div>
         <div class="form-group mt-3">
             <label for="id_water_type">Water Type</label>
-            <input type="text" value="{{f.water_type}}" class="form-control" id="id_water_type" name="water_type" placeholder="Water Type" >
+            <input type="text" value="{{f.water_type}}" class="form-control" id="id_water_type" name="water_type"
+                placeholder="Water Type">
         </div>
         <div class="form-group mt-3">
             <label for="id_water_season">Water Season</label>
-            <input type="text" value="{{f.water_season}}" class="form-control" id="id_water_season" name="water_season" placeholder="Water Season" >
+            <input type="text" value="{{f.water_season}}" class="form-control" id="id_water_season" name="water_season"
+                placeholder="Water Season">
         </div>
         <button type="submit" class="btn btn-primary mt-3" form="loginid">Submit</button>
         {% endfor %}
