@@ -61,4 +61,5 @@ urlpatterns = [
     path('pesticide_name=<str:pesticide_name>', views.pesticide_stats, name="pesticide_stats"),
     path('delete',views.delete_record,name="delete_record"),
     # path('seed_id=<int:seed_id>', views.seed_status, name="seed_stats"),
+    path('backup',views.backup,name='backup'),
 ]

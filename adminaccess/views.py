@@ -8,7 +8,7 @@ from .form import *
 from .models import *
 from datetime import datetime
 from django.core.exceptions import PermissionDenied
-
+import os
 global cur_obj
 def login(request):
     if request.method == 'POST':
@@ -1004,3 +1004,9 @@ def pesticide_stats(request, pesticide_name):
         'pesticide': pesticide
     }
     return render(request, 'stats/pesticide_stats.html', data)
+
+
+
+def backup(request):
+    os.system('python3 backup.py')
+    return render(request, 'extras/backup.html')
