@@ -180,17 +180,15 @@
     <div class="farm_info" id="harvesting">
       <div class="page_table">
         <div class="d-flex justify-content-evenly p-1 page_table_1">
-          <div class="table_one_content">plant_type</div>
-          <div class="table_one_content">harvesting_time</div>
-          <div class="table_one_content">total_production</div>
-          <div class="table_one_content">per_acre_production</div>
+          <div class="table_one_content">Plant type</div>
+          <div class="table_one_content">Harvesting time</div>
+          <div class="table_one_content">Total production</div>
         </div>
         {% for har in harvesting %}
         <a class="d-flex justify-content-evenly p-1 farm_information" href="{% url 'harvesting_info' id=har.id%}">
           <div class="table_one_content_1">{{har.plant_type}}</div>
           <div class="table_one_content_1">{{har.harvesting_time}}</div>
           <div class="table_one_content_1">{{har.total_production}}</div>
-          <div class="table_one_content_1">{{har.per_acre_production}}</div>
         </a>
         {% endfor %}
         <div class="add_more_farm">
@@ -203,11 +201,11 @@
     <div class="farm_info" id="selling">
       <div class="page_table">
         <div class="d-flex justify-content-evenly p-1 page_table_1">
-          <div class="table_one_content">sell_quantity</div>
-          <div class="table_one_content">sell_date</div>
-          <div class="table_one_content">sell_rate</div>
-          <div class="table_one_content">purchaser_name</div>
-          <div class="table_one_content">purchaser_number</div>
+          <div class="table_one_content">Sell Quantity</div>
+          <div class="table_one_content">Sell date</div>
+          <div class="table_one_content">Sell rate</div>
+          <div class="table_one_content">Purchaser name</div>
+          <div class="table_one_content">Purchaser number</div>
         </div>
         {% for cs in crop_selling %}
         <a class="d-flex justify-content-evenly p-1 farm_information" href="{% url 'crop_selling_info' id=cs.id%}">

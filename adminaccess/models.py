@@ -13,6 +13,9 @@ class Farmer(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Farm_info(models.Model):
     farmer_id = models.ForeignKey(Farmer, on_delete=models.CASCADE)
@@ -30,6 +33,8 @@ class Farm_info(models.Model):
     water_season = models.CharField(max_length=50, blank=True, null=True)
     create_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.farmer_id.name,self.farm_nick_name
 
 
 class Soil_test(models.Model):
@@ -49,6 +54,8 @@ class Soil_test(models.Model):
     available_manganese = models.CharField(max_length=50, blank=True, null=True)
     available_copper = models.CharField(max_length=50, blank=True, null=True)
     available_sulphur = models.CharField(max_length=50, blank=True, null=True)
+    def __str__(self):
+        return self.farmer_id.name,self.farm_nick_name
 
 
 class Water_test(models.Model):

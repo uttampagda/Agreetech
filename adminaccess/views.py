@@ -128,6 +128,8 @@ def farmer_details(request, farmer_id):
                 total_farm_space += farm.farm_space
             except:
                 pass
+        global cur_obj
+        cur_obj = farmer_info
         data = {'farmer_id': farmer_id,
                 'farm_info': farm_info,
                 'farmer_info': farmer_info,
@@ -496,6 +498,8 @@ def fertilizer_info(request, fertilizer_id):
         pass
     else:
         return redirect('403')
+    global cur_obj
+    cur_obj = fertilizer
     data = {
         'fertilizer': fertilizer,
         'farmer': fertilizer.farmer_id
@@ -510,6 +514,8 @@ def water_irrigation_info(request, water_irrigation_id):
         pass
     else:
         return redirect('403')
+    global cur_obj
+    cur_obj = water_irrigation
     data = {
         'water_irrigation': water_irrigation,
         'farmer': water_irrigation.farmer_id
@@ -536,6 +542,11 @@ def pesticide_info(request, pesticide_id):
 def delete_record(request):
     record = cur_obj.__class__.objects.filter(id=cur_obj.id)[0]
     data = {'record': vars(record)}
+    if request.method == 'POST':
+        answer = request.POST['answer']
+        if answer == 'yes':
+            record.delete()
+        return redirect('farmers')
     return render(request,'extras/delete.html',data)
 
 def harvesting_info(request, id):
@@ -667,25 +678,25 @@ def pesticide_reg(request):
     }
     return render(request, 'forms/pesticide_reg.html', data)
 
-
-def search(request):
-    farm_info = Farm_info.objects.values()
-    farm = []
-    s = []
-    for i in farm_info:
-        if farm:
-            for j in farm:
-                if i['farmer_id_id'] == j['farmer_id_id']:
-                    j['farm_space'] += i['farm_space']
-                    s = []
-                    break
-                else:
-                    s.append(i)
-            if s:
-                farm.append(s[0])
-                s = []
-        else:
-            farm.append(i)
+#legecy_code
+# def search(request):
+#     farm_info = Farm_info.objects.values()
+#     farm = []
+#     s = []
+#     for i in farm_info:
+#         if farm:
+#             for j in farm:
+#                 if i['farmer_id_id'] == j['farmer_id_id']:
+#                     j['farm_space'] += i['farm_space']
+#                     s = []
+#                     break
+#                 else:
+#                     s.append(i)
+#             if s:
+#                 farm.append(s[0])
+#                 s = []
+#         else:
+#             farm.append(i)
     # farm = []
     # for i in farm_info:
     #     print("\n\n1", i)
@@ -701,37 +712,37 @@ def search(request):
     #     else:
     #         farm.append(i)
     # print("\n\n\n\n", farm)
-    data = {'farm_info': farm}
-    return render(request, 'forms/search.html', data)
+    # data = {'farm_info': farm}
+    # return render(request, 'forms/search.html', data)
 
 
-def search_utm(request):
-    farms = Farm_info.objects.all()
-    farmers = Farmer.objects.all()
-    temp_list = []
-    for i in farms:
-        temp_list.append([i.farmer_id.id, i.farm_space])
-    temp_farmer_ids = []
-    for i in range(len(temp_list)):
-        temp_farmer_ids.append(temp_list[i][0])
-    temp_farmer_ids = list(set(temp_farmer_ids))
-    final_list = []
-    f_list = []
-    for i in farmers:
-        for j in temp_farmer_ids:
-            if i.id == j:
-                f_list.append([j, i.name])
-    for j, k in f_list:
-        space = 0
-        for i in range(len(temp_list)):
-            if temp_list[i][0] == j:
-                space += temp_list[i][1]
-        final_list.append([j, space, k])
-    data = {
-        'final_list': final_list,
-        'farmers': farmers,
-    }
-    return render(request, 'forms/search_utm.html', data)
+# def search_utm(request):
+#     farms = Farm_info.objects.all()
+#     farmers = Farmer.objects.all()
+#     temp_list = []
+#     for i in farms:
+#         temp_list.append([i.farmer_id.id, i.farm_space])
+#     temp_farmer_ids = []
+#     for i in range(len(temp_list)):
+#         temp_farmer_ids.append(temp_list[i][0])
+#     temp_farmer_ids = list(set(temp_farmer_ids))
+#     final_list = []
+#     f_list = []
+#     for i in farmers:
+#         for j in temp_farmer_ids:
+#             if i.id == j:
+#                 f_list.append([j, i.name])
+#     for j, k in f_list:
+#         space = 0
+#         for i in range(len(temp_list)):
+#             if temp_list[i][0] == j:
+#                 space += temp_list[i][1]
+#         final_list.append([j, space, k])
+#     data = {
+#         'final_list': final_list,
+#         'farmers': farmers,
+#     }
+#     return render(request, 'forms/search_utm.html', data)
 
 
 @permission_required('is_staff', '403')
