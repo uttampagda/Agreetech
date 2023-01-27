@@ -541,13 +541,8 @@ def pesticide_info(request, pesticide_id):
 
 def delete_record(request):
     record = cur_obj.__class__.objects.filter(id=cur_obj.id)[0]
-    data = {'record': vars(record)}
-    if request.method == 'POST':
-        answer = request.POST['answer']
-        if answer == 'yes':
-            record.delete()
-        return redirect('farmers')
-    return render(request,'extras/delete.html',data)
+    record.delete()
+    return redirect('farmers')
 
 def harvesting_info(request, id):
     harvesting = Harvesting.objects.filter(id=id)[0]

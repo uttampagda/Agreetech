@@ -24,36 +24,46 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <span class="admin_dash">
-            <a href="/" id="menu_btn" class="material-symbols-outlined">apps</a> &nbsp;&nbsp; <img src="static/images/Madhav_logo.png" alt="" style="height:55px; width: 170px;">
-        </span>
-
-        <div class="user_info">
-            {% if farmer.name %}
-            <div class="user_avtar"><img class="user_avtar_img" src="{% static 'images/DefaultProfilePicture.png' %}"
-                    alt=""></div>
-            <div class="user_name">{{farmer.name}}
-            </div>
-            {% endif %}
-            {% comment %} {% if farmer != null %}
-            <p>{{farmer.name}}</p>
-            <p>{{farmer.address}}</p>
-            {% endif %} {% endcomment %}
+    <div id="delete_record">
+        <h6 class="mt-3 text-center">Are you sure want to delete ?</h6>
+        <div class="d-flex justify-content-around w-75 m-auto mt-3">
+            <a href="{% url 'delete_record'%}" class="btn btn-primary btn-sm">OK</a>
+            <div class="btn btn-secondary btn-sm" id="close-popup">cancel</div>
         </div>
-        <div id="logout_btn"><a href="logout">Log Out</a></div>
-    </nav>
-    <!-- <div id="side_menu" class="left_side_menu">
+    </div>
+    <div id="main-body">
+        <nav class="navbar">
+            <span class="admin_dash">
+                <a href="/" id="menu_btn" class="material-symbols-outlined">apps</a> &nbsp;&nbsp; <img
+                    src="/static/images/Madhav_logo.png" alt="" style="height:55px; width: 170px;">
+            </span>
+
+            <div class="user_info">
+                {% if farmer.name %}
+                <div class="user_avtar"><img class="user_avtar_img"
+                        src="{% static 'images/DefaultProfilePicture.png' %}" alt=""></div>
+                <div class="user_name">{{farmer.name}}
+                </div>
+                {% endif %}
+                {% comment %} {% if farmer != null %}
+                <p>{{farmer.name}}</p>
+                <p>{{farmer.address}}</p>
+                {% endif %} {% endcomment %}
+            </div>
+            <div id="logout_btn"><a href="logout">Log Out</a></div>
+        </nav>
+        <!-- <div id="side_menu" class="left_side_menu">
         <div class="side_menu_boxes" id="side_box_1"><a href="/"> Dashboard</a></div>
         <div class="side_menu_boxes" id="side_box_2"><a href="/farmers">Farmers</a></div>
         <div class="side_menu_boxes" id="side_box_3"><a href="/search">Search</a></div>
         <div class="side_menu_boxes" id="side_box_4"><a href="{% url 'default_parameters'%}">Default parameters</a>
         </div>
         <div class="side_menu_boxes" id="side_box_5"><a href="/createuser">Create User</a></div>
-    </div> -->
+        </div> -->
 
-    <div id="main_content">
-        {% block body %} {% endblock %}
+        <div id="main_content">
+            {% block body %} {% endblock %}
+        </div>
     </div>
 
     {% block jsfile %}{% endblock %}

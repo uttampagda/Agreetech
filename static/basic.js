@@ -100,3 +100,16 @@ menu_btn.addEventListener("mouseout", function hide_side_menu_() {
 //     }
 //   }
 // );
+
+let delete_button = document.getElementsByClassName("delete-button");
+let main_body = document.getElementById("main-body");
+let delete_record_btn = document.getElementById("delete_record");
+for (let i = 0; i <= delete_button.length; i++) {
+  delete_button[i].addEventListener("click", function open_popup_box() {
+    delete_record_btn.style.display = "block";
+  });
+}
+let close_popup = document.getElementById('close-popup');
+close_popup.addEventListener('click', function close_popup_box(){
+  delete_record_btn.style.display = 'none'
+})
