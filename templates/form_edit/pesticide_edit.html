@@ -9,7 +9,7 @@
     <form method="post" id="loginid">
         {% csrf_token %}
         {% for p in pesticides %}
-        <div class="form-group mt-2 d-none">
+        <div class="form-group mt-3 d-none">
             <label for="id_farmer_id">Farmer Id</label>
             <input type="number" value="{{p.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id"
                 placeholder="Farmer Id" required>
@@ -34,19 +34,19 @@
             <input type="text" value="{{p.pesticide_name}}" class="form-control" id="id_pesticide_name"
                 name="pesticide_name" placeholder="Pesticide Name" required>
         </div>
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_pesticide_qty">Pesticide Qty</label>
             <input type="text" value="{{p.pesticide_qty_per_acer}}" class="form-control" id="id_pesticide_qty"
                 name="pesticide_qty_per_acer" placeholder="Pesticide Qty">
         </div>
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_reason">Reason</label>
             <input type="text" value="{{p.reason}}" class="form-control" id="id_reason" name="reason"
                 placeholder="Reason">
         </div>
         <div class="form-group mt-3">
             <label for="id_rating">Rating</label>
-            <select name="rating" id="id_rating">
+            <select class="form-control" name="rating" id="id_rating">
                 {% if p.rating != None %}<option value="">None</option>{% endif %}
                 {% if p.rating == None %}<option value="" selected>None</option>{% endif %}
 

@@ -6,7 +6,7 @@
     <h5 class="font-weight-bold">Harvesting Registration</h5>
     <form method="post" id="loginid">
         {% csrf_token %}
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_farmer_id">Farmer Id</label>
             <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}" placeholder="Farmer Id" required>
         </div>
@@ -22,7 +22,7 @@
             <label for="id_plant_type">Plant Type</label>
             <input type="text" class="form-control" id="id_plant_type" name="plant_type" placeholder="Plant Type" required>
         </div>
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_harvesting_time">Harvesting Time</label>
             <input type="datetime-local" class="form-control" id="id_harvesting_time" name="harvesting_time" placeholder="Harvesting Time" required>
         </div>

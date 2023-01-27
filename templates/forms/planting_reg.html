@@ -6,7 +6,7 @@
     <h5 class="font-weight-bold">Planting Reg</h5>
     <form method="post" id="loginid">
         {% csrf_token %}
-        <div class="form-group mt-2 d-none">
+        <div class="form-group mt-3 d-none">
             <label for="id_farmer_id">Farmer Id</label>
             <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{ farmer_id }}">
         </div>
@@ -18,26 +18,25 @@
             <label for="id_plant">Plant</label> default_plant_name
             <input type="text" class="form-control" id="id_plant" name="plant" placeholder="Plant" required>
         </div> {% endcomment %}
-        <div class="mt-3">
+        <div class="form-group mt-3">
             <label for="Plant_select">Plant</label>
-            <select name="plant" id="Plant_select" required>
+            <select class="form-control" name="plant" id="Plant_select" required>
                 <option value="" selected>--Please choose an option--</option>
                 {% for fer in default_plant_name %}
                 <option value="{{fer.plant_name}}">{{fer.plant_name}}</option>
                 {% endfor %}
             </select>
         </div>
-        <div class="mt-3">
+        <div class="form-group mt-3">
             <label for="pet_select">Plant Type</label>
-            <select name="plant_type" id="pet_select" required>
-
+            <select class="form-control" name="plant_type" id="pet_select" required>
                 <option value="" selected>--Please choose an option--</option>
                 <!-- {% for fer in default_plant_seed_name %}
                     <option value="{{fer.seed_name}}">{{fer.seed_name}}</option>
                     {% endfor %}     -->
             </select>
         </div>
-        {% comment %} <div class="form-group mt-2">
+        {% comment %} <div class="form-group mt-3">
             <label for="id_plant_type">Plant Type</label>
             <input type="text" class="form-control" id="id_plant_type" name="plant_type" placeholder="Plant Type"
                 required>

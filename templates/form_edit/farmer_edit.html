@@ -7,7 +7,7 @@
     <form method="post" id="loginid">
         {% csrf_token %}
         {% for s in farmer %}
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_name">Name</label>
             <input type="text" value="{{s.name}}" class="form-control" id="id_name" name="name" placeholder="Name" required>
         </div>
@@ -23,7 +23,7 @@
             <label for="id_aadhar_number">Aadhar Number</label>
             <input type="tel" pattern="^\d{12}$" value="{{s.aadhar_number}}" class="form-control" id="id_aadhar_number" name="aadhar_number" placeholder="Aadhar Number">
         </div>
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_family_members">Family Members</label>
             <input type="number" value="{{s.family_members}}" class="form-control" id="id_family_members" name="family_members" placeholder="Family Members">
         </div>

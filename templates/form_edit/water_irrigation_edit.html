@@ -7,7 +7,7 @@
     <form method="post" id="loginid">
         {% csrf_token %}
         {% for w in water_irrigations %}
-        <div class="form-group mt-2 d-none">
+        <div class="form-group mt-3 d-none">
             <label for="id_farmer_id">Farmer Id</label>
             <input type="number" value="{{w.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id" placeholder="Farmer Id" required>
         </div>
@@ -23,7 +23,7 @@
             <label for="id_water_irrigation_type">Water Irrigation Type</label>
             <input type="text" value="{{w.water_irrigation_type}}" class="form-control" id="id_water_irrigation_type" name="water_irrigation_type" placeholder="Water Irrigation Type" required>
         </div>
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_water_irrigation_date">Date</label>
             <input type="datetime-local" value="{{w.water_irrigation_date|date:'Y-m-d H:i'}}" class="form-control" id="id_water_irrigation_date" name="water_irrigation_date" placeholder="Date">
         </div>

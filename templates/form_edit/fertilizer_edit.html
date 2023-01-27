@@ -7,7 +7,7 @@
     <form method="post" id="loginid">
         {% csrf_token %}
         {% for f in fertilizers %}
-        <div class="form-group mt-2 d-none">
+        <div class="form-group mt-3 d-none">
             <label for="id_farmer_id">Farmer Id</label>
             <input type="number" value="{{f.farmer_id.id}}" class="form-control" id="id_farmer_id" name="farmer_id"
                 placeholder="Farmer Id" required>
@@ -27,7 +27,7 @@
             <input type="text" value="{{f.fertilizer_name}}" class="form-control" id="id_fertilizer_name"
                 name="fertilizer_name" placeholder="Fertilizer Name" required>
         </div>
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_fertilizer_qty">Suggested Qty</label>
             <input type="text" value="{{f.fertilizer_qty_per_acre}}" class="form-control" id="id_fertilizer_qty"
                 name="fertilizer_qty_per_acre" placeholder="Fertilizer Qty">
@@ -39,7 +39,7 @@
         </div>
         <div class="form-group mt-3">
             <label for="id_rating">Rating</label>
-            <select name="rating" id="pet-select">
+            <select class="form-control" name="rating" id="pet-select">
 
                 {% if f.rating != None %}<option value="">None</option>{% endif %}
                 {% if f.rating == None %}<option value="" selected>None</option>{% endif %}

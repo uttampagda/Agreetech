@@ -6,7 +6,7 @@
     <h5 class="font-weight-bold">Pesticide</h5>
     <form method="post" id="loginid">
         {% csrf_token %}
-        <div class="form-group mt-2 d-none">
+        <div class="form-group mt-3 d-none">
             <label for="id_farmer_id">Farmer Id</label>
             <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}"
                 placeholder="Farmer Id" required>
@@ -26,9 +26,9 @@
             <input type="number" class="form-control" id="id_dose_id" name="dose_id" value="{{dose_id}}"
                 placeholder="Dose Id" required>
         </div>
-        <div>
+        <div class="form-group mt-3">
             <label>Presticide name</label>  
-            <select name="pesticide_name" id="pet-select" required>
+            <select class="form-control" name="pesticide_name" id="pet-select" required>
                 <option value="" selected>--Please choose an option--</option>
                 {% for pes in pesticide_selection %}
                 <option value="{{pes.pesticide_name}}">{{pes.pesticide_name}}</option>
@@ -37,17 +37,17 @@
         </div>
         <div class="form-group mt-3">
             <label for="purchased_from_id">Purchased from ?</label><br>
-            <input type="radio" id="purchased_from_id" name="purchased_from" value="1" /> Madhav Agro
+            <input class="form-check-input" type="radio" id="purchased_from_id" name="purchased_from" value="1" /> Madhav Agro
             <br>
-            <input type="radio" id="purchased_from_id" name="purchased_from" value="0" /> Others <br />
+            <input class="form-check-input" type="radio" id="purchased_from_id" name="purchased_from" value="0" /> Others <br />
         </div>
 
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_pesticide_qty">Pesticide Qty</label>
             <input type="text" class="form-control" id="id_pesticide_qty" name="pesticide_qty_per_acer"
                 placeholder="Pesticide Qty">
         </div>
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_pesticide_qty">Reason</label>
             <input type="text" class="form-control" id="id_reason" name="reason" placeholder="Reason">
         </div>

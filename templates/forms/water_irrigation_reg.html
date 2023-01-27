@@ -6,7 +6,7 @@
     <h5 class="font-weight-bold">Water Irrigation</h5>
     <form method="post" id="loginid">
         {% csrf_token %}
-        <div class="form-group mt-2 d-none">
+        <div class="form-group mt-3 d-none">
             <label for="id_farmer_id">Farmer Id</label>
             <input type="number" class="form-control" id="id_farmer_id" name="farmer_id" value="{{farmer_id}}" placeholder="Farmer Id" required>
         </div>
@@ -22,7 +22,7 @@
             <label for="id_water_irrigation_type">Water Irrigation Type</label>
             <input type="text" class="form-control" id="id_water_irrigation_type" name="water_irrigation_type" placeholder="Water Irrigation Type" required>
         </div>
-        <div class="form-group mt-2">
+        <div class="form-group mt-3">
             <label for="id_date">Date</label>
             <input type="datetime-local" class="form-control" id="id_date" name="water_irrigation_date" placeholder="Date">
         </div>
