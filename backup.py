@@ -8,7 +8,9 @@ file_name = str(datetime.datetime.now().date())+"--db_dump.sql"
 
 os.system(f"sqlite3 {settings.DATABASES['default']['NAME']} .dump > {file_name}")
 
-dbx = dropbox.Dropbox("sl.BXmQVuic7SJp92-M16NDJzXwynnAO4tgE4Vj1IO_GZ5VAMOMr3TCmDPXoTMjP1vHDNQemdimGBKVmiD3gdCkyqhW85Kq9E55bTtuUxgftE1VWps821tyxa6dOCcZdIXwDVa7ZKJR9tA")
+key = 'mpufrgbq3iq6x4j'
+secret = 'smze5cm9v1746r4'
+dbx = dropbox.Dropbox("sl.BXofc1u4QfDvM5LWmyzXg_HP03zJKzsLgp1E47cTOQCMg3g2tHMfW9NgLbmRsh2nGKTyOhY3eg7pffh80AMf9iSAXUVJDeaafAiBh3UtvJ7FwUkJtJqng2PHlrg6H4JKq2LbgiEZDuo")
 
 destination_path = "/"+file_name
 
