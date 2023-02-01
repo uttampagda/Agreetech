@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="front-end changes and delete function working">
-      <change afterPath="$PROJECT_DIR$/backup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/extras/backup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+    <list default="true" id="a074b619-ec0c-4985-8bb6-ba278f7617d7" name="Changes" comment="refresh token on app(T1)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccess/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminaccess/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/form.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminaccess/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccess/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup.py" beforeDir="false" afterPath="$PROJECT_DIR$/backup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +85,7 @@
       <recent name="$PROJECT_DIR$/adminaccess" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test (1)">
+  <component name="RunManager" selected="Python.main">
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="agritech" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -147,6 +144,9 @@
     <configuration name="backup" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="$PROJECT_DIR$/agrienv/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/adminaccess" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -459,21 +459,10 @@
       <workItem from="1674489895889" duration="3876000" />
       <workItem from="1674575742304" duration="933000" />
       <workItem from="1674701737032" duration="5954000" />
-      <workItem from="1674713031435" duration="3285000" />
-    </task>
-    <task id="LOCAL-00004" summary="4 models created">
-      <created>1655318554077</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1655318554077</updated>
-    </task>
-    <task id="LOCAL-00005" summary="4 models created">
-      <created>1655318579548</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1655318579548</updated>
+      <workItem from="1674713031435" duration="3622000" />
+      <workItem from="1674793371527" duration="1490000" />
+      <workItem from="1675065369679" duration="193000" />
+      <workItem from="1675270763110" duration="1244000" />
     </task>
     <task id="LOCAL-00006" summary="farm info and farm reg">
       <created>1656518366865</created>
@@ -804,7 +793,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674707956013</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Dropbox backup done :)">
+      <created>1674716995029</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1674716995030</updated>
+    </task>
+    <task id="LOCAL-00054" summary="refresh token on app(T1)">
+      <created>1674794549654</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1674794549655</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -835,8 +838,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fertilizer rating" />
-    <MESSAGE value="implement relationships between tables" />
     <MESSAGE value="add use of farmer and farm in object reg pages, display farmer name in base.html" />
     <MESSAGE value="create date change in model and &quot;default seed name model&quot; relation with &quot;default plant name&quot; model" />
     <MESSAGE value="farmer name and village in every page(backend) done" />
@@ -860,18 +861,9 @@
     <MESSAGE value="delete_record method" />
     <MESSAGE value="add blank and null in models.py" />
     <MESSAGE value="front-end changes and delete function working" />
-    <option name="LAST_COMMIT_MESSAGE" value="front-end changes and delete function working" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Dropbox backup done :)" />
+    <MESSAGE value="refresh token on app(T1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="refresh token on app(T1)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/agritech$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1674716003400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

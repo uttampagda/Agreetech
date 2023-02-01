@@ -1003,5 +1003,20 @@ def pesticide_stats(request, pesticide_name):
 
 
 def backup(request):
-    os.system('python3 backup.py')
-    return render(request, 'extras/backup.html')
+    import os, datetime
+    from django.conf import settings
+    import mimetypes
+    from django.http.response import HttpResponse
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'agritech.settings')
+    file_name = str(datetime.datetime.now().date()) + "--db_dump.sql"
+    os.system(f"sqlite3 {settings.DATABASES['default']['NAME']} .dump > {file_name}")
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    print("Dump file created and uploaded successfully.")
+    filename = file_name
+    filepath = BASE_DIR + '/' + filename
+    path = open(filepath, 'r')
+    mime_type, _ = mimetypes.guess_type(filepath)
+    response = HttpResponse(path, content_type=mime_type)
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    os.remove(file_name)
+    return response
